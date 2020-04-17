@@ -1,0 +1,2 @@
+rootProject.name='Artesanato2.0'
+include ':app'

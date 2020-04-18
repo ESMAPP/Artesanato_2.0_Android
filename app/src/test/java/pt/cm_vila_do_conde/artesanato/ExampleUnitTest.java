@@ -1,4 +1,4 @@
-package com.example.artesanato_2;
+package pt.cm_vila_do_conde.artesanato;
 
 import org.junit.Test;
 

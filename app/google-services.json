@@ -8,65 +8,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:765720091025:android:a95c16d3e4b00c8af96230",
-        "android_client_info": {
-          "package_name": "com.example.artesanato_2"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "765720091025-4kt4t0h4e8rcd0lbdkjojj3mkpumh2d6.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAl0-sR55g5V1N84tbcurCKLiOydJUKN5s"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "765720091025-4kt4t0h4e8rcd0lbdkjojj3mkpumh2d6.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:765720091025:android:781035c019478db7f96230",
-        "android_client_info": {
-          "package_name": "pt.cm_vila_do_conde.artesanato"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "765720091025-4kt4t0h4e8rcd0lbdkjojj3mkpumh2d6.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAl0-sR55g5V1N84tbcurCKLiOydJUKN5s"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "765720091025-4kt4t0h4e8rcd0lbdkjojj3mkpumh2d6.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:765720091025:android:c9837a9fc0d2d0c2f96230",
+        "mobilesdk_app_id": "1:765720091025:android:a05e93b3ef215e36f96230",
         "android_client_info": {
           "package_name": "pt.cm_vila_do_conde.artesanato_2"
         }

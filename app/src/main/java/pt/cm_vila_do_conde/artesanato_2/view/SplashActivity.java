@@ -3,6 +3,7 @@ package pt.cm_vila_do_conde.artesanato_2.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -17,6 +18,7 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         initSplashViewModel();
         checkIfUserIsAuthenticated();
@@ -29,8 +31,8 @@ public class SplashActivity extends AppCompatActivity {
     private void checkIfUserIsAuthenticated() {
         splashViewModel.checkIfUserIsAuthenticated();
         splashViewModel.isUserAuthenticatedLiveData.observe(this, user -> {
-            System.out.println("MAAMMAMAMAMAMAMAMAMAMAAMMAMAMAMAMAMAMAMAMAMAMMAmsdmjdmasdmjasdjasdjdjjsda");
             if (!user.isAuthenticated) {
+
                 goToAuthActivity();
                 finish();
             } else {
@@ -40,8 +42,10 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void getUserFromDatabase(String uid) {
+        Toast.makeText(SplashActivity.this, "getting", Toast.LENGTH_SHORT).show();
         splashViewModel.setUid(uid);
         splashViewModel.userLiveData.observe(this, user -> {
+            Toast.makeText(SplashActivity.this, user.uid, Toast.LENGTH_SHORT).show();
             goToMainActivity(user);
             finish();
         });

@@ -7,6 +7,8 @@ import androidx.lifecycle.MutableLiveData;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -19,6 +21,9 @@ public class AuthRepository {
     private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
     private CollectionReference usersRef = rootRef.collection("users");
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("users");
+
     public MutableLiveData<User> firebaseSignInWithGoogle(AuthCredential googleAuthCredential) {
         MutableLiveData<User> authenticatedUserMutableLiveData = new MutableLiveData<>();
 
@@ -29,15 +34,14 @@ public class AuthRepository {
                                 .getAdditionalUserInfo()
                                 .isNewUser();
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                        Log.d("Test", "Firebase yo");
                         if (firebaseUser != null) {
                             String uid = firebaseUser.getUid();
                             String name = firebaseUser.getDisplayName();
                             String email = firebaseUser.getEmail();
                             User user = new User(uid, name, email);
-                            user.isNew = isNewUser;
+                            user.setNew(isNewUser);
+                            System.out.println("user is: " + user.isNew);
                             authenticatedUserMutableLiveData.setValue(user);
-                            Log.i("Test", "Testerino");
                         }
                     } else {
                         Log.d("Test ", authTask.getException().getMessage());
@@ -48,31 +52,32 @@ public class AuthRepository {
     }
 
     public MutableLiveData<User> createUserInFirestoreIfNotExists(User authenticatedUser) {
-        System.out.println("Started trying to create user");
         MutableLiveData<User> newUserMutableLiveData = new MutableLiveData<>();
         DocumentReference uidRef = usersRef.document(authenticatedUser.uid);
-
         uidRef.get().addOnCompleteListener(uidTask -> {
             if (uidTask.isSuccessful()) {
                 DocumentSnapshot document = uidTask.getResult();
-                System.out.println(uidTask.getResult());
-                if (document.exists()) {
+                if (!document.exists()) {
                     uidRef.set(authenticatedUser).addOnCompleteListener(userCreationTask -> {
                         if (userCreationTask.isSuccessful()) {
                             authenticatedUser.isCreated = true;
                             newUserMutableLiveData.setValue(authenticatedUser);
                         } else {
-                            System.out.println("Didnt work bro");
+                            System.out.println(userCreationTask.getException().getMessage());
                         }
                     });
                 } else {
-                    newUserMutableLiveData.setValue( authenticatedUser);
+                    newUserMutableLiveData.setValue(authenticatedUser);
                 }
             } else {
-                System.out.println("didnt work but less nested");
+                System.out.println(uidTask.getException().getMessage());
             }
         });
-
         return newUserMutableLiveData;
     }
+
+
+/*    public MutableLiveData<User> createUserInFirestoreIfNotExistsRT(User authenticatedUser){
+    return authenticatedUser;
+    }*/
 }

@@ -36,6 +36,7 @@ public class SplashRepository {
 
     public MutableLiveData<User> addUserToLiveData(String uid) {
         MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
+        System.out.println(uid);
         usersRef.document(uid).get().addOnCompleteListener(userTask -> {
             if (userTask.isSuccessful()) {
                 DocumentSnapshot document = userTask.getResult();
@@ -45,7 +46,7 @@ public class SplashRepository {
                     userMutableLiveData.setValue(user);
                 }
             } else {
-                Log.d("Error", userTask.getException().getMessage());
+                System.out.println(userTask.getException().getMessage());
             }
         });
 

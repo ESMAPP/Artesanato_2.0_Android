@@ -27,7 +27,6 @@ public class AuthActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 30;
     GoogleSignInClient googleSignInClient;
     AuthViewModel authViewModel;
-    Toast toastMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +46,10 @@ public class AuthActivity extends AppCompatActivity {
                 GoogleSignInAccount googleSignInAccount = task.getResult(ApiException.class);
                 if (googleSignInAccount != null) {
                     getGoogleAuthCredential(googleSignInAccount);
+                    Toast.makeText(AuthActivity.this, "1", Toast.LENGTH_SHORT).show();
                 }
             } catch (ApiException e) {
+                Toast.makeText(AuthActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("Error", e.getMessage());
             }
         }
@@ -88,8 +89,8 @@ public class AuthActivity extends AppCompatActivity {
     private void signInWithGoogleAuthcredential(AuthCredential googleAuthCredential){
         authViewModel.signInWithGoogle(googleAuthCredential);
         authViewModel.authenticatedUserLiveData.observe(this, authenticatedUser -> {
-            System.out.println(authenticatedUser.isNew);
             if(authenticatedUser.isNew){
+                System.out.println("is new");
                 createNewUser(authenticatedUser);
             } else {
                 goToMainActivity(authenticatedUser);
@@ -101,7 +102,6 @@ public class AuthActivity extends AppCompatActivity {
         authViewModel.createUser(authenticatedUser);
         authViewModel.createdUserLiveData.observe(this, user ->{
             if(user.isCreated){
-                Log.d("User", user.name);
                 Toast.makeText(AuthActivity.this, user.name, Toast.LENGTH_SHORT).show();
             }
             goToMainActivity(user);

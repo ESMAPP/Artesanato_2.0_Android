@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:765720091025:android:781035c019478db7f96230",
+        "mobilesdk_app_id": "1:765720091025:android:a05e93b3ef215e36f96230",
         "android_client_info": {
-          "package_name": "pt.cm_vila_do_conde.artesanato"
+          "package_name": "pt.cm_vila_do_conde.artesanato_2"
         }
       },
       "oauth_client": [

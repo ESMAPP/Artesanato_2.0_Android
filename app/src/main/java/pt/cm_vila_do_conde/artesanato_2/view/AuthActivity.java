@@ -3,7 +3,7 @@ package pt.cm_vila_do_conde.artesanato_2.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageButton;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +19,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
+
+import pt.cm_vila_do_conde.artesanato_2.databinding.ActivityAuthBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
@@ -27,11 +29,12 @@ public class AuthActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 30;
     GoogleSignInClient googleSignInClient;
     AuthViewModel authViewModel;
+    ActivityAuthBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_auth);
+        initBinding();
         initGoogleSignInButton();
         initAuthViewModel();
         initGoogleSignInClient();
@@ -55,9 +58,14 @@ public class AuthActivity extends AppCompatActivity {
         }
     }
 
+    private void initBinding() {
+        binding = ActivityAuthBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+    }
+
     private void initGoogleSignInButton() {
-        ImageButton googleSignInButton = findViewById(R.id.google_btn);
-        googleSignInButton.setOnClickListener((v -> GoogleSignIn()));
+        binding.googleBtn.setOnClickListener((v -> GoogleSignIn()));
     }
 
     private void initAuthViewModel() {
@@ -79,18 +87,17 @@ public class AuthActivity extends AppCompatActivity {
         startActivityForResult(googleSignInIntent, RC_SIGN_IN);
     }
 
-    private void getGoogleAuthCredential(GoogleSignInAccount googleSignInAccount){
+    private void getGoogleAuthCredential(GoogleSignInAccount googleSignInAccount) {
         String googleToken = googleSignInAccount.getIdToken();
         AuthCredential googleAuthCredential = GoogleAuthProvider
                 .getCredential(googleToken, null);
         signInWithGoogleAuthcredential(googleAuthCredential);
     }
 
-    private void signInWithGoogleAuthcredential(AuthCredential googleAuthCredential){
+    private void signInWithGoogleAuthcredential(AuthCredential googleAuthCredential) {
         authViewModel.signInWithGoogle(googleAuthCredential);
         authViewModel.authenticatedUserLiveData.observe(this, authenticatedUser -> {
-            if(authenticatedUser.isNew){
-                System.out.println("is new");
+            if (authenticatedUser.isNew) {
                 createNewUser(authenticatedUser);
             } else {
                 goToMainActivity(authenticatedUser);
@@ -98,17 +105,17 @@ public class AuthActivity extends AppCompatActivity {
         });
     }
 
-    private void createNewUser(User authenticatedUser){
+    private void createNewUser(User authenticatedUser) {
         authViewModel.createUser(authenticatedUser);
-        authViewModel.createdUserLiveData.observe(this, user ->{
-            if(user.isCreated){
+        authViewModel.createdUserLiveData.observe(this, user -> {
+            if (user.isCreated) {
                 Toast.makeText(AuthActivity.this, user.name, Toast.LENGTH_SHORT).show();
             }
             goToMainActivity(user);
         });
     }
 
-    public void goToMainActivity(User user){
+    public void goToMainActivity(User user) {
         Intent intent = new Intent(AuthActivity.this, MainActivity.class);
         intent.putExtra("user", user);
         startActivity(intent);

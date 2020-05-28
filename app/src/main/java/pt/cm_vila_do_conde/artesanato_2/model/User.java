@@ -1,12 +1,21 @@
 package pt.cm_vila_do_conde.artesanato_2.model;
 
+import android.net.Uri;
+
 import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class User implements Serializable {
     public String uid;
     public String name;
+    public Uri avatar;
+    public int reputation = 0;
+    public ArrayList<Badge> badges = new ArrayList<Badge>();
+    public ArrayList<Notification> notifications = new ArrayList<Notification>();
+    public int ranking = -1; // -1 == Unranked
+    public int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
     @SuppressWarnings("WeakerAccess")
     public String email;
     @Exclude
@@ -16,57 +25,10 @@ public class User implements Serializable {
 
     public User(){}
 
-    public User(String uid, String name, String email){
+    public User(String uid, String name, String email, Uri avatar){
         this.uid = uid;
         this.name = name;
         this.email = email;
-    }
-
-    public String getUid() {
-        return uid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public boolean isAuthenticated() {
-        return isAuthenticated;
-    }
-
-    public boolean isNew() {
-        return isNew;
-    }
-
-    public boolean isCreated() {
-        return isCreated;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setAuthenticated(boolean authenticated) {
-        isAuthenticated = authenticated;
-    }
-
-    public void setNew(boolean aNew) {
-        isNew = aNew;
-    }
-
-    public void setCreated(boolean created) {
-        isCreated = created;
+        this.avatar = avatar;
     }
 }

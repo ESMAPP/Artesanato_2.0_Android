@@ -1,5 +1,6 @@
 package pt.cm_vila_do_conde.artesanato_2.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.SplashViewModel;
 public class SplashActivity extends AppCompatActivity {
     SplashViewModel splashViewModel;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);

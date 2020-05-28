@@ -3,6 +3,7 @@ package pt.cm_vila_do_conde.artesanato_2.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -10,20 +11,30 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
+import pt.cm_vila_do_conde.artesanato_2.databinding.ActivityMainBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 
 public class MainActivity extends AppCompatActivity {
     GoogleSignInClient googleSignInClient;
     TextView messageTextView;
+    public User user;
+
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        User user = getUserFromIntent();
+        initBinging();
+        user = getUserFromIntent();
         initGoogleSignInClient();
         initMessageTextView();
         setMessageToMessageTextView(user);
+    }
+
+    private void initBinging() {
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
     }
 
     private User getUserFromIntent(){

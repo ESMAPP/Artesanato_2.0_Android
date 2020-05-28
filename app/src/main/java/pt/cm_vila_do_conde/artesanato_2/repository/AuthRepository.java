@@ -1,5 +1,6 @@
 package pt.cm_vila_do_conde.artesanato_2.repository;
 
+import android.net.Uri;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
@@ -21,9 +22,6 @@ public class AuthRepository {
     private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
     private CollectionReference usersRef = rootRef.collection("users");
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("users");
-
     public MutableLiveData<User> firebaseSignInWithGoogle(AuthCredential googleAuthCredential) {
         MutableLiveData<User> authenticatedUserMutableLiveData = new MutableLiveData<>();
 
@@ -38,9 +36,9 @@ public class AuthRepository {
                             String uid = firebaseUser.getUid();
                             String name = firebaseUser.getDisplayName();
                             String email = firebaseUser.getEmail();
-                            User user = new User(uid, name, email);
-                            user.setNew(isNewUser);
-                            System.out.println("user is: " + user.isNew);
+                            Uri avatar = firebaseUser.getPhotoUrl();
+                            User user = new User(uid, name, email, avatar);
+                            user.isNew = isNewUser;
                             authenticatedUserMutableLiveData.setValue(user);
                         }
                     } else {
@@ -76,8 +74,4 @@ public class AuthRepository {
         return newUserMutableLiveData;
     }
 
-
-/*    public MutableLiveData<User> createUserInFirestoreIfNotExistsRT(User authenticatedUser){
-    return authenticatedUser;
-    }*/
 }

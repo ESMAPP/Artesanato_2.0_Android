@@ -35,9 +35,12 @@ public class AuthFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setupTabAdapter();
+    }
+
+    public void setupTabAdapter() {
         binding.authViewPager.setAdapter(new FragmentAuthAdapter(getChildFragmentManager()));
         TabLayout tabs = binding.intitialTabs;
-        tabs.getTabAt(0).setText("Entrar");
         tabs.setupWithViewPager(binding.authViewPager);
     }
 }

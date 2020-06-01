@@ -3,7 +3,6 @@ package pt.cm_vila_do_conde.artesanato_2.view;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,21 +32,19 @@ public class SplashActivity extends AppCompatActivity {
     private void checkIfUserIsAuthenticated() {
         splashViewModel.checkIfUserIsAuthenticated();
         splashViewModel.isUserAuthenticatedLiveData.observe(this, user -> {
-            if (!user.isAuthenticated) {
+            if (!user.isAuthenticated()) {
 
                 goToAuthActivity();
                 finish();
             } else {
-                getUserFromDatabase(user.uid);
+                getUserFromDatabase(user.getUid());
             }
         });
     }
 
     private void getUserFromDatabase(String uid) {
-        Toast.makeText(SplashActivity.this, "getting", Toast.LENGTH_SHORT).show();
         splashViewModel.setUid(uid);
         splashViewModel.userLiveData.observe(this, user -> {
-            Toast.makeText(SplashActivity.this, user.uid, Toast.LENGTH_SHORT).show();
             goToMainActivity(user);
             finish();
         });
@@ -60,7 +57,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     public void goToMainActivity(User user){
-        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
         intent.putExtra("user", user);
         startActivity(intent);
         finish();

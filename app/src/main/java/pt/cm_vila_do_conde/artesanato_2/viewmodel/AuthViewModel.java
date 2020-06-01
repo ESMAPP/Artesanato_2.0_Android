@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.facebook.AccessToken;
 import com.google.firebase.auth.AuthCredential;
 
 import pt.cm_vila_do_conde.artesanato_2.model.User;
@@ -22,6 +23,10 @@ public class AuthViewModel extends AndroidViewModel {
 
     public void signInWithGoogle(AuthCredential googleAuthCredential) {
         authenticatedUserLiveData = authRepository.firebaseSignInWithGoogle(googleAuthCredential);
+    }
+
+    public void signInWithFacebook(AccessToken facebookAccessToken) {
+        authenticatedUserLiveData = authRepository.firebaseSignInWithFacebook(facebookAccessToken);
     }
 
     public void createUser(User authenticatedUser) {

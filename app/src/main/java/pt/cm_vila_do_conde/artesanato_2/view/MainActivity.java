@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         initBinging();
         user = getUserFromIntent();
         initGoogleSignInClient();
-        initMessageTextView();
         setMessageToMessageTextView(user);
     }
 
@@ -48,12 +47,8 @@ public class MainActivity extends AppCompatActivity {
         googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
     }
 
-    private void initMessageTextView() {
-        messageTextView = findViewById(R.id.login_message);
-    }
-
     private void setMessageToMessageTextView(User user){
-        String message = "You are logged in as: " + user.name;
+        String message = "You are logged in as: " + user.getName();
         messageTextView.setText(message);
     }
 }

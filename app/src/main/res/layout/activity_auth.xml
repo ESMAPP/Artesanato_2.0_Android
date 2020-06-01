@@ -32,6 +32,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_arrow" />
 
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fb_login_btn_hidden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intitial_tabs"
+        android:visibility="gone"/>
+
     <EditText
         android:id="@+id/password_input"
         style="@style/input_with_shadow"
@@ -63,7 +74,7 @@
         app:tabIndicatorColor="@color/colorPrimary"
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorGravity="bottom"
-        app:tabRippleColor="#FFFFFF">
+        app:tabRippleColor="#00FFFFFF">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
@@ -150,7 +161,7 @@
         android:layout_marginTop="80dp"
         android:contentDescription="@string/logo_da_feira_nacional_de_artesanato_de_vila_do_conde"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_logo_vf" />

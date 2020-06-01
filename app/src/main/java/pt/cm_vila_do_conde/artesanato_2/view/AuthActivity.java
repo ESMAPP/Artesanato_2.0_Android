@@ -9,6 +9,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -19,25 +25,28 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-
 import pt.cm_vila_do_conde.artesanato_2.databinding.ActivityAuthBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
 public class AuthActivity extends AppCompatActivity {
-
+    private String TAG = "AUTH_ACTIVITY";
     private static final int RC_SIGN_IN = 30;
     GoogleSignInClient googleSignInClient;
+
     AuthViewModel authViewModel;
     ActivityAuthBinding binding;
+    CallbackManager callbackManager = CallbackManager.Factory.create();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initBinding();
         initGoogleSignInButton();
+        initFacebookSignInButton();
         initAuthViewModel();
         initGoogleSignInClient();
+        binding.facebookBtn.setOnClickListener(v -> binding.fbLoginBtnHidden.performClick());
     }
 
     @Override
@@ -49,11 +58,10 @@ public class AuthActivity extends AppCompatActivity {
                 GoogleSignInAccount googleSignInAccount = task.getResult(ApiException.class);
                 if (googleSignInAccount != null) {
                     getGoogleAuthCredential(googleSignInAccount);
-                    Toast.makeText(AuthActivity.this, "1", Toast.LENGTH_SHORT).show();
                 }
             } catch (ApiException e) {
-                Toast.makeText(AuthActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.d("Error", e.getMessage());
+                Toast.makeText(AuthActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                Log.d(TAG, e.getMessage());
             }
         }
     }
@@ -66,6 +74,30 @@ public class AuthActivity extends AppCompatActivity {
 
     private void initGoogleSignInButton() {
         binding.googleBtn.setOnClickListener((v -> GoogleSignIn()));
+    }
+
+    private void initFacebookSignInButton() {
+        LoginButton loginButton = binding.fbLoginBtnHidden;
+        loginButton.setPermissions("email", "public_profile");
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG, "facebook:onSuccess:" + loginResult);
+                signInWithFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG, "facebook:onCancel");
+                // ...
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.e(TAG, "facebook:onError");
+            }
+
+        });
     }
 
     private void initAuthViewModel() {
@@ -87,6 +119,7 @@ public class AuthActivity extends AppCompatActivity {
         startActivityForResult(googleSignInIntent, RC_SIGN_IN);
     }
 
+
     private void getGoogleAuthCredential(GoogleSignInAccount googleSignInAccount) {
         String googleToken = googleSignInAccount.getIdToken();
         AuthCredential googleAuthCredential = GoogleAuthProvider
@@ -97,7 +130,19 @@ public class AuthActivity extends AppCompatActivity {
     private void signInWithGoogleAuthcredential(AuthCredential googleAuthCredential) {
         authViewModel.signInWithGoogle(googleAuthCredential);
         authViewModel.authenticatedUserLiveData.observe(this, authenticatedUser -> {
-            if (authenticatedUser.isNew) {
+            if (authenticatedUser.isNew()) {
+                createNewUser(authenticatedUser);
+            } else {
+                goToMainActivity(authenticatedUser);
+            }
+        });
+    }
+
+
+    private void signInWithFacebookAccessToken(AccessToken facebookAccessToken) {
+        authViewModel.signInWithFacebook(facebookAccessToken);
+        authViewModel.authenticatedUserLiveData.observe(this, authenticatedUser -> {
+            if (authenticatedUser.isNew()) {
                 createNewUser(authenticatedUser);
             } else {
                 goToMainActivity(authenticatedUser);
@@ -108,15 +153,15 @@ public class AuthActivity extends AppCompatActivity {
     private void createNewUser(User authenticatedUser) {
         authViewModel.createUser(authenticatedUser);
         authViewModel.createdUserLiveData.observe(this, user -> {
-            if (user.isCreated) {
-                Toast.makeText(AuthActivity.this, user.name, Toast.LENGTH_SHORT).show();
+            if (user.isCreated()) {
+                Toast.makeText(AuthActivity.this, "User Created", Toast.LENGTH_SHORT).show();
             }
             goToMainActivity(user);
         });
     }
 
     public void goToMainActivity(User user) {
-        Intent intent = new Intent(AuthActivity.this, MainActivity.class);
+        Intent intent = new Intent(AuthActivity.this, HomeActivity.class);
         intent.putExtra("user", user);
         startActivity(intent);
         finish();

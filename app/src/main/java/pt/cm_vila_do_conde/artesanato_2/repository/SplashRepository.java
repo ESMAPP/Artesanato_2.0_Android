@@ -22,12 +22,11 @@ public class SplashRepository {
         MutableLiveData<User> isUserAuthenticatedMutableLiveData = new MutableLiveData<>();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if (firebaseUser == null) {
-            user.isAuthenticated = false;
+            user.setAuthenticated(false);
             isUserAuthenticatedMutableLiveData.setValue(user);
         } else {
-            user.uid = firebaseUser.getUid();
-            user.isAuthenticated = true;
-            System.out.println(user.uid);
+            user.setUid(firebaseUser.getUid());
+            user.setAuthenticated(true);
             isUserAuthenticatedMutableLiveData.setValue(user);
         }
 
@@ -36,12 +35,10 @@ public class SplashRepository {
 
     public MutableLiveData<User> addUserToLiveData(String uid) {
         MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
-        System.out.println(uid);
         usersRef.document(uid).get().addOnCompleteListener(userTask -> {
             if (userTask.isSuccessful()) {
                 DocumentSnapshot document = userTask.getResult();
                 if (document.exists()) {
-                    System.out.println("exists");
                     User user = document.toObject(User.class);
                     userMutableLiveData.setValue(user);
                 }

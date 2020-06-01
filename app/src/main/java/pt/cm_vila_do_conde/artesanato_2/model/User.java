@@ -8,27 +8,118 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class User implements Serializable {
-    public String uid;
-    public String name;
-    public Uri avatar;
-    public int reputation = 0;
-    public ArrayList<Badge> badges = new ArrayList<Badge>();
-    public ArrayList<Notification> notifications = new ArrayList<Notification>();
-    public int ranking = -1; // -1 == Unranked
-    public int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
     @SuppressWarnings("WeakerAccess")
-    public String email;
+    private String email;
     @Exclude
-    public boolean isAuthenticated;
+    private boolean isAuthenticated;
     @Exclude
-    public boolean isNew, isCreated;
+    private boolean isNew, isCreated;
+    private String uid;
+    private String name;
+    private Uri avatar;
+    private int reputation = 0;
+    private ArrayList<Badge> badges = new ArrayList<Badge>();
+    private int ranking = -1; // -1 == Unranked
+    private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
 
-    public User(){}
+    public User() {
+    }
 
-    public User(String uid, String name, String email, Uri avatar){
+    public User(String uid, String name, String email) {
         this.uid = uid;
         this.name = name;
         this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Exclude
+    public boolean isAuthenticated() {
+        return isAuthenticated;
+    }
+
+    public void setAuthenticated(boolean authenticated) {
+        isAuthenticated = authenticated;
+    }
+
+    @Exclude
+    public boolean isNew() {
+        return isNew;
+    }
+
+    public void setNew(boolean aNew) {
+        isNew = aNew;
+    }
+
+    @Exclude
+    public boolean isCreated() {
+        return isCreated;
+    }
+
+    public void setCreated(boolean created) {
+        isCreated = created;
+    }
+
+    @Exclude
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Uri getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Uri avatar) {
         this.avatar = avatar;
+    }
+
+    public int getReputation() {
+        return reputation;
+    }
+
+    public void setReputation(int reputation) {
+        this.reputation = reputation;
+    }
+
+    public ArrayList<Badge> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(ArrayList<Badge> badges) {
+        this.badges = badges;
+    }
+
+    public int getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

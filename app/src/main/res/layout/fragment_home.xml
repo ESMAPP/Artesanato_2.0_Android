@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_5"
-    tools:context="pt.cm_vila_do_conde.artesanato_2.view.HomeActivity">
+    tools:context="pt.cm_vila_do_conde.artesanato_2.view.HomeFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -114,7 +114,8 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/btn_profile" />
+                    app:srcCompat="@drawable/btn_profile"
+                    />
 
                 <TextView
                     android:id="@+id/textView4"

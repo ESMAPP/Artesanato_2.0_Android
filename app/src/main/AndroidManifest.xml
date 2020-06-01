@@ -10,26 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".view.ProfileEditActivity" />
-        <activity android:name=".view.ProfileBadgesActivity" />
-        <activity android:name=".view.HomeActivity" />
+        <activity android:name=".view.ProfileEditFragment" />
+        <activity android:name=".view.ProfileBadgesFragment" />
+        <activity android:name=".view.HomeFragment" />
         <activity
-            android:name=".view.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:name=".view.SplashFragment"
+            android:theme="@style/SplashTheme" />
+
+        <activity android:name=".view.AuthFragment" />
+
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".view.AuthActivity" />
-        <activity android:name=".view.MainActivity" />
 
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
+
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -39,8 +40,10 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>

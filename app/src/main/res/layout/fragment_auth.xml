@@ -4,27 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pt.cm_vila_do_conde.artesanato_2.view.AuthActivity">
-
-    <ImageView
-        android:id="@+id/bgBottom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/bg_bottom"
-        android:contentDescription="@string/bg_bottom"/>
+    android:background="@drawable/bg_2"
+    tools:context="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment">
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         android:contentDescription="@string/go_back"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.04"
@@ -95,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="320dp"
-        android:background="#fff"
+        android:background="#00ffffff"
         android:contentDescription="@string/login_with_google"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/intitial_tabs"
@@ -107,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="12dp"
-        android:background="#ffffff"
+        android:background="#00ffffff"
         android:contentDescription="@string/login_with_facebook"
         app:layout_constraintEnd_toStartOf="@+id/google_btn"
         app:layout_constraintHorizontal_bias="0.312"
@@ -124,12 +112,10 @@
         android:ems="10"
         android:hint="@string/e_mail"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="@+id/bgBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google_btn"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintTop_toBottomOf="@+id/google_btn" />
 
     <TextView
         android:id="@+id/forgot_password"
@@ -148,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp"
-        android:background="#fff"
+        android:background="#00ffffff"
         android:contentDescription="@string/submeter_dados_de_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_input"

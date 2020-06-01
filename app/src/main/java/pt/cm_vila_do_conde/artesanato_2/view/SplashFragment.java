@@ -3,24 +3,35 @@ package pt.cm_vila_do_conde.artesanato_2.view;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+
 
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SplashViewModel;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashFragment extends Fragment {
     SplashViewModel splashViewModel;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
 
     @SuppressLint("ResourceType")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
-        super.onCreate(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        requireActivity().setTheme(R.style.AppTheme);
+        super.onActivityCreated(savedInstanceState);
         initSplashViewModel();
         checkIfUserIsAuthenticated();
     }
@@ -31,11 +42,10 @@ public class SplashActivity extends AppCompatActivity {
 
     private void checkIfUserIsAuthenticated() {
         splashViewModel.checkIfUserIsAuthenticated();
-        splashViewModel.isUserAuthenticatedLiveData.observe(this, user -> {
+        splashViewModel.isUserAuthenticatedLiveData.observe(getViewLifecycleOwner(), user -> {
             if (!user.isAuthenticated()) {
 
                 goToAuthActivity();
-                finish();
             } else {
                 getUserFromDatabase(user.getUid());
             }
@@ -44,22 +54,19 @@ public class SplashActivity extends AppCompatActivity {
 
     private void getUserFromDatabase(String uid) {
         splashViewModel.setUid(uid);
-        splashViewModel.userLiveData.observe(this, user -> {
+        splashViewModel.userLiveData.observe(getViewLifecycleOwner(), user -> {
             goToMainActivity(user);
-            finish();
         });
     }
 
     public void goToAuthActivity(){
-        Intent intent = new Intent(SplashActivity.this, AuthActivity.class);
+        Intent intent = new Intent(requireActivity(), AuthFragment.class);
         startActivity(intent);
-        finish();
     }
 
     public void goToMainActivity(User user){
-        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+        Intent intent = new Intent(requireActivity(), HomeFragment.class);
         intent.putExtra("user", user);
         startActivity(intent);
-        finish();
     }
 }

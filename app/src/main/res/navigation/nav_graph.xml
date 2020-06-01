@@ -12,7 +12,7 @@
         <action
             android:id="@+id/action_authActivity_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:enterAnim="@anim/fragment_fade_enter" />
+            app:enterAnim="@anim/fragment_close_enter" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"

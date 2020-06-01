@@ -20,33 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_arrow" />
 
-
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/fb_login_btn_hidden"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="48dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intitial_tabs"
-        android:visibility="gone"/>
-
-    <EditText
-        android:id="@+id/password_input"
-        style="@style/input_with_shadow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:autofillHints="@string/e_mail"
-        android:drawableStart="@drawable/i_key"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_input" />
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/intitial_tabs"
         android:layout_width="0dp"
@@ -77,69 +50,6 @@
             android:text="@string/registar" />
     </com.google.android.material.tabs.TabLayout>
 
-    <ImageButton
-        android:id="@+id/google_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="320dp"
-        android:background="#00ffffff"
-        android:contentDescription="@string/login_with_google"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intitial_tabs"
-        app:srcCompat="@drawable/i_google" />
-
-    <ImageButton
-        android:id="@+id/facebook_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="12dp"
-        android:background="#00ffffff"
-        android:contentDescription="@string/login_with_facebook"
-        app:layout_constraintEnd_toStartOf="@+id/google_btn"
-        app:layout_constraintHorizontal_bias="0.312"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intitial_tabs"
-        app:srcCompat="@drawable/i_facebook" />
-
-    <EditText
-        android:id="@+id/email_input"
-        style="@style/input_with_shadow"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/e_mail"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/google_btn" />
-
-    <TextView
-        android:id="@+id/forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="5dp"
-        android:text="@string/esqueceu_se_da_sua_password"
-        android:textColor="@color/colorPrimary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_input" />
-
-    <ImageButton
-        android:id="@+id/submit_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="32dp"
-        android:background="#00ffffff"
-        android:contentDescription="@string/submeter_dados_de_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_input"
-        app:srcCompat="@drawable/button_square" />
-
     <ImageView
         android:id="@+id/logo"
         android:layout_width="250dp"
@@ -151,6 +61,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_logo_vf" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.LoginFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="169dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="169dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/intitial_tabs" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

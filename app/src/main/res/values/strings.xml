@@ -15,6 +15,10 @@
     <string name="facebook_app_id">892730931225435</string>
     <string name="fb_login_protocol_scheme">fb892730931225435</string>
 
+    <string name="edit_profile">Editar Perfil</string>
+    <string name="confirm_password">Confirmar password</string>
+    <string name="save">Guardar</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

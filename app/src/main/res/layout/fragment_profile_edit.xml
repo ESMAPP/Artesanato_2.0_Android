@@ -16,7 +16,7 @@
         android:background="#00FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow_back_color" />
+        app:srcCompat="@drawable/btn_arrow_back_color" />
 
     <TextView
         android:id="@+id/textView"
@@ -26,7 +26,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="240dp"
         android:fontFamily="@font/quicksand"
-        android:text="Editar Perfil"
+        android:text="@string/edit_profile"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/iv_user_pic"
+        android:id="@+id/profile_pic"
         android:layout_width="110dp"
         android:layout_height="110dp"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -69,10 +69,10 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_user_pic">
+        app:layout_constraintTop_toBottomOf="@+id/profile_pic">
 
         <EditText
-            android:id="@+id/et_edit_name"
+            android:id="@+id/input_edit_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -80,38 +80,38 @@
             android:text="Name" />
 
         <EditText
-            android:id="@+id/et_edit_email"
+            android:id="@+id/input_edit_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:text="E-mail" />
 
         <EditText
-            android:id="@+id/et_edit_password"
+            android:id="@+id/input_edit_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:text="Password" />
 
         <EditText
-            android:id="@+id/et_edit_confirm_password"
+            android:id="@+id/input_edit_confirm_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Confirmar password" />
+            android:text="@string/confirm_password" />
 
         <Button
             android:id="@+id/btn_save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:text="Guardar" />
+            android:text="@string/save" />
 
     </LinearLayout>
 

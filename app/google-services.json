@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "765720091025-vc1664puja1lbgfoohu9pca8eupasdvh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pt.cm_vila_do_conde.artesanato_2",
+            "certificate_hash": "d11391cd15023258584dcf300326e7df4a87af76"
+          }
+        },
+        {
           "client_id": "765720091025-4kt4t0h4e8rcd0lbdkjojj3mkpumh2d6.apps.googleusercontent.com",
           "client_type": 3
         }

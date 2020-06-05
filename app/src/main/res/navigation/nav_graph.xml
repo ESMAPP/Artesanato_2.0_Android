@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/authActivity">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/authActivity"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment"

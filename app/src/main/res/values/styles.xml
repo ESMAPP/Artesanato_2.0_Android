@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base Application Theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -10,8 +9,9 @@
         <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
 
+    <!-- Splash Screen Style -->
     <style name="SplashTheme" parent="AppTheme">
-        <item name="android:background">
+        <item name="android:windowBackground">
             @drawable/splash_screen
         </item>
     </style>
@@ -29,5 +29,4 @@
         <item name="android:textColorHint">#A4A4A4</item>
         <item name="android:textSize">12sp</item>
     </style>
-
 </resources>

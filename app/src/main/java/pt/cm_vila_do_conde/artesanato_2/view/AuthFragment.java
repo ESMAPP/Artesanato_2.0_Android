@@ -40,7 +40,7 @@ public class AuthFragment extends Fragment {
 
     public void setupTabAdapter() {
         binding.authViewPager.setAdapter(new FragmentAuthAdapter(getChildFragmentManager()));
-        TabLayout tabs = binding.intitialTabs;
+        TabLayout tabs = binding.innerNavBar;
         tabs.setupWithViewPager(binding.authViewPager);
     }
 }

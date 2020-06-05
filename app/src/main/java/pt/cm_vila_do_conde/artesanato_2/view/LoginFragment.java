@@ -96,7 +96,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void initSubmitButton() {
-        binding.submitBtn.setOnClickListener(v -> signInWithEmail());
+        binding.btnSubmit.setOnClickListener(v -> signInWithEmail());
     }
 
     private void initFacebookSignInButton() {
@@ -129,8 +129,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void signInWithEmail() {
-        String emailInput = binding.emailInput.getText().toString();
-        String passwordInput = binding.passwordInput.getText().toString();
+        String emailInput = binding.inputEmail.getText().toString();
+        String passwordInput = binding.inputPassword.getText().toString();
         authViewModel.signInWithEmail(emailInput, passwordInput);
         authViewModel.authenticatedUserLiveData.observe(getViewLifecycleOwner(), authenticatedUser -> goToMainActivity());
     }

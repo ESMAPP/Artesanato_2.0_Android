@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:background="#00FFFFFF"
-                app:srcCompat="@drawable/arrow_foward_grey" />
+                app:srcCompat="@drawable/btn_arrow_foward_grey" />
 
         </LinearLayout>
 

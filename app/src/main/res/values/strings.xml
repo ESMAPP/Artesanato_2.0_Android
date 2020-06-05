@@ -3,20 +3,23 @@
     <string name="bg_bottom">bg_bottom</string>
     <string name="entrar">Entrar</string>
     <string name="registar">Registar</string>
-    <string name="login_with_google">Login with Google</string>
-    <string name="login_with_facebook">Login with Facebook</string>
     <string name="go_back">Go Back</string>
-    <string name="e_mail">e-mail</string>
-    <string name="password">password</string>
-    <string name="logo_da_feira_nacional_de_artesanato_de_vila_do_conde">Logo da Feira Nacional de Artesanato de Vila do Conde</string>
     <string name="esqueceu_se_da_sua_password">Esqueceu-se da sua password?</string>
-    <string name="submeter_dados_de_login">Submeter dados de login</string>
     <string name="logout">Logout</string>
     <string name="facebook_app_id">892730931225435</string>
     <string name="fb_login_protocol_scheme">fb892730931225435</string>
 
+    <!-- /////////////////////// -->
+    <string name="hint_go_back">Voltar atrás</string>
+    <string name="app_logo">Logótipo</string>
+    <string name="full_name">nome completo</string>
+    <string name="email">e-mail</string>
+    <string name="password">password</string>
+    <string name="confirm_password">confirmar password</string>
+    <string name="submit_form">Submeter formulário</string>
+    <string name="sign_in_google">Entrar com conta do Google</string>
+    <string name="sign_in_facebook">Entrar com conta do Facebook</string>
     <string name="edit_profile">Editar Perfil</string>
-    <string name="confirm_password">Confirmar password</string>
     <string name="save">Guardar</string>
 
     <!-- TODO: Remove or change this placeholder text -->

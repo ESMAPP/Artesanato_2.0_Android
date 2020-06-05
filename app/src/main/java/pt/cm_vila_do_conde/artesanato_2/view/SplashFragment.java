@@ -1,7 +1,5 @@
 package pt.cm_vila_do_conde.artesanato_2.view;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-
+import androidx.navigation.Navigation;
 
 
 import pt.cm_vila_do_conde.artesanato_2.R;
@@ -19,7 +17,7 @@ import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SplashViewModel;
 
 public class SplashFragment extends Fragment {
-    SplashViewModel splashViewModel;
+    private SplashViewModel splashViewModel;
 
     @Nullable
     @Override
@@ -27,13 +25,9 @@ public class SplashFragment extends Fragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    @SuppressLint("ResourceType")
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        requireActivity().setTheme(R.style.AppTheme);
-        super.onActivityCreated(savedInstanceState);
-        initSplashViewModel();
-        checkIfUserIsAuthenticated();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 
     private void initSplashViewModel() {
@@ -44,8 +38,7 @@ public class SplashFragment extends Fragment {
         splashViewModel.checkIfUserIsAuthenticated();
         splashViewModel.isUserAuthenticatedLiveData.observe(getViewLifecycleOwner(), user -> {
             if (!user.isAuthenticated()) {
-
-                goToAuthActivity();
+                goToAuth();
             } else {
                 getUserFromDatabase(user.getUid());
             }
@@ -54,19 +47,14 @@ public class SplashFragment extends Fragment {
 
     private void getUserFromDatabase(String uid) {
         splashViewModel.setUid(uid);
-        splashViewModel.userLiveData.observe(getViewLifecycleOwner(), user -> {
-            goToMainActivity(user);
-        });
+        splashViewModel.userLiveData.observe(getViewLifecycleOwner(), this::goToHome);
     }
 
-    public void goToAuthActivity(){
-        Intent intent = new Intent(requireActivity(), AuthFragment.class);
-        startActivity(intent);
+    private void goToAuth(){
+        // Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_authActivity);
     }
 
-    public void goToMainActivity(User user){
-        Intent intent = new Intent(requireActivity(), HomeFragment.class);
-        intent.putExtra("user", user);
-        startActivity(intent);
+    private void goToHome(User user){
+        // Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_homeFragment);
     }
 }

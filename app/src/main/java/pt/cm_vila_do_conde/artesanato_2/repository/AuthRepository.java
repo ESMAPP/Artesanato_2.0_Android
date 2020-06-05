@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 
 import com.facebook.AccessToken;
+import com.facebook.login.LoginManager;
 import com.google.android.gms.common.api.ApiException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
@@ -134,6 +135,7 @@ public class AuthRepository {
     public MutableLiveData<User> signOut() {
         MutableLiveData<User> signOutUserLiveData = new MutableLiveData<>();
         firebaseAuth.signOut();
+        LoginManager.getInstance().logOut();
         signOutUserLiveData.setValue(null);
         return signOutUserLiveData;
     }

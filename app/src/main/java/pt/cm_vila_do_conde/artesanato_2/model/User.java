@@ -16,7 +16,7 @@ public class User implements Serializable {
     private boolean isNew, isCreated;
     private String uid;
     private String name;
-    private Uri avatar;
+    private String profile_pic;
     private int reputation = 0;
     private ArrayList<Badge> badges = new ArrayList<Badge>();
     private int ranking = -1; // -1 == Unranked
@@ -25,10 +25,11 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String uid, String name, String email) {
+    public User(String uid, String name, String email, String profile_pic) {
         this.uid = uid;
         this.name = name;
         this.email = email;
+        this.profile_pic = profile_pic;
     }
 
     public String getEmail() {
@@ -83,12 +84,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public Uri getAvatar() {
-        return avatar;
+    public String getProfilePic() {
+        return profile_pic;
     }
 
-    public void setAvatar(Uri avatar) {
-        this.avatar = avatar;
+    public void setProfilePic(String profile_pic) {
+        this.profile_pic = profile_pic;
     }
 
     public int getReputation() {

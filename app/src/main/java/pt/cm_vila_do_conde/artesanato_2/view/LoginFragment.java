@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -30,7 +32,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentLoginBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
@@ -51,19 +52,28 @@ public class LoginFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initFacebookSignInButton();
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initGoogleSignInButton();
-        initFacebookSignInButton();
         initAuthViewModel();
         initGoogleSignInClient();
-        binding.facebookBtn.setOnClickListener(v -> binding.fbLoginBtnHidden.performClick());
+        initSubmitButton();
+        initCustomFacebookButton();
 
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
@@ -78,11 +88,20 @@ public class LoginFragment extends Fragment {
     }
 
     private void initGoogleSignInButton() {
-        binding.googleBtn.setOnClickListener((v -> GoogleSignIn()));
+        binding.googleBtn.setOnClickListener(v -> GoogleSignIn());
+    }
+
+    private void initCustomFacebookButton() {
+        binding.facebookBtn.setOnClickListener(v -> binding.fbLoginBtnHidden.performClick());
+    }
+
+    private void initSubmitButton() {
+        binding.submitBtn.setOnClickListener(v -> signInWithEmail());
     }
 
     private void initFacebookSignInButton() {
         LoginButton loginButton = binding.fbLoginBtnHidden;
+        loginButton.setFragment(this);
         loginButton.setPermissions("email", "public_profile");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -107,6 +126,13 @@ public class LoginFragment extends Fragment {
 
     private void initAuthViewModel() {
         authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
+    }
+
+    private void signInWithEmail() {
+        String emailInput = binding.emailInput.getText().toString();
+        String passwordInput = binding.passwordInput.getText().toString();
+        authViewModel.signInWithEmail(emailInput, passwordInput);
+        authViewModel.authenticatedUserLiveData.observe(getViewLifecycleOwner(), authenticatedUser -> goToMainActivity());
     }
 
     private void initGoogleSignInClient() {
@@ -138,7 +164,7 @@ public class LoginFragment extends Fragment {
             if (authenticatedUser.isNew()) {
                 createNewUser(authenticatedUser);
             } else {
-                goToMainActivity(authenticatedUser);
+                goToMainActivity();
             }
         });
     }
@@ -150,7 +176,7 @@ public class LoginFragment extends Fragment {
             if (authenticatedUser.isNew()) {
                 createNewUser(authenticatedUser);
             } else {
-                goToMainActivity(authenticatedUser);
+                goToMainActivity();
             }
         });
     }
@@ -159,13 +185,13 @@ public class LoginFragment extends Fragment {
         authViewModel.createUser(authenticatedUser);
         authViewModel.createdUserLiveData.observe(this, user -> {
             if (user.isCreated()) {
-                Toast.makeText(requireActivity(), "User Created", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireActivity(), "User Created", Toast.LENGTH_LONG).show();
             }
-            goToMainActivity(user);
+            goToMainActivity();
         });
     }
 
-    public void goToMainActivity(User user) {
+    public void goToMainActivity() {
         Navigation.findNavController(requireView()).navigate(R.id.action_authActivity_to_homeFragment);
     }
 

@@ -7,4 +7,6 @@
     <color name="colorAccent">#1D87DC</color>
 
     <color name="hintGrey">#D3D3D3</color>
+
+    <color name="transparent">#00FFFFFF</color>
 </resources>

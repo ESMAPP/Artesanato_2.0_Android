@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_4"
-    tools:context=".view.NotificationsFragment">
+    tools:context="pt.cm_vila_do_conde.artesanato_2.view.NotificationsFragment">
 
     <LinearLayout
         android:layout_width="0dp"

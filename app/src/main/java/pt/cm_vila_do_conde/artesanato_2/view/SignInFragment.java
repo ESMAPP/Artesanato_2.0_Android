@@ -36,7 +36,7 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentLoginBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
-public class LoginFragment extends Fragment {
+public class SignInFragment extends Fragment {
     private static final int RC_SIGN_IN = 30;
     private GoogleSignInClient googleSignInClient;
     private AuthViewModel authViewModel;
@@ -96,7 +96,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void initSubmitButton() {
-        binding.submitBtn.setOnClickListener(v -> signInWithEmail());
+        binding.btnSubmit.setOnClickListener(v -> signInWithEmail());
     }
 
     private void initFacebookSignInButton() {
@@ -129,8 +129,8 @@ public class LoginFragment extends Fragment {
     }
 
     private void signInWithEmail() {
-        String emailInput = binding.emailInput.getText().toString();
-        String passwordInput = binding.passwordInput.getText().toString();
+        String emailInput = binding.inputEmail.getText().toString();
+        String passwordInput = binding.inputPassword.getText().toString();
         authViewModel.signInWithEmail(emailInput, passwordInput);
         authViewModel.authenticatedUserLiveData.observe(getViewLifecycleOwner(), authenticatedUser -> goToMainActivity());
     }

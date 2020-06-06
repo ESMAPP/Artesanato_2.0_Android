@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:background="#00FFFFFF"
+        android:background="@color/transparent"
         android:scaleType="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -27,10 +27,10 @@
         android:layout_height="29dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="24dp"
-        android:background="#00FFFFFF"
+        android:background="@color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/arrow_back_color" />
+        app:srcCompat="@drawable/btn_arrow_back_color" />
 
     <ImageButton
         android:id="@+id/btn_extra"
@@ -38,17 +38,18 @@
         android:layout_height="29dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="30dp"
-        android:background="#00FFFFFF"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/i_more_grey" />
+        app:srcCompat="@drawable/i_more_grey"
+        android:contentDescription="TODO" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:background="#00FFFFFF"
+        android:background="@color/transparent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,8 +71,8 @@
                 android:id="@+id/iv_user_frame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="center"
-                android:background="@drawable/circle_pic" />
+                android:background="@drawable/circle_pic"
+                android:scaleType="center" />
         </FrameLayout>
 
         <TextView
@@ -88,7 +89,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
+            android:background="@color/transparent"
             android:gravity="center_horizontal|center_vertical"
             android:orientation="horizontal">
 
@@ -97,7 +98,7 @@
                 android:layout_height="30dp"
                 android:layout_marginRight="6dp"
                 android:layout_weight="1"
-                android:background="#00FFFFFF"
+                android:background="@color/transparent"
                 app:srcCompat="@drawable/btn_contests" />
 
             <TextView
@@ -115,7 +116,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="6dp"
                 android:layout_weight="1"
-                android:background="#00FFFFFF"
+                android:background="@color/transparent"
                 app:srcCompat="@drawable/btn_events" />
 
             <TextView
@@ -140,25 +141,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:background="#00FFFFFF">
+                android:background="@color/transparent">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:text="Medalhas" />
+                    android:background="@color/transparent"
+                    android:text="@string/badges" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:text="Atividade" />
+                    android:background="@color/transparent"
+                    android:text="@string/activity" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#00FFFFFF"
-                    android:text="Concursos" />
+                    android:background="@color/transparent"
+                    android:text="@string/contests" />
             </com.google.android.material.tabs.TabLayout>
 
         </LinearLayout>

@@ -22,12 +22,11 @@
         app:srcCompat="@drawable/logo_i" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_highlights"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
         android:layout_marginTop="22dp"
-        android:layout_marginEnd="283dp"
+        android:drawableBottom="@drawable/bar_divider"
         android:fontFamily="@font/mina_regular"
         android:text="@string/highlights"
         android:textColor="@color/black"
@@ -35,18 +34,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
-
-    <ImageView
-        android:id="@+id/bar_divider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginEnd="43dp"
-        android:contentDescription="@string/divider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/bar_divider" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -57,7 +44,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bar_divider" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_highlights" />
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -265,13 +252,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:contentDescription="@string/informations"
+                    android:contentDescription="@string/information"
                     app:srcCompat="@drawable/btn_info" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/informations" />
+                    android:text="@string/information" />
             </LinearLayout>
 
         </TableRow>

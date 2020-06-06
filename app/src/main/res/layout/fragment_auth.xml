@@ -7,39 +7,52 @@
     android:background="@drawable/bg_2"
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment">
 
-    <ImageButton
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/auth_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inner_nav_bar">
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <LinearLayout
+        android:layout_width="325dp"
+        android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="364dp"
-        android:background="@color/transparent"
-        android:contentDescription="@string/go_back"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btn_arrow_back_color" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="17dp"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:contentDescription="@string/go_back"
+            app:srcCompat="@drawable/btn_arrow_back_color" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="250dp"
-        android:layout_height="108dp"
+        android:layout_width="240dp"
+        android:layout_height="115dp"
         android:layout_marginTop="80dp"
         android:contentDescription="@string/app_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo_vf" />
+        app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/inner_nav_bar"
-        android:layout_width="0dp"
+        android:layout_width="325dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
         android:layout_marginTop="40dp"
-        android:layout_marginRight="30dp"
         android:background="@drawable/tab_underline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,14 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/sign_up" />
-    </com.google.android.material.tabs.TabLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/auth_view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inner_nav_bar" />
+    </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

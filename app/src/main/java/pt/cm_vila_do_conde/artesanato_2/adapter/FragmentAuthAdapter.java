@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.jetbrains.annotations.NotNull;
 
-import pt.cm_vila_do_conde.artesanato_2.view.LoginFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.SignInFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.SignUpFragment;
 
 public class FragmentAuthAdapter extends FragmentPagerAdapter {
@@ -22,7 +22,7 @@ public class FragmentAuthAdapter extends FragmentPagerAdapter {
         switch (position)
         {
             case 0:
-                return new LoginFragment(); //ChildFragment1 at position 0
+                return new SignInFragment(); //ChildFragment1 at position 0
             case 1:
                 return new SignUpFragment(); //ChildFragment2 at position 1
         }

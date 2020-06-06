@@ -36,7 +36,7 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentLoginBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
-public class LoginFragment extends Fragment {
+public class SignInFragment extends Fragment {
     private static final int RC_SIGN_IN = 30;
     private GoogleSignInClient googleSignInClient;
     private AuthViewModel authViewModel;

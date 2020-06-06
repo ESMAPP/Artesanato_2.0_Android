@@ -26,10 +26,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentSigninBinding;
@@ -83,7 +86,7 @@ public class SignInFragment extends Fragment {
                     getGoogleAuthCredential(googleSignInAccount);
                 }
             } catch (ApiException e) {
-                Log.d(TAG, e.getMessage());
+                Toast.makeText(requireContext(), Objects.requireNonNull(e.getMessage()), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -114,12 +117,12 @@ public class SignInFragment extends Fragment {
             @Override
             public void onCancel() {
                 Log.d(TAG, "facebook:onCancel");
-                // ...
             }
 
             @Override
             public void onError(FacebookException error) {
                 Log.e(TAG, "facebook:onError");
+                Toast.makeText(requireContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
 
         });
@@ -133,7 +136,11 @@ public class SignInFragment extends Fragment {
         String emailInput = binding.inputEmail.getText().toString();
         String passwordInput = binding.inputPassword.getText().toString();
         authViewModel.signInWithEmail(emailInput, passwordInput);
-        authViewModel.authenticatedUserLiveData.observe(getViewLifecycleOwner(), authenticatedUser -> goToMainActivity());
+        authViewModel.authenticatedUserLiveData.observe(getViewLifecycleOwner(), authenticatedUser ->{
+            if(authenticatedUser != null){
+                goToMainActivity();
+            }
+        });
     }
 
     private void initGoogleSignInClient() {

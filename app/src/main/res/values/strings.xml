@@ -27,7 +27,7 @@
     <string name="events">Eventos</string>
     <string name="explore">Explorar</string>
     <string name="rankings">Rankings</string>
-    <string name="informations">Informações</string>
+    <string name="information">Informações</string>
     <string name="favourites">Favoritos</string>
     <string name="notifications">Notificações</string>
     <string name="divider">Divisor</string>
@@ -36,4 +36,6 @@
     <string name="profile_picture">Image de perfil</string>
     <string name="profile_picture_frame">Moldura para image de perfil</string>
     <string name="top_bar">Barrade topo</string>
+    <string name="reputation">Reputação</string>
+    <string name="ranking_position">Posição no ranking</string>
 </resources>

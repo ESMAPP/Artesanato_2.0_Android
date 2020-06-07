@@ -7,111 +7,132 @@
     android:background="@drawable/bg_5"
     tools:context=".view.ProfileEditFragment">
 
-    <ImageButton
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="29dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/btn_arrow_back_color" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="240dp"
-        android:fontFamily="@font/quicksand"
-        android:text="@string/edit_profile"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_back"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/profile_pic"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="150dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@android:drawable/sym_def_app_icon" />
-
-    <ImageButton
-        android:id="@+id/btn_edit_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.641"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
-
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="20dp"
-        android:background="#00FFFFFF"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_pic">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/input_edit_name"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/input_edit_email"
-            android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:contentDescription="@string/go_back"
+                app:srcCompat="@drawable/btn_arrow_back_color" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/quicksand"
+                android:text="@string/edit_profile"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:contentDescription="@string/profile_picture"
+                app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+            <ImageView
+                android:id="@+id/profile_pic_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_pic"
+                android:contentDescription="@string/profile_picture_frame"
+                android:scaleType="center" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/edit_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="@string/change_profile_pic"
+            android:textColor="@color/colorPrimary" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="E-mail" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/input_edit_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:text="Password" />
+            <EditText
+                android:id="@+id/input_edit_name"
+                style="@style/input_with_shadow"
+                android:autofillHints="@string/full_name"
+                android:background="@drawable/shape_shadow"
+                android:drawableStart="@drawable/i_user_color"
+                android:hint="@string/full_name"
+                android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/input_edit_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="@string/confirm_password" />
+            <EditText
+                android:id="@+id/input_edit_email"
+                style="@style/input_with_shadow"
+                android:layout_marginTop="20dp"
+                android:autofillHints="@string/email"
+                android:background="@drawable/shape_shadow"
+                android:drawableStart="@drawable/i_letter_color"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress" />
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="@string/save" />
+            <EditText
+                android:id="@+id/input_edit_password"
+                style="@style/input_with_shadow"
+                android:layout_marginTop="20dp"
+                android:autofillHints="@string/password"
+                android:background="@drawable/shape_shadow"
+                android:drawableStart="@drawable/i_key_color"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+
+            <EditText
+                android:id="@+id/input_edit_confirm_password"
+                style="@style/input_with_shadow"
+                android:layout_marginTop="20dp"
+                android:autofillHints="@string/confirm_password"
+                android:background="@drawable/shape_shadow"
+                android:drawableStart="@drawable/i_key_color"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword" />
+
+            <ImageButton
+                android:id="@+id/btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:background="@color/transparent"
+                android:contentDescription="@string/save"
+                app:srcCompat="@drawable/button_square" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

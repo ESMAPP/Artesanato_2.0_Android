@@ -47,6 +47,11 @@ public class AuthViewModel extends AndroidViewModel {
         authenticationState.setValue(AuthenticationState.AUTHENTICATED);
     }
 
+    public void signUp(String name, String email, String password) {
+        authenticatedUserLiveData = authRepository.firebaseSignInWithEmail(email, password);
+        authenticationState.setValue(AuthenticationState.AUTHENTICATED);
+    }
+
     public void signOut() {
         authenticatedUserLiveData = authRepository.signOut();
         authenticationState.setValue(AuthenticationState.UNAUTHENTICATED);
@@ -55,5 +60,4 @@ public class AuthViewModel extends AndroidViewModel {
     public void createUser(User authenticatedUser) {
         createdUserLiveData = authRepository.createUserInFirestoreIfNotExists(authenticatedUser);
     }
-
 }

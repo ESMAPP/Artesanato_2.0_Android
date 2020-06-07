@@ -1,19 +1,15 @@
 package pt.cm_vila_do_conde.artesanato_2.repository;
 
-import android.net.Uri;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
-import com.google.android.gms.common.api.ApiException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -95,7 +91,7 @@ public class AuthRepository {
                             String uid = firebaseUser.getUid();
                             String name = firebaseUser.getDisplayName();
                             String firebaseUserEmail = firebaseUser.getEmail();
-                            String profile_pic = firebaseUser.getPhotoUrl().toString();
+                            String profile_pic = "";
                             User user = new User(uid, name, firebaseUserEmail, profile_pic);
                             authenticatedUserMutableLiveData.setValue(user);
                         }
@@ -131,6 +127,7 @@ public class AuthRepository {
         return newUserMutableLiveData;
     }
 
+    // criar novo user sign up
 
     public MutableLiveData<User> signOut() {
         MutableLiveData<User> signOutUserLiveData = new MutableLiveData<>();

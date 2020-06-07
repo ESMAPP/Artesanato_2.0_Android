@@ -8,7 +8,7 @@
         android:id="@+id/authActivity"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment"
         android:label="activity_auth"
-        tools:layout="@layout/fragment_auth" >
+        tools:layout="@layout/fragment_auth">
         <action
             android:id="@+id/action_authActivity_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -18,10 +18,7 @@
         android:id="@+id/homeFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_profileBadgesFragment"
-            app:destination="@id/profileBadgesFragment" />
+        tools:layout="@layout/fragment_home">
         <argument
             android:name="uid"
             app:argType="string" />
@@ -31,12 +28,15 @@
         <action
             android:id="@+id/action_homeFragment_to_authActivity"
             app:destination="@id/authActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileBadgesFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileBadgesFragment"
         android:label="fragment_profile_badges"
-        tools:layout="@layout/fragment_profile_badges" >
+        tools:layout="@layout/fragment_profile_badges">
         <argument
             android:name="uid"
             app:argType="string" />
@@ -49,4 +49,9 @@
         android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileEditFragment"
         android:label="fragment_profile_edit"
         tools:layout="@layout/fragment_profile_edit" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

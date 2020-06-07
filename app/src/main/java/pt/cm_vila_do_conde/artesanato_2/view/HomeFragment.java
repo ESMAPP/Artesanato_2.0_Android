@@ -27,8 +27,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
-        return view;
+        return binding.getRoot();
     }
 
     @Override
@@ -52,12 +51,10 @@ public class HomeFragment extends Fragment {
     }
 
     private void goToProfile() {
-        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_profileBadgesFragment);
+        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_profileFragment);
     }
 
-    private void goToAuth(){
+    private void goToAuth() {
         Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_authActivity);
     }
-
-
 }

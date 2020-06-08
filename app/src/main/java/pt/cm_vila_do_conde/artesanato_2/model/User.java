@@ -1,11 +1,10 @@
 package pt.cm_vila_do_conde.artesanato_2.model;
 
-import android.net.Uri;
-
 import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class User implements Serializable {
     @SuppressWarnings("WeakerAccess")
@@ -16,20 +15,40 @@ public class User implements Serializable {
     private boolean isNew, isCreated;
     private String uid;
     private String name;
-    private String profile_pic;
+    private String profilePic;
     private int reputation = 0;
     private ArrayList<Badge> badges = new ArrayList<Badge>();
     private int ranking = -1; // -1 == Unranked
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
+    private Date createdAt = new Date();
+    private Date updatedAt = new Date();
 
     public User() {
     }
 
-    public User(String uid, String name, String email, String profile_pic) {
+    public User(String uid, String name, String email, String profilePic) {
         this.uid = uid;
         this.name = name;
         this.email = email;
-        this.profile_pic = profile_pic;
+        this.profilePic = profilePic;
+    }
+
+    public User(String email, boolean isAuthenticated, boolean isNew, boolean isCreated, String uid,
+                String name, String profilePic, int reputation, ArrayList<Badge> badges, int ranking, int type,
+                Date createdAt, Date updatedAt) {
+        this.email = email;
+        this.isAuthenticated = isAuthenticated;
+        this.isNew = isNew;
+        this.isCreated = isCreated;
+        this.uid = uid;
+        this.name = name;
+        this.profilePic = profilePic;
+        this.reputation = reputation;
+        this.badges = badges;
+        this.ranking = ranking;
+        this.type = type;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public String getEmail() {
@@ -85,11 +104,11 @@ public class User implements Serializable {
     }
 
     public String getProfilePic() {
-        return profile_pic;
+        return profilePic;
     }
 
-    public void setProfilePic(String profile_pic) {
-        this.profile_pic = profile_pic;
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public int getReputation() {
@@ -122,5 +141,21 @@ public class User implements Serializable {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

@@ -39,7 +39,17 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initAuthViewModel();
+
+        binding.btnNotifications.setOnClickListener(v -> goToNotifications());
         binding.btnProfile.setOnClickListener(v -> goToProfile());
+        binding.btnFair.setOnClickListener(v -> goToLocation());
+        binding.btnEvents.setOnClickListener(v -> goToEvents());
+        binding.btnExplore.setOnClickListener(v -> goToExplore());
+        binding.btnContests.setOnClickListener(v -> goToContests());
+        binding.btnFavourites.setOnClickListener(v -> goToFavourites());
+        binding.btnRankings.setOnClickListener(v -> goToRankings());
+        binding.btnInfo.setOnClickListener(v -> goToInformations());
+
         binding.logoutTestBtn.setOnClickListener(v -> {
             authViewModel.signOut();
             goToAuth();
@@ -50,11 +60,40 @@ public class HomeFragment extends Fragment {
         authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
     }
 
+    private void goToAuth() {
+        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_authActivity);
+    }
+
+    private void goToNotifications() {
+        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_notificationsFragment);
+    }
+
     private void goToProfile() {
         Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_profileFragment);
     }
 
-    private void goToAuth() {
-        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_authActivity);
+    private void goToLocation() {
+        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_fairLocationFragment);
+    }
+
+    private void goToEvents() {
+        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_eventListFragment);
+    }
+
+    private void goToExplore() {
+        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_artisansListFragment);
+    }
+
+    private void goToContests() {
+    }
+
+    private void goToFavourites() {
+    }
+
+    private void goToRankings() {
+        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_rankingsFragment);
+    }
+
+    private void goToInformations() {
     }
 }

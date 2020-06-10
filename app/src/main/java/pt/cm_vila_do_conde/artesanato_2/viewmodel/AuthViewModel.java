@@ -47,8 +47,9 @@ public class AuthViewModel extends AndroidViewModel {
         authenticationState.setValue(AuthenticationState.AUTHENTICATED);
     }
 
-    public void signUp() {
-
+    public void signUp(String name, String email, String password) {
+        authenticatedUserLiveData = authRepository.createNewUser(name, email, password);
+        authenticationState.setValue(AuthenticationState.AUTHENTICATED);
     }
 
     public void signOut() {
@@ -59,9 +60,4 @@ public class AuthViewModel extends AndroidViewModel {
     public void createUser(User authenticatedUser) {
         createdUserLiveData = authRepository.createUserInFirestoreIfNotExists(authenticatedUser);
     }
-
-    public void createUserSignUp() {
-        //createdUserLiveData = authRepository.createUserInFirestoreIfNotExists();
-    }
-
 }

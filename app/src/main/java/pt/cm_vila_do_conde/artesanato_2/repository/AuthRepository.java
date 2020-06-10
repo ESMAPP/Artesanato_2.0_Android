@@ -37,13 +37,17 @@ public class AuthRepository {
                                 .getAdditionalUserInfo()
                                 .isNewUser();
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
                         if (firebaseUser != null) {
                             String uid = firebaseUser.getUid();
                             String name = firebaseUser.getDisplayName();
                             String email = firebaseUser.getEmail();
-                            String profile_pic = firebaseUser.getPhotoUrl().toString();
-                            User user = new User(uid, name, email, profile_pic);
+                            String profilePic = firebaseUser.getPhotoUrl().toString();
+
+                            User user = new User(uid, name, email, profilePic);
+
                             user.setNew(isNewUser);
+
                             authenticatedUserMutableLiveData.setValue(user);
                         }
                     } else {
@@ -87,12 +91,15 @@ public class AuthRepository {
                 .addOnCompleteListener(authTask -> {
                     if(authTask.isSuccessful()){
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
                         if (firebaseUser != null) {
                             String uid = firebaseUser.getUid();
-                            String name = firebaseUser.getDisplayName();
-                            String firebaseUserEmail = firebaseUser.getEmail();
-                            String profile_pic = "";
-                            User user = new User(uid, name, firebaseUserEmail, profile_pic);
+                            String userName = firebaseUser.getDisplayName();
+                            String userEmail = firebaseUser.getEmail();
+                            String userProfilePic = "";
+
+                            User user = new User(uid, userName, userEmail, userProfilePic);
+
                             authenticatedUserMutableLiveData.setValue(user);
                         }
                     } else {
@@ -127,7 +134,32 @@ public class AuthRepository {
         return newUserMutableLiveData;
     }
 
-    // criar novo user sign up
+    public  MutableLiveData<User> createNewUser(String name, String email, String password) {
+        MutableLiveData<User> newUserMutableLiveData = new MutableLiveData<>();
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(authTask -> {
+                    if(authTask.isSuccessful()) {
+                        Log.w(TAG, "signUpWithEmail:success", authTask.getException());
+
+                        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+                        if (firebaseUser != null) {
+                            String uid = firebaseUser.getUid();
+                            String userName = firebaseUser.getDisplayName();
+                            String userEmail = firebaseUser.getEmail();
+                            String userProfilePic = "";
+
+                            User user = new User(uid, userName, userEmail, userProfilePic);
+
+                            newUserMutableLiveData.setValue(user);
+                        }
+                    } else {
+                        Log.w(TAG, "signUpWithEmail:failure", authTask.getException());
+                    }
+                });
+        return newUserMutableLiveData;
+    }
 
     public MutableLiveData<User> signOut() {
         MutableLiveData<User> signOutUserLiveData = new MutableLiveData<>();

@@ -50,6 +50,10 @@ public class AuthViewModel extends AndroidViewModel {
         manageAuthState();
     }
 
+    public void signUp() {
+
+    }
+
     public void signOut() {
         authenticatedUserLiveData = authRepository.signOut();
         manageAuthState();
@@ -58,6 +62,7 @@ public class AuthViewModel extends AndroidViewModel {
     public void createUser(User authenticatedUser) {
         createdUserLiveData = authRepository.createUserInFirestoreIfNotExists(authenticatedUser);
     }
+
 
     private void manageAuthState() {
         authenticatedUserLiveData.observeForever(user -> {
@@ -82,6 +87,9 @@ public class AuthViewModel extends AndroidViewModel {
         AUTHENTICATED,          // The user has authenticated successfully
         ARTISAN_AUTHENTICATED, // The user has authenticated successfully and is artisan
         INVALID_AUTHENTICATION  // Authentication failed
+          
+    public void createUserSignUp() {
+        //createdUserLiveData = authRepository.createUserInFirestoreIfNotExists();
     }
 
 }

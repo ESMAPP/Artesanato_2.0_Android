@@ -95,12 +95,14 @@ public class AuthRepository {
                             String uid = firebaseUser.getUid();
                             String name = firebaseUser.getDisplayName();
                             String firebaseUserEmail = firebaseUser.getEmail();
-                            String profile_pic = firebaseUser.getPhotoUrl().toString();
-                            User user = new User(uid, name, firebaseUserEmail, profile_pic);
+                            String profilePic = "";
+                            User user = new User(uid, name, firebaseUserEmail, profilePic);
                             authenticatedUserMutableLiveData.setValue(user);
                         }
                     } else {
                         Log.w(TAG, "signInWithEmail:failure", authTask.getException());
+                        User userError = new User(new Throwable("Email ou password incorretos"));
+                        authenticatedUserMutableLiveData.setValue(userError);
                     }
                 });
         return authenticatedUserMutableLiveData;
@@ -129,6 +131,40 @@ public class AuthRepository {
             }
         });
         return newUserMutableLiveData;
+    }
+
+
+    public MutableLiveData<User> checkIfUserIsAuthenticatedInFirebase() {
+        MutableLiveData<User> isUserAuthenticatedMutableLiveData = new MutableLiveData<>();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        User user = new User();
+        if (firebaseUser == null) {
+            user.setAuthenticated(false);
+            isUserAuthenticatedMutableLiveData.setValue(user);
+        } else {
+            user.setUid(firebaseUser.getUid());
+            user.setAuthenticated(true);
+            isUserAuthenticatedMutableLiveData.setValue(user);
+        }
+
+        return isUserAuthenticatedMutableLiveData;
+    }
+
+    public MutableLiveData<User> addUserToLiveData(String uid) {
+        MutableLiveData<User> userMutableLiveData = new MutableLiveData<>();
+        usersRef.document(uid).get().addOnCompleteListener(userTask -> {
+            if (userTask.isSuccessful()) {
+                DocumentSnapshot document = userTask.getResult();
+                if (document.exists()) {
+                    User user = document.toObject(User.class);
+                    userMutableLiveData.setValue(user);
+                }
+            } else {
+                System.out.println(userTask.getException().getMessage());
+            }
+        });
+
+        return userMutableLiveData;
     }
 
 

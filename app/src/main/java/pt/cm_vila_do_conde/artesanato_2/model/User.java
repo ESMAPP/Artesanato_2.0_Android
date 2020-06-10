@@ -1,7 +1,5 @@
 package pt.cm_vila_do_conde.artesanato_2.model;
 
-import android.net.Uri;
-
 import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
@@ -16,20 +14,35 @@ public class User implements Serializable {
     private boolean isNew, isCreated;
     private String uid;
     private String name;
-    private String profile_pic;
+    private String profilePic;
     private int reputation = 0;
-    private ArrayList<Badge> badges = new ArrayList<Badge>();
+    private ArrayList<String> badges;
     private int ranking = -1; // -1 == Unranked
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
+    @Exclude
+    private Throwable error;
 
     public User() {
     }
 
-    public User(String uid, String name, String email, String profile_pic) {
+    public User(String uid, String name, String email, String profilePic) {
         this.uid = uid;
         this.name = name;
         this.email = email;
-        this.profile_pic = profile_pic;
+        this.profilePic = profilePic;
+    }
+
+    public User(Throwable error) {
+        this.error = error;
+    }
+
+    @Exclude
+    public Throwable getError() {
+        return error;
+    }
+
+    public void setError(Throwable error) {
+        this.error = error;
     }
 
     public String getEmail() {
@@ -85,11 +98,11 @@ public class User implements Serializable {
     }
 
     public String getProfilePic() {
-        return profile_pic;
+        return profilePic;
     }
 
-    public void setProfilePic(String profile_pic) {
-        this.profile_pic = profile_pic;
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public int getReputation() {
@@ -100,11 +113,11 @@ public class User implements Serializable {
         this.reputation = reputation;
     }
 
-    public ArrayList<Badge> getBadges() {
+    public ArrayList<String> getBadges() {
         return badges;
     }
 
-    public void setBadges(ArrayList<Badge> badges) {
+    public void setBadges(ArrayList<String> badges) {
         this.badges = badges;
     }
 

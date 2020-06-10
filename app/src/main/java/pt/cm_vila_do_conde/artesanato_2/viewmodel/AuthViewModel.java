@@ -48,7 +48,7 @@ public class AuthViewModel extends AndroidViewModel {
     }
 
     public void signUp(String name, String email, String password) {
-        authenticatedUserLiveData = authRepository.createNewUser(name, email, password);
+        authenticatedUserLiveData = authRepository.signUpNewUser(name, email, password);
         authenticationState.setValue(AuthenticationState.AUTHENTICATED);
     }
 

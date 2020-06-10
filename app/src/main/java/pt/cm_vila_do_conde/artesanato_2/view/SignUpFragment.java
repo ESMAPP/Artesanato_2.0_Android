@@ -93,7 +93,7 @@ public class SignUpFragment extends Fragment {
             isValid = false;
         }
 
-        if (!inputPassword.equals(inputConfirmPassword)) {
+        if (inputPassword.equals(inputConfirmPassword) == false) {
             Log.d(TAG, inputPassword);
             Log.d(TAG, inputConfirmPassword);
 

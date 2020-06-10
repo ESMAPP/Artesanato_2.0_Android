@@ -134,7 +134,7 @@ public class AuthRepository {
         return newUserMutableLiveData;
     }
 
-    public  MutableLiveData<User> createNewUser(String name, String email, String password) {
+    public  MutableLiveData<User> signUpNewUser(String name, String email, String password) {
         MutableLiveData<User> newUserMutableLiveData = new MutableLiveData<>();
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -146,12 +146,14 @@ public class AuthRepository {
 
                         if (firebaseUser != null) {
                             String uid = firebaseUser.getUid();
-                            String userName = firebaseUser.getDisplayName();
+                            String userName = name;
                             String userEmail = firebaseUser.getEmail();
                             String userProfilePic = "";
 
                             User user = new User(uid, userName, userEmail, userProfilePic);
 
+                            DocumentReference uidRef = usersRef.document(uid);
+                            uidRef.set(user);
                             newUserMutableLiveData.setValue(user);
                         }
                     } else {

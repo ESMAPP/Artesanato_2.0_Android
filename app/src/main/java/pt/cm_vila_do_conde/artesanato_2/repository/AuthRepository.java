@@ -1,19 +1,15 @@
 package pt.cm_vila_do_conde.artesanato_2.repository;
 
-import android.net.Uri;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
 import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
-import com.google.android.gms.common.api.ApiException;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -41,13 +37,17 @@ public class AuthRepository {
                                 .getAdditionalUserInfo()
                                 .isNewUser();
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
                         if (firebaseUser != null) {
                             String uid = firebaseUser.getUid();
                             String name = firebaseUser.getDisplayName();
                             String email = firebaseUser.getEmail();
-                            String profile_pic = firebaseUser.getPhotoUrl().toString();
-                            User user = new User(uid, name, email, profile_pic);
+                            String profilePic = firebaseUser.getPhotoUrl().toString();
+
+                            User user = new User(uid, name, email, profilePic);
+
                             user.setNew(isNewUser);
+
                             authenticatedUserMutableLiveData.setValue(user);
                         }
                     } else {
@@ -91,12 +91,14 @@ public class AuthRepository {
                 .addOnCompleteListener(authTask -> {
                     if(authTask.isSuccessful()){
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
                         if (firebaseUser != null) {
                             String uid = firebaseUser.getUid();
-                            String name = firebaseUser.getDisplayName();
-                            String firebaseUserEmail = firebaseUser.getEmail();
-                            String profilePic = "";
-                            User user = new User(uid, name, firebaseUserEmail, profilePic);
+                            String userName = firebaseUser.getDisplayName();
+                            String userEmail = firebaseUser.getEmail();
+                            String userProfilePic = "";
+
+                            User user = new User(uid, userName, userEmail, userProfilePic);
                             authenticatedUserMutableLiveData.setValue(user);
                         }
                     } else {
@@ -133,6 +135,34 @@ public class AuthRepository {
         return newUserMutableLiveData;
     }
 
+    public  MutableLiveData<User> signUpNewUser(String name, String email, String password) {
+        MutableLiveData<User> newUserMutableLiveData = new MutableLiveData<>();
+
+        firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(authTask -> {
+                    if(authTask.isSuccessful()) {
+                        Log.w(TAG, "signUpWithEmail:success", authTask.getException());
+
+                        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+
+                        if (firebaseUser != null) {
+                            String uid = firebaseUser.getUid();
+                            String userName = name;
+                            String userEmail = firebaseUser.getEmail();
+                            String userProfilePic = "";
+
+                            User user = new User(uid, userName, userEmail, userProfilePic);
+
+                            DocumentReference uidRef = usersRef.document(uid);
+                            uidRef.set(user);
+                            newUserMutableLiveData.setValue(user);
+                        }
+                    } else {
+                        Log.w(TAG, "signUpWithEmail:failure", authTask.getException());
+                    }
+                });
+        return newUserMutableLiveData;
+    }
 
     public MutableLiveData<User> checkIfUserIsAuthenticatedInFirebase() {
         MutableLiveData<User> isUserAuthenticatedMutableLiveData = new MutableLiveData<>();

@@ -6,19 +6,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentSignupBinding;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
 
 public class SignUpFragment extends Fragment {
+    private String TAG = "SIGN_UP";
 
     private FragmentSignupBinding binding;
-    private AuthViewModel AuthViewModel;
+    private AuthViewModel authViewModel;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,11 +30,8 @@ public class SignUpFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentSignupBinding.inflate(inflater, container, false);
-
         return binding.getRoot();
     }
 
@@ -43,7 +44,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private void initAuthViewModel() {
-        AuthViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
+        authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
     }
 
     public void initBtnSubmit() {
@@ -51,42 +52,60 @@ public class SignUpFragment extends Fragment {
     }
 
     private void signUp() {
-        String name = binding.inputName.getText().toString();
-        String email = binding.inputEmail.getText().toString();
-        String password = binding.inputPassword.getText().toString();
-        String confirmPassword = binding.inputConfirmPassword.getText().toString();
+        Log.d(TAG, "sign up");
 
-        runValidations(name, email, password, confirmPassword);
+        String inputName = binding.inputName.getText().toString();
+        String inputEmail = binding.inputEmail.getText().toString();
+        String inputPassword = binding.inputPassword.getText().toString();
+        String inputConfirmPassword = binding.inputConfirmPassword.getText().toString();
 
-
-        // chamar authviewmodel
-        // send to database
-
+        if (runValidations(inputName, inputEmail, inputPassword, inputConfirmPassword)) {
+            authViewModel.signUp(inputName, inputEmail, inputPassword);
+            authViewModel.authenticatedUserLiveData.observe(getViewLifecycleOwner(), authenticatedUser -> {
+                if (authenticatedUser != null) {
+                    goToMainActivity();
+                }
+            });
+        }
     }
 
-    private void runValidations(String name, String email, String password, String confirmPassword) {
-        String errMsg = "Este campo tem de estar preenchido";
+    private boolean runValidations(String inputName, String inputEmail, String inputPassword, String inputConfirmPassword) {
+        String err = "Este campo tem de estar preenchido.";
+        boolean isValid = true;
 
-        if (name.isEmpty()) {
-            binding.inputName.setError(errMsg);
+        if (inputName.isEmpty()) {
+            binding.inputName.setError(err);
+            isValid = false;
         }
 
-        if (email.isEmpty()) {
-            binding.inputEmail.setError(errMsg);
+        if (inputEmail.isEmpty()) {
+            binding.inputEmail.setError(err);
+            isValid = false;
         }
 
-        if (password.isEmpty()) {
-            binding.inputPassword.setError(errMsg);
+        if (inputPassword.isEmpty()) {
+            binding.inputPassword.setError(err);
+            isValid = false;
         }
 
-        if (confirmPassword.isEmpty()) {
-            binding.inputConfirmPassword.setError(errMsg);
+        if (inputConfirmPassword.isEmpty()) {
+            binding.inputConfirmPassword.setError(err);
+            isValid = false;
         }
 
-        if (password != confirmPassword) {
-            errMsg = "As passwords não são iguais";
+        if (inputPassword.equals(inputConfirmPassword) == false) {
+            Log.d(TAG, inputPassword);
+            Log.d(TAG, inputConfirmPassword);
 
-            binding.inputConfirmPassword.setError(errMsg);
+            err = "As passwords tem de ser idênticas";
+            binding.inputConfirmPassword.setError(err);
+            isValid = false;
         }
+
+        return isValid;
+    }
+
+    private void goToMainActivity() {
+        Navigation.findNavController(requireView()).navigate(R.id.action_authActivity_to_homeFragment);
     }
 }

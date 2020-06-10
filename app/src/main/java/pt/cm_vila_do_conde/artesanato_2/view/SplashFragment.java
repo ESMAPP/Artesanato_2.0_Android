@@ -9,39 +9,43 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-
 import pt.cm_vila_do_conde.artesanato_2.R;
+import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentSplashBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SplashViewModel;
 
 public class SplashFragment extends Fragment {
     private SplashViewModel splashViewModel;
+    private NavController navController;
+    private FragmentSplashBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        binding = FragmentSplashBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        initSplashViewModel();
+        checkIfUserIsAuthenticated();
     }
 
     private void initSplashViewModel() {
-        splashViewModel = new ViewModelProvider(this).get(SplashViewModel.class);
+        splashViewModel = new ViewModelProvider(requireActivity()).get(SplashViewModel.class);
     }
 
     private void checkIfUserIsAuthenticated() {
         splashViewModel.checkIfUserIsAuthenticated();
         splashViewModel.isUserAuthenticatedLiveData.observe(getViewLifecycleOwner(), user -> {
-            if (!user.isAuthenticated()) {
-                goToAuth();
-            } else {
-                getUserFromDatabase(user.getUid());
-            }
+            if (user.isAuthenticated()) getUserFromDatabase(user.getUid());
+            else goToHome(user);
         });
     }
 
@@ -50,11 +54,13 @@ public class SplashFragment extends Fragment {
         splashViewModel.userLiveData.observe(getViewLifecycleOwner(), this::goToHome);
     }
 
-    private void goToAuth(){
+    private void goToAuth() {
         // Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_authActivity);
     }
 
-    private void goToHome(User user){
-        // Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_homeFragment);
+    private void goToHome(User user) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("user", user);
+        navController.navigate(R.id.action_splashFragment_to_homeFragment, bundle);
     }
 }

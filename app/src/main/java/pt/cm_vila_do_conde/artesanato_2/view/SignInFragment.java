@@ -33,7 +33,6 @@ import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentSigninBinding;
-import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentSigninBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
@@ -133,7 +132,8 @@ public class SignInFragment extends Fragment {
         String emailInput = binding.inputEmail.getText().toString();
         String passwordInput = binding.inputPassword.getText().toString();
         authViewModel.signInWithEmail(emailInput, passwordInput);
-        authViewModel.authenticatedUserLiveData.observe(getViewLifecycleOwner(), authenticatedUser -> goToMainActivity());
+        authViewModel.authenticatedUserLiveData
+                .observe(getViewLifecycleOwner(), this::goToMainActivity);
     }
 
     private void initGoogleSignInClient() {
@@ -165,7 +165,7 @@ public class SignInFragment extends Fragment {
             if (authenticatedUser.isNew()) {
                 createNewUser(authenticatedUser);
             } else {
-                goToMainActivity();
+                goToMainActivity(authenticatedUser);
             }
         });
     }
@@ -177,7 +177,7 @@ public class SignInFragment extends Fragment {
             if (authenticatedUser.isNew()) {
                 createNewUser(authenticatedUser);
             } else {
-                goToMainActivity();
+                goToMainActivity(authenticatedUser);
             }
         });
     }
@@ -188,12 +188,14 @@ public class SignInFragment extends Fragment {
             if (user.isCreated()) {
                 Toast.makeText(requireActivity(), "User Created", Toast.LENGTH_LONG).show();
             }
-            goToMainActivity();
+            goToMainActivity(user);
         });
     }
 
-    public void goToMainActivity() {
-        Navigation.findNavController(requireView()).navigate(R.id.action_authActivity_to_homeFragment);
+    public void goToMainActivity(User user) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("user", user);
+        Navigation.findNavController(requireView()).navigate(R.id.action_authActivity_to_homeFragment, bundle);
     }
 
 }

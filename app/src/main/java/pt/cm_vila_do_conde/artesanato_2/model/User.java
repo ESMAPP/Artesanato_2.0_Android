@@ -16,9 +16,11 @@ public class User implements Serializable {
     private String name;
     private String profilePic;
     private int reputation = 0;
-    private ArrayList<Badge> badges = new ArrayList<Badge>();
+    private ArrayList<String> badges;
     private int ranking = -1; // -1 == Unranked
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
+    @Exclude
+    private Throwable error;
 
     public User() {
     }
@@ -28,6 +30,20 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
         this.profilePic = profilePic;
+
+    }
+
+    public User(Throwable error) {
+        this.error = error;
+    }
+
+    @Exclude
+    public Throwable getError() {
+        return error;
+    }
+
+    public void setError(Throwable error) {
+        this.error = error;
     }
 
     public String getEmail() {
@@ -98,11 +114,11 @@ public class User implements Serializable {
         this.reputation = reputation;
     }
 
-    public ArrayList<Badge> getBadges() {
+    public ArrayList<String> getBadges() {
         return badges;
     }
 
-    public void setBadges(ArrayList<Badge> badges) {
+    public void setBadges(ArrayList<String> badges) {
         this.badges = badges;
     }
 

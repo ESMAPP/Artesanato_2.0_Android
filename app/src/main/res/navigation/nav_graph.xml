@@ -8,20 +8,20 @@
         android:id="@+id/authActivity"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment"
         android:label="activity_auth"
-        tools:layout="@layout/fragment_auth" >
+        tools:layout="@layout/fragment_auth">
         <action
             android:id="@+id/action_authActivity_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@anim/fragment_close_enter" />
+        <action
+            android:id="@+id/action_authActivity_to_passwordRecoverFragment"
+            app:destination="@id/passwordRecoverFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_homeFragment_to_profileBadgesFragment"
-            app:destination="@id/profileBadgesFragment" />
+        tools:layout="@layout/fragment_home">
         <argument
             android:name="uid"
             app:argType="string" />
@@ -31,12 +31,30 @@
         <action
             android:id="@+id/action_homeFragment_to_authActivity"
             app:destination="@id/authActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_artisansListFragment"
+            app:destination="@id/artisansListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_eventListFragment"
+            app:destination="@id/eventListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_rankingsFragment"
+            app:destination="@id/rankingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fairLocationFragment"
+            app:destination="@id/fairLocationFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileBadgesFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileBadgesFragment"
         android:label="fragment_profile_badges"
-        tools:layout="@layout/fragment_profile_badges" >
+        tools:layout="@layout/fragment_profile_badges">
         <argument
             android:name="uid"
             app:argType="string" />
@@ -48,5 +66,75 @@
         android:id="@+id/profileEditFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileEditFragment"
         android:label="fragment_profile_edit"
-        tools:layout="@layout/fragment_profile_edit" />
+        tools:layout="@layout/fragment_profile_edit" >
+        <action
+            android:id="@+id/action_profileEditFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_profileEditFragment"
+            app:destination="@id/profileEditFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/artisansListFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.ArtisansListFragment"
+        android:label="fragment_artisans_list"
+        tools:layout="@layout/fragment_artisans_list" >
+        <action
+            android:id="@+id/action_artisansListFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eventListFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.EventListFragment"
+        android:label="fragment_event_list"
+        tools:layout="@layout/fragment_event_list" >
+        <action
+            android:id="@+id/action_eventListFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fairLocationFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.FairLocationFragment"
+        android:label="fragment_fair_location"
+        tools:layout="@layout/fragment_fair_location" >
+        <action
+            android:id="@+id/action_fairLocationFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordRecoverFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.PasswordRecoverFragment"
+        android:label="fragment_password_recover"
+        tools:layout="@layout/fragment_password_recover" >
+        <action
+            android:id="@+id/action_passwordRecoverFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rankingsFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.RankingsFragment"
+        android:label="fragment_rankings"
+        tools:layout="@layout/fragment_rankings" >
+        <action
+            android:id="@+id/action_rankingsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

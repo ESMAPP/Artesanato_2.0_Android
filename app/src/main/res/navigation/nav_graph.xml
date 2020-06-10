@@ -35,9 +35,6 @@
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_notificationsFragment"
             app:destination="@id/notificationsFragment" />
         <action
@@ -69,12 +66,6 @@
         android:id="@+id/profileEditFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileEditFragment"
         android:label="fragment_profile_edit"
-        tools:layout="@layout/fragment_profile_edit" />
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
         tools:layout="@layout/fragment_profile_edit" >
         <action
             android:id="@+id/action_profileEditFragment_to_profileFragment"

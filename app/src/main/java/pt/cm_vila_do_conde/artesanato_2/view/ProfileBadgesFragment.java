@@ -69,6 +69,6 @@ public class ProfileBadgesFragment extends Fragment {
     }
 
     private void gotToEditProfile() {
-        Navigation.findNavController(requireView()).navigate(R.id.action_profileBadgesFragment_to_profileEditFragment);
+        Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_profileEditFragment);
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -15,10 +16,12 @@ import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentProfileEditBinding;
+import pt.cm_vila_do_conde.artesanato_2.viewmodel.EditProfileViewModel;
 
 public class ProfileEditFragment extends Fragment {
     FragmentProfileEditBinding binding;
     private NavController navController;
+    private EditProfileViewModel editProfileViewModel;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,9 +39,22 @@ public class ProfileEditFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         binding.btnBack.setOnClickListener(v -> goBack());
+        initEditProfileViewModel();
     }
 
     public void goBack() {
         navController.popBackStack();
     }
+
+    public void initEditProfileViewModel() {
+
+        editProfileViewModel = new ViewModelProvider(requireActivity()).get(EditProfileViewModel.class);
+    }
+
+    public void getUserIdFromDataBase() {
+
+
+
+    };
+
 }

@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getUserRole();
         // Debug
         homeViewModel.userRole
-                .observe(getViewLifecycleOwner(), role -> Toast.makeText(requireContext(), role.toString(), Toast.LENGTH_SHORT).show());
+                .observe(getViewLifecycleOwner(), role -> Toast.makeText(requireContext(), "role.toString()", Toast.LENGTH_SHORT).show());
     }
 
     private void goToAuth() {

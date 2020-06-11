@@ -31,6 +31,8 @@ public class HomeRepository {
                     Log.e(TAG, task.getException().getLocalizedMessage());
                 }
             });
+        } else {
+            userType.setValue(null);
         }
         return userType;
     }

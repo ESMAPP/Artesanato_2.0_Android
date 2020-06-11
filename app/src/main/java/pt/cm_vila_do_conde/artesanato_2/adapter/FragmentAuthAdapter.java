@@ -13,7 +13,7 @@ import pt.cm_vila_do_conde.artesanato_2.view.SignUpFragment;
 public class FragmentAuthAdapter extends FragmentPagerAdapter {
 
     public FragmentAuthAdapter(@NonNull FragmentManager fm) {
-        super(fm);
+        super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 
     @NotNull

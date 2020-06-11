@@ -39,4 +39,6 @@
     <string name="reputation">Reputação</string>
     <string name="ranking_position">Posição no ranking</string>
     <string name="change_profile_pic">Alterar foto de perfil</string>
+    <string name="editar_perfil">Editar Perfil</string>
+    <string name="sair">Sair</string>
 </resources>

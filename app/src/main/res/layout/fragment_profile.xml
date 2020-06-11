@@ -7,27 +7,35 @@
     android:background="@drawable/bg_3"
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.ProfileFragment">
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/topBar"
+        style="@style/imgText"
+        android:adjustViewBounds="true"
+        android:background="@drawable/shape_bottom_shadow"
+        android:contentDescription="@string/topBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bar_top" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="@color/transparent"
-            android:contentDescription="@string/top_bar"
-            android:scaleType="center"
-            app:srcCompat="@drawable/bar_top" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/userInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="36dp"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
                 android:layout_width="wrap_content"
@@ -35,34 +43,29 @@
                 android:layout_gravity="center_horizontal">
 
                 <ImageView
-                    android:id="@+id/profile_pic"
+                    android:id="@+id/profilePic"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:contentDescription="@string/profile_picture"
+                    android:contentDescription="@string/profilePicture"
                     app:srcCompat="@android:drawable/sym_def_app_icon" />
 
                 <ImageView
-                    android:id="@+id/profile_pic_frame"
+                    android:id="@+id/profilePicFrame"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/circle_pic"
-                    android:contentDescription="@string/profile_picture_frame"
+                    android:background="@drawable/shape_circle"
+                    android:contentDescription="@string/profilePictureFrame"
                     android:scaleType="center" />
             </FrameLayout>
 
             <TextView
-                android:id="@+id/text_user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/mina_regular"
-                android:text="Nome"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:id="@+id/userName"
+                style="@style/blackTitle"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/name"
+                android:textSize="22sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -72,50 +75,40 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:background="@color/transparent"
-                    android:contentDescription="@string/ranking_position"
-                    app:srcCompat="@drawable/btn_contests" />
+                    style="@style/imgText"
+                    android:contentDescription="@string/rankingPosition"
+                    app:srcCompat="@drawable/i_cup_color" />
 
                 <TextView
-                    android:id="@+id/text_user_ranking"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:id="@+id/userRanking"
+                    style="@style/greyText"
                     android:layout_marginStart="6dp"
-                    android:fontFamily="@font/quicksand"
-                    android:text="#0"
-                    android:textColor="#707070" />
+                    android:text="#0" />
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
+                    style="@style/imgText"
+                    android:layout_height="18dp"
                     android:layout_marginStart="20dp"
-                    android:background="@color/transparent"
                     android:contentDescription="@string/reputation"
-                    app:srcCompat="@drawable/btn_events" />
+                    app:srcCompat="@drawable/i_start_color" />
 
                 <TextView
-                    android:id="@+id/text_user_reputation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
+                    android:id="@+id/userReputation"
+                    style="@style/greyText"
                     android:layout_marginStart="6dp"
-                    android:fontFamily="@font/quicksand"
-                    android:text="0"
-                    android:textColor="#707070" />
+                    android:text="0" />
             </LinearLayout>
 
             <com.google.android.material.tabs.TabLayout
-                android:layout_width="match_parent"
+                android:id="@+id/innerNavBar"
+                android:layout_width="325dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="28dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginTop="25dp"
+                android:background="@drawable/tab_underline"
+                app:tabIndicatorColor="@color/primaryBlue"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorGravity="bottom"
+                app:tabRippleColor="@color/transparent">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
@@ -137,48 +130,56 @@
             </com.google.android.material.tabs.TabLayout>
 
         </LinearLayout>
-    </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        <LinearLayout
+            android:id="@+id/btn"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    style="@style/imgText"
+                    android:contentDescription="@string/go_back"
+                    android:paddingEnd="8dp"
+                    app:srcCompat="@drawable/btn_arrow_back_color" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnExtra"
+                    style="@style/imgText"
+                    android:contentDescription="@string/menu"
+                    android:paddingStart="10dp"
+                    app:srcCompat="@drawable/i_more_grey" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/authViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/btn_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:contentDescription="@string/go_back"
-                app:srcCompat="@drawable/btn_arrow_back_color" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="end"
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/btn_extra"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/transparent"
-                android:contentDescription="@string/menu"
-                app:srcCompat="@drawable/i_more_grey" />
-
-        </LinearLayout>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

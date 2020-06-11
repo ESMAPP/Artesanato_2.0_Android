@@ -7,17 +7,6 @@
     android:background="@drawable/bg_2"
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/auth_view_pager"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top">
-
-    </androidx.viewpager.widget.ViewPager>
-
     <LinearLayout
         android:id="@+id/top"
         android:layout_width="350dp"
@@ -34,12 +23,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <ImageButton
-                android:id="@+id/btn_back"
-                android:layout_width="17dp"
-                android:layout_height="wrap_content"
-                android:background="@color/transparent"
+                android:id="@+id/btnBack"
+                style="@style/imgText"
                 android:contentDescription="@string/go_back"
+                android:paddingEnd="8dp"
                 app:srcCompat="@drawable/btn_arrow_back_color" />
         </LinearLayout>
 
@@ -59,12 +48,12 @@
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/inner_nav_bar"
+            android:id="@+id/innerNavBar"
             android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/tab_underline"
-            app:tabIndicatorColor="@color/colorPrimary"
+            app:tabIndicatorColor="@color/primaryBlue"
             app:tabIndicatorFullWidth="true"
             app:tabIndicatorGravity="bottom"
             app:tabRippleColor="@color/transparent">
@@ -82,6 +71,18 @@
                 android:text="@string/sign_up" />
 
         </com.google.android.material.tabs.TabLayout>
+
     </LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/authViewPager"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top">
+
+    </androidx.viewpager.widget.ViewPager>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +18,7 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentProfileEditBinding;
 
 public class ProfileEditFragment extends Fragment {
     FragmentProfileEditBinding binding;
+    private NavController navController;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,10 +34,11 @@ public class ProfileEditFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.btnBack.setOnClickListener(v -> gotBack());
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        binding.btnBack.setOnClickListener(v -> goBack());
     }
 
-    private void gotBack() {
-        Navigation.findNavController(requireView()).navigate(R.id.action_profileEditFragment_to_profileFragment);
+    public void goBack() {
+        navController.popBackStack();
     }
 }

@@ -94,11 +94,11 @@ public class AuthRepository {
 
                         if (firebaseUser != null) {
                             String uid = firebaseUser.getUid();
-                            String userName = firebaseUser.getDisplayName();
-                            String userEmail = firebaseUser.getEmail();
-                            String userProfilePic = "";
-
-                            User user = new User(uid, userName, userEmail, userProfilePic);
+                            String name = firebaseUser.getDisplayName();
+                            String firebaseUserEmail = firebaseUser.getEmail();
+                            String profilePic = "";
+                            User user = new User(uid, name, firebaseUserEmail, profilePic);
+                            user.setAuthenticated(true);
                             authenticatedUserMutableLiveData.setValue(user);
                         }
                     } else {

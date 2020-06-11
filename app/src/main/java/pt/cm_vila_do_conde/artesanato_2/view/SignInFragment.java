@@ -29,6 +29,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+import org.apache.commons.validator.GenericValidator;
+
 import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
@@ -131,9 +133,19 @@ public class SignInFragment extends Fragment {
     private void signInWithEmail() {
         String emailInput = binding.inputEmail.getText().toString();
         String passwordInput = binding.inputPassword.getText().toString();
-        authViewModel.signInWithEmail(emailInput, passwordInput);
-        authViewModel.authenticatedUserLiveData
-                .observe(getViewLifecycleOwner(), this::goToMainActivity);
+        if (!handleErrors(emailInput, passwordInput)) {
+            authViewModel.signInWithEmail(emailInput, passwordInput);
+            authViewModel.authenticatedUserLiveData
+                    .observe(getViewLifecycleOwner(), user -> {
+                        if(user.isAuthenticated()){
+                            goToMainActivity(user);
+                        } else {
+                            binding.inputEmail.setError("Email ou password incorretos!");
+                            binding.inputPassword.setError("Email ou password incorretos!");
+                        }
+
+                    });
+        }
     }
 
     private void initGoogleSignInClient() {
@@ -196,6 +208,24 @@ public class SignInFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putSerializable("user", user);
         Navigation.findNavController(requireView()).navigate(R.id.action_authActivity_to_homeFragment, bundle);
+    }
+
+    public boolean handleErrors(String email, String password) {
+        boolean hasErrors = false;
+        if (email.isEmpty()) {
+            binding.inputEmail.setError("Preencha este campo");
+            hasErrors = true;
+        } else if (!GenericValidator.isEmail(email)){
+            binding.inputEmail.setError("O email não é válido");
+            hasErrors = true;
+        }
+        if (password.isEmpty()) {
+            binding.inputPassword.setError("Preencha este campo");
+            hasErrors = true;
+        } else {
+            binding.inputPassword.setError(null);
+        }
+        return hasErrors;
     }
 
 }

@@ -89,11 +89,11 @@ public class SignInFragment extends Fragment {
     }
 
     private void initGoogleSignInButton() {
-        binding.googleBtn.setOnClickListener(v -> GoogleSignIn());
+        binding.btnGoogle.setOnClickListener(v -> GoogleSignIn());
     }
 
     private void initCustomFacebookButton() {
-        binding.facebookBtn.setOnClickListener(v -> binding.fbLoginBtnHidden.performClick());
+        binding.btnFacebook.setOnClickListener(v -> binding.fbLoginBtnHidden.performClick());
     }
 
     private void initSubmitButton() {
@@ -203,7 +203,7 @@ public class SignInFragment extends Fragment {
         });
     }
 
-    public void goToMainActivity(User user) {
+    private void goToMainActivity(User user) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("user", user);
         Navigation.findNavController(requireView()).navigate(R.id.action_authActivity_to_homeFragment, bundle);

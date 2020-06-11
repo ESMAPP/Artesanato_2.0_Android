@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentNotificationsBinding
 
 public class NotificationsFragment extends Fragment {
     FragmentNotificationsBinding binding;
+    private NavController navController;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,10 +36,11 @@ public class NotificationsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.btnBack.setOnClickListener(v -> gotBack());
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        binding.btnBack.setOnClickListener(v -> goBack());
     }
 
-    private void gotBack() {
-        Navigation.findNavController(requireView()).navigate(R.id.action_notificationsFragment_to_homeFragment);
+    public void goBack() {
+        navController.popBackStack();
     }
 }

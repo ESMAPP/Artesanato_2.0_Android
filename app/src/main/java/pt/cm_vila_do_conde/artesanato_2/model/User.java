@@ -30,6 +30,7 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
         this.profilePic = profilePic;
+
     }
 
     public User(Throwable error) {

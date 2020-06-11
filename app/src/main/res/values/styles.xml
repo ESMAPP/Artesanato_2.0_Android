@@ -2,11 +2,11 @@
     <!-- Base Application Theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">#ffffff</item>
-        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/primaryBlue</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/lightGrey</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/primaryBlue</item>
     </style>
 
     <!-- Splash Screen Style -->
@@ -16,17 +16,54 @@
         </item>
     </style>
 
+    <!-- Title Style -->
+    <style name="Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/mina_regular</item>
+    </style>
+
+    <!-- Black Title Style -->
+    <style name="blackTitle" parent="Title">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Text Style -->
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/quicksand</item>
+    </style>
+
+    <!-- Grey Text Style -->
+    <style name="greyText" parent="Text">
+        <item name="android:textColor">@color/darkGrey</item>
+    </style>
+
+    <!-- Blue Text Style -->
+    <style name="blueText" parent="Text">
+        <item name="android:textColor">@color/primaryBlue</item>
+    </style>
+
     <!-- Input Style -->
-    <style name="input_with_shadow">
+    <style name="shadowInput">
         <item name="android:layout_width">325dp</item>
         <item name="android:layout_height">45dp</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:background">#FFFFFF</item>
+        <item name="android:background">@color/white</item>
         <item name="android:drawablePadding">20dp</item>
         <item name="android:elevation">4dp</item>
-        <item name="android:textColorHint">#A4A4A4</item>
+        <item name="android:textColorHint">@color/mediumGrey</item>
         <item name="android:textSize">12sp</item>
     </style>
+
+    <!-- Img / Btn Style -->
+    <style name="imgText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
 </resources>

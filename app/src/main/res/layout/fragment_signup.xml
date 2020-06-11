@@ -15,7 +15,7 @@
 
         <EditText
             android:id="@+id/input_name"
-            style="@style/input_with_shadow"
+            style="@style/shadowInput"
             android:autofillHints="@string/full_name"
             android:background="@drawable/shape_shadow"
             android:drawableStart="@drawable/i_user_color"
@@ -24,7 +24,7 @@
 
         <EditText
             android:id="@+id/input_email"
-            style="@style/input_with_shadow"
+            style="@style/shadowInput"
             android:layout_marginTop="20dp"
             android:autofillHints="@string/email"
             android:background="@drawable/shape_shadow"
@@ -34,7 +34,7 @@
 
         <EditText
             android:id="@+id/input_password"
-            style="@style/input_with_shadow"
+            style="@style/shadowInput"
             android:layout_marginTop="20dp"
             android:autofillHints="@string/password"
             android:background="@drawable/shape_shadow"
@@ -44,23 +44,23 @@
 
         <EditText
             android:id="@+id/input_confirm_password"
-            style="@style/input_with_shadow"
+            style="@style/shadowInput"
             android:layout_marginTop="20dp"
-            android:autofillHints="@string/confirm_password"
+            android:autofillHints="@string/confirmPassword"
             android:background="@drawable/shape_shadow"
             android:drawableStart="@drawable/i_key_color"
-            android:hint="@string/confirm_password"
+            android:hint="@string/confirmPassword"
             android:inputType="textPassword" />
 
         <ImageButton
-            android:id="@+id/btn_submit"
+            android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="20dp"
             android:background="@color/transparent"
-            android:contentDescription="@string/submit_form"
-            app:srcCompat="@drawable/button_square" />
+            android:contentDescription="@string/submitForm"
+            app:srcCompat="@drawable/btn_arrow_color" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,33 +7,33 @@
     android:background="@drawable/bg_5"
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.HomeFragment">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="311dp"
-        android:contentDescription="@string/app_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_i" />
-
-    <TextView
-        android:id="@+id/tv_highlights"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:drawableBottom="@drawable/bar_divider"
-        android:fontFamily="@font/mina_regular"
-        android:text="@string/highlights"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="start"
+            android:contentDescription="@string/appIcon"
+            app:srcCompat="@drawable/logo_i" />
+
+        <TextView
+            android:id="@+id/titleHighlights"
+            style="@style/blackTitle"
+            android:layout_marginTop="22dp"
+            android:drawableBottom="@drawable/bar_divider"
+            android:text="@string/highlights"
+            android:textSize="18sp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -44,7 +44,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_highlights" />
+        app:layout_constraintTop_toBottomOf="@+id/top" />
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -70,16 +70,14 @@
 
                 <ImageButton
                     android:id="@+id/btn_notifications"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/imgText"
                     android:contentDescription="@string/notifications"
                     app:srcCompat="@drawable/btn_notifications" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/notifications" />
+                    style="@style/greyText"
+                    android:text="@string/notifications"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -90,18 +88,18 @@
 
                 <ImageButton
                     android:id="@+id/btn_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/imgText"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@color/transparent"
                     android:contentDescription="@string/profile"
                     app:srcCompat="@drawable/btn_profile" />
 
                 <TextView
+                    style="@style/greyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/profile" />
+                    android:text="@string/profile"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -112,16 +110,16 @@
 
                 <ImageButton
                     android:id="@+id/btn_fair"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/imgText"
                     android:contentDescription="@string/location"
                     app:srcCompat="@drawable/btn_fair" />
 
                 <TextView
+                    style="@style/greyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/location" />
+                    android:text="@string/location"
+                    android:textSize="12sp" />
             </LinearLayout>
 
         </TableRow>
@@ -139,16 +137,16 @@
 
                 <ImageButton
                     android:id="@+id/btn_events"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/imgText"
                     android:contentDescription="@string/events"
                     app:srcCompat="@drawable/btn_events" />
 
                 <TextView
+                    style="@style/greyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/events" />
+                    android:text="@string/events"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -159,18 +157,18 @@
 
                 <ImageButton
                     android:id="@+id/btn_explore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/imgText"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@color/transparent"
                     android:contentDescription="@string/explore"
                     app:srcCompat="@drawable/btn_explore" />
 
                 <TextView
+                    style="@style/greyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/explore" />
+                    android:text="@string/explore"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -181,16 +179,16 @@
 
                 <ImageButton
                     android:id="@+id/btn_contests"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/imgText"
                     android:contentDescription="@string/contests"
                     app:srcCompat="@drawable/btn_contests" />
 
                 <TextView
+                    style="@style/greyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/contests" />
+                    android:text="@string/contests"
+                    android:textSize="12sp" />
             </LinearLayout>
 
         </TableRow>
@@ -207,16 +205,16 @@
 
                 <ImageButton
                     android:id="@+id/btn_favourites"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/imgText"
                     android:contentDescription="@string/favourites"
                     app:srcCompat="@drawable/btn_favourites" />
 
                 <TextView
+                    style="@style/greyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/favourites" />
+                    android:text="@string/favourites"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -227,18 +225,18 @@
 
                 <ImageButton
                     android:id="@+id/btn_rankings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/imgText"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@color/transparent"
                     android:contentDescription="@string/rankings"
                     app:srcCompat="@drawable/btn_rankings" />
 
                 <TextView
+                    style="@style/greyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/rankings" />
+                    android:text="@string/rankings"
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <LinearLayout
@@ -249,16 +247,16 @@
 
                 <ImageButton
                     android:id="@+id/btn_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/imgText"
                     android:contentDescription="@string/information"
                     app:srcCompat="@drawable/btn_info" />
 
                 <TextView
+                    style="@style/greyText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/information" />
+                    android:text="@string/information"
+                    android:textSize="12sp" />
             </LinearLayout>
 
         </TableRow>
@@ -269,12 +267,8 @@
         android:id="@+id/logout_test_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="201dp"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="27dp"
         android:text="@string/sign_out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="307dp"
+        tools:layout_editor_absoluteY="164dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

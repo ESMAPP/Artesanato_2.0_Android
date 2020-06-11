@@ -1,52 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_card"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/cardCover"
+                android:layout_width="wrap_content"
+                android:layout_height="262dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/coverImage"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/card_cover" />
 
             <TextView
-                android:id="@+id/tv_card_title"
+                android:id="@+id/cardTitle"
+                style="@style/blackTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Feira Nacional de Artesanato de Vila do Conde"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/title"
+                android:textSize="26sp" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/cardSubTitle"
+                style="@style/greyText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/quicksand"
-                android:text="10 de Maio - 10 de Junho"
-                android:textColor="#707070" />
+                android:layout_marginTop="6dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/subTitle"
+                android:textSize="19sp" />
 
-            <ImageButton
-                android:id="@+id/imageButton2"
+            <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:background="#00FFFFFF"
+                android:layout_height="0dp"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:contentDescription="@string/goTo"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
                 app:srcCompat="@drawable/btn_arrow_foward_grey" />
 
         </LinearLayout>

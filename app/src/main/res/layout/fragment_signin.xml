@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/userInfo"
         android:layout_width="325dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -24,19 +24,15 @@
             android:visibility="gone" />
 
         <ImageButton
-            android:id="@+id/facebook_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
+            android:id="@+id/btnFacebook"
+            style="@style/imgText"
             android:contentDescription="@string/sign_in_facebook"
             app:srcCompat="@drawable/i_facebook_color" />
 
         <ImageButton
-            android:id="@+id/google_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnGoogle"
+            style="@style/imgText"
             android:layout_marginStart="28dp"
-            android:background="@color/transparent"
             android:contentDescription="@string/sign_in_google"
             app:srcCompat="@drawable/i_google_color" />
     </LinearLayout>
@@ -48,11 +44,11 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/userInfo">
 
         <EditText
             android:id="@+id/input_email"
-            style="@style/input_with_shadow"
+            style="@style/shadowInput"
             android:autofillHints="@string/email"
             android:background="@drawable/shape_shadow"
             android:drawableStart="@drawable/i_letter_color"
@@ -61,7 +57,7 @@
 
         <EditText
             android:id="@+id/input_password"
-            style="@style/input_with_shadow"
+            style="@style/shadowInput"
             android:layout_marginTop="20dp"
             android:autofillHints="@string/password"
             android:background="@drawable/shape_shadow"
@@ -81,11 +77,9 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/forgot_password"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/forgot_password"
-                    android:textColor="@color/colorPrimary" />
+                    android:id="@+id/forgotPassword"
+                    style="@style/blueText"
+                    android:text="@string/forgotPassword" />
             </LinearLayout>
 
             <LinearLayout
@@ -95,12 +89,10 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/btn_submit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
-                    android:contentDescription="@string/submit_form"
-                    app:srcCompat="@drawable/button_square" />
+                    android:id="@+id/btnSubmit"
+                    style="@style/imgText"
+                    android:contentDescription="@string/submitForm"
+                    app:srcCompat="@drawable/btn_arrow_color" />
             </LinearLayout>
         </LinearLayout>
 

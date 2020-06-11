@@ -8,38 +8,36 @@
     tools:context=".view.ProfileEditFragment">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="350dp"
+            android:id="@+id/btns"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="30dp"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageButton
-                android:id="@+id/btn_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/transparent"
+                android:id="@+id/btnBack"
+                style="@style/imgText"
                 android:contentDescription="@string/go_back"
+                android:paddingEnd="8dp"
                 app:srcCompat="@drawable/btn_arrow_back_color" />
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:fontFamily="@font/quicksand"
-                android:text="@string/edit_profile"
-                android:textColor="@color/black"
+                style="@style/blackTitle"
+                android:layout_marginStart="20dp"
+                android:text="@string/editProfile"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -51,30 +49,28 @@
             android:layout_marginTop="30dp">
 
             <ImageView
-                android:id="@+id/profile_pic"
+                android:id="@+id/profilePic"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:contentDescription="@string/profile_picture"
+                android:contentDescription="@string/profilePicture"
                 app:srcCompat="@android:drawable/sym_def_app_icon" />
 
             <ImageView
-                android:id="@+id/profile_pic_frame"
+                android:id="@+id/profilePicFrame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/circle_pic"
-                android:contentDescription="@string/profile_picture_frame"
+                android:background="@drawable/shape_circle"
+                android:contentDescription="@string/profilePictureFrame"
                 android:scaleType="center" />
         </FrameLayout>
 
         <TextView
             android:id="@+id/edit_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/blueText"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
-            android:text="@string/change_profile_pic"
-            android:textColor="@color/colorPrimary" />
+            android:text="@string/changeProfilePic" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -85,7 +81,7 @@
 
             <EditText
                 android:id="@+id/input_edit_name"
-                style="@style/input_with_shadow"
+                style="@style/shadowInput"
                 android:autofillHints="@string/full_name"
                 android:background="@drawable/shape_shadow"
                 android:drawableStart="@drawable/i_user_color"
@@ -94,7 +90,7 @@
 
             <EditText
                 android:id="@+id/input_edit_email"
-                style="@style/input_with_shadow"
+                style="@style/shadowInput"
                 android:layout_marginTop="20dp"
                 android:autofillHints="@string/email"
                 android:background="@drawable/shape_shadow"
@@ -104,7 +100,7 @@
 
             <EditText
                 android:id="@+id/input_edit_password"
-                style="@style/input_with_shadow"
+                style="@style/shadowInput"
                 android:layout_marginTop="20dp"
                 android:autofillHints="@string/password"
                 android:background="@drawable/shape_shadow"
@@ -114,23 +110,21 @@
 
             <EditText
                 android:id="@+id/input_edit_confirm_password"
-                style="@style/input_with_shadow"
+                style="@style/shadowInput"
                 android:layout_marginTop="20dp"
-                android:autofillHints="@string/confirm_password"
+                android:autofillHints="@string/confirmPassword"
                 android:background="@drawable/shape_shadow"
                 android:drawableStart="@drawable/i_key_color"
-                android:hint="@string/confirm_password"
+                android:hint="@string/confirmPassword"
                 android:inputType="textPassword" />
 
             <ImageButton
                 android:id="@+id/btn_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/imgText"
                 android:layout_gravity="end"
                 android:layout_marginTop="20dp"
-                android:background="@color/transparent"
                 android:contentDescription="@string/save"
-                app:srcCompat="@drawable/button_square" />
+                app:srcCompat="@drawable/btn_arrow_color" />
 
         </LinearLayout>
 

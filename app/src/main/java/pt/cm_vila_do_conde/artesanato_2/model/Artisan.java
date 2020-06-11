@@ -13,6 +13,5 @@ class Artisan {
         STANDARD
     }
     private Date subscritionDate;
-    private Date createdAt = ;
 
 }

@@ -170,12 +170,11 @@ public class AuthRepository {
         User user = new User();
         if (firebaseUser == null) {
             user.setAuthenticated(false);
-            isUserAuthenticatedMutableLiveData.setValue(user);
         } else {
             user.setUid(firebaseUser.getUid());
             user.setAuthenticated(true);
-            isUserAuthenticatedMutableLiveData.setValue(user);
         }
+        isUserAuthenticatedMutableLiveData.setValue(user);
 
         return isUserAuthenticatedMutableLiveData;
     }

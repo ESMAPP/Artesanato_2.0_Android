@@ -13,5 +13,4 @@ class Artisan {
         STANDARD
     }
     private Date subscritionDate;
-
 }

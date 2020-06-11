@@ -23,7 +23,7 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
 public class ProfileBadgesFragment extends Fragment {
     FragmentProfileBadgesBinding binding;
-    AuthViewModel authViewModel;
+    // AuthViewModel authViewModel;
     NavController navController;
 
     @Override
@@ -43,15 +43,15 @@ public class ProfileBadgesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        initAuthViewModel();
-        handleAuthState();
+        // initAuthViewModel();
+        // handleAuthState();
     }
 
-    private void initAuthViewModel() {
+    /*private void initAuthViewModel() {
         authViewModel = new ViewModelProvider(requireActivity()).get(AuthViewModel.class);
-    }
+    }*/
 
-    private void handleAuthState() {
+/*    private void handleAuthState() {
         authViewModel.authenticationState.observe(getViewLifecycleOwner(),
                 authenticationState -> {
                     switch (authenticationState) {
@@ -62,7 +62,7 @@ public class ProfileBadgesFragment extends Fragment {
                             break;
                     }
                 });
-    }
+    }*/
 
     private void goToAuth(){
         navController.navigate(R.id.authActivity);

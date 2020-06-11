@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_3"
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.ProfileFragment">
-
+  
     <ImageView
         android:id="@+id/topBar"
         style="@style/imgText"

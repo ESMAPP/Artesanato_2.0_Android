@@ -30,7 +30,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import org.apache.commons.validator.GenericValidator;
-
 import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
@@ -137,7 +136,7 @@ public class SignInFragment extends Fragment {
             authViewModel.signInWithEmail(emailInput, passwordInput);
             authViewModel.authenticatedUserLiveData
                     .observe(getViewLifecycleOwner(), user -> {
-                        if(user.isAuthenticated()){
+                        if (user.isAuthenticated()) {
                             goToMainActivity(user);
                         } else {
                             binding.inputEmail.setError("Email ou password incorretos!");
@@ -215,7 +214,7 @@ public class SignInFragment extends Fragment {
         if (email.isEmpty()) {
             binding.inputEmail.setError("Preencha este campo");
             hasErrors = true;
-        } else if (!GenericValidator.isEmail(email)){
+        } else if (!GenericValidator.isEmail(email)) {
             binding.inputEmail.setError("O email não é válido");
             hasErrors = true;
         }

@@ -87,6 +87,7 @@ public class AuthViewModel extends AndroidViewModel {
         AUTHENTICATED,          // The user has authenticated successfully
         ARTISAN_AUTHENTICATED, // The user has authenticated successfully and is artisan
         INVALID_AUTHENTICATION  // Authentication failed
+    }
           
     public void createUserSignUp() {
         //createdUserLiveData = authRepository.createUserInFirestoreIfNotExists();

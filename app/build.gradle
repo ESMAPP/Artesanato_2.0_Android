@@ -57,6 +57,9 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:$nav_version"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
+    implementation 'org.apache.commons:commons-lang3:3.10'
+    implementation 'commons-validator:commons-validator:1.6'
+
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     testImplementation 'junit:junit:4.12'
 

@@ -97,6 +97,7 @@ public class AuthRepository {
                             String firebaseUserEmail = firebaseUser.getEmail();
                             String profilePic = "";
                             User user = new User(uid, name, firebaseUserEmail, profilePic);
+                            user.setAuthenticated(true);
                             authenticatedUserMutableLiveData.setValue(user);
                         }
                     } else {

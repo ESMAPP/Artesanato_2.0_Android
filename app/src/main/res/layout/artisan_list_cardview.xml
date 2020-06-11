@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg_card"
+            android:background="@drawable/shape_shadow"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -47,17 +47,6 @@
                 android:paddingEnd="16dp"
                 android:text="@string/subTitle"
                 android:textSize="20sp" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_gravity="end"
-                android:layout_weight="1"
-                android:contentDescription="@string/goTo"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                app:srcCompat="@drawable/btn_arrow_foward_grey" />
 
         </LinearLayout>
 

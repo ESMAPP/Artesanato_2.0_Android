@@ -8,11 +8,9 @@
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment">
 
     <LinearLayout
-        android:id="@+id/top"
         android:layout_width="350dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

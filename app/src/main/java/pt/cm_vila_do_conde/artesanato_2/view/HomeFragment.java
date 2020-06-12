@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,6 +52,7 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getUserRole();
+        getUserHighlight();
     }
 
     @Override
@@ -62,14 +64,9 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initHomeViewModel();
-        getUserHighlight();
 
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-
-        binding.highlightsCards.setHasFixedSize(true);
-        binding.highlightsCards.setLayoutManager(layoutManager);
-        binding.highlightsCards.setAdapter(adapter);
 
 
 
@@ -89,30 +86,26 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
     private void initHomeViewModel() {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
     }
 
     private void getUserHighlight() {
         homeViewModel.getUser();
-        homeViewModel.userHighlight.observe(getViewLifecycleOwner(), Observer<ArrayList<User>> arrayList);
+        homeViewModel.userHighlight.observe(getViewLifecycleOwner(), this::updateRecylerView);
     }
 
-    /*
-    Observer<ArrayList<User>> highlightUserUpdateObserver = new Observer<ArrayList<User>>() {
-
-        @Override
-        public void onChanged(ArrayList<User> userArrayList) {
-            recyclerViewAdapter = new RecyclerViewAdapter(context,userArrayList);
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(recyclerViewAdapter);
-        }
-
-        @Override
-        public void update(Observable o, Object arg) {
-
-        }
-    }*/
+    private void updateRecylerView(ArrayList<User> users){
+        adapter = new HomeRecyclerAdapter(users);
+        binding.highlightsCards.setHasFixedSize(true);
+        binding.highlightsCards.setLayoutManager(layoutManager);
+        binding.highlightsCards.setAdapter(adapter);
+}
 
     private void getUserRole() {
         homeViewModel.getUserRole();

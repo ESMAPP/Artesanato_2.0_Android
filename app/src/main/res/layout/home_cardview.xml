@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="325dp"
+        android:layout_height="match_parent"
         android:elevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/cardCover"
                 android:layout_width="wrap_content"
-                android:layout_height="262dp"
+                android:layout_height="220dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/coverImage"
                 android:scaleType="centerCrop"

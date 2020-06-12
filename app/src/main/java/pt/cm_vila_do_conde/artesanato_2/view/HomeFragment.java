@@ -1,6 +1,7 @@
 package pt.cm_vila_do_conde.artesanato_2.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +13,31 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+
 import pt.cm_vila_do_conde.artesanato_2.R;
+import pt.cm_vila_do_conde.artesanato_2.adapter.HomeRecyclerAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentHomeBinding;
+import pt.cm_vila_do_conde.artesanato_2.databinding.HomeCardviewBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
-import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.HomeViewModel;
 
 public class HomeFragment extends Fragment {
     private String TAG = "HOME_FRAGMENT";
+
+    LinearLayoutManager layoutManager;
+    private HomeRecyclerAdapter adapter;
+
+
     private FragmentHomeBinding binding;
+    private HomeCardviewBinding cardviewBinding;
     private NavController navController;
     private HomeViewModel homeViewModel;
 
@@ -47,9 +61,17 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initAuthViewModel();
+        initHomeViewModel();
+        getUserHighlight();
 
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+        binding.highlightsCards.setHasFixedSize(true);
+        binding.highlightsCards.setLayoutManager(layoutManager);
+        binding.highlightsCards.setAdapter(adapter);
+
+
 
         // Init buttons via binding
         binding.btnNotifications.setOnClickListener(v -> goToNotifications());
@@ -67,9 +89,30 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void initAuthViewModel() {
+    private void initHomeViewModel() {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
     }
+
+    private void getUserHighlight() {
+        homeViewModel.getUser();
+        homeViewModel.userHighlight.observe(getViewLifecycleOwner(), Observer<ArrayList<User>> arrayList);
+    }
+
+    /*
+    Observer<ArrayList<User>> highlightUserUpdateObserver = new Observer<ArrayList<User>>() {
+
+        @Override
+        public void onChanged(ArrayList<User> userArrayList) {
+            recyclerViewAdapter = new RecyclerViewAdapter(context,userArrayList);
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            recyclerView.setAdapter(recyclerViewAdapter);
+        }
+
+        @Override
+        public void update(Observable o, Object arg) {
+
+        }
+    }*/
 
     private void getUserRole() {
         homeViewModel.getUserRole();

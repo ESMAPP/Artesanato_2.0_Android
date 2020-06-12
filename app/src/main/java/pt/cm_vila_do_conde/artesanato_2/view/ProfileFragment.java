@@ -67,12 +67,12 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 return false;
         }
     }
-
+/*
     public void setupTabAdapter() {
         binding.profileViewPager.setAdapter(new ProfileViewPager(getChildFragmentManager()));
         TabLayout tabs = binding.profileTabs;
         tabs.setupWithViewPager(binding.profileViewPager);
-    }
+    }*/
 
     public void goBack() {
         navController.popBackStack();

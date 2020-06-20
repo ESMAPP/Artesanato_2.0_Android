@@ -27,7 +27,7 @@
             <ImageButton
                 android:id="@+id/btnBack"
                 style="@style/imgText"
-                android:contentDescription="@string/go_back"
+                android:contentDescription="@string/goBack"
                 android:paddingEnd="8dp"
                 app:srcCompat="@drawable/btn_arrow_back_color" />
         </LinearLayout>
@@ -43,13 +43,13 @@
                 android:id="@+id/logo"
                 android:layout_width="240dp"
                 android:layout_height="115dp"
-                android:contentDescription="@string/app_logo"
+                android:contentDescription="@string/appLogo"
                 app:srcCompat="@drawable/logo" />
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/innerNavBar"
-            android:layout_width="match_parent"
+            android:layout_width="325dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/tab_underline"
@@ -61,16 +61,14 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:baselineAlignBottom="false"
                 android:cropToPadding="false"
-                android:text="@string/sign_in" />
+                android:text="@string/signIn" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/sign_up" />
+                android:text="@string/signUp" />
 
         </com.google.android.material.tabs.TabLayout>
 

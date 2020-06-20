@@ -41,6 +41,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //setupTabAdapter();
         initUserViewModel();
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         binding.btnExtra.setOnClickListener(this::showPopup);
@@ -61,12 +62,11 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.edit_profile:
+            case R.id.editProfile:
                 navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
                 return true;
-            case R.id.signout:
+            case R.id.signOut:
                 sharedUserViewModel.signOut();
-
                 navController.navigate(R.id.homeFragment);
                 return true;
             default:
@@ -76,7 +76,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
 /*
     public void setupTabAdapter() {
         binding.profileViewPager.setAdapter(new ProfileViewPager(getChildFragmentManager()));
-        TabLayout tabs = binding.profileTabs;
+        TabLayout tabs = binding.innerNavBar;
         tabs.setupWithViewPager(binding.profileViewPager);
     }*/
 

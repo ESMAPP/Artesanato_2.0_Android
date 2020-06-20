@@ -16,10 +16,10 @@
         <EditText
             android:id="@+id/input_name"
             style="@style/shadowInput"
-            android:autofillHints="@string/full_name"
+            android:autofillHints="@string/fullName"
             android:background="@drawable/shape_shadow"
             android:drawableStart="@drawable/i_user_color"
-            android:hint="@string/full_name"
+            android:hint="@string/fullName"
             android:inputType="text" />
 
         <EditText

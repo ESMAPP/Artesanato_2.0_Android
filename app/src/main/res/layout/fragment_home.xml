@@ -23,7 +23,6 @@
     <TextView
         android:id="@+id/top"
         style="@style/blackTitle"
-        android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="25dp"
@@ -37,9 +36,9 @@
 
     <!--
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/highlightsCards"
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="#C66A6A"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
@@ -53,11 +52,9 @@
         android:id="@+id/highlightsCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="8dp"
-        android:fadeScrollbars="true"
-        android:scrollbarAlwaysDrawHorizontalTrack="false"
-        android:scrollbarAlwaysDrawVerticalTrack="false"
-        android:scrollbarSize="0dp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +69,6 @@
                 android:id="@+id/fairCard"
                 android:layout_width="160dp"
                 android:layout_height="180dp"
-                android:layout_marginStart="30dp"
                 android:layout_marginEnd="25dp">
 
                 <LinearLayout
@@ -87,17 +83,16 @@
                         android:layout_height="102dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/coverImage"
-                        android:scaleType="centerCrop" />
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/card_cover" />
 
                     <TextView
                         android:id="@+id/fairTitle"
                         style="@style/blackTitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:singleLine="true"
                         android:text="@string/title"
                         android:textSize="12sp" />
 
@@ -105,17 +100,15 @@
                         android:id="@+id/fairSubtitle"
                         style="@style/greyText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:singleLine="true"
                         android:text="@string/subTitle"
                         android:textSize="12sp" />
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="0dp"
                         android:layout_gravity="end"
                         android:layout_weight="1"
                         android:contentDescription="@string/goTo"
@@ -152,11 +145,9 @@
                         android:id="@+id/eventTitle"
                         style="@style/blackTitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:singleLine="true"
                         android:text="@string/title"
                         android:textSize="12sp" />
 
@@ -164,11 +155,9 @@
                         android:id="@+id/eventSubtitle"
                         style="@style/greyText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:singleLine="true"
                         android:text="@string/subTitle"
                         android:textSize="12sp" />
 
@@ -189,11 +178,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/artisanCard"
                 android:layout_width="160dp"
-                android:layout_height="180dp"
-                android:layout_marginEnd="30dp"
-                android:fadeScrollbars="true"
-                android:scrollbarAlwaysDrawHorizontalTrack="false"
-                android:scrollbarAlwaysDrawVerticalTrack="false">
+                android:layout_height="180dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -214,11 +199,9 @@
                         android:id="@+id/artisanTitle"
                         style="@style/blackTitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:singleLine="true"
                         android:text="@string/title"
                         android:textSize="12sp" />
 
@@ -226,11 +209,9 @@
                         android:id="@+id/artisanSubtitle"
                         style="@style/greyText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
-                        android:singleLine="true"
                         android:text="@string/subTitle"
                         android:textSize="12sp" />
 
@@ -316,7 +297,7 @@
                     android:id="@+id/btn_fair"
                     style="@style/imgText"
                     android:contentDescription="@string/location"
-                    app:srcCompat="@drawable/btn_location" />
+                    app:srcCompat="@drawable/btn_favourites" />
 
                 <TextView
                     style="@style/greyText"
@@ -466,5 +447,15 @@
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/logout_test_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/signOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,14 +26,14 @@
         <ImageButton
             android:id="@+id/btnFacebook"
             style="@style/imgText"
-            android:contentDescription="@string/sign_in_facebook"
+            android:contentDescription="@string/signInFacebook"
             app:srcCompat="@drawable/i_facebook_color" />
 
         <ImageButton
             android:id="@+id/btnGoogle"
             style="@style/imgText"
             android:layout_marginStart="28dp"
-            android:contentDescription="@string/sign_in_google"
+            android:contentDescription="@string/signInGoogle"
             app:srcCompat="@drawable/i_google_color" />
     </LinearLayout>
 

@@ -19,12 +19,8 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.HomeRecyclerAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentHomeBinding;
-import pt.cm_vila_do_conde.artesanato_2.databinding.HomeCardviewBinding;
 
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 
@@ -36,7 +32,6 @@ public class HomeFragment extends Fragment {
     LinearLayoutManager layoutManager;
     private String TAG = "HOME_FRAGMENT";
     private FragmentHomeBinding binding;
-    private HomeCardviewBinding cardviewBinding;
     private NavController navController;
     private HomeViewModel homeViewModel;
     private SharedUserViewModel sharedUserViewModel;

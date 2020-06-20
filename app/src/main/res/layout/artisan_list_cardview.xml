@@ -39,7 +39,7 @@
                 android:textSize="28sp" />
 
             <TextView
-                android:id="@+id/cardSubTitle"
+                android:id="@+id/cardText"
                 style="@style/greyText"
                 android:layout_width="match_parent"
                 android:layout_marginTop="6dp"

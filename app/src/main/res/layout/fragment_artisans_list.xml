@@ -7,6 +7,7 @@
     tools:context=".view.ArtisansListFragment">
 
     <LinearLayout
+        android:id="@+id/top"
         android:layout_width="325dp"
         android:layout_height="0dp"
         android:layout_marginTop="24dp"
@@ -21,6 +22,18 @@
             android:layout_height="wrap_content"
             android:background="@color/transparent"
             android:contentDescription="@string/goBack"
-            app:srcCompat="@drawable/btn_arrow_back_color" />
+            app:srcCompat="@drawable/i_arrow_back_color" />
+
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/artisansList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top" />
 </androidx.constraintlayout.widget.ConstraintLayout>

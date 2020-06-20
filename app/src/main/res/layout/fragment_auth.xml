@@ -26,10 +26,10 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                style="@style/imgText"
+                style="@style/imgBtn"
                 android:contentDescription="@string/goBack"
                 android:paddingEnd="8dp"
-                app:srcCompat="@drawable/btn_arrow_back_color" />
+                app:srcCompat="@drawable/i_arrow_back_color" />
         </LinearLayout>
 
         <LinearLayout

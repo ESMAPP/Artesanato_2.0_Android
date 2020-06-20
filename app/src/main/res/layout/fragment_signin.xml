@@ -25,13 +25,13 @@
 
         <ImageButton
             android:id="@+id/btnFacebook"
-            style="@style/imgText"
+            style="@style/imgBtn"
             android:contentDescription="@string/signInFacebook"
             app:srcCompat="@drawable/i_facebook_color" />
 
         <ImageButton
             android:id="@+id/btnGoogle"
-            style="@style/imgText"
+            style="@style/imgBtn"
             android:layout_marginStart="28dp"
             android:contentDescription="@string/signInGoogle"
             app:srcCompat="@drawable/i_google_color" />
@@ -50,7 +50,7 @@
             android:id="@+id/input_email"
             style="@style/shadowInput"
             android:autofillHints="@string/email"
-            android:background="@drawable/shape_shadow"
+            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_letter_color"
             android:hint="@string/email"
             android:inputType="textEmailAddress" />
@@ -60,7 +60,7 @@
             style="@style/shadowInput"
             android:layout_marginTop="20dp"
             android:autofillHints="@string/password"
-            android:background="@drawable/shape_shadow"
+            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/password"
             android:inputType="textPassword" />
@@ -90,7 +90,7 @@
 
                 <ImageButton
                     android:id="@+id/btnSubmit"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/submitForm"
                     app:srcCompat="@drawable/btn_arrow_color" />
             </LinearLayout>

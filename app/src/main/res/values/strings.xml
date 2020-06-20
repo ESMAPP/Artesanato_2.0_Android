@@ -1,10 +1,10 @@
 <resources>
     <string name="facebook_app_id">892730931225435</string>
     <string name="fb_login_protocol_scheme">fb892730931225435</string>
+
     <string name="appName">Feira de Artesanato</string>
-    <string name="appLogo">Logótipo Feira de Artesanato</string>
-    <string name="appIcon">Icon Feira de Artesanato</string>
-    <string name="goBack">Voltar atrás</string>
+
+    <!-- TRANSLATABLE TEXT -->
     <string name="signIn">Entrar</string>
     <string name="signUp">Registar</string>
     <string name="signOut">Sair</string>
@@ -12,38 +12,46 @@
     <string name="email">e-mail</string>
     <string name="password">password</string>
     <string name="confirmPassword">confirmar password</string>
-    <string name="submitForm">Submeter formulário</string>
-    <string name="signInGoogle">Entrar com conta do Google</string>
-    <string name="signInFacebook">Entrar com conta do Facebook</string>
     <string name="forgotPassword">Esqueceu-se da password?</string>
+    <string name="recoverPassword">Recuperar password</string>
     <string name="editProfile">Editar Perfil</string>
-    <string name="save">Guardar</string>
-    <string name="contests">Concursos</string>
-    <string name="activity">Atividade</string>
-    <string name="badges">Medalhas</string>
+    <string name="changeProfilePic">Alterar foto de perfil</string>
     <string name="highlights">Destaques</string>
+    <string name="notifications">Notificações</string>
     <string name="profile">Perfil</string>
     <string name="location">Localização</string>
     <string name="events">Eventos</string>
     <string name="explore">Explorar</string>
+    <string name="contests">Concursos</string>
+    <string name="favourites">Favoritos</string>
     <string name="rankings">Rankings</string>
     <string name="information">Informações</string>
-    <string name="favourites">Favoritos</string>
-    <string name="notifications">Notificações</string>
-    <string name="divider">Divisor</string>
-    <string name="recoverPassword">Recuperar password</string>
+    <string name="badges">Medalhas</string>
+    <string name="activity">Atividade</string>
+
+
+    <!-- PLACEHOLDER TEXT / DESCRIPTION TEXT -->
+    <string name="appLogo">logo Feira de Artesanato</string>
+    <string name="appIcon">icon Feira de Artesanato</string>
+    <string name="goBack">go back</string>
+    <string name="goTo">go to</string>
+    <string name="submitForm">submit form</string>
+    <string name="signInGoogle">sign in with google</string>
+    <string name="signInFacebook">sign in with facebook</string>
+    <string name="save">save</string>
+    <string name="divider">divider</string>
     <string name="menu">Menu</string>
-    <string name="profilePicture">Image de perfil</string>
-    <string name="profilePictureFrame">Moldura para image de perfil</string>
-    <string name="topBar">Barra de topo</string>
-    <string name="reputation">Reputação</string>
-    <string name="rankingPosition">Posição no ranking</string>
-    <string name="changeProfilePic">Alterar foto de perfil</string>
-    <string name="coverImage">Imagem de capa</string>
-    <string name="title">Título</string>
-    <string name="subTitle">Sub título</string>
-    <string name="goTo">Ir para</string>
-    <string name="name">Nome</string>
-    <string name="city">Cidade</string>
-    <string name="addFavourite">Adicionar favourito</string>
+    <string name="profilePicture">profile picture</string>
+    <string name="profilePictureFrame">profile picture frame</string>
+    <string name="topBar">top bar</string>
+    <string name="reputation">reputation</string>
+    <string name="rankingPosition">ranking</string>
+    <string name="coverImage">cover image</string>
+    <string name="title">title</string>
+    <string name="subtitle">subtitle</string>
+    <string name="name">name</string>
+    <string name="city">city</string>
+    <string name="addFavourite">add favourite</string>
+    <string name="message">message</string>
+    <string name="time">time</string>
 </resources>

@@ -17,7 +17,7 @@
             android:id="@+id/input_name"
             style="@style/shadowInput"
             android:autofillHints="@string/fullName"
-            android:background="@drawable/shape_shadow"
+            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_user_color"
             android:hint="@string/fullName"
             android:inputType="text" />
@@ -27,7 +27,7 @@
             style="@style/shadowInput"
             android:layout_marginTop="20dp"
             android:autofillHints="@string/email"
-            android:background="@drawable/shape_shadow"
+            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_letter_color"
             android:hint="@string/email"
             android:inputType="textEmailAddress" />
@@ -37,7 +37,7 @@
             style="@style/shadowInput"
             android:layout_marginTop="20dp"
             android:autofillHints="@string/password"
-            android:background="@drawable/shape_shadow"
+            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/password"
             android:inputType="textPassword" />
@@ -47,7 +47,7 @@
             style="@style/shadowInput"
             android:layout_marginTop="20dp"
             android:autofillHints="@string/confirmPassword"
-            android:background="@drawable/shape_shadow"
+            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/confirmPassword"
             android:inputType="textPassword" />

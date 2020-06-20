@@ -58,7 +58,7 @@ public class AuthRepository {
         return authenticatedUserMutableLiveData;
     }
 
-    public MutableLiveData<User> firebaseSignInWithFacebook(AccessToken facebookAccessToken){
+    public MutableLiveData<User> firebaseSignInWithFacebook(AccessToken facebookAccessToken) {
         MutableLiveData<User> authenticatedUserMutableLiveData = new MutableLiveData<>();
 
         AuthCredential facebookAuthCredential = FacebookAuthProvider.getCredential(facebookAccessToken.getToken());
@@ -89,10 +89,11 @@ public class AuthRepository {
         MutableLiveData<User> authenticatedUserMutableLiveData = new MutableLiveData<>();
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(authTask -> {
-                    if(authTask.isSuccessful()){
+                    if (authTask.isSuccessful()) {
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
                         if (firebaseUser != null) {
+                            System.out.println(firebaseUser);
                             String uid = firebaseUser.getUid();
                             String name = firebaseUser.getDisplayName();
                             String firebaseUserEmail = firebaseUser.getEmail();
@@ -135,12 +136,12 @@ public class AuthRepository {
         return newUserMutableLiveData;
     }
 
-    public  MutableLiveData<User> signUpNewUser(String name, String email, String password) {
+    public MutableLiveData<User> signUpNewUser(String name, String email, String password) {
         MutableLiveData<User> newUserMutableLiveData = new MutableLiveData<>();
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(authTask -> {
-                    if(authTask.isSuccessful()) {
+                    if (authTask.isSuccessful()) {
                         Log.w(TAG, "signUpWithEmail:success", authTask.getException());
 
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -196,7 +197,6 @@ public class AuthRepository {
         return userMutableLiveData;
     }
 
-
     public MutableLiveData<User> signOut() {
         MutableLiveData<User> signOutUserLiveData = new MutableLiveData<>();
         firebaseAuth.signOut();
@@ -204,5 +204,4 @@ public class AuthRepository {
         signOutUserLiveData.setValue(null);
         return signOutUserLiveData;
     }
-
 }

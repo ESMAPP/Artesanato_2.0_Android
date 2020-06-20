@@ -2,11 +2,14 @@ package pt.cm_vila_do_conde.artesanato_2.repository;
 
 import android.util.Log;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -16,6 +19,16 @@ import java.util.Date;
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.model.Event;
 import pt.cm_vila_do_conde.artesanato_2.utils.SortingHelper;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Document;
+
+import java.util.ArrayList;
+
+import pt.cm_vila_do_conde.artesanato_2.model.User;
+import pt.cm_vila_do_conde.artesanato_2.model.Event;
 
 public class HomeRepository {
     private String TAG = "HOME_REPOSITORY";
@@ -90,5 +103,22 @@ public class HomeRepository {
         });
 
         return featuredArtisan;
+    }
+
+    public MutableLiveData<Event> getFeaturedEvent() {
+        MutableLiveData<Event> featuredEvent = new MutableLiveData<>();
+
+        eventsRef.whereEqualTo("featured", true).addSnapshotListener((task, e) -> {
+
+            Log.d(TAG, "GOT HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            for (DocumentSnapshot document : task.getDocuments()) {
+
+                Log.d(TAG, document.getData().toString());
+                featuredEvent.setValue(document.toObject(Event.class));
+            }
+
+        });
+
+        return featuredEvent;
     }
 }

@@ -37,9 +37,9 @@
 
     <!--
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/highlightsCards"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_marginTop="10dp"
         android:background="#C66A6A"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"

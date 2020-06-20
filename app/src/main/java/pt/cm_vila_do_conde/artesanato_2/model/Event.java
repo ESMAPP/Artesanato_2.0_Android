@@ -17,6 +17,7 @@ public class Event implements Serializable {
     private Timestamp endDate;
     private String category;
 
+
     public Event() {
     }
 

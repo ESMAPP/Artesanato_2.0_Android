@@ -16,12 +16,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.squareup.picasso.Picasso;
 
+
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 import pt.cm_vila_do_conde.artesanato_2.R;
+import pt.cm_vila_do_conde.artesanato_2.adapter.HomeRecyclerAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentHomeBinding;
 import pt.cm_vila_do_conde.artesanato_2.databinding.HomeCardviewBinding;
+
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
+
 import pt.cm_vila_do_conde.artesanato_2.model.Event;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.HomeViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
@@ -39,6 +45,11 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override
@@ -65,6 +76,10 @@ public class HomeFragment extends Fragment {
         binding.eventCard.setOnClickListener(v -> goToUpcomingEventPage());
         binding.fairCard.setOnClickListener(v -> goToFairEventPage());
 
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+
         // Init buttons via binding
         binding.btnNotifications.setOnClickListener(v -> goToNotifications());
         binding.btnProfile.setOnClickListener(v -> goToProfile());
@@ -77,13 +92,20 @@ public class HomeFragment extends Fragment {
         binding.btnInfo.setOnClickListener(v -> goToInformations());
     }
 
+
     private void initUserViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     private void initHomeViewModel() {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
     }
+
 
     private void checkIfUserIsAuthenticated() {
         sharedUserViewModel.checkIfUserIsAuthenticated();
@@ -131,14 +153,15 @@ public class HomeFragment extends Fragment {
     }
 
     @SuppressLint("SetTextI18n")
-    public void updateArtisanCard(Artisan artisan) {
-        Picasso.get().load(artisan.getImage())
-                .placeholder(R.drawable.logo_i)
-                .resize(binding.artisanCover.getMeasuredWidth(), binding.artisanCover.getMeasuredHeight())
-                .into(binding.artisanCover);
-        binding.artisanTitle.setText(artisan.getName());
-        binding.artisanSubtitle.setText("Reputação: " + artisan.getReputation());
-    }
+    public void updateArtisanCard(Artisan artisan){
+            Picasso.get().load(artisan.getImage())
+                    .placeholder(R.drawable.logo_i)
+                    .resize(binding.artisanCover.getMeasuredWidth(), binding.artisanCover.getMeasuredHeight())
+                    .into(binding.artisanCover);
+            binding.artisanTitle.setText(artisan.getName());
+            binding.artisanSubtitle.setText("Reputação: " + artisan.getReputation());
+
+        }
 
     /*private void updateRecylerView(ArrayList list) {
         HomeRecyclerAdapter adapter = new HomeRecyclerAdapter(list);
@@ -147,12 +170,7 @@ public class HomeFragment extends Fragment {
         binding.highlightsCards.setAdapter(adapter);
     }*/
 
-    /*private void getUserRole() {
-        homeViewModel.getUserRole();
-        // Debug
-        homeViewModel.userRole
-                .observe(getViewLifecycleOwner(), role -> Toast.makeText(requireContext(), "role.toString()", Toast.LENGTH_SHORT).show());
-    }*/
+
 
     public void goToArtisanPage() {
         String id = homeViewModel.featuredArtisan.getValue().getUid();

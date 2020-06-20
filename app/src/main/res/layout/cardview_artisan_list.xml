@@ -17,7 +17,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/shape_shadow"
+            android:background="@drawable/shape_white_shadow"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
@@ -59,7 +59,7 @@
 
             <ImageButton
                 android:id="@+id/btnAddFavourite"
-                style="@style/imgText"
+                style="@style/imgBtn"
                 android:layout_width="0dp"
                 android:layout_marginStart="371dp"
                 android:layout_marginTop="15dp"

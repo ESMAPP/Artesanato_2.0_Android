@@ -45,6 +45,13 @@
         <item name="android:textColor">@color/primaryBlue</item>
     </style>
 
+    <!-- Img / Btn Style -->
+    <style name="imgBtn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
     <!-- Input Style -->
     <style name="shadowInput">
         <item name="android:layout_width">325dp</item>
@@ -52,18 +59,19 @@
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:background">@color/white</item>
         <item name="android:drawablePadding">20dp</item>
         <item name="android:elevation">4dp</item>
         <item name="android:textColorHint">@color/mediumGrey</item>
         <item name="android:textSize">12sp</item>
     </style>
 
-    <!-- Img / Btn Style -->
-    <style name="imgText">
+    <!-- Home Card Style -->
+    <style name="shadowHomeCard">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@color/transparent</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:background">@drawable/shape_bg_card_shadow</item>
+        <item name="android:orientation">vertical</item>
     </style>
 
 </resources>

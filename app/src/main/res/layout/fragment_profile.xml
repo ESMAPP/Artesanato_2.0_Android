@@ -9,7 +9,7 @@
   
     <ImageView
         android:id="@+id/topBar"
-        style="@style/imgText"
+        style="@style/imgBtn"
         android:adjustViewBounds="true"
         android:background="@drawable/shape_bottom_shadow"
         android:contentDescription="@string/topBar"
@@ -75,7 +75,7 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/rankingPosition"
                     app:srcCompat="@drawable/i_cup_color" />
 
@@ -86,7 +86,7 @@
                     android:text="#0" />
 
                 <ImageView
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:layout_height="18dp"
                     android:layout_marginStart="20dp"
                     android:contentDescription="@string/reputation"
@@ -149,10 +149,10 @@
 
                 <ImageButton
                     android:id="@+id/btnBack"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/goBack"
                     android:paddingEnd="8dp"
-                    app:srcCompat="@drawable/btn_arrow_back_color" />
+                    app:srcCompat="@drawable/i_arrow_back_color" />
 
             </LinearLayout>
 
@@ -164,7 +164,7 @@
 
                 <ImageButton
                     android:id="@+id/btnExtra"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/menu"
                     android:paddingStart="10dp"
                     app:srcCompat="@drawable/i_more_grey" />

@@ -28,10 +28,10 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                style="@style/imgText"
+                style="@style/imgBtn"
                 android:contentDescription="@string/goBack"
                 android:paddingEnd="8dp"
-                app:srcCompat="@drawable/btn_arrow_back_color" />
+                app:srcCompat="@drawable/i_arrow_back_color" />
 
             <TextView
                 android:id="@+id/textView"
@@ -83,7 +83,7 @@
                 android:id="@+id/input_edit_name"
                 style="@style/shadowInput"
                 android:autofillHints="@string/fullName"
-                android:background="@drawable/shape_shadow"
+                android:background="@drawable/shape_white_shadow"
                 android:drawableStart="@drawable/i_user_color"
                 android:hint="@string/fullName"
                 android:inputType="textEmailAddress" />
@@ -93,7 +93,7 @@
                 style="@style/shadowInput"
                 android:layout_marginTop="20dp"
                 android:autofillHints="@string/email"
-                android:background="@drawable/shape_shadow"
+                android:background="@drawable/shape_white_shadow"
                 android:drawableStart="@drawable/i_letter_color"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress" />
@@ -103,7 +103,7 @@
                 style="@style/shadowInput"
                 android:layout_marginTop="20dp"
                 android:autofillHints="@string/password"
-                android:background="@drawable/shape_shadow"
+                android:background="@drawable/shape_white_shadow"
                 android:drawableStart="@drawable/i_key_color"
                 android:hint="@string/password"
                 android:inputType="textPassword" />
@@ -113,14 +113,14 @@
                 style="@style/shadowInput"
                 android:layout_marginTop="20dp"
                 android:autofillHints="@string/confirmPassword"
-                android:background="@drawable/shape_shadow"
+                android:background="@drawable/shape_white_shadow"
                 android:drawableStart="@drawable/i_key_color"
                 android:hint="@string/confirmPassword"
                 android:inputType="textPassword" />
 
             <ImageButton
                 android:id="@+id/btn_save"
-                style="@style/imgText"
+                style="@style/imgBtn"
                 android:layout_gravity="end"
                 android:layout_marginTop="20dp"
                 android:contentDescription="@string/save"

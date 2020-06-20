@@ -27,34 +27,18 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="40dp"
-        android:drawableBottom="@drawable/bar_divider"
+        android:drawableBottom="@drawable/bar_divider_blue"
         android:scaleType="fitCenter"
         android:text="@string/highlights"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
-    <!--
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="#C66A6A"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top" >
-
-    </androidx.recyclerview.widget.RecyclerView>-->
-
     <HorizontalScrollView
         android:id="@+id/highlightsCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="8dp"
+        android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,19 +47,19 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="30dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="30dp"
+            android:paddingBottom="5dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/fairCard"
-                android:layout_width="160dp"
-                android:layout_height="180dp"
-                android:layout_marginEnd="25dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/shadowHomeCard">
 
                     <ImageView
                         android:id="@+id/fairCover"
@@ -107,14 +91,12 @@
                         android:textSize="12sp" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        style="@style/imgBtn"
                         android:layout_gravity="end"
-                        android:layout_weight="1"
                         android:contentDescription="@string/goTo"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        app:srcCompat="@drawable/btn_arrow_foward_grey" />
+                        app:srcCompat="@drawable/i_arrow_foward_grey" />
 
                 </LinearLayout>
 
@@ -122,15 +104,11 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/eventCard"
-                android:layout_width="160dp"
-                android:layout_height="180dp"
-                android:layout_marginEnd="25dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/shadowHomeCard">
 
                     <ImageView
                         android:id="@+id/eventCover"
@@ -162,14 +140,12 @@
                         android:textSize="12sp" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        style="@style/imgBtn"
                         android:layout_gravity="end"
-                        android:layout_weight="1"
                         android:contentDescription="@string/goTo"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        app:srcCompat="@drawable/btn_arrow_foward_grey" />
+                        app:srcCompat="@drawable/i_arrow_foward_grey" />
 
                 </LinearLayout>
 
@@ -177,14 +153,10 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/artisanCard"
-                android:layout_width="160dp"
-                android:layout_height="180dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/bg_card"
-                    android:orientation="vertical">
+                <LinearLayout style="@style/shadowHomeCard">
 
                     <ImageView
                         android:id="@+id/artisanCover"
@@ -216,14 +188,12 @@
                         android:textSize="12sp" />
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        style="@style/imgBtn"
                         android:layout_gravity="end"
-                        android:layout_weight="1"
                         android:contentDescription="@string/goTo"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        app:srcCompat="@drawable/btn_arrow_foward_grey" />
+                        app:srcCompat="@drawable/i_arrow_foward_grey" />
 
                 </LinearLayout>
 
@@ -235,12 +205,12 @@
         android:id="@+id/tableLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/highlightsCards">
+        app:layout_constraintTop_toBottomOf="@+id/highlightsCards">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -255,7 +225,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_notifications"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/notifications"
                     app:srcCompat="@drawable/btn_notifications" />
 
@@ -273,7 +243,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_profile"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:contentDescription="@string/profile"
@@ -295,7 +265,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_fair"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/location"
                     app:srcCompat="@drawable/btn_location" />
 
@@ -322,7 +292,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_events"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/events"
                     app:srcCompat="@drawable/btn_events" />
 
@@ -342,7 +312,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_explore"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:contentDescription="@string/explore"
@@ -364,7 +334,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_contests"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/contests"
                     app:srcCompat="@drawable/btn_contests" />
 
@@ -390,7 +360,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_favourites"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/favourites"
                     app:srcCompat="@drawable/btn_favourites" />
 
@@ -410,7 +380,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_rankings"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:contentDescription="@string/rankings"
@@ -432,7 +402,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_info"
-                    style="@style/imgText"
+                    style="@style/imgBtn"
                     android:contentDescription="@string/information"
                     app:srcCompat="@drawable/btn_info" />
 

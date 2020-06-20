@@ -7,34 +7,35 @@
     android:background="@drawable/bg_5"
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.HomeFragment">
 
-    <LinearLayout
-        android:id="@+id/top"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="24dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
+        android:contentDescription="@string/appIcon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_i" />
+
+    <TextView
+        android:id="@+id/top"
+        style="@style/blackTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="40dp"
+        android:drawableBottom="@drawable/bar_divider"
+        android:scaleType="fitCenter"
+        android:text="@string/highlights"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_gravity="start"
-            android:contentDescription="@string/appIcon"
-            app:srcCompat="@drawable/logo_i" />
-
-        <TextView
-            android:id="@+id/titleHighlights"
-            style="@style/blackTitle"
-            android:layout_marginTop="22dp"
-            android:drawableBottom="@drawable/bar_divider"
-            android:text="@string/highlights"
-            android:textSize="18sp" />
-    </LinearLayout>
-
+    <!--
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -44,7 +45,198 @@
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top" />
+        app:layout_constraintTop_toBottomOf="@+id/top" >
+
+    </androidx.recyclerview.widget.RecyclerView>-->
+
+    <HorizontalScrollView
+        android:id="@+id/highlightsCards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fairCard"
+                android:layout_width="160dp"
+                android:layout_height="180dp"
+                android:layout_marginEnd="25dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/fairCover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="102dp"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/coverImage"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/card_cover" />
+
+                    <TextView
+                        android:id="@+id/fairTitle"
+                        style="@style/blackTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="@string/title"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/fairSubtitle"
+                        style="@style/greyText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="@string/subTitle"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/goTo"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        app:srcCompat="@drawable/btn_arrow_foward_grey" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/eventCard"
+                android:layout_width="160dp"
+                android:layout_height="180dp"
+                android:layout_marginEnd="25dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/eventCover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="102dp"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/coverImage"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/card_cover" />
+
+                    <TextView
+                        android:id="@+id/eventTitle"
+                        style="@style/blackTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="@string/title"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/eventSubtitle"
+                        style="@style/greyText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="@string/subTitle"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/goTo"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        app:srcCompat="@drawable/btn_arrow_foward_grey" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/artisanCard"
+                android:layout_width="160dp"
+                android:layout_height="180dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/artisanCover"
+                        android:layout_width="wrap_content"
+                        android:layout_height="102dp"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/coverImage"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/card_cover" />
+
+                    <TextView
+                        android:id="@+id/artisanTitle"
+                        style="@style/blackTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="@string/title"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/artisanSubtitle"
+                        style="@style/greyText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="@string/subTitle"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="end"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/goTo"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        app:srcCompat="@drawable/btn_arrow_foward_grey" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -55,7 +247,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+        app:layout_constraintTop_toBottomOf="@id/highlightsCards">
 
         <TableRow
             android:layout_width="wrap_content"
@@ -112,7 +304,7 @@
                     android:id="@+id/btn_fair"
                     style="@style/imgText"
                     android:contentDescription="@string/location"
-                    app:srcCompat="@drawable/btn_fair" />
+                    app:srcCompat="@drawable/btn_location" />
 
                 <TextView
                     style="@style/greyText"
@@ -267,8 +459,10 @@
         android:id="@+id/logout_test_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/sign_out"
-        tools:layout_editor_absoluteX="307dp"
-        tools:layout_editor_absoluteY="164dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

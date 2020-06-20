@@ -273,7 +273,7 @@
                     android:id="@+id/btn_fair"
                     style="@style/imgBtn"
                     android:contentDescription="@string/location"
-                    app:srcCompat="@drawable/btn_favourites" />
+                    app:srcCompat="@drawable/btn_location" />
 
                 <TextView
                     style="@style/greyText"

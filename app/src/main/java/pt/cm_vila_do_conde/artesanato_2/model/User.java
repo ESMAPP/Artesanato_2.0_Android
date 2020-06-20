@@ -1,5 +1,6 @@
 package pt.cm_vila_do_conde.artesanato_2.model;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
@@ -19,6 +20,8 @@ public class User implements Serializable {
     private ArrayList<String> badges;
     private int ranking = -1; // -1 == Unranked
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
+    private Timestamp createdAt;
+    private Timestamp updatedAt;
     @Exclude
     private Throwable error;
 

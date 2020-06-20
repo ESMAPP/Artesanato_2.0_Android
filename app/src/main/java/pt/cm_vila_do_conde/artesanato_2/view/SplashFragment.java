@@ -15,10 +15,10 @@ import androidx.navigation.Navigation;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentSplashBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
-import pt.cm_vila_do_conde.artesanato_2.viewmodel.SplashViewModel;
+import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class SplashFragment extends Fragment {
-    private SplashViewModel splashViewModel;
+    private SharedUserViewModel sharedUserViewModel;
     private NavController navController;
     private FragmentSplashBinding binding;
 
@@ -29,38 +29,36 @@ public class SplashFragment extends Fragment {
         return binding.getRoot();
     }
 
-    @Override
+    /*@Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-        initSplashViewModel();
+        initUserViewModel();
         checkIfUserIsAuthenticated();
     }
 
-    private void initSplashViewModel() {
-        splashViewModel = new ViewModelProvider(requireActivity()).get(SplashViewModel.class);
+    private void initUserViewModel() {
+        sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
     private void checkIfUserIsAuthenticated() {
-        splashViewModel.checkIfUserIsAuthenticated();
-        splashViewModel.isUserAuthenticatedLiveData.observe(getViewLifecycleOwner(), user -> {
+        sharedUserViewModel.checkIfUserIsAuthenticated();
+        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
             if (user.isAuthenticated()) getUserFromDatabase(user.getUid());
-            else goToHome(user);
+            else goToHome();
         });
     }
 
     private void getUserFromDatabase(String uid) {
-        splashViewModel.setUid(uid);
-        splashViewModel.userLiveData.observe(getViewLifecycleOwner(), this::goToHome);
+        sharedUserViewModel.setUid(uid);
+        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> goToHome());
     }
 
     private void goToAuth() {
         // Navigation.findNavController(requireView()).navigate(R.id.action_splashFragment_to_authActivity);
     }
 
-    private void goToHome(User user) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("user", user);
-        navController.navigate(R.id.action_splashFragment_to_homeFragment, bundle);
-    }
+    *//*private void goToHome() {
+        navController.navigate(R.id.action_splashFragment_to_homeFragment);
+    }*/
 }

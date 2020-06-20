@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/authActivity"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment"
@@ -126,12 +126,13 @@
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
-        android:id="@+id/splashFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.SplashFragment"
-        android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
-        <action
-            android:id="@+id/action_splashFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        android:id="@+id/eventPageFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.EventPageFragment"
+        android:label="fragment_event_page"
+        tools:layout="@layout/fragment_event_page" />
+    <fragment
+        android:id="@+id/artisanPageFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.ArtisanPageFragment"
+        android:label="fragment_artisan_page"
+        tools:layout="@layout/fragment_artisan_page" />
 </navigation>

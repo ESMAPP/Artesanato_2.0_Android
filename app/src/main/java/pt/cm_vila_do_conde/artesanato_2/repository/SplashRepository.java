@@ -40,6 +40,11 @@ public class SplashRepository {
                 DocumentSnapshot document = userTask.getResult();
                 if (document.exists()) {
                     User user = document.toObject(User.class);
+                    user.setAuthenticated(true);
+                    userMutableLiveData.setValue(user);
+                } else {
+                    User user = new User();
+                    user.setAuthenticated(false);
                     userMutableLiveData.setValue(user);
                 }
             } else {

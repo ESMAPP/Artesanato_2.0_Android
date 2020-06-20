@@ -66,6 +66,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 return true;
             case R.id.signout:
                 sharedUserViewModel.signOut();
+
                 navController.navigate(R.id.homeFragment);
                 return true;
             default:

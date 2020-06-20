@@ -150,7 +150,7 @@
                 <ImageButton
                     android:id="@+id/btnBack"
                     style="@style/imgText"
-                    android:contentDescription="@string/go_back"
+                    android:contentDescription="@string/goBack"
                     android:paddingEnd="8dp"
                     app:srcCompat="@drawable/btn_arrow_back_color" />
 

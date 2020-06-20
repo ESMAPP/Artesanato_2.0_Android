@@ -5,16 +5,17 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
-import java.util.ArrayList;
 
+import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.model.Event;
 import pt.cm_vila_do_conde.artesanato_2.repository.HomeRepository;
 
 public class HomeViewModel extends AndroidViewModel {
-    public LiveData<Integer> userRole;
-    public LiveData<Event> featuredEvent;
+
+    public LiveData<Event> upcomingEvent;
+    public LiveData<Event> fairEvent;
+    public LiveData<Artisan> featuredArtisan;
 
     private HomeRepository homeRepository;
 
@@ -27,13 +28,22 @@ public class HomeViewModel extends AndroidViewModel {
         userMutableLiveData.setValue(user);
     }*/
 
-    public void getUserRole() {
+/*    public void getUser() {
         userRole = homeRepository.getUserRole();
+    }*/
+
+    public void getUpComingEvent() {
+        upcomingEvent = homeRepository.getUpcomingEvent();
+        /*updateArrayList();*/
     }
 
-    public void getFeatureEvent() {
-        featuredEvent = homeRepository.getFeaturedEvent();
-        /*updateArrayList();*/
+
+    public void getFeaturedArtisan() {
+        featuredArtisan = homeRepository.getFeaturedArtisan();
+    }
+
+    public void getFairEvent() {
+        fairEvent = homeRepository.getFairEvent();
     }
 
 

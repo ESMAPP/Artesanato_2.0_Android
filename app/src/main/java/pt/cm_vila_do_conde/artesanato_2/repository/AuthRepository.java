@@ -93,6 +93,7 @@ public class AuthRepository {
                         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 
                         if (firebaseUser != null) {
+                            System.out.println(firebaseUser);
                             String uid = firebaseUser.getUid();
                             String name = firebaseUser.getDisplayName();
                             String firebaseUserEmail = firebaseUser.getEmail();

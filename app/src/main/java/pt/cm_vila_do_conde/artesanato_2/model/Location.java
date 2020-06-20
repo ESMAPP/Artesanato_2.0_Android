@@ -1,5 +1,6 @@
 package pt.cm_vila_do_conde.artesanato_2.model;
 
+
 import com.google.firebase.firestore.GeoPoint;
 
 import java.io.Serializable;

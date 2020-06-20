@@ -53,9 +53,11 @@
         android:id="@+id/highlightsCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
         android:layout_marginBottom="8dp"
+        android:fadeScrollbars="true"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbarSize="0dp"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +72,7 @@
                 android:id="@+id/fairCard"
                 android:layout_width="160dp"
                 android:layout_height="180dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginEnd="25dp">
 
                 <LinearLayout
@@ -80,12 +83,11 @@
 
                     <ImageView
                         android:id="@+id/fairCover"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="102dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/coverImage"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/card_cover" />
+                        android:scaleType="centerCrop" />
 
                     <TextView
                         android:id="@+id/fairTitle"
@@ -95,6 +97,7 @@
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:singleLine="true"
                         android:text="@string/title"
                         android:textSize="12sp" />
 
@@ -106,12 +109,13 @@
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:singleLine="true"
                         android:text="@string/subTitle"
                         android:textSize="12sp" />
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="0dp"
+                        android:layout_height="match_parent"
                         android:layout_gravity="end"
                         android:layout_weight="1"
                         android:contentDescription="@string/goTo"
@@ -137,7 +141,7 @@
 
                     <ImageView
                         android:id="@+id/eventCover"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="102dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/coverImage"
@@ -152,6 +156,7 @@
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:singleLine="true"
                         android:text="@string/title"
                         android:textSize="12sp" />
 
@@ -163,6 +168,7 @@
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:singleLine="true"
                         android:text="@string/subTitle"
                         android:textSize="12sp" />
 
@@ -183,7 +189,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/artisanCard"
                 android:layout_width="160dp"
-                android:layout_height="180dp">
+                android:layout_height="180dp"
+                android:layout_marginEnd="30dp"
+                android:fadeScrollbars="true"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="false">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -193,7 +203,7 @@
 
                     <ImageView
                         android:id="@+id/artisanCover"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="102dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/coverImage"
@@ -208,6 +218,7 @@
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:singleLine="true"
                         android:text="@string/title"
                         android:textSize="12sp" />
 
@@ -219,6 +230,7 @@
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
+                        android:singleLine="true"
                         android:text="@string/subTitle"
                         android:textSize="12sp" />
 
@@ -454,15 +466,5 @@
         </TableRow>
 
     </TableLayout>
-
-    <Button
-        android:id="@+id/logout_test_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="32dp"
-        android:text="@string/sign_out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

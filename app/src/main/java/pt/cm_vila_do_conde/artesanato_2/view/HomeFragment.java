@@ -1,10 +1,10 @@
 package pt.cm_vila_do_conde.artesanato_2.view;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,16 +14,17 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.squareup.picasso.Picasso;
+
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.HomeRecyclerAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentHomeBinding;
 import pt.cm_vila_do_conde.artesanato_2.databinding.HomeCardviewBinding;
+import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.model.Event;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.HomeViewModel;
+import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class HomeFragment extends Fragment {
     LinearLayoutManager layoutManager;
@@ -32,18 +33,12 @@ public class HomeFragment extends Fragment {
     private HomeCardviewBinding cardviewBinding;
     private NavController navController;
     private HomeViewModel homeViewModel;
+    private SharedUserViewModel sharedUserViewModel;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getUserRole();
-        getFeatured();
     }
 
     @Override
@@ -54,11 +49,21 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initUserViewModel();
         initHomeViewModel();
 
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-        layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        getFairEvent();
+        getUpcomingEvent();
+        getFeaturedArtisan();
+        checkIfUserIsAuthenticated();
 
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+        // layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+        // Init card navigation listeners
+        binding.artisanCard.setOnClickListener(v -> goToArtisanPage());
+        binding.eventCard.setOnClickListener(v -> goToUpcomingEventPage());
+        binding.fairCard.setOnClickListener(v -> goToFairEventPage());
 
         // Init buttons via binding
         binding.btnNotifications.setOnClickListener(v -> goToNotifications());
@@ -70,24 +75,69 @@ public class HomeFragment extends Fragment {
         binding.btnFavourites.setOnClickListener(v -> goToFavourites());
         binding.btnRankings.setOnClickListener(v -> goToRankings());
         binding.btnInfo.setOnClickListener(v -> goToInformations());
-        binding.logoutTestBtn.setOnClickListener(v -> {
-            // authViewModel.signOut();
-            goToAuth();
-        });
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
+    private void initUserViewModel() {
+        sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
     private void initHomeViewModel() {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
     }
 
-    private void getFeatured() {
-        homeViewModel.getFeatureEvent();
-        // homeViewModel.featuredList.observe(getViewLifecycleOwner(), this::updateRecylerView);
+    private void checkIfUserIsAuthenticated() {
+        sharedUserViewModel.checkIfUserIsAuthenticated();
+        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
+            if (user.isAuthenticated()) getUserFromDatabase(user.getUid());
+        });
+    }
+
+    private void getUserFromDatabase(String uid) {
+        sharedUserViewModel.setUid(uid);
+    }
+
+    private void getFairEvent() {
+        homeViewModel.getFairEvent();
+        homeViewModel.fairEvent.observe(getViewLifecycleOwner(), this::updateFairCard);
+    }
+
+    private void updateFairCard(Event fair) {
+
+        Picasso.get().load(fair.getImage())
+                .placeholder(R.drawable.logo_i)
+                .resize(binding.fairCover.getMeasuredWidth(), binding.fairCover.getMeasuredHeight())
+                .into(binding.fairCover);
+        binding.fairTitle.setText(fair.getTitle());
+        binding.fairSubtitle.setText(fair.getStartDate().toDate().toString());
+    }
+
+    private void getUpcomingEvent() {
+        homeViewModel.getUpComingEvent();
+        homeViewModel.upcomingEvent.observe(getViewLifecycleOwner(), this::updateEventCard);
+    }
+
+    private void updateEventCard(Event event) {
+        Picasso.get().load(event.getImage())
+                .placeholder(R.drawable.logo_i)
+                .resize(binding.eventCover.getMeasuredWidth(), binding.eventCover.getMeasuredHeight())
+                .into(binding.eventCover);
+        binding.eventTitle.setText(event.getTitle());
+        binding.eventSubtitle.setText(event.getStartDate().toDate().toString());
+    }
+
+    private void getFeaturedArtisan() {
+        homeViewModel.getFeaturedArtisan();
+        homeViewModel.featuredArtisan.observe(getViewLifecycleOwner(), this::updateArtisanCard);
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void updateArtisanCard(Artisan artisan) {
+        Picasso.get().load(artisan.getImage())
+                .placeholder(R.drawable.logo_i)
+                .resize(binding.artisanCover.getMeasuredWidth(), binding.artisanCover.getMeasuredHeight())
+                .into(binding.artisanCover);
+        binding.artisanTitle.setText(artisan.getName());
+        binding.artisanSubtitle.setText("Reputação: " + artisan.getReputation());
     }
 
     /*private void updateRecylerView(ArrayList list) {
@@ -97,12 +147,35 @@ public class HomeFragment extends Fragment {
         binding.highlightsCards.setAdapter(adapter);
     }*/
 
-    private void getUserRole() {
+    /*private void getUserRole() {
         homeViewModel.getUserRole();
         // Debug
         homeViewModel.userRole
                 .observe(getViewLifecycleOwner(), role -> Toast.makeText(requireContext(), "role.toString()", Toast.LENGTH_SHORT).show());
+    }*/
+
+    public void goToArtisanPage() {
+        String id = homeViewModel.featuredArtisan.getValue().getUid();
+        Bundle bundle = new Bundle();
+        bundle.putString("id", id);
+        navController.navigate(R.id.artisanPageFragment, bundle);
     }
+
+    public void goToUpcomingEventPage() {
+        String id = homeViewModel.upcomingEvent.getValue().getId();
+        Bundle bundle = new Bundle();
+        bundle.putString("id", id);
+        navController.navigate(R.id.eventPageFragment, bundle);
+    }
+
+    public void goToFairEventPage() {
+        String id = homeViewModel.fairEvent.getValue().getId();
+        Bundle bundle = new Bundle();
+        bundle.putString("id", id);
+        navController.navigate(R.id.eventPageFragment, bundle);
+
+    }
+
 
     private void goToAuth() {
         navController.navigate(R.id.action_homeFragment_to_authActivity);
@@ -112,17 +185,18 @@ public class HomeFragment extends Fragment {
         navController.navigate(R.id.action_homeFragment_to_notificationsFragment);
     }
 
+    // TODO refactor this in the future
     private void goToProfile() {
         // Check userRole to see which path to take
-        homeViewModel.userRole.observe(getViewLifecycleOwner(), role -> {
-            if (role != null) {
-                if (role == 2) {
+        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
+            if (user.isAuthenticated()) {
+                if (user.getType() == 2) {
                     navController.navigate(R.id.action_homeFragment_to_profileFragment);
-                } else if (role == 3) {
+                } else if (user.getType() == 3) {
                     navController.navigate(R.id.action_homeFragment_to_profileFragment);
                 }
             } else {
-                navController.navigate(R.id.action_homeFragment_to_authActivity);
+                goToAuth();
             }
         });
     }

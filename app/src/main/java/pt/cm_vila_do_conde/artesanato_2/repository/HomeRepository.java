@@ -2,24 +2,33 @@ package pt.cm_vila_do_conde.artesanato_2.repository;
 
 import android.util.Log;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Document;
 
 import java.util.ArrayList;
 
 import pt.cm_vila_do_conde.artesanato_2.model.User;
+import pt.cm_vila_do_conde.artesanato_2.model.Event;
 
 public class HomeRepository {
     private String TAG = "HOME_REPOSITORY";
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
     private CollectionReference usersRef = rootRef.collection("users");
+    private CollectionReference eventsRef = rootRef.collection("events");
 
     public MutableLiveData<Integer> getUserRole() {
         MutableLiveData<Integer> userType = new MutableLiveData<>();
@@ -40,26 +49,20 @@ public class HomeRepository {
         return userType;
     }
 
-    public MutableLiveData<ArrayList<User>> getUser() {
-        MutableLiveData<ArrayList<User>> userHighlight = new MutableLiveData<>();
+    public MutableLiveData<Event> getFeaturedEvent() {
+        MutableLiveData<Event> featuredEvent = new MutableLiveData<>();
 
-        usersRef
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        ArrayList<User> userList = new ArrayList<>();
+        eventsRef.whereEqualTo("featured", true).addSnapshotListener((task, e) -> {
 
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            User user = document.toObject(User.class);
+            Log.d(TAG, "GOT HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            for (DocumentSnapshot document : task.getDocuments()) {
 
-                            userList.add(user);
-                        }
-                        userHighlight.setValue(userList);
-                    } else {
-                        Log.w(TAG, "Error getting documents.", task.getException());
-                    }
-                });
+                Log.d(TAG, document.getData().toString());
+                featuredEvent.setValue(document.toObject(Event.class));
+            }
 
-        return userHighlight;
+        });
+
+        return featuredEvent;
     }
 }

@@ -14,19 +14,20 @@ import java.util.ArrayList;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.HomeCardviewBinding;
+import pt.cm_vila_do_conde.artesanato_2.model.Event;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 
 public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapter.ViewHolder> {
 
-    static String TAG = "HOME_RECYCLER_VIEW";
+    private static String TAG = "HOME_RECYCLER_ADAPTER";
 
-    private ArrayList<User> arrU;
+    private ArrayList<?> featuredList;
     private HomeCardviewBinding binding;
 
-    public HomeRecyclerAdapter(ArrayList<User> arrU)
+    public HomeRecyclerAdapter(ArrayList<?> featuredList)
     {
         //this.binding = binding;
-        this.arrU = arrU;
+        this.featuredList = featuredList;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder
@@ -50,16 +51,21 @@ public class HomeRecyclerAdapter extends RecyclerView.Adapter<HomeRecyclerAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        User item = arrU.get(position);
+        /*User item = (User) featuredList.get(position);
 
-        holder.title.setText(item.getName());
+        holder.title.setText(item.getName());*/
 
-        //binding.cardTitle.setText(item.getName());
+        if(featuredList.get(position) instanceof Event){
+            Event item = (Event) featuredList.get(position);
+            holder.title.setText(item.getTitle());
+        }
+
+
     }
 
     @Override
     public int getItemCount()
     {
-        return arrU.size();
+        return featuredList.size();
     }
 }

@@ -23,7 +23,6 @@
     <TextView
         android:id="@+id/top"
         style="@style/blackTitle"
-        android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="25dp"
@@ -80,7 +79,7 @@
 
                     <ImageView
                         android:id="@+id/fairCover"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="102dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/coverImage"
@@ -91,7 +90,6 @@
                         android:id="@+id/fairTitle"
                         style="@style/blackTitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -102,7 +100,6 @@
                         android:id="@+id/fairSubtitle"
                         style="@style/greyText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -137,7 +134,7 @@
 
                     <ImageView
                         android:id="@+id/eventCover"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="102dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/coverImage"
@@ -148,7 +145,6 @@
                         android:id="@+id/eventTitle"
                         style="@style/blackTitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -159,7 +155,6 @@
                         android:id="@+id/eventSubtitle"
                         style="@style/greyText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -193,7 +188,7 @@
 
                     <ImageView
                         android:id="@+id/artisanCover"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="102dp"
                         android:layout_gravity="center_horizontal"
                         android:contentDescription="@string/coverImage"
@@ -204,7 +199,6 @@
                         android:id="@+id/artisanTitle"
                         style="@style/blackTitle"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -215,7 +209,6 @@
                         android:id="@+id/artisanSubtitle"
                         style="@style/greyText"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -461,7 +454,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="32dp"
-        android:text="@string/sign_out"
+        android:text="@string/signOut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

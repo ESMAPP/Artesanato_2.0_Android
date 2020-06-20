@@ -2,7 +2,6 @@ package pt.cm_vila_do_conde.artesanato_2.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,6 @@ import com.google.android.material.tabs.TabLayout;
 import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.FragmentAuthAdapter;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ProfileViewPager;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentProfileBinding;
 
@@ -42,6 +40,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //setupTabAdapter();
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         binding.btnExtra.setOnClickListener(this::showPopup);
         binding.btnBack.setOnClickListener(v -> goBack());
@@ -57,22 +56,22 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.edit_profile:
+            case R.id.editProfile:
                 navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
                 return true;
-            case R.id.signout:
+            case R.id.signOut:
                 navController.navigate(R.id.homeFragment);
                 return true;
             default:
                 return false;
         }
     }
-
+/*
     public void setupTabAdapter() {
         binding.profileViewPager.setAdapter(new ProfileViewPager(getChildFragmentManager()));
-        TabLayout tabs = binding.profileTabs;
+        TabLayout tabs = binding.innerNavBar;
         tabs.setupWithViewPager(binding.profileViewPager);
-    }
+    }*/
 
     public void goBack() {
         navController.popBackStack();

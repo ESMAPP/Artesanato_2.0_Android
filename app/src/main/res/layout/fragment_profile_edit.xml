@@ -29,7 +29,7 @@
             <ImageButton
                 android:id="@+id/btnBack"
                 style="@style/imgText"
-                android:contentDescription="@string/go_back"
+                android:contentDescription="@string/goBack"
                 android:paddingEnd="8dp"
                 app:srcCompat="@drawable/btn_arrow_back_color" />
 
@@ -66,7 +66,7 @@
         </FrameLayout>
 
         <TextView
-            android:id="@+id/edit_profile"
+            android:id="@+id/editProfile"
             style="@style/blueText"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
@@ -82,10 +82,10 @@
             <EditText
                 android:id="@+id/input_edit_name"
                 style="@style/shadowInput"
-                android:autofillHints="@string/full_name"
+                android:autofillHints="@string/fullName"
                 android:background="@drawable/shape_shadow"
                 android:drawableStart="@drawable/i_user_color"
-                android:hint="@string/full_name"
+                android:hint="@string/fullName"
                 android:inputType="textEmailAddress" />
 
             <EditText

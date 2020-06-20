@@ -1,20 +1,20 @@
 <resources>
     <string name="facebook_app_id">892730931225435</string>
     <string name="fb_login_protocol_scheme">fb892730931225435</string>
-    <string name="app_name">Feira de Artesanato</string>
-    <string name="app_logo">Logótipo Feira de Artesanato</string>
+    <string name="appName">Feira de Artesanato</string>
+    <string name="appLogo">Logótipo Feira de Artesanato</string>
     <string name="appIcon">Icon Feira de Artesanato</string>
-    <string name="go_back">Voltar atrás</string>
-    <string name="sign_in">Entrar</string>
-    <string name="sign_up">Registar</string>
-    <string name="sign_out">Sair</string>
-    <string name="full_name">nome completo</string>
+    <string name="goBack">Voltar atrás</string>
+    <string name="signIn">Entrar</string>
+    <string name="signUp">Registar</string>
+    <string name="signOut">Sair</string>
+    <string name="fullName">nome completo</string>
     <string name="email">e-mail</string>
     <string name="password">password</string>
     <string name="confirmPassword">confirmar password</string>
     <string name="submitForm">Submeter formulário</string>
-    <string name="sign_in_google">Entrar com conta do Google</string>
-    <string name="sign_in_facebook">Entrar com conta do Facebook</string>
+    <string name="signInGoogle">Entrar com conta do Google</string>
+    <string name="signInFacebook">Entrar com conta do Facebook</string>
     <string name="forgotPassword">Esqueceu-se da password?</string>
     <string name="editProfile">Editar Perfil</string>
     <string name="save">Guardar</string>
@@ -44,4 +44,6 @@
     <string name="subTitle">Sub título</string>
     <string name="goTo">Ir para</string>
     <string name="name">Nome</string>
+    <string name="city">Cidade</string>
+    <string name="addFavourite">Adicionar favourito</string>
 </resources>

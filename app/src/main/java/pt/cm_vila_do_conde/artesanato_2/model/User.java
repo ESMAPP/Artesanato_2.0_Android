@@ -5,6 +5,7 @@ import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class User implements Serializable {
     @SuppressWarnings("WeakerAccess")
@@ -20,10 +21,11 @@ public class User implements Serializable {
     private ArrayList<String> badges;
     private int ranking = -1; // -1 == Unranked
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private Timestamp createdAt = new Timestamp(new Date());
+    private Timestamp updatedAt = new Timestamp(new Date());
     @Exclude
     private Throwable error;
+
 
     public User() {
     }
@@ -33,11 +35,28 @@ public class User implements Serializable {
         this.name = name;
         this.email = email;
         this.profilePic = profilePic;
-
     }
 
     public User(Throwable error) {
         this.error = error;
+    }
+
+    public User(String email, boolean isAuthenticated, boolean isNew, boolean isCreated, String uid,
+                String name, String profilePic, int reputation, ArrayList<String> badges, int ranking, int type,
+                Timestamp createdAt, Timestamp updatedAt) {
+        this.email = email;
+        this.isAuthenticated = isAuthenticated;
+        this.isNew = isNew;
+        this.isCreated = isCreated;
+        this.uid = uid;
+        this.name = name;
+        this.profilePic = profilePic;
+        this.reputation = reputation;
+        this.badges = badges;
+        this.ranking = ranking;
+        this.type = type;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     @Exclude
@@ -47,6 +66,22 @@ public class User implements Serializable {
 
     public void setError(Throwable error) {
         this.error = error;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Timestamp updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getEmail() {
@@ -140,4 +175,5 @@ public class User implements Serializable {
     public void setType(int type) {
         this.type = type;
     }
+
 }

@@ -54,4 +54,7 @@
     <string name="addFavourite">add favourite</string>
     <string name="message">message</string>
     <string name="time">time</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="vila_do_conde">Vila do Conde</string>
+    <string name="feira_nacional_de_artesanato">Feira Nacional de Artesanato</string>
 </resources>

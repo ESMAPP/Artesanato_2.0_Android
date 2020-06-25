@@ -14,7 +14,6 @@ import pt.cm_vila_do_conde.artesanato_2.repository.ArtisanRepository;
 
 public class ArtisanListViewModel extends AndroidViewModel {
     private MutableLiveData<ArrayList<Artisan>> artisansList;
-
     private ArtisanRepository artisanRepository;
 
     public ArtisanListViewModel(@NonNull Application application) {

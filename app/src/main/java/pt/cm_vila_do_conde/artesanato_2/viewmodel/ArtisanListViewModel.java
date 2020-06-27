@@ -7,7 +7,11 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.google.firebase.firestore.Query;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.repository.ArtisanRepository;
@@ -22,8 +26,8 @@ public class ArtisanListViewModel extends AndroidViewModel {
     }
 
 
-    public void fetchArtisansList(){
-        artisansList = artisanRepository.fetchArtisansList();
+    public void fetchArtisansList(Query query){
+        artisansList = artisanRepository.fetchArtisansList(query);
     }
 
     public LiveData<ArrayList<Artisan>> getArtisansList() {

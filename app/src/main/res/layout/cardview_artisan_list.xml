@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardHolderArtisan"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/shape_bg_card_shadow"
         android:clickable="true"
         android:elevation="8dp"
         android:focusable="true"
@@ -25,7 +27,7 @@
             <ImageView
                 android:id="@+id/cardArtisanCover"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/coverImage"
                 android:scaleType="centerCrop"
@@ -38,8 +40,9 @@
                 android:layout_marginTop="10dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                android:singleLine="true"
                 android:text="@string/name"
-                android:textSize="28sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/cardArtisanCity"
@@ -50,7 +53,7 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:text="@string/city"
-                android:textSize="20sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -74,4 +77,4 @@
 
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

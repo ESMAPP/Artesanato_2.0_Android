@@ -88,6 +88,10 @@
         <action
             android:id="@+id/action_artisansListFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_artisansListFragment_to_filterArtisanFragment"
+            app:destination="@id/filterArtisanFragment"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/eventListFragment"
@@ -135,4 +139,9 @@
         android:name="pt.cm_vila_do_conde.artesanato_2.view.ArtisanPageFragment"
         android:label="fragment_artisan_page"
         tools:layout="@layout/fragment_artisan_page" />
+    <fragment
+        android:id="@+id/filterArtisanFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.FilterArtisanFragment"
+        android:label="fragment_filter_artisans"
+        tools:layout="@layout/fragment_filter_artisans" />
 </navigation>

@@ -1,7 +1,5 @@
 package pt.cm_vila_do_conde.artesanato_2.repository;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +38,7 @@ public class SplashRepository {
                 DocumentSnapshot document = userTask.getResult();
                 if (document.exists()) {
                     User user = document.toObject(User.class);
+                    user.setUid(document.getId());
                     user.setAuthenticated(true);
                     userMutableLiveData.setValue(user);
                 } else {

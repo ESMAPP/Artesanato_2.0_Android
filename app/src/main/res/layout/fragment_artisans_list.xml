@@ -47,6 +47,7 @@
 
     </LinearLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/artisansList"
         android:layout_width="match_parent"

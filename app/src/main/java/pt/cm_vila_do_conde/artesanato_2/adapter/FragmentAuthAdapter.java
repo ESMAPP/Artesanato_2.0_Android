@@ -7,8 +7,8 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.jetbrains.annotations.NotNull;
 
-import pt.cm_vila_do_conde.artesanato_2.view.SignInFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.SignUpFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.auth.SignInFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.auth.SignUpFragment;
 
 public class FragmentAuthAdapter extends FragmentPagerAdapter {
 

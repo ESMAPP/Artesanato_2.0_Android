@@ -16,6 +16,8 @@ public class Event implements Serializable {
     private Timestamp startDate;
     private Timestamp endDate;
     private String category;
+    private boolean featured;
+    private Timestamp createdAt;
 
 
     public Event() {
@@ -23,7 +25,9 @@ public class Event implements Serializable {
 
     public Event(String id, ArrayList<String> going, String image,
                  String info, Location location, String title,
-                 Timestamp startDate, Timestamp endDate, String category) {
+                 Timestamp startDate, Timestamp endDate, String category,
+                 boolean featured, Timestamp createdAt
+    ) {
         this.id = id;
         this.going = going;
         this.image = image;
@@ -32,6 +36,24 @@ public class Event implements Serializable {
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.featured = featured;
+        this.createdAt = createdAt;
+    }
+
+    public boolean isFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Timestamp getStartDate() {

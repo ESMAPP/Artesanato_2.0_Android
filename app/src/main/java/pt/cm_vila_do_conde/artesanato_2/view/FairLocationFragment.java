@@ -58,7 +58,7 @@ public class FairLocationFragment extends Fragment
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_fair_location, container, false);
         enableMyLocation();
-        mMapView = v.findViewById(R.id.location_map);
+        mMapView = v.findViewById(R.id.map);
         mMapView.onCreate(savedInstanceState);
         mMapView.getMapAsync(this); //this is important
 

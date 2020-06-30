@@ -1,7 +1,6 @@
-package pt.cm_vila_do_conde.artesanato_2.view;
+package pt.cm_vila_do_conde.artesanato_2.view.artisan;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,36 +8,38 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentEventPageBinding;
+import pt.cm_vila_do_conde.artesanato_2.R;
+import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentFilterArtisansBinding;
 
-public class EventPageFragment extends Fragment {
-    private static final String EVENT_ID = "id";
-    private final String TAG = "EVENT_PAGE_FRAGMENT";
+public class FilterArtisanFragment extends Fragment {
+    private NavController navController;
 
-    private FragmentEventPageBinding binding;
-
-    private String eventId;
+    private FragmentFilterArtisansBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        eventId = getArguments().getString(EVENT_ID);
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentEventPageBinding.inflate(inflater, container, false);
+        binding = FragmentFilterArtisansBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initBackBtn();
+    }
 
-        binding.testEventPage.setText(eventId);
+    private void initBackBtn(){
+        binding.backBtn.setOnClickListener(v -> navController.popBackStack());
     }
 }

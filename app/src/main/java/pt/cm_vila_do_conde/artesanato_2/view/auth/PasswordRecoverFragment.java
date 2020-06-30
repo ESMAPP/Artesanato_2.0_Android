@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view;
+package pt.cm_vila_do_conde.artesanato_2.view.auth;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import pt.cm_vila_do_conde.artesanato_2.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link EventListFragment#newInstance} factory method to
+ * Use the {@link PasswordRecoverFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EventListFragment extends Fragment {
+public class PasswordRecoverFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -25,7 +25,7 @@ public class EventListFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public EventListFragment() {
+    public PasswordRecoverFragment() {
         // Required empty public constructor
     }
 
@@ -35,11 +35,11 @@ public class EventListFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment EventListFragment.
+     * @return A new instance of fragment PasswordRecoverFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static EventListFragment newInstance(String param1, String param2) {
-        EventListFragment fragment = new EventListFragment();
+    public static PasswordRecoverFragment newInstance(String param1, String param2) {
+        PasswordRecoverFragment fragment = new PasswordRecoverFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -60,6 +60,6 @@ public class EventListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event_list, container, false);
+        return inflater.inflate(R.layout.fragment_password_recover, container, false);
     }
 }

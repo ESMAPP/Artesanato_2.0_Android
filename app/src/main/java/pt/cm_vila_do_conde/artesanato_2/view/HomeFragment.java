@@ -2,6 +2,7 @@ package pt.cm_vila_do_conde.artesanato_2.view;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,14 +17,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.squareup.picasso.Picasso;
 
-
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Date;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentHomeBinding;
-
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
-
 import pt.cm_vila_do_conde.artesanato_2.model.Event;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.HomeViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
@@ -125,7 +125,14 @@ public class HomeFragment extends Fragment {
                 .resize(binding.fairCover.getMeasuredWidth(), binding.fairCover.getMeasuredHeight())
                 .into(binding.fairCover);
         binding.fairTitle.setText(fair.getTitle());
-        binding.fairSubtitle.setText(fair.getStartDate().toDate().toString());
+        Date now = new Date();
+        binding.fairSubtitle.setText(DateUtils
+                .getRelativeDateTimeString(requireContext(),
+                        fair.getStartDate().toDate().getTime(),
+                        DateUtils.MINUTE_IN_MILLIS,
+                        DateUtils.YEAR_IN_MILLIS,
+                        0));
+
     }
 
     private void getUpcomingEvent() {
@@ -139,7 +146,12 @@ public class HomeFragment extends Fragment {
                 .resize(binding.eventCover.getMeasuredWidth(), binding.eventCover.getMeasuredHeight())
                 .into(binding.eventCover);
         binding.eventTitle.setText(event.getTitle());
-        binding.eventSubtitle.setText(event.getStartDate().toDate().toString());
+        binding.eventSubtitle.setText(DateUtils
+                .getRelativeDateTimeString(requireContext(),
+                        event.getStartDate().toDate().getTime(),
+                        DateUtils.MINUTE_IN_MILLIS,
+                        DateUtils.YEAR_IN_MILLIS,
+                        0));
     }
 
     private void getFeaturedArtisan() {
@@ -157,15 +169,6 @@ public class HomeFragment extends Fragment {
             binding.artisanSubtitle.setText("Reputação: " + artisan.getReputation());
 
         }
-
-    /*private void updateRecylerView(ArrayList list) {
-        HomeRecyclerAdapter adapter = new HomeRecyclerAdapter(list);
-        binding.highlightsCards.setHasFixedSize(true);
-        binding.highlightsCards.setLayoutManager(layoutManager);
-        binding.highlightsCards.setAdapter(adapter);
-    }*/
-
-
 
     public void goToArtisanPage() {
         String id = homeViewModel.featuredArtisan.getValue().getUid();

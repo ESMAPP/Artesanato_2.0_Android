@@ -4,61 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_5"
     tools:context=".view.ArtisansListFragment">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/top"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="30dp"
-        android:gravity="center"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="17dp"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:contentDescription="@string/goBack"
-            app:srcCompat="@drawable/i_arrow_back_color" />
-
-        <SearchView
-            android:id="@+id/search_input"
-            style="@android:style/Widget.Material.Light.SearchView"
-            android:layout_width="291dp"
-            android:layout_height="match_parent"
-            android:iconifiedByDefault="false"
-            android:layoutDirection="rtl"
-            android:searchIcon="@drawable/i_magnifier_color" />
-
-        <ImageButton
-            android:id="@+id/filter_btn"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            android:src="@drawable/i_filter_color" />
+            android:layout_gravity="center"
+            android:background="@drawable/shape_bottom_shadow"
+            android:contentDescription="@string/barTop"
+            android:src="@drawable/bar_top_1" />
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
+            <ImageButton
+                android:id="@+id/btnBack"
+                style="@style/imgBtn"
+                android:contentDescription="@string/goBack"
+                android:paddingEnd="8dp"
+                app:srcCompat="@drawable/i_arrow_back_color" />
+
+            <SearchView
+                android:id="@+id/inputSearch"
+                style="@android:style/Widget.Material.Light.SearchView"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:iconifiedByDefault="false"
+                android:searchIcon="@drawable/i_magnifier_color" />
+
+            <ImageButton
+                android:id="@+id/btnFilter"
+                style="@style/imgBtn"
+                android:contentDescription="@string/filter"
+                android:paddingStart="10dp"
+                android:src="@drawable/i_filter_color" />
+
+        </LinearLayout>
+    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/artisansList"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top" />
+        app:layout_constraintTop_toBottomOf="@id/top" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

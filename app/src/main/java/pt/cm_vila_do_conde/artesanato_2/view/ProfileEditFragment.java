@@ -32,6 +32,8 @@ public class ProfileEditFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+
     }
 
     @Override
@@ -49,10 +51,10 @@ public class ProfileEditFragment extends Fragment {
     public void initEditProfileViewModel() {
 
         editProfileViewModel = new ViewModelProvider(requireActivity()).get(EditProfileViewModel.class);
+
     }
 
     public void getUserIdFromDataBase() {
-
 
 
     };

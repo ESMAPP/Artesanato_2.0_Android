@@ -2,7 +2,6 @@ package pt.cm_vila_do_conde.artesanato_2.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +13,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.auth.FirebaseAuth;
+import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.FragmentAuthAdapter;
-import pt.cm_vila_do_conde.artesanato_2.adapter.ProfileViewPager;
+import pt.cm_vila_do_conde.artesanato_2.adapter.FragmentArtisanPageAdapter;
+import pt.cm_vila_do_conde.artesanato_2.adapter.ProfileAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentProfileBinding;
+import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 
@@ -43,6 +45,8 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         super.onViewCreated(view, savedInstanceState);
         //setupTabAdapter();
         initUserViewModel();
+        handleInicialUiState();
+        setupTabAdapter();
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         binding.btnExtra.setOnClickListener(this::showPopup);
         binding.btnBack.setOnClickListener(v -> goBack());
@@ -59,6 +63,30 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         popup.show();
     }
 
+    private void handleInicialUiState(){
+
+        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::updateUI);
+    }
+
+    private void updateUI(User user) {
+
+        binding.profileName.setText(user.getName());
+        binding.profileRanking.setText(String.valueOf(user.getRanking()));
+        binding.profileReputation.setText(String.valueOf(user.getReputation()));
+        if (user.getProfilePic().isEmpty()) {
+
+            Picasso.get().load(R.drawable.logo_i)
+                    .transform(new CropCircleTransformation())
+                    .into(binding.profilePic);
+        }
+        else {
+            Picasso.get().load(user.getProfilePic())
+                    .placeholder(R.drawable.logo_i)
+                    .transform(new CropCircleTransformation())
+                    .into(binding.profilePic);
+        }
+    }
+
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
@@ -73,18 +101,18 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 return false;
         }
     }
-/*
-    public void setupTabAdapter() {
-        binding.profileViewPager.setAdapter(new ProfileViewPager(getChildFragmentManager()));
-        TabLayout tabs = binding.innerNavBar;
-        tabs.setupWithViewPager(binding.profileViewPager);
-    }*/
-
     public void goBack() {
         navController.popBackStack();
     }
 
     private void gotToEditProfile() {
         Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_profileEditFragment);
+    }
+
+    public void setupTabAdapter() {
+        ViewPager artisanViewPager = binding.profileViewPager;
+        artisanViewPager.setAdapter(new ProfileAdapter(getChildFragmentManager()));
+        TabLayout tabs = binding.innerNavBar;
+        tabs.setupWithViewPager(binding.profileViewPager);
     }
 }

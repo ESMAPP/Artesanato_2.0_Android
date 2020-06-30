@@ -59,4 +59,7 @@
     <string name="target">target</string>
     <string name="filter">filter</string>
     <string name="barTop">bar top</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

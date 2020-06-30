@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import pt.cm_vila_do_conde.artesanato_2.view.SignInFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.SignUpFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisan.constests.RootArtisanContestFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery.ArtisanGalleryFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery.RootGalleryFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.ArtisanReviewsFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.auth.SignInFragment;
 
 public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
 
@@ -20,11 +23,11 @@ public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
         switch (position)
         {
             case 0:
-                return new SignInFragment(); //ChildFragment1 at position 0
+                return new RootGalleryFragment(); //ChildFragment1 at position 0
             case 1:
-                return new SignUpFragment(); //ChildFragment2 at position 1
+                return new ArtisanReviewsFragment(); //ChildFragment2 at position 1
             case 2:
-                return new SignInFragment(); //ChildFragment3 at position 2
+                return new RootArtisanContestFragment(); //ChildFragment3 at position 2
         }
         return null; //does not happen
     }

@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view;
+package pt.cm_vila_do_conde.artesanato_2.view.location;
 
 import android.Manifest;
 import android.annotation.SuppressLint;

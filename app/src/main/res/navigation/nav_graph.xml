@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/authActivity"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.auth.AuthFragment"
         android:label="activity_auth"
         tools:layout="@layout/fragment_auth">
         <action
@@ -73,7 +73,7 @@
     </fragment>
     <fragment
         android:id="@+id/notificationsFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.NotificationsFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.notification.NotificationsFragment"
         android:label="fragment_notifications"
         tools:layout="@layout/fragment_notifications">
         <action
@@ -82,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/artisansListFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.ArtisansListFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.artisan.ArtisansListFragment"
         android:label="fragment_artisans_list"
         tools:layout="@layout/fragment_artisans_list">
         <action
@@ -95,7 +95,7 @@
     </fragment>
     <fragment
         android:id="@+id/eventListFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.EventListFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.event.EventListFragment"
         android:label="fragment_event_list"
         tools:layout="@layout/fragment_event_list">
         <action
@@ -104,7 +104,7 @@
     </fragment>
     <fragment
         android:id="@+id/fairLocationFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.FairLocationFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.location.FairLocationFragment"
         android:label="fragment_fair_location"
         tools:layout="@layout/fragment_fair_location">
         <action
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/passwordRecoverFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.PasswordRecoverFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.auth.PasswordRecoverFragment"
         android:label="fragment_password_recover"
         tools:layout="@layout/fragment_password_recover">
         <action
@@ -122,7 +122,7 @@
     </fragment>
     <fragment
         android:id="@+id/rankingsFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.RankingsFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.ranking.RankingsFragment"
         android:label="fragment_rankings"
         tools:layout="@layout/fragment_rankings">
         <action
@@ -131,17 +131,28 @@
     </fragment>
     <fragment
         android:id="@+id/eventPageFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.EventPageFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.event.EventPageFragment"
         android:label="fragment_event_page"
         tools:layout="@layout/fragment_event_page" />
     <fragment
         android:id="@+id/artisanPageFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.ArtisanPageFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.artisan.ArtisanPageFragment"
         android:label="fragment_artisan_page"
-        tools:layout="@layout/fragment_artisan_page" />
+        tools:layout="@layout/fragment_artisan_page" >
+        <action
+            android:id="@+id/action_artisanPageFragment_to_chatFragment"
+            app:destination="@id/chatFragment"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left" />
+    </fragment>
     <fragment
         android:id="@+id/filterArtisanFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.FilterArtisanFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.artisan.FilterArtisanFragment"
         android:label="fragment_filter_artisans"
         tools:layout="@layout/fragment_filter_artisans" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.chat.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
 </navigation>

@@ -1,7 +1,6 @@
 package pt.cm_vila_do_conde.artesanato_2.model;
 
 import com.google.firebase.Timestamp;
-import com.google.firebase.firestore.Exclude;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,6 +25,7 @@ public class Artisan implements Serializable {
     private String city;
     private String category;
     private boolean featured;
+    private ArrayList<Review> reviews;
 
     public Artisan() {
     }
@@ -34,8 +34,8 @@ public class Artisan implements Serializable {
                    Attributes attributes, String image, ArrayList<String> gallery,
                    int coins, int subscriptionType, Timestamp subscriptionPaymentDate,
                    int views, int reputation, int ranking, boolean validated,
-                   ArrayList<String> uniqueViews, Timestamp createdAt,
-                   String city, String category, boolean featured) {
+                   ArrayList<String> uniqueViews, Timestamp createdAt, String city,
+                   String category, boolean featured, ArrayList<Review> reviews) {
         this.uid = uid;
         this.associatedUser = associatedUser;
         this.name = name;
@@ -55,54 +55,7 @@ public class Artisan implements Serializable {
         this.city = city;
         this.category = category;
         this.featured = featured;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public boolean isFeatured() {
-        return featured;
-    }
-
-    public void setFeatured(boolean featured) {
-        this.featured = featured;
-    }
-
-    public ArrayList<String> getUniqueViews() {
-        return uniqueViews;
-    }
-
-    public void setUniqueViews(ArrayList<String> uniqueViews) {
-        this.uniqueViews = uniqueViews;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public ArrayList<String> getGallery() {
-        return gallery;
-    }
-
-    public void setGallery(ArrayList<String> gallery) {
-        this.gallery = gallery;
+        this.reviews = reviews;
     }
 
     public String getUid() {
@@ -143,6 +96,22 @@ public class Artisan implements Serializable {
 
     public void setAttributes(Attributes attributes) {
         this.attributes = attributes;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public ArrayList<String> getGallery() {
+        return gallery;
+    }
+
+    public void setGallery(ArrayList<String> gallery) {
+        this.gallery = gallery;
     }
 
     public int getCoins() {
@@ -201,11 +170,51 @@ public class Artisan implements Serializable {
         this.validated = validated;
     }
 
+    public ArrayList<String> getUniqueViews() {
+        return uniqueViews;
+    }
+
+    public void setUniqueViews(ArrayList<String> uniqueViews) {
+        this.uniqueViews = uniqueViews;
+    }
+
     public Timestamp getCreatedAt() {
         return createdAt;
     }
 
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public boolean isFeatured() {
+        return featured;
+    }
+
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
+    }
+
+    public ArrayList<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(ArrayList<Review> reviews) {
+        this.reviews = reviews;
     }
 }

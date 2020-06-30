@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_2"
-    tools:context="pt.cm_vila_do_conde.artesanato_2.view.AuthFragment">
+    tools:context="pt.cm_vila_do_conde.artesanato_2.view.auth.AuthFragment">
 
     <LinearLayout
         android:id="@+id/top"

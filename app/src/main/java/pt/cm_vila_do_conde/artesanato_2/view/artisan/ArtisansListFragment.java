@@ -92,7 +92,7 @@ public class ArtisansListFragment extends Fragment {
     }
 
     private void initFilterBtnListener() {
-        binding.filterBtn.setOnClickListener(v -> navController.navigate(R.id.action_artisansListFragment_to_filterArtisanFragment));
+        binding.btnFilter.setOnClickListener(v -> navController.navigate(R.id.action_artisansListFragment_to_filterArtisanFragment));
     }
 
     private void initBackBtn(){
@@ -100,7 +100,7 @@ public class ArtisansListFragment extends Fragment {
     }
 
     public void initSearchListener() {
-        binding.searchInput.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        binding.inputSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String text) {
                 query = artisansRef

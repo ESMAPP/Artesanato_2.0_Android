@@ -16,32 +16,28 @@
         </item>
     </style>
 
-    <!-- Title Style -->
-    <style name="Title">
+    <!-- Black Title Style -->
+    <style name="title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="fontFamily">@font/mina_regular</item>
-    </style>
-
-    <!-- Black Title Style -->
-    <style name="blackTitle" parent="Title">
         <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Text Style -->
-    <style name="Text">
+    <style name="text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="fontFamily">@font/quicksand</item>
     </style>
 
     <!-- Grey Text Style -->
-    <style name="greyText" parent="Text">
+    <style name="greyText" parent="text">
         <item name="android:textColor">@color/darkGrey</item>
     </style>
 
     <!-- Blue Text Style -->
-    <style name="blueText" parent="Text">
+    <style name="blueText" parent="text">
         <item name="android:textColor">@color/primaryBlue</item>
     </style>
 
@@ -69,8 +65,7 @@
     <style name="shadowHomeCard">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:elevation">8dp</item>
-        <item name="android:background">@drawable/shape_bg_card_shadow</item>
+        <item name="android:background">@drawable/shape_bg_card_1_shadow</item>
         <item name="android:orientation">vertical</item>
     </style>
 

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp">
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardHolderArtisan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_bg_card_shadow"
+        android:layout_height="match_parent"
         android:clickable="true"
-        android:elevation="8dp"
         android:focusable="true"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,61 +19,58 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/shape_white_shadow"
+            android:background="@drawable/shape_bg_card_2_shadow"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/cardArtisanCover"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:contentDescription="@string/coverImage"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/card_cover" />
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/cardArtisanCover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/coverImage"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/card_cover" />
+
+                <ImageButton
+                    android:id="@+id/btnAddFavourite"
+                    style="@style/imgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:contentDescription="@string/addFavourite"
+                    app:srcCompat="@drawable/i_heart_white" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/cardArtisanName"
-                style="@style/blackTitle"
+                style="@style/title"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:singleLine="true"
                 android:text="@string/name"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/cardArtisanCity"
                 style="@style/greyText"
                 android:layout_width="match_parent"
-                android:layout_marginTop="6dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:text="@string/city"
-                android:textSize="12sp" />
+                android:textSize="10sp" />
 
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageButton
-                android:id="@+id/btnAddFavourite"
-                style="@style/imgBtn"
-                android:layout_width="0dp"
-                android:layout_marginStart="371dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:contentDescription="@string/addFavourite"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/i_start_color" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,61 +7,76 @@
     tools:context=".view.location.FairLocationFragment">
 
     <com.google.android.gms.maps.MapView
-        android:id="@+id/location_map"
+        android:id="@+id/map"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:elevation="10dp"
-        app:cardElevation="10dp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal|center_vertical"
+        android:minHeight="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/location_name"
+                    android:id="@+id/locationName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/feira_nacional_de_artesanato"
+                    android:singleLine="true"
+                    android:text="@string/target"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/location_extra"
+                    android:id="@+id/locationPath"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/vila_do_conde" />
+                    android:singleLine="true"
+                    android:text="@string/city" />
 
             </LinearLayout>
 
-            <ImageButton
-                android:id="@+id/initiate_gps_btn"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                android:background="#00FFFFFF"
-                android:src="@drawable/btn_navigate_color" />
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btnStartGPS"
+                    style="@style/imgBtn"
+                    android:contentDescription="@string/menu"
+                    app:srcCompat="@drawable/btn_navigate_color" />
+
+            </LinearLayout>
+
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+
+    </androidx.appcompat.widget.Toolbar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

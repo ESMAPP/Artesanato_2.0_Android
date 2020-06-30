@@ -5,6 +5,7 @@
     <string name="appName">Feira de Artesanato</string>
 
     <!-- TRANSLATABLE TEXT -->
+    <string name="activityMaps">Mapa</string>
     <string name="signIn">Entrar</string>
     <string name="signUp">Registar</string>
     <string name="signOut">Sair</string>
@@ -28,11 +29,12 @@
     <string name="information">Informações</string>
     <string name="badges">Medalhas</string>
     <string name="activity">Atividade</string>
+    <string name="gallery">Galeria</string>
 
 
     <!-- PLACEHOLDER TEXT / DESCRIPTION TEXT -->
-    <string name="appLogo">logo Feira de Artesanato</string>
-    <string name="appIcon">icon Feira de Artesanato</string>
+    <string name="appLogo">logo feira de artesanato</string>
+    <string name="appIcon">icon feira de artesanato</string>
     <string name="goBack">go back</string>
     <string name="goTo">go to</string>
     <string name="submitForm">submit form</string>
@@ -54,8 +56,7 @@
     <string name="addFavourite">add favourite</string>
     <string name="message">message</string>
     <string name="time">time</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="vila_do_conde">Vila do Conde</string>
-    <string name="feira_nacional_de_artesanato">Feira Nacional de Artesanato</string>
-    <string name="galeria">Galeria</string>
+    <string name="target">target</string>
+    <string name="filter">filter</string>
+    <string name="barTop">bar top</string>
 </resources>

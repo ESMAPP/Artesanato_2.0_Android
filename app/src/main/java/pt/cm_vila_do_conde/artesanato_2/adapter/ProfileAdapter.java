@@ -8,8 +8,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import pt.cm_vila_do_conde.artesanato_2.view.ProfileActivity;
 import pt.cm_vila_do_conde.artesanato_2.view.ProfileBadgesFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.ProfileContests;
-import pt.cm_vila_do_conde.artesanato_2.view.SignInFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.SignUpFragment;
 
 public class ProfileAdapter extends FragmentPagerAdapter {
 

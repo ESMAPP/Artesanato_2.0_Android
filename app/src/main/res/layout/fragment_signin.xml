@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="@dimen/zero"
+        android:layout_width="@dimen/dimen0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/parentInnerMargin"
         android:layout_marginTop="@dimen/parentTopMargin"
@@ -25,9 +25,6 @@
                 android:id="@+id/btn_facebook_hidden"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="10dp"
                 android:visibility="gone" />
 
             <ImageButton
@@ -63,7 +60,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/inputMarginPadding"
+            android:layout_marginTop="@dimen/inputPadding"
             android:orientation="horizontal">
 
             <LinearLayout

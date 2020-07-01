@@ -96,7 +96,7 @@ public class SignInFragment extends Fragment {
     }
 
     private void initCustomFacebookButton() {
-        binding.btnFacebook.setOnClickListener(v -> binding.fbLoginBtnHidden.performClick());
+        binding.btnFacebook.setOnClickListener(v -> binding.btnFacebookHidden.performClick());
     }
 
     private void initSubmitButton() {
@@ -104,7 +104,7 @@ public class SignInFragment extends Fragment {
     }
 
     private void initFacebookSignInButton() {
-        LoginButton loginButton = binding.fbLoginBtnHidden;
+        LoginButton loginButton = binding.btnFacebookHidden;
         loginButton.setFragment(this);
         loginButton.setPermissions("email", "public_profile");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {

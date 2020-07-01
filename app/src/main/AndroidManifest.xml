@@ -33,8 +33,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".view.LocationFragment"
-            android:label="@string/activityMaps" />
+            android:name=".view.location.FairLocationFragment"
+            android:label="@string/map" />
 
         <activity
             android:name=".view.MainActivity"

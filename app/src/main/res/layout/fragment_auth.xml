@@ -7,72 +7,51 @@
     android:background="@drawable/bg_2"
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.auth.AuthFragment">
 
-    <LinearLayout
-        android:id="@+id/top"
-        android:layout_width="350dp"
-        android:layout_height="0dp"
+    <ImageButton
+        android:id="@+id/btnBack"
+        style="@style/imgBtn"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="24dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
+        android:contentDescription="@string/goBack"
+        android:paddingEnd="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/i_arrow_back_color" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="240dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="@string/appLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
-        <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/innerNavBar"
+        style="@style/tabLayoutBig"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo">
+
+        <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:baselineAlignBottom="false"
+            android:cropToPadding="false"
+            android:text="@string/signIn" />
 
-
-            <ImageButton
-                android:id="@+id/btnBack"
-                style="@style/imgBtn"
-                android:contentDescription="@string/goBack"
-                android:paddingEnd="8dp"
-                app:srcCompat="@drawable/i_arrow_back_color" />
-        </LinearLayout>
-
-        <LinearLayout
+        <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:text="@string/signUp" />
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="240dp"
-                android:layout_height="115dp"
-                android:contentDescription="@string/appLogo"
-                app:srcCompat="@drawable/logo" />
-        </LinearLayout>
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/innerNavBar"
-            android:layout_width="325dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/tab_underline"
-            app:tabIndicatorColor="@color/primaryBlue"
-            app:tabIndicatorFullWidth="true"
-            app:tabIndicatorGravity="bottom"
-            app:tabRippleColor="@color/transparent">
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:baselineAlignBottom="false"
-                android:cropToPadding="false"
-                android:text="@string/signIn" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="@string/signUp" />
-
-        </com.google.android.material.tabs.TabLayout>
-
-    </LinearLayout>
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/authViewPager"
@@ -81,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top">
+        app:layout_constraintTop_toBottomOf="@+id/innerNavBar">
 
     </androidx.viewpager.widget.ViewPager>
 

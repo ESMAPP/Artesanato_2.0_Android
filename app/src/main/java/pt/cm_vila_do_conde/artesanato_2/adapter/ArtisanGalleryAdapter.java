@@ -11,11 +11,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ArtisanGalleryViewHolder;
-import pt.cm_vila_do_conde.artesanato_2.dummy.DummyContent.DummyItem;
 
 public class ArtisanGalleryAdapter extends RecyclerView.Adapter<ArtisanGalleryViewHolder> {
     private ArrayList<String> gallery;
@@ -28,7 +26,7 @@ public class ArtisanGalleryAdapter extends RecyclerView.Adapter<ArtisanGalleryVi
     @Override
     public ArtisanGalleryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.artisan_gallery_item, parent, false);
+                .inflate(R.layout.item_artisan_gallery, parent, false);
         return new ArtisanGalleryViewHolder(view);
     }
 

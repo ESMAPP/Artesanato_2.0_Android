@@ -28,6 +28,8 @@ public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
                 return new ArtisanReviewsFragment(); //ChildFragment2 at position 1
             case 2:
                 return new RootArtisanContestFragment(); //ChildFragment3 at position 2
+            case 3:
+                return new RootArtisanContestFragment(); //ChildFragment3 at position 3
         }
         return null; //does not happen
     }
@@ -41,12 +43,14 @@ public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
                 return "Recomendações";
             case 2:
                 return "Concursos";
+            case 3:
+                return "About";
         }
         return null;
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }

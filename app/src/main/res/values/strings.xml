@@ -5,7 +5,6 @@
     <string name="appName">Feira de Artesanato</string>
 
     <!-- TRANSLATABLE TEXT -->
-    <string name="activityMaps">Mapa</string>
     <string name="signIn">Entrar</string>
     <string name="signUp">Registar</string>
     <string name="signOut">Sair</string>
@@ -30,6 +29,7 @@
     <string name="badges">Medalhas</string>
     <string name="activity">Atividade</string>
     <string name="gallery">Galeria</string>
+    <string name="map">Mapa</string>
 
 
     <!-- PLACEHOLDER TEXT / DESCRIPTION TEXT -->
@@ -59,7 +59,10 @@
     <string name="target">target</string>
     <string name="filter">filter</string>
     <string name="barTop">bar top</string>
+    <string name="value">100</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reviews">Recomendações</string>
+    <string name="about">Sobre</string>
 </resources>

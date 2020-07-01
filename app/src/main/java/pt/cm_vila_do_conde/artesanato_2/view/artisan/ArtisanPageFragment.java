@@ -64,6 +64,7 @@ public class ArtisanPageFragment extends Fragment {
         handleInitialUiState();
         initNavController();
         setupTabAdapter();
+        initBackBtn();
         initChatBtn();
     }
 
@@ -114,14 +115,18 @@ public class ArtisanPageFragment extends Fragment {
                 .into(binding.artisanPic);
     }
 
+    private void initBackBtn(){
+        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
+    }
+
     private void initChatBtn() {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
             if (!user.isAuthenticated()) {
-                binding.chatBtn.setVisibility(View.GONE);
+                binding.btnChat.setVisibility(View.GONE);
                 binding.toolbar.setVisibility(View.GONE);
             } else {
                 artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
-                    binding.chatBtn.setOnClickListener(v -> {
+                    binding.btnChat.setOnClickListener(v -> {
                         if (!user.getUid().equals(artisan.getAssociatedUser())) {
                             Bundle bundle = new Bundle();
                             bundle.putString("userId", user.getUid());

@@ -49,7 +49,7 @@
 
             <TextView
                 android:id="@+id/cardArtisanName"
-                style="@style/title"
+                style="@style/blackTitle"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
                 android:paddingStart="16dp"

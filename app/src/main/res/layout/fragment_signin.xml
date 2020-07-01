@@ -5,56 +5,49 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/userInfo"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:orientation="horizontal"
+        android:layout_marginStart="@dimen/parentInnerMargin"
+        android:layout_marginTop="@dimen/parentTopMargin"
+        android:layout_marginEnd="@dimen/parentInnerMargin"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/fb_login_btn_hidden"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/user_info"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="10dp"
-            android:visibility="gone" />
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/btnFacebook"
-            style="@style/imgBtn"
-            android:contentDescription="@string/signInFacebook"
-            app:srcCompat="@drawable/i_facebook_color" />
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/btn_facebook_hidden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone" />
 
-        <ImageButton
-            android:id="@+id/btnGoogle"
-            style="@style/imgBtn"
-            android:layout_marginStart="28dp"
-            android:contentDescription="@string/signInGoogle"
-            app:srcCompat="@drawable/i_google_color" />
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/btn_facebook"
+                style="@style/imgBtn"
+                android:contentDescription="@string/signInFacebook"
+                app:srcCompat="@drawable/i_facebook_color" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userInfo">
+            <ImageButton
+                android:id="@+id/btn_google"
+                style="@style/imgBtn"
+                android:layout_marginStart="28dp"
+                android:contentDescription="@string/signInGoogle"
+                app:srcCompat="@drawable/i_google_color" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/input_email"
             style="@style/shadowInput"
             android:autofillHints="@string/email"
-            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_letter_color"
             android:hint="@string/email"
             android:inputType="textEmailAddress" />
@@ -62,9 +55,7 @@
         <EditText
             android:id="@+id/input_password"
             style="@style/shadowInput"
-            android:layout_marginTop="20dp"
             android:autofillHints="@string/password"
-            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/password"
             android:inputType="textPassword" />
@@ -72,7 +63,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/inputMarginPadding"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -81,7 +72,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/forgotPassword"
+                    android:id="@+id/forgot_password"
                     style="@style/blueText"
                     android:text="@string/forgotPassword" />
             </LinearLayout>
@@ -93,7 +84,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/btnSubmit"
+                    android:id="@+id/btn_submit"
                     style="@style/imgBtn"
                     android:contentDescription="@string/submitForm"
                     app:srcCompat="@drawable/btn_arrow_color" />

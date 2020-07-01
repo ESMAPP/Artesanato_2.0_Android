@@ -30,6 +30,8 @@
     <string name="activity">Atividade</string>
     <string name="gallery">Galeria</string>
     <string name="map">Mapa</string>
+    <string name="reviews">Recomendações</string>
+    <string name="about">Sobre</string>
 
 
     <!-- PLACEHOLDER TEXT / DESCRIPTION TEXT -->
@@ -63,6 +65,4 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="reviews">Recomendações</string>
-    <string name="about">Sobre</string>
 </resources>

@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_2"
-    tools:context="pt.cm_vila_do_conde.artesanato_2.view.auth.AuthFragment">
+    tools:context=".view.auth.AuthFragment">
 
     <ImageButton
-        android:id="@+id/btnBack"
+        android:id="@+id/btn_back"
         style="@style/imgBtn"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/parentOuterMargin"
+        android:layout_marginTop="@dimen/parentTopMargin"
         android:contentDescription="@string/goBack"
         android:paddingEnd="8dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,21 +20,22 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="240dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="@dimen/logoWidth"
+        android:layout_height="@dimen/logoHeight"
+        android:layout_marginTop="@dimen/logoMarginTop"
         android:contentDescription="@string/appLogo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/innerNavBar"
-        style="@style/tabLayoutBig"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
+        android:id="@+id/inner_nav_bar"
+        style="@style/bigTabLayout"
+        android:layout_marginStart="@dimen/parentInnerMargin"
+        android:layout_marginTop="@dimen/parentInnerMargin"
+        android:layout_marginEnd="@dimen/parentInnerMargin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo">
@@ -54,13 +55,12 @@
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/authViewPager"
+        android:id="@+id/view_pager_auth"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/zero"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/innerNavBar">
+        app:layout_constraintTop_toBottomOf="@+id/inner_nav_bar">
 
     </androidx.viewpager.widget.ViewPager>
 

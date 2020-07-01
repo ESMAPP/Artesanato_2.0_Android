@@ -2,4 +2,23 @@
 <resources>
     <dimen name="tab_spacing_half">50dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+
+    <dimen name="logoWidth">240dp</dimen>
+    <dimen name="logoHeight">115dp</dimen>
+    <dimen name="logoMarginTop">80dp</dimen>
+
+    <dimen name="zero">0dp</dimen>
+
+    <dimen name="parentTopMargin">24dp</dimen>
+    <dimen name="parentOuterMargin">30dp</dimen>
+    <dimen name="parentInnerMargin">40dp</dimen>
+
+    <dimen name="inputMarginPadding">20dp</dimen>
+    <dimen name="inputHeight">45dp</dimen>
+
+    <dimen name="textSize12">12sp</dimen>
+    <dimen name="textSize14">14sp</dimen>
+    <dimen name="textSize18">18sp</dimen>
+    <dimen name="textSize22">22sp</dimen>
 </resources>

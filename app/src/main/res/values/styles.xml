@@ -30,13 +30,13 @@
     </style>
 
     <!-- Tab Big Title Style -->
-    <style name="tabLayoutBig" parent="tabLayout">
-        <item name="tabTextAppearance">@style/tabBigTitle</item>
+    <style name="bigTabLayout" parent="tabLayout">
+        <item name="tabTextAppearance">@style/bigTabTitle</item>
     </style>
 
     <!-- Tab Small Title Style -->
-    <style name="tabLayoutSmall" parent="tabLayout">
-        <item name="tabTextAppearance">@style/tabSmallTitle</item>
+    <style name="smallTabLayout" parent="tabLayout">
+        <item name="tabTextAppearance">@style/smallTabTitle</item>
     </style>
 
     <!-- Title Style -->
@@ -52,14 +52,14 @@
     </style>
 
     <!-- Tab Big Title Style -->
-    <style name="tabBigTitle" parent="title">
-        <item name="android:textSize">22sp</item>
+    <style name="bigTabTitle" parent="title">
+        <item name="android:textSize">@dimen/textSize22</item>
         <item name="android:textColor">@color/mediumGrey</item>
     </style>
 
     <!-- Tab Small Title Style -->
-    <style name="tabSmallTitle" parent="title">
-        <item name="android:textSize">14sp</item>
+    <style name="smallTabTitle" parent="title">
+        <item name="android:textSize">@dimen/textSize14</item>
         <item name="android:textColor">@color/mediumGrey</item>
     </style>
 
@@ -90,21 +90,22 @@
     <!-- Input Style -->
     <style name="shadowInput">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">45dp</item>
-        <item name="android:paddingLeft">20dp</item>
-        <item name="android:paddingRight">20dp</item>
+        <item name="android:layout_height">@dimen/inputHeight</item>
+        <item name="android:layout_marginTop">@dimen/inputMarginPadding</item>
+        <item name="android:paddingLeft">@dimen/inputMarginPadding</item>
+        <item name="android:paddingRight">@dimen/inputMarginPadding</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:drawablePadding">20dp</item>
-        <item name="android:elevation">4dp</item>
+        <item name="android:drawablePadding">@dimen/inputMarginPadding</item>
         <item name="android:textColorHint">@color/mediumGrey</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/shape_shadow_white</item>
+        <item name="android:textSize">@dimen/textSize12</item>
     </style>
 
     <!-- Home Card Style -->
     <style name="shadowHomeCard">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/shape_bg_card_1_shadow</item>
+        <item name="android:background">@drawable/shape_shadow_bg_card_1</item>
         <item name="android:orientation">vertical</item>
     </style>
 

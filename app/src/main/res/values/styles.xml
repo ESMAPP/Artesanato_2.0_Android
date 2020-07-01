@@ -16,12 +16,51 @@
         </item>
     </style>
 
-    <!-- Black Title Style -->
+    <!-- Tab Layout Style -->
+    <style name="tabLayout" parent="Widget.Design.TabLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_tab_underline_grey</item>
+        <item name="tabIndicatorColor">@color/primaryBlue</item>
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicatorGravity">bottom</item>
+        <item name="tabRippleColor">@color/transparent</item>
+        <item name="tabSelectedTextColor">@color/black</item>
+    </style>
+
+    <!-- Tab Big Title Style -->
+    <style name="tabLayoutBig" parent="tabLayout">
+        <item name="tabTextAppearance">@style/tabBigTitle</item>
+    </style>
+
+    <!-- Tab Small Title Style -->
+    <style name="tabLayoutSmall" parent="tabLayout">
+        <item name="tabTextAppearance">@style/tabSmallTitle</item>
+    </style>
+
+    <!-- Title Style -->
     <style name="title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="fontFamily">@font/mina_regular</item>
+    </style>
+
+    <!-- Black Title Style -->
+    <style name="blackTitle" parent="title">
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Tab Big Title Style -->
+    <style name="tabBigTitle" parent="title">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/mediumGrey</item>
+    </style>
+
+    <!-- Tab Small Title Style -->
+    <style name="tabSmallTitle" parent="title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/mediumGrey</item>
     </style>
 
     <!-- Text Style -->
@@ -50,7 +89,7 @@
 
     <!-- Input Style -->
     <style name="shadowInput">
-        <item name="android:layout_width">325dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">45dp</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>

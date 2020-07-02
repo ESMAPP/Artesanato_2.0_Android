@@ -176,7 +176,7 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/bottom_bar"
-        android:minHeight="?attr/actionBarSize"
+        android:minHeight="25dp"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

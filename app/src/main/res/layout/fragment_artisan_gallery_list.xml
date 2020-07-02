@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
     tools:context=".view.artisan.gallery.ArtisanGalleryFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"
         android:name="pt.cm_vila_do_conde.artesanato_2.ArtisanGalleryFragment"
-        android:layout_width="match_parent"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

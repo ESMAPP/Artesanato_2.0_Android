@@ -110,7 +110,7 @@ public class ArtisanPageFragment extends Fragment {
         binding.artisanReputation.setText(String.valueOf(artisan.getReputation()));
         binding.artisanRanking.setText(String.valueOf(artisan.getRanking()));
         Picasso.get().load(artisan.getImage())
-                .placeholder(R.drawable.logo_i)
+                .placeholder(R.drawable.placeholder_user_pic)
                 .transform(new CropCircleTransformation())
                 .into(binding.artisanPic);
     }

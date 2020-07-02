@@ -1,75 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:id="@+id/card_holder_artisan"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_margin="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardElevation="@dimen/dimen_0dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_holder_artisan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardElevation="@dimen/dimen_0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_shadow_bg_card_2"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/shape_shadow_bg_card_2"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <FrameLayout
+            <ImageView
+                android:id="@+id/card_artisan_cover"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@null"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/card_cover" />
 
-                <ImageView
-                    android:id="@+id/card_artisan_cover"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="@null"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/card_cover" />
+            <ImageButton
+                android:id="@+id/btn_add_favourite"
+                style="@style/imgBtn"
+                android:layout_gravity="end"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:contentDescription="@string/description_add_favourite"
+                app:srcCompat="@drawable/i_heart_white" />
+        </FrameLayout>
 
-                <ImageButton
-                    android:id="@+id/btn_add_favourite"
-                    style="@style/imgBtn"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="5dp"
-                    android:contentDescription="@string/description_add_favourite"
-                    app:srcCompat="@drawable/i_heart_white" />
-            </FrameLayout>
+        <TextView
+            android:id="@+id/card_artisan_name"
+            style="@style/blackTitle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:singleLine="true"
+            android:text="@string/name"
+            android:textSize="@dimen/text_size_12" />
 
-            <TextView
-                android:id="@+id/card_artisan_name"
-                style="@style/blackTitle"
-                android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:singleLine="true"
-                android:text="@string/name"
-                android:textSize="@dimen/text_size_12" />
+        <TextView
+            android:id="@+id/card_artisan_city"
+            style="@style/greyText"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/card_text_margin"
+            android:layout_marginBottom="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/city"
+            android:textSize="@dimen/text_size_10" />
 
-            <TextView
-                android:id="@+id/card_artisan_city"
-                style="@style/greyText"
-                android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/card_text_margin"
-                android:layout_marginBottom="16dp"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:text="@string/city"
-                android:textSize="@dimen/text_size_10" />
+    </LinearLayout>
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

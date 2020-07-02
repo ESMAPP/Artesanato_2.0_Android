@@ -51,7 +51,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         binding.btnBack.setOnClickListener(v -> goBack());
     }
 
-    private void initUserViewModel(){
+    private void initUserViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
@@ -62,23 +62,19 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         popup.show();
     }
 
-    private void handleInicialUiState(){
-
+    private void handleInicialUiState() {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::updateUI);
     }
 
     private void updateUI(User user) {
-
         binding.profileName.setText(user.getName());
         binding.profileRanking.setText(String.valueOf(user.getRanking()));
         binding.profileReputation.setText(String.valueOf(user.getReputation()));
         if (user.getProfilePic().isEmpty()) {
-
             Picasso.get().load(R.drawable.placeholder_user_pic)
                     .transform(new CropCircleTransformation())
                     .into(binding.profilePic);
-        }
-        else {
+        } else {
             Picasso.get().load(user.getProfilePic())
                     .placeholder(R.drawable.placeholder_user_pic)
                     .transform(new CropCircleTransformation())
@@ -100,6 +96,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 return false;
         }
     }
+
     public void goBack() {
         navController.popBackStack();
     }

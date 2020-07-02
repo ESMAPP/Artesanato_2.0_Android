@@ -5,11 +5,11 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="@dimen/dimen0"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/parentInnerMargin"
+        android:layout_marginStart="@dimen/parent_inner_margin"
         android:layout_marginTop="26dp"
-        android:layout_marginEnd="@dimen/parentInnerMargin"
+        android:layout_marginEnd="@dimen/parent_inner_margin"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
         <EditText
             android:id="@+id/input_name"
             style="@style/shadowInput"
-            android:layout_marginTop="@dimen/dimen0"
+            android:layout_marginTop="@dimen/dimen_0dp"
             android:autofillHints="@string/hint_full_name"
             android:drawableStart="@drawable/i_user_color"
             android:hint="@string/hint_full_name"

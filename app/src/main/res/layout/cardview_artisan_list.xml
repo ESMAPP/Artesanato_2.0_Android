@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
-        app:cardElevation="@dimen/dimen0"
+        app:cardElevation="@dimen/dimen_0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -55,18 +55,18 @@
                 android:paddingEnd="16dp"
                 android:singleLine="true"
                 android:text="@string/name"
-                android:textSize="@dimen/textSize12" />
+                android:textSize="@dimen/text_size_12" />
 
             <TextView
                 android:id="@+id/card_artisan_city"
                 style="@style/greyText"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/cardTextMargin"
+                android:layout_marginTop="@dimen/card_text_margin"
                 android:layout_marginBottom="16dp"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:text="@string/city"
-                android:textSize="@dimen/textSize10" />
+                android:textSize="@dimen/text_size_10" />
 
         </LinearLayout>
 

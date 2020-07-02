@@ -29,15 +29,15 @@
 
                 <ImageView
                     android:id="@+id/pic_2"
-                    android:layout_width="@dimen/mediumPicSize"
-                    android:layout_height="@dimen/mediumPicSize"
+                    android:layout_width="@dimen/medium_pic_size"
+                    android:layout_height="@dimen/medium_pic_size"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:contentDescription="@null"
                     app:srcCompat="@android:drawable/sym_def_app_icon" />
 
                 <ImageView
-                    android:layout_width="@dimen/mediumFrameSize"
-                    android:layout_height="@dimen/mediumFrameSize"
+                    android:layout_width="@dimen/medium_frame_size"
+                    android:layout_height="@dimen/medium_frame_size"
                     android:background="@drawable/shape_circle"
                     android:contentDescription="@null"
                     android:scaleType="center" />

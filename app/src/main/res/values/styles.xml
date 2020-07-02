@@ -53,7 +53,7 @@
 
     <!-- Tab Big Title Style -->
     <style name="bigTabTitle" parent="title">
-        <item name="android:textSize">@dimen/textSize22</item>
+        <item name="android:textSize">@dimen/text_size_22</item>
         <item name="android:textColor">@color/mediumGrey</item>
     </style>
 
@@ -82,7 +82,7 @@
 
     <!-- Menu Text Style -->
     <style name="menuText" parent="greyText">
-        <item name="android:textSize">@dimen/textSize12</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
     </style>
 
     <!-- Img / Btn Style -->
@@ -95,21 +95,21 @@
     <!-- Img / Btn Style -->
     <style name="btnForm" parent="imgBtn">
         <item name="android:layout_gravity">end</item>
-        <item name="android:layout_marginTop">@dimen/inputPadding</item>
+        <item name="android:layout_marginTop">@dimen/input_padding</item>
     </style>
 
     <!-- Input Style -->
     <style name="shadowInput">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/inputHeight</item>
-        <item name="android:layout_marginTop">@dimen/inputMargin</item>
-        <item name="android:paddingLeft">@dimen/inputPadding</item>
-        <item name="android:paddingRight">@dimen/inputPadding</item>
+        <item name="android:layout_height">@dimen/input_height</item>
+        <item name="android:layout_marginTop">@dimen/input_margin</item>
+        <item name="android:paddingLeft">@dimen/input_padding</item>
+        <item name="android:paddingRight">@dimen/input_padding</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:drawablePadding">@dimen/inputPadding</item>
+        <item name="android:drawablePadding">@dimen/input_padding</item>
         <item name="android:textColorHint">@color/mediumGrey</item>
         <item name="android:background">@drawable/shape_shadow_white</item>
-        <item name="android:textSize">@dimen/textSize12</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
     </style>
 
     <!-- Home Card Style -->

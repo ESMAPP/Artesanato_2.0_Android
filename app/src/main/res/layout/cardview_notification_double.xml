@@ -6,7 +6,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/notification_double_pic"
-        android:layout_width="@dimen/dimen0"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,15 +29,15 @@
 
                     <ImageView
                         android:id="@+id/pic_2"
-                        android:layout_width="@dimen/smallPicSize"
-                        android:layout_height="@dimen/smallPicSize"
+                        android:layout_width="@dimen/small_pic_size"
+                        android:layout_height="@dimen/small_pic_size"
                         android:layout_gravity="center"
                         android:contentDescription="@null"
                         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
                     <ImageView
-                        android:layout_width="@dimen/smallFrameSize"
-                        android:layout_height="@dimen/smallFrameSize"
+                        android:layout_width="@dimen/small_frame_size"
+                        android:layout_height="@dimen/small_frame_size"
                         android:background="@drawable/shape_circle"
                         android:contentDescription="@null"
                         android:scaleType="center" />
@@ -55,15 +55,15 @@
 
                     <ImageView
                         android:id="@+id/pic_1"
-                        android:layout_width="@dimen/smallPicSize"
-                        android:layout_height="@dimen/smallPicSize"
+                        android:layout_width="@dimen/small_pic_size"
+                        android:layout_height="@dimen/small_pic_size"
                         android:layout_gravity="center"
                         android:contentDescription="@null"
                         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
                     <ImageView
-                        android:layout_width="@dimen/smallFrameSize"
-                        android:layout_height="@dimen/smallFrameSize"
+                        android:layout_width="@dimen/small_frame_size"
+                        android:layout_height="@dimen/small_frame_size"
                         android:background="@drawable/shape_circle"
                         android:contentDescription="@null"
                         android:scaleType="center" />

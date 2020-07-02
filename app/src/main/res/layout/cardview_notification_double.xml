@@ -12,7 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout style="@style/shadowNotificationCard">
+        <LinearLayout style="@style/NotificationCard">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/pics"
@@ -33,7 +33,7 @@
                         android:layout_height="@dimen/small_pic_size"
                         android:layout_gravity="center"
                         android:contentDescription="@null"
-                        app:srcCompat="@android:drawable/sym_def_app_icon" />
+                        app:srcCompat="@drawable/placeholder_user_pic" />
 
                     <ImageView
                         android:layout_width="@dimen/small_frame_size"
@@ -59,7 +59,7 @@
                         android:layout_height="@dimen/small_pic_size"
                         android:layout_gravity="center"
                         android:contentDescription="@null"
-                        app:srcCompat="@android:drawable/sym_def_app_icon" />
+                        app:srcCompat="@drawable/placeholder_user_pic" />
 
                     <ImageView
                         android:layout_width="@dimen/small_frame_size"
@@ -84,6 +84,7 @@
                     android:id="@+id/notification_message"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:maxLines="2"
                     android:singleLine="false"
@@ -93,9 +94,11 @@
                     android:id="@+id/notification_time"
                     android:layout_width="20dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|end"
                     android:layout_weight="0.2"
                     android:text="@string/time"
                     android:textAlignment="textEnd" />
+
             </LinearLayout>
 
         </LinearLayout>

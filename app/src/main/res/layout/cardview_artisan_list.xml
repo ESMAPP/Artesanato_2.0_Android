@@ -41,7 +41,7 @@
 
         <TextView
             android:id="@+id/card_artisan_name"
-            style="@style/BlackTitle"
+            style="@style/Title"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:paddingStart="16dp"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/card_artisan_city"
-            style="@style/GreyText"
+            style="@style/Text"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/card_text_margin"
             android:layout_marginBottom="16dp"

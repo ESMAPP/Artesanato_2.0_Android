@@ -28,7 +28,7 @@
             app:srcCompat="@drawable/i_arrow_back_color" />
 
         <TextView
-            style="@style/BlackTitle"
+            style="@style/Title"
             android:layout_marginStart="20dp"
             android:text="@string/label_notifications"
             android:textSize="@dimen/text_size_18" />

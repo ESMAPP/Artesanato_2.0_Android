@@ -9,42 +9,42 @@
 
     <LinearLayout
         android:id="@+id/top"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen0"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="@dimen/parentOuterMargin"
+        android:layout_marginTop="@dimen/parentTopMargin"
+        android:layout_marginEnd="@dimen/parentOuterMargin"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/btnBack"
+            android:id="@+id/btn_back"
             style="@style/imgBtn"
             android:contentDescription="@string/goBack"
             android:paddingEnd="8dp"
             app:srcCompat="@drawable/i_arrow_back_color" />
 
         <TextView
-            android:id="@+id/textView"
             style="@style/blackTitle"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="@string/editProfile"
-            android:textSize="16sp" />
+            android:textSize="@dimen/textSize18" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/pic"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen0"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="@dimen/parentOuterMargin"
+        android:layout_marginTop="@dimen/parentInnerMargin"
+        android:layout_marginEnd="@dimen/parentOuterMargin"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top">
 
@@ -55,24 +55,24 @@
             android:layout_marginTop="3dp">
 
             <ImageView
-                android:id="@+id/profilePic"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center_horizontal|center_vertical"
+                android:id="@+id/profile_pic"
+                android:layout_width="@dimen/picSize"
+                android:layout_height="@dimen/picSize"
+                android:layout_gravity="center"
                 android:contentDescription="@string/profilePicture"
-                app:srcCompat="@android:drawable/sym_def_app_icon" />
+                app:srcCompat="@drawable/placeholder_user_pic" />
 
             <ImageView
-                android:id="@+id/profilePicFrame"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/shape_circle"
                 android:contentDescription="@string/profilePictureFrame"
                 android:scaleType="center" />
+
         </FrameLayout>
 
         <TextView
-            android:id="@+id/editProfile"
+            android:id="@+id/edit_profile"
             style="@style/blueText"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
@@ -81,42 +81,38 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen0"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginStart="@dimen/parentInnerMargin"
+        android:layout_marginTop="@dimen/parentInnerMargin"
+        android:layout_marginEnd="@dimen/parentInnerMargin"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pic">
 
         <EditText
-            android:id="@+id/inputEditName"
+            android:id="@+id/input_edit_name"
             style="@style/shadowInput"
+            android:layout_marginTop="@dimen/dimen0"
             android:autofillHints="@string/fullName"
-            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_user_color"
             android:hint="@string/fullName"
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/inputEditPassword"
+            android:id="@+id/input_edit_password"
             style="@style/shadowInput"
-            android:layout_marginTop="20dp"
             android:autofillHints="@string/password"
-            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/password"
             android:inputType="textPassword" />
 
         <EditText
-            android:id="@+id/inputEditConfirmPassword"
+            android:id="@+id/input_edit_confirm_password"
             style="@style/shadowInput"
-            android:layout_marginTop="20dp"
             android:autofillHints="@string/confirmPassword"
-            android:background="@drawable/shape_white_shadow"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/confirmPassword"
             android:inputType="textPassword" />
@@ -125,7 +121,7 @@
             android:id="@+id/btn_save"
             style="@style/imgBtn"
             android:layout_gravity="end"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/inputMargin"
             android:contentDescription="@string/save"
             app:srcCompat="@drawable/btn_arrow_color" />
 

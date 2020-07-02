@@ -36,7 +36,7 @@
 
     <dimen name="textSize10">10sp</dimen>
     <dimen name="textSize12">12sp</dimen>
-    <dimen name="textSize14">14sp</dimen>
+    <dimen name="textSize16">16sp</dimen>
     <dimen name="textSize18">18sp</dimen>
     <dimen name="textSize22">22sp</dimen>
 </resources>

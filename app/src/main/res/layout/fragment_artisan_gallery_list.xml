@@ -8,13 +8,15 @@
     tools:context=".view.artisan.gallery.ArtisanGalleryFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-
         android:id="@+id/list"
         android:name="pt.cm_vila_do_conde.artesanato_2.ArtisanGalleryFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/parentInnerMargin"
+        android:layout_marginEnd="@dimen/parentInnerMargin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_artisan_gallery" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

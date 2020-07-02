@@ -59,7 +59,7 @@
 
     <!-- Tab Small Title Style -->
     <style name="smallTabTitle" parent="title">
-        <item name="android:textSize">@dimen/textSize14</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/mediumGrey</item>
     </style>
 

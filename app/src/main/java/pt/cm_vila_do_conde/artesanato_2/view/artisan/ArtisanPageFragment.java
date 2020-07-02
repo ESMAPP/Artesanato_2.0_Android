@@ -99,7 +99,7 @@ public class ArtisanPageFragment extends Fragment {
     }
 
     public void setupTabAdapter() {
-        ViewPager artisanViewPager = binding.artisanViewPager;
+        ViewPager artisanViewPager = binding.viewPagerArtisan;
         artisanViewPager.setAdapter(new FragmentArtisanPageAdapter(getChildFragmentManager()));
         TabLayout tabs = binding.innerNavBar;
         tabs.setupWithViewPager(artisanViewPager);

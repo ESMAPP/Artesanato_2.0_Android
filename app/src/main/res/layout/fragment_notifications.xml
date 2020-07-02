@@ -8,11 +8,12 @@
     tools:context="pt.cm_vila_do_conde.artesanato_2.view.notification.NotificationsFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/top"
+        android:layout_width="@dimen/dimen0"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="@dimen/parentOuterMargin"
+        android:layout_marginTop="@dimen/parentTopMargin"
+        android:layout_marginEnd="@dimen/parentOuterMargin"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,22 +21,17 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/transparent"
+            android:id="@+id/btn_back"
+            style="@style/imgBtn"
             android:contentDescription="@string/goBack"
+            android:paddingEnd="8dp"
             app:srcCompat="@drawable/i_arrow_back_color" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:fontFamily="@font/quicksand"
+            style="@style/blackTitle"
+            android:layout_marginStart="20dp"
             android:text="@string/notifications"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="@dimen/textSize18" />
 
     </LinearLayout>
 

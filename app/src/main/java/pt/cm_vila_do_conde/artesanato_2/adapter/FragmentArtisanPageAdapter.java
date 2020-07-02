@@ -44,7 +44,7 @@ public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
             case 2:
                 return "Concursos";
             case 3:
-                return "About";
+                return "Sobre";
         }
         return null;
     }

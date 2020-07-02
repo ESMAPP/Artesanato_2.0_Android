@@ -22,7 +22,6 @@ import org.jetbrains.annotations.NotNull;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.FragmentArtisanPageAdapter;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ProfileAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentProfileBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
@@ -90,7 +89,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.editProfile:
+            case R.id.edit_profile:
                 navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
                 return true;
             case R.id.signOut:

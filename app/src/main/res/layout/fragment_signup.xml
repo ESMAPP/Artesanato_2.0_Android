@@ -17,7 +17,7 @@
 
         <EditText
             android:id="@+id/input_name"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:layout_marginTop="@dimen/dimen_0dp"
             android:autofillHints="@string/hint_full_name"
             android:drawableStart="@drawable/i_user_color"
@@ -26,7 +26,7 @@
 
         <EditText
             android:id="@+id/input_email"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:autofillHints="@string/hint_email"
             android:drawableStart="@drawable/i_letter_color"
             android:hint="@string/hint_email"
@@ -34,7 +34,7 @@
 
         <EditText
             android:id="@+id/input_password"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:autofillHints="@string/hint_password"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/hint_password"
@@ -42,7 +42,7 @@
 
         <EditText
             android:id="@+id/input_confirm_password"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:autofillHints="@string/hint_confirm_password"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/hint_confirm_password"
@@ -50,7 +50,7 @@
 
         <ImageButton
             android:id="@+id/btn_submit"
-            style="@style/btnForm"
+            style="@style/BtnForm"
             android:contentDescription="@string/description_submit"
             app:srcCompat="@drawable/btn_arrow_color" />
     </LinearLayout>

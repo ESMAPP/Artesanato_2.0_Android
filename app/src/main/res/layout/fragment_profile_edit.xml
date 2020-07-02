@@ -22,13 +22,13 @@
 
         <ImageButton
             android:id="@+id/btn_back"
-            style="@style/imgBtn"
+            style="@style/ImgBtn"
             android:contentDescription="@string/description_go_back"
             android:paddingEnd="8dp"
             app:srcCompat="@drawable/i_arrow_back_color" />
 
         <TextView
-            style="@style/blackTitle"
+            style="@style/BlackTitle"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="@string/label_edit_profile"
@@ -73,7 +73,7 @@
 
         <TextView
             android:id="@+id/edit_profile"
-            style="@style/blueText"
+            style="@style/BlueText"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:text="@string/label_change_profile_pic" />
@@ -94,7 +94,7 @@
 
         <EditText
             android:id="@+id/input_edit_name"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:layout_marginTop="@dimen/dimen_0dp"
             android:autofillHints="@string/hint_full_name"
             android:drawableStart="@drawable/i_user_color"
@@ -103,7 +103,7 @@
 
         <EditText
             android:id="@+id/input_edit_password"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:autofillHints="@string/hint_password"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/hint_password"
@@ -111,7 +111,7 @@
 
         <EditText
             android:id="@+id/input_edit_confirm_password"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:autofillHints="@string/hint_confirm_password"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/hint_confirm_password"
@@ -119,7 +119,7 @@
 
         <ImageButton
             android:id="@+id/btn_save"
-            style="@style/btnForm"
+            style="@style/BtnForm"
             android:contentDescription="@string/description_save"
             app:srcCompat="@drawable/btn_arrow_color" />
 

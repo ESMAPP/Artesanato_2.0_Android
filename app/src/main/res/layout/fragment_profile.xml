@@ -17,7 +17,7 @@
 
         <ImageView
             android:id="@+id/topBar"
-            style="@style/imgBtn"
+            style="@style/ImgBtn"
             android:adjustViewBounds="true"
             android:background="@drawable/shape_shadow_bottom_round"
             android:contentDescription="@null"
@@ -57,7 +57,7 @@
 
             <TextView
                 android:id="@+id/profileName"
-                style="@style/blackTitle"
+                style="@style/BlackTitle"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="@string/name"
@@ -71,18 +71,18 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/i_cup_color" />
 
                 <TextView
                     android:id="@+id/profileRanking"
-                    style="@style/greyText"
+                    style="@style/GreyText"
                     android:layout_marginStart="6dp"
                     android:text="@string/value" />
 
                 <ImageView
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:layout_height="18dp"
                     android:layout_marginStart="20dp"
                     android:contentDescription="@null"
@@ -90,14 +90,14 @@
 
                 <TextView
                     android:id="@+id/profileReputation"
-                    style="@style/greyText"
+                    style="@style/GreyText"
                     android:layout_marginStart="6dp"
                     android:text="@string/value" />
             </LinearLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/inner_nav_bar"
-                style="@style/smallTabLayout"
+                style="@style/SmallTabLayout"
                 android:layout_marginTop="30dp">
 
                 <com.google.android.material.tabs.TabItem
@@ -137,7 +137,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_back"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/description_go_back"
                     android:paddingEnd="8dp"
                     app:srcCompat="@drawable/i_arrow_back_color" />
@@ -152,7 +152,7 @@
 
                 <ImageButton
                     android:id="@+id/btnExtra"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/description_menu"
                     android:paddingStart="10dp"

@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/top"
-        style="@style/blackTitle"
+        style="@style/BlackTitle"
         android:layout_width="@dimen/dimen_0dp"
         android:layout_height="37dp"
         android:layout_marginStart="@dimen/parent_inner_margin"
@@ -63,7 +63,7 @@
                 android:layout_marginEnd="25dp"
                 app:cardElevation="@dimen/dimen_0dp">
 
-                <LinearLayout style="@style/shadowHomeCard">
+                <LinearLayout style="@style/HomeCard">
 
                     <ImageView
                         android:id="@+id/fair_cover"
@@ -76,7 +76,7 @@
 
                     <TextView
                         android:id="@+id/fair_title"
-                        style="@style/blackTitle"
+                        style="@style/BlackTitle"
                         android:layout_width="match_parent"
                         android:layout_marginTop="6dp"
                         android:paddingStart="@dimen/card_text_padding"
@@ -87,7 +87,7 @@
 
                     <TextView
                         android:id="@+id/fair_text"
-                        style="@style/greyText"
+                        style="@style/GreyText"
                         android:layout_width="match_parent"
                         android:layout_marginTop="@dimen/card_text_margin"
                         android:layout_marginBottom="@dimen/card_text_margin"
@@ -98,7 +98,7 @@
                         android:textSize="@dimen/text_size_10" />
 
                     <ImageView
-                        style="@style/imgBtn"
+                        style="@style/ImgBtn"
                         android:layout_gravity="end"
                         android:contentDescription="@null"
                         android:paddingStart="@dimen/card_image_padding"
@@ -116,7 +116,7 @@
                 android:layout_marginEnd="25dp"
                 app:cardElevation="@dimen/dimen_0dp">
 
-                <LinearLayout style="@style/shadowHomeCard">
+                <LinearLayout style="@style/HomeCard">
 
                     <ImageView
                         android:id="@+id/event_cover"
@@ -129,7 +129,7 @@
 
                     <TextView
                         android:id="@+id/event_title"
-                        style="@style/blackTitle"
+                        style="@style/BlackTitle"
                         android:layout_width="match_parent"
                         android:layout_marginTop="6dp"
                         android:paddingStart="@dimen/card_text_padding"
@@ -140,7 +140,7 @@
 
                     <TextView
                         android:id="@+id/event_text"
-                        style="@style/greyText"
+                        style="@style/GreyText"
                         android:layout_width="match_parent"
                         android:layout_marginTop="@dimen/card_text_margin"
                         android:layout_marginBottom="@dimen/card_text_margin"
@@ -151,7 +151,7 @@
                         android:textSize="@dimen/text_size_10" />
 
                     <ImageView
-                        style="@style/imgBtn"
+                        style="@style/ImgBtn"
                         android:layout_gravity="end"
                         android:contentDescription="@null"
                         android:paddingStart="@dimen/card_image_padding"
@@ -168,7 +168,7 @@
                 android:layout_height="wrap_content"
                 app:cardElevation="@dimen/dimen_0dp">
 
-                <LinearLayout style="@style/shadowHomeCard">
+                <LinearLayout style="@style/HomeCard">
 
                     <ImageView
                         android:id="@+id/artisan_cover"
@@ -181,7 +181,7 @@
 
                     <TextView
                         android:id="@+id/artisan_title"
-                        style="@style/blackTitle"
+                        style="@style/BlackTitle"
                         android:layout_width="match_parent"
                         android:layout_marginTop="6dp"
                         android:paddingStart="@dimen/card_text_padding"
@@ -192,7 +192,7 @@
 
                     <TextView
                         android:id="@+id/artisan_text"
-                        style="@style/greyText"
+                        style="@style/GreyText"
                         android:layout_width="match_parent"
                         android:layout_marginTop="@dimen/card_text_margin"
                         android:layout_marginBottom="@dimen/card_text_margin"
@@ -203,7 +203,7 @@
                         android:textSize="@dimen/text_size_10" />
 
                     <ImageView
-                        style="@style/imgBtn"
+                        style="@style/ImgBtn"
                         android:layout_gravity="end"
                         android:contentDescription="@null"
                         android:paddingStart="@dimen/card_image_padding"
@@ -244,12 +244,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_notifications"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_notifications"
                     app:srcCompat="@drawable/btn_notifications" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_notifications" />
             </LinearLayout>
 
@@ -262,12 +262,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_profile"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_profile"
                     app:srcCompat="@drawable/btn_profile" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_profile" />
             </LinearLayout>
 
@@ -280,12 +280,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_fair"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_location"
                     app:srcCompat="@drawable/btn_location" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_location" />
             </LinearLayout>
 
@@ -305,12 +305,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_events"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_events"
                     app:srcCompat="@drawable/btn_events" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_events" />
             </LinearLayout>
 
@@ -323,12 +323,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_explore"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_explore"
                     app:srcCompat="@drawable/btn_explore" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_explore" />
             </LinearLayout>
 
@@ -341,12 +341,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_contests"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_contests"
                     app:srcCompat="@drawable/btn_contests" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_contests" />
             </LinearLayout>
 
@@ -365,12 +365,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_favourites"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_favourites"
                     app:srcCompat="@drawable/btn_favourites" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_favourites" />
             </LinearLayout>
 
@@ -383,12 +383,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_rankings"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_rankings"
                     app:srcCompat="@drawable/btn_rankings" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_rankings" />
             </LinearLayout>
 
@@ -401,12 +401,12 @@
 
                 <ImageButton
                     android:id="@+id/btn_info"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/label_information"
                     app:srcCompat="@drawable/btn_info" />
 
                 <TextView
-                    style="@style/menuText"
+                    style="@style/MenuText"
                     android:text="@string/label_information" />
             </LinearLayout>
 

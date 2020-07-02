@@ -31,7 +31,7 @@
 
             <ImageButton
                 android:id="@+id/btn_add_favourite"
-                style="@style/imgBtn"
+                style="@style/ImgBtn"
                 android:layout_gravity="end"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="5dp"
@@ -41,7 +41,7 @@
 
         <TextView
             android:id="@+id/card_artisan_name"
-            style="@style/blackTitle"
+            style="@style/BlackTitle"
             android:layout_width="match_parent"
             android:layout_marginTop="10dp"
             android:paddingStart="16dp"
@@ -52,7 +52,7 @@
 
         <TextView
             android:id="@+id/card_artisan_city"
-            style="@style/greyText"
+            style="@style/GreyText"
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/card_text_margin"
             android:layout_marginBottom="16dp"

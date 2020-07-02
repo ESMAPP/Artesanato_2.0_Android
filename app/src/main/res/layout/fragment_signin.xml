@@ -29,13 +29,13 @@
 
             <ImageButton
                 android:id="@+id/btn_facebook"
-                style="@style/imgBtn"
+                style="@style/ImgBtn"
                 android:contentDescription="@string/description_sign_in_facebook"
                 app:srcCompat="@drawable/i_facebook_color" />
 
             <ImageButton
                 android:id="@+id/btn_google"
-                style="@style/imgBtn"
+                style="@style/ImgBtn"
                 android:layout_marginStart="28dp"
                 android:contentDescription="@string/description_sign_in_google"
                 app:srcCompat="@drawable/i_google_color" />
@@ -43,7 +43,7 @@
 
         <EditText
             android:id="@+id/input_email"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:autofillHints="@string/hint_email"
             android:drawableStart="@drawable/i_letter_color"
             android:hint="@string/hint_email"
@@ -51,7 +51,7 @@
 
         <EditText
             android:id="@+id/input_password"
-            style="@style/shadowInput"
+            style="@style/Input"
             android:autofillHints="@string/hint_password"
             android:drawableStart="@drawable/i_key_color"
             android:hint="@string/hint_password"
@@ -70,7 +70,7 @@
 
                 <TextView
                     android:id="@+id/forgot_password"
-                    style="@style/blueText"
+                    style="@style/BlueText"
                     android:text="@string/label_forgot_password" />
             </LinearLayout>
 
@@ -82,7 +82,7 @@
 
                 <ImageButton
                     android:id="@+id/btn_submit"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:contentDescription="@string/description_submit"
                     app:srcCompat="@drawable/btn_arrow_color" />
             </LinearLayout>

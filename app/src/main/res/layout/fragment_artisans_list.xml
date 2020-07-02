@@ -19,28 +19,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/shape_bottom_shadow"
+            android:background="@drawable/shape_shadow_bottom"
             android:contentDescription="@string/barTop"
             android:src="@drawable/bar_top_1" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginStart="@dimen/parentOuterMargin"
+            android:layout_marginTop="@dimen/parentTopMargin"
+            android:layout_marginEnd="@dimen/parentOuterMargin"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/btnBack"
+                android:id="@+id/btn_back"
                 style="@style/imgBtn"
                 android:contentDescription="@string/goBack"
                 android:paddingEnd="8dp"
                 app:srcCompat="@drawable/i_arrow_back_color" />
 
             <SearchView
-                android:id="@+id/inputSearch"
+                android:id="@+id/input_search"
                 style="@android:style/Widget.Material.Light.SearchView"
                 android:layout_width="300dp"
                 android:layout_height="30dp"
@@ -48,7 +48,7 @@
                 android:searchIcon="@drawable/i_magnifier_color" />
 
             <ImageButton
-                android:id="@+id/btnFilter"
+                android:id="@+id/btn_filter"
                 style="@style/imgBtn"
                 android:contentDescription="@string/filter"
                 android:paddingStart="10dp"
@@ -58,11 +58,13 @@
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/artisansList"
+        android:id="@+id/artisans_list"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_height="@dimen/dimen0"
+        android:layout_marginStart="@dimen/parentInnerMargin"
+        android:layout_marginEnd="@dimen/parentInnerMargin"
+        android:fadingEdgeLength="25dp"
+        android:requiresFadingEdge="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

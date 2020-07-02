@@ -19,12 +19,12 @@
             android:id="@+id/topBar"
             style="@style/imgBtn"
             android:adjustViewBounds="true"
-            android:background="@drawable/shape_bottom_round_shadow"
+            android:background="@drawable/shape_shadow_bottom_round"
             android:contentDescription="@string/topBar"
             app:srcCompat="@drawable/bar_top_2" />
 
         <LinearLayout
-            android:id="@+id/userInfo"
+            android:id="@+id/user_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -45,7 +45,7 @@
                     android:layout_height="110dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:contentDescription="@string/profilePicture"
-                    app:srcCompat="@android:drawable/sym_def_app_icon" />
+                    app:srcCompat="@drawable/placeholder_user_pic" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -96,8 +96,8 @@
             </LinearLayout>
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/innerNavBar"
-                style="@style/tabLayoutSmall"
+                android:id="@+id/inner_nav_bar"
+                style="@style/smallTabLayout"
                 android:layout_marginTop="30dp">
 
                 <com.google.android.material.tabs.TabItem
@@ -122,7 +122,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btn"
+            android:id="@+id/btns"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -136,7 +136,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/btnBack"
+                    android:id="@+id/btn_back"
                     style="@style/imgBtn"
                     android:contentDescription="@string/goBack"
                     android:paddingEnd="8dp"

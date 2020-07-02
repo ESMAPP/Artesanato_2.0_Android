@@ -11,7 +11,16 @@
 
     <dimen name="iconSize">45dp</dimen>
 
+    <dimen name="picSize">110dp</dimen>
+    <dimen name="bigPicSize">75dp</dimen>
+    <dimen name="bigFrameSize">85dp</dimen>
+    <dimen name="mediumPicSize">30dp</dimen>
+    <dimen name="mediumFrameSize">35dp</dimen>
+    <dimen name="smallPicSize">26dp</dimen>
+    <dimen name="smallFrameSize">30dp</dimen>
+
     <dimen name="parentTopMargin">24dp</dimen>
+    <dimen name="parentBottomMargin">20dp</dimen>
     <dimen name="parentOuterMargin">30dp</dimen>
     <dimen name="parentInnerMargin">40dp</dimen>
 
@@ -19,10 +28,13 @@
     <dimen name="inputMargin">20dp</dimen>
     <dimen name="inputPadding">20dp</dimen>
 
-    <dimen name="smallPadding">10dp</dimen>
+    <dimen name="cardTextMargin">4dp</dimen>
+    <dimen name="cardTextPadding">10dp</dimen>
+    <dimen name="cardImagePadding">8dp</dimen>
 
-    <dimen name="smallestPadding">8dp</dimen>
+    <dimen name="cardInfoHeight">50dp</dimen>
 
+    <dimen name="textSize10">10sp</dimen>
     <dimen name="textSize12">12sp</dimen>
     <dimen name="textSize14">14sp</dimen>
     <dimen name="textSize18">18sp</dimen>

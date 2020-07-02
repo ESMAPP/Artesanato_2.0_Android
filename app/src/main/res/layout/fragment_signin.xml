@@ -45,7 +45,7 @@
             android:id="@+id/input_email"
             style="@style/Input"
             android:autofillHints="@string/hint_email"
-            android:drawableStart="@drawable/i_letter_color"
+            android:drawableStart="@drawable/ic_letter_color"
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress" />
 
@@ -53,7 +53,7 @@
             android:id="@+id/input_password"
             style="@style/Input"
             android:autofillHints="@string/hint_password"
-            android:drawableStart="@drawable/i_key_color"
+            android:drawableStart="@drawable/ic_key_color"
             android:hint="@string/hint_password"
             android:inputType="textPassword" />
 

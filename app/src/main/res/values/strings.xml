@@ -13,6 +13,7 @@
     <string name="hint_email">e-mail</string>
     <string name="hint_password">password</string>
     <string name="hint_confirm_password">confirmar password</string>
+    <string name="hint_phone">telemóvel</string>
     <string name="label_forgot_password">Esqueceu-se da password?</string>
     <string name="label_recover_password">Recuperar password</string>
     <string name="label_edit_profile">Editar Perfil</string>
@@ -32,6 +33,8 @@
     <string name="label_gallery">Galeria</string>
     <string name="label_reviews">Recomendações</string>
     <string name="label_map">Mapa</string>
+    <string name="label_general_info">Informações Gerais</string>
+    <string name="label_change_password">Alterar password</string>
 
 
     <!-- DESCRIPTION TEXT -->

@@ -4,63 +4,56 @@
 
     <string name="appName">Feira de Artesanato</string>
 
+
     <!-- TRANSLATABLE TEXT -->
-    <string name="signIn">Entrar</string>
-    <string name="signUp">Registar</string>
-    <string name="signOut">Sair</string>
-    <string name="fullName">nome completo</string>
-    <string name="email">e-mail</string>
-    <string name="password">password</string>
-    <string name="confirmPassword">confirmar password</string>
-    <string name="forgotPassword">Esqueceu-se da password?</string>
-    <string name="recoverPassword">Recuperar password</string>
-    <string name="editProfile">Editar Perfil</string>
-    <string name="changeProfilePic">Alterar foto de perfil</string>
-    <string name="highlights">Destaques</string>
-    <string name="notifications">Notificações</string>
-    <string name="profile">Perfil</string>
-    <string name="location">Localização</string>
-    <string name="events">Eventos</string>
-    <string name="explore">Explorar</string>
-    <string name="contests">Concursos</string>
-    <string name="favourites">Favoritos</string>
-    <string name="rankings">Rankings</string>
-    <string name="information">Informações</string>
-    <string name="badges">Medalhas</string>
-    <string name="activity">Atividade</string>
-    <string name="gallery">Galeria</string>
-    <string name="map">Mapa</string>
-    <string name="reviews">Recomendações</string>
-    <string name="about">Sobre</string>
+    <string name="tab_sign_in">Entrar</string>
+    <string name="tab_sign_up">Registar</string>
+    <string name="popup_sign_out">Sair</string>
+    <string name="hint_full_name">nome completo</string>
+    <string name="hint_email">e-mail</string>
+    <string name="hint_password">password</string>
+    <string name="hint_confirm_password">confirmar password</string>
+    <string name="label_forgot_password">Esqueceu-se da password?</string>
+    <string name="label_recover_password">Recuperar password</string>
+    <string name="label_edit_profile">Editar Perfil</string>
+    <string name="label_change_profile_pic">Alterar foto de perfil</string>
+    <string name="label_highlights">Destaques</string>
+    <string name="label_notifications">Notificações</string>
+    <string name="label_profile">Perfil</string>
+    <string name="label_location">Localização</string>
+    <string name="label_events">Eventos</string>
+    <string name="label_explore">Explorar</string>
+    <string name="label_contests">Concursos</string>
+    <string name="label_favourites">Favoritos</string>
+    <string name="label_rankings">Rankings</string>
+    <string name="label_information">Informações</string>
+    <string name="label_badges">Medalhas</string>
+    <string name="label_activity">Atividade</string>
+    <string name="label_gallery">Galeria</string>
+    <string name="label_reviews">Recomendações</string>
+    <string name="label_map">Mapa</string>
 
 
-    <!-- PLACEHOLDER TEXT / DESCRIPTION TEXT -->
-    <string name="appLogo">logo feira de artesanato</string>
-    <string name="appIcon">icon feira de artesanato</string>
-    <string name="goBack">go back</string>
-    <string name="goTo">go to</string>
-    <string name="submitForm">submit form</string>
-    <string name="signInGoogle">sign in with google</string>
-    <string name="signInFacebook">sign in with facebook</string>
-    <string name="save">save</string>
-    <string name="divider">divider</string>
-    <string name="menu">Menu</string>
-    <string name="profilePicture">profile picture</string>
-    <string name="profilePictureFrame">profile picture frame</string>
-    <string name="topBar">top bar</string>
-    <string name="reputation">reputation</string>
-    <string name="rankingPosition">ranking</string>
-    <string name="coverImage">cover image</string>
+    <!-- DESCRIPTION TEXT -->
+    <string name="description_go_back">go back</string>
+    <string name="description_submit">submit</string>
+    <string name="description_sign_in_google">google sign in</string>
+    <string name="description_sign_in_facebook">facebook sign in</string>
+    <string name="description_save">save</string>
+    <string name="description_menu">Menu</string>
+    <string name="description_add_favourite">add favourite</string>
+    <string name="description_start_navigation">start navigation</string>
+    <string name="description_filter">filter</string>
+
+
+    <!-- PLACEHOLDER TEXT -->
     <string name="title">title</string>
     <string name="subtitle">subtitle</string>
     <string name="name">name</string>
     <string name="city">city</string>
-    <string name="addFavourite">add favourite</string>
     <string name="message">message</string>
     <string name="time">time</string>
     <string name="target">target</string>
-    <string name="filter">filter</string>
-    <string name="barTop">bar top</string>
     <string name="value">100</string>
 
     <!-- TODO: Remove or change this placeholder text -->

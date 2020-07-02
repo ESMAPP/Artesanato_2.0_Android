@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape_shadow_bottom"
-            android:contentDescription="@string/barTop"
+            android:contentDescription="@null"
             android:src="@drawable/bar_top_1" />
 
         <LinearLayout
@@ -35,7 +35,7 @@
             <ImageButton
                 android:id="@+id/btn_back"
                 style="@style/imgBtn"
-                android:contentDescription="@string/goBack"
+                android:contentDescription="@string/description_go_back"
                 android:paddingEnd="8dp"
                 app:srcCompat="@drawable/i_arrow_back_color" />
 
@@ -50,7 +50,7 @@
             <ImageButton
                 android:id="@+id/btn_filter"
                 style="@style/imgBtn"
-                android:contentDescription="@string/filter"
+                android:contentDescription="@string/description_filter"
                 android:paddingStart="10dp"
                 android:src="@drawable/i_filter_color" />
 

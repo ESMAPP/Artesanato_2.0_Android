@@ -20,7 +20,7 @@
             style="@style/imgBtn"
             android:adjustViewBounds="true"
             android:background="@drawable/shape_shadow_bottom_round"
-            android:contentDescription="@string/topBar"
+            android:contentDescription="@null"
             app:srcCompat="@drawable/bar_top_2" />
 
         <LinearLayout
@@ -44,14 +44,14 @@
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:contentDescription="@string/profilePicture"
+                    android:contentDescription="@null"
                     app:srcCompat="@drawable/placeholder_user_pic" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/shape_circle"
-                    android:contentDescription="@string/profilePictureFrame"
+                    android:contentDescription="@null"
                     android:scaleType="center" />
             </FrameLayout>
 
@@ -72,7 +72,7 @@
 
                 <ImageView
                     style="@style/imgBtn"
-                    android:contentDescription="@string/rankingPosition"
+                    android:contentDescription="@null"
                     app:srcCompat="@drawable/i_cup_color" />
 
                 <TextView
@@ -85,7 +85,7 @@
                     style="@style/imgBtn"
                     android:layout_height="18dp"
                     android:layout_marginStart="20dp"
-                    android:contentDescription="@string/reputation"
+                    android:contentDescription="@null"
                     app:srcCompat="@drawable/i_star_color" />
 
                 <TextView
@@ -104,19 +104,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:text="@string/badges" />
+                    android:text="@string/label_badges" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:text="@string/activity" />
+                    android:text="@string/label_activity" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:text="@string/contests" />
+                    android:text="@string/label_contests" />
             </com.google.android.material.tabs.TabLayout>
 
         </LinearLayout>
@@ -138,7 +138,7 @@
                 <ImageButton
                     android:id="@+id/btn_back"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/goBack"
+                    android:contentDescription="@string/description_go_back"
                     android:paddingEnd="8dp"
                     app:srcCompat="@drawable/i_arrow_back_color" />
 
@@ -154,7 +154,7 @@
                     android:id="@+id/btnExtra"
                     style="@style/imgBtn"
                     android:layout_height="match_parent"
-                    android:contentDescription="@string/menu"
+                    android:contentDescription="@string/description_menu"
                     android:paddingStart="10dp"
                     app:srcCompat="@drawable/i_more_grey" />
 

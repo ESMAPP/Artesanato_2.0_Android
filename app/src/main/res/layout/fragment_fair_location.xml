@@ -69,7 +69,7 @@
                 <ImageButton
                     android:id="@+id/btn_start_gps"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/menu"
+                    android:contentDescription="@string/description_start_navigation"
                     app:srcCompat="@drawable/btn_navigate_color" />
 
             </LinearLayout>

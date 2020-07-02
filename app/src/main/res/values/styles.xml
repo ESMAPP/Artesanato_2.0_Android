@@ -92,6 +92,12 @@
         <item name="android:background">@color/transparent</item>
     </style>
 
+    <!-- Img / Btn Style -->
+    <style name="btnForm" parent="imgBtn">
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginTop">@dimen/inputPadding</item>
+    </style>
+
     <!-- Input Style -->
     <style name="shadowInput">
         <item name="android:layout_width">match_parent</item>

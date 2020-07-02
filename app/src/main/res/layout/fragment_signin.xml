@@ -30,31 +30,31 @@
             <ImageButton
                 android:id="@+id/btn_facebook"
                 style="@style/imgBtn"
-                android:contentDescription="@string/signInFacebook"
+                android:contentDescription="@string/description_sign_in_facebook"
                 app:srcCompat="@drawable/i_facebook_color" />
 
             <ImageButton
                 android:id="@+id/btn_google"
                 style="@style/imgBtn"
                 android:layout_marginStart="28dp"
-                android:contentDescription="@string/signInGoogle"
+                android:contentDescription="@string/description_sign_in_google"
                 app:srcCompat="@drawable/i_google_color" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/input_email"
             style="@style/shadowInput"
-            android:autofillHints="@string/email"
+            android:autofillHints="@string/hint_email"
             android:drawableStart="@drawable/i_letter_color"
-            android:hint="@string/email"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/input_password"
             style="@style/shadowInput"
-            android:autofillHints="@string/password"
+            android:autofillHints="@string/hint_password"
             android:drawableStart="@drawable/i_key_color"
-            android:hint="@string/password"
+            android:hint="@string/hint_password"
             android:inputType="textPassword" />
 
         <LinearLayout
@@ -71,7 +71,7 @@
                 <TextView
                     android:id="@+id/forgot_password"
                     style="@style/blueText"
-                    android:text="@string/forgotPassword" />
+                    android:text="@string/label_forgot_password" />
             </LinearLayout>
 
             <LinearLayout
@@ -83,7 +83,7 @@
                 <ImageButton
                     android:id="@+id/btn_submit"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/submitForm"
+                    android:contentDescription="@string/description_submit"
                     app:srcCompat="@drawable/btn_arrow_color" />
             </LinearLayout>
         </LinearLayout>

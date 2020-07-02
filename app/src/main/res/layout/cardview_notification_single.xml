@@ -32,14 +32,14 @@
                     android:layout_width="@dimen/mediumPicSize"
                     android:layout_height="@dimen/mediumPicSize"
                     android:layout_gravity="center_horizontal|center_vertical"
-                    android:contentDescription="@string/profilePicture"
+                    android:contentDescription="@null"
                     app:srcCompat="@android:drawable/sym_def_app_icon" />
 
                 <ImageView
                     android:layout_width="@dimen/mediumFrameSize"
                     android:layout_height="@dimen/mediumFrameSize"
                     android:background="@drawable/shape_circle"
-                    android:contentDescription="@string/profilePictureFrame"
+                    android:contentDescription="@null"
                     android:scaleType="center" />
 
             </FrameLayout>

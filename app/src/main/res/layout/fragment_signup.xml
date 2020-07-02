@@ -19,41 +19,39 @@
             android:id="@+id/input_name"
             style="@style/shadowInput"
             android:layout_marginTop="@dimen/dimen0"
-            android:autofillHints="@string/fullName"
+            android:autofillHints="@string/hint_full_name"
             android:drawableStart="@drawable/i_user_color"
-            android:hint="@string/fullName"
+            android:hint="@string/hint_full_name"
             android:inputType="text" />
 
         <EditText
             android:id="@+id/input_email"
             style="@style/shadowInput"
-            android:autofillHints="@string/email"
+            android:autofillHints="@string/hint_email"
             android:drawableStart="@drawable/i_letter_color"
-            android:hint="@string/email"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress" />
 
         <EditText
             android:id="@+id/input_password"
             style="@style/shadowInput"
-            android:autofillHints="@string/password"
+            android:autofillHints="@string/hint_password"
             android:drawableStart="@drawable/i_key_color"
-            android:hint="@string/password"
+            android:hint="@string/hint_password"
             android:inputType="textPassword" />
 
         <EditText
             android:id="@+id/input_confirm_password"
             style="@style/shadowInput"
-            android:autofillHints="@string/confirmPassword"
+            android:autofillHints="@string/hint_confirm_password"
             android:drawableStart="@drawable/i_key_color"
-            android:hint="@string/confirmPassword"
+            android:hint="@string/hint_confirm_password"
             android:inputType="textPassword" />
 
         <ImageButton
             android:id="@+id/btn_submit"
-            style="@style/imgBtn"
-            android:layout_gravity="end"
-            android:layout_marginTop="@dimen/inputPadding"
-            android:contentDescription="@string/submitForm"
+            style="@style/btnForm"
+            android:contentDescription="@string/description_submit"
             app:srcCompat="@drawable/btn_arrow_color" />
     </LinearLayout>
 

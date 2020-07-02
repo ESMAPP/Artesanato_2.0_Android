@@ -12,7 +12,7 @@
         style="@style/imgBtn"
         android:layout_marginStart="@dimen/parentOuterMargin"
         android:layout_marginTop="@dimen/parentTopMargin"
-        android:contentDescription="@string/goBack"
+        android:contentDescription="@string/description_go_back"
         android:paddingEnd="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="@dimen/logoWidth"
         android:layout_height="@dimen/logoHeight"
         android:layout_marginTop="@dimen/logoMarginTop"
-        android:contentDescription="@string/appLogo"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,12 +45,12 @@
             android:layout_height="match_parent"
             android:baselineAlignBottom="false"
             android:cropToPadding="false"
-            android:text="@string/signIn" />
+            android:text="@string/tab_sign_in" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/signUp" />
+            android:text="@string/tab_sign_up" />
 
     </com.google.android.material.tabs.TabLayout>
 

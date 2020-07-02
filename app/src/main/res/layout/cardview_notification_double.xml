@@ -32,14 +32,14 @@
                         android:layout_width="@dimen/smallPicSize"
                         android:layout_height="@dimen/smallPicSize"
                         android:layout_gravity="center"
-                        android:contentDescription="@string/profilePicture"
+                        android:contentDescription="@null"
                         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
                     <ImageView
                         android:layout_width="@dimen/smallFrameSize"
                         android:layout_height="@dimen/smallFrameSize"
                         android:background="@drawable/shape_circle"
-                        android:contentDescription="@string/profilePictureFrame"
+                        android:contentDescription="@null"
                         android:scaleType="center" />
 
                 </FrameLayout>
@@ -58,14 +58,14 @@
                         android:layout_width="@dimen/smallPicSize"
                         android:layout_height="@dimen/smallPicSize"
                         android:layout_gravity="center"
-                        android:contentDescription="@string/profilePicture"
+                        android:contentDescription="@null"
                         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
                     <ImageView
                         android:layout_width="@dimen/smallFrameSize"
                         android:layout_height="@dimen/smallFrameSize"
                         android:background="@drawable/shape_circle"
-                        android:contentDescription="@string/profilePictureFrame"
+                        android:contentDescription="@null"
                         android:scaleType="center" />
 
                 </FrameLayout>

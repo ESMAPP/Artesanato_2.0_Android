@@ -13,7 +13,7 @@
         android:layout_height="@dimen/inputHeight"
         android:layout_marginStart="@dimen/parentOuterMargin"
         android:layout_marginTop="@dimen/parentTopMargin"
-        android:contentDescription="@string/appIcon"
+        android:contentDescription="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_i" />
@@ -28,7 +28,7 @@
         android:layout_marginEnd="@dimen/parentInnerMargin"
         android:drawableBottom="@drawable/bar_divider_blue"
         android:scaleType="fitCenter"
-        android:text="@string/highlights"
+        android:text="@string/label_highlights"
         android:textSize="@dimen/textSize22"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:contentDescription="@string/coverImage"
+                        android:contentDescription="@null"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/card_cover" />
 
@@ -100,7 +100,7 @@
                     <ImageView
                         style="@style/imgBtn"
                         android:layout_gravity="end"
-                        android:contentDescription="@string/goTo"
+                        android:contentDescription="@null"
                         android:paddingStart="@dimen/cardImagePadding"
                         android:paddingEnd="@dimen/cardImagePadding"
                         app:srcCompat="@drawable/i_arrow_foward_grey" />
@@ -123,7 +123,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:contentDescription="@string/coverImage"
+                        android:contentDescription="@null"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/card_cover" />
 
@@ -153,7 +153,7 @@
                     <ImageView
                         style="@style/imgBtn"
                         android:layout_gravity="end"
-                        android:contentDescription="@string/goTo"
+                        android:contentDescription="@null"
                         android:paddingStart="@dimen/cardImagePadding"
                         android:paddingEnd="@dimen/cardImagePadding"
                         app:srcCompat="@drawable/i_arrow_foward_grey" />
@@ -175,7 +175,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:layout_gravity="center_horizontal"
-                        android:contentDescription="@string/coverImage"
+                        android:contentDescription="@null"
                         android:scaleType="centerCrop"
                         app:srcCompat="@drawable/card_cover" />
 
@@ -205,7 +205,7 @@
                     <ImageView
                         style="@style/imgBtn"
                         android:layout_gravity="end"
-                        android:contentDescription="@string/goTo"
+                        android:contentDescription="@null"
                         android:paddingStart="@dimen/cardImagePadding"
                         android:paddingEnd="@dimen/cardImagePadding"
                         app:srcCompat="@drawable/i_arrow_foward_grey" />
@@ -245,12 +245,12 @@
                 <ImageButton
                     android:id="@+id/btn_notifications"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/notifications"
+                    android:contentDescription="@string/label_notifications"
                     app:srcCompat="@drawable/btn_notifications" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/notifications" />
+                    android:text="@string/label_notifications" />
             </LinearLayout>
 
             <LinearLayout
@@ -263,12 +263,12 @@
                 <ImageButton
                     android:id="@+id/btn_profile"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/profile"
+                    android:contentDescription="@string/label_profile"
                     app:srcCompat="@drawable/btn_profile" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/profile" />
+                    android:text="@string/label_profile" />
             </LinearLayout>
 
             <LinearLayout
@@ -281,12 +281,12 @@
                 <ImageButton
                     android:id="@+id/btn_fair"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/location"
+                    android:contentDescription="@string/label_location"
                     app:srcCompat="@drawable/btn_location" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/location" />
+                    android:text="@string/label_location" />
             </LinearLayout>
 
         </TableRow>
@@ -306,12 +306,12 @@
                 <ImageButton
                     android:id="@+id/btn_events"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/events"
+                    android:contentDescription="@string/label_events"
                     app:srcCompat="@drawable/btn_events" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/events" />
+                    android:text="@string/label_events" />
             </LinearLayout>
 
             <LinearLayout
@@ -324,12 +324,12 @@
                 <ImageButton
                     android:id="@+id/btn_explore"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/explore"
+                    android:contentDescription="@string/label_explore"
                     app:srcCompat="@drawable/btn_explore" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/explore" />
+                    android:text="@string/label_explore" />
             </LinearLayout>
 
             <LinearLayout
@@ -342,12 +342,12 @@
                 <ImageButton
                     android:id="@+id/btn_contests"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/contests"
+                    android:contentDescription="@string/label_contests"
                     app:srcCompat="@drawable/btn_contests" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/contests" />
+                    android:text="@string/label_contests" />
             </LinearLayout>
 
         </TableRow>
@@ -366,12 +366,12 @@
                 <ImageButton
                     android:id="@+id/btn_favourites"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/favourites"
+                    android:contentDescription="@string/label_favourites"
                     app:srcCompat="@drawable/btn_favourites" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/favourites" />
+                    android:text="@string/label_favourites" />
             </LinearLayout>
 
             <LinearLayout
@@ -384,12 +384,12 @@
                 <ImageButton
                     android:id="@+id/btn_rankings"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/rankings"
+                    android:contentDescription="@string/label_rankings"
                     app:srcCompat="@drawable/btn_rankings" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/rankings" />
+                    android:text="@string/label_rankings" />
             </LinearLayout>
 
             <LinearLayout
@@ -402,12 +402,12 @@
                 <ImageButton
                     android:id="@+id/btn_info"
                     style="@style/imgBtn"
-                    android:contentDescription="@string/information"
+                    android:contentDescription="@string/label_information"
                     app:srcCompat="@drawable/btn_info" />
 
                 <TextView
                     style="@style/menuText"
-                    android:text="@string/information" />
+                    android:text="@string/label_information" />
             </LinearLayout>
 
         </TableRow>

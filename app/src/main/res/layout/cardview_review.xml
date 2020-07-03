@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/review_btn"
+            android:id="@+id/like_btn"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="10dp"
@@ -55,7 +55,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="15dp"
             android:text="TextView"
-            app:layout_constraintStart_toEndOf="@+id/review_btn"
+            app:layout_constraintStart_toEndOf="@+id/like_btn"
             app:layout_constraintTop_toBottomOf="@+id/review_text" />
 
         <TextView

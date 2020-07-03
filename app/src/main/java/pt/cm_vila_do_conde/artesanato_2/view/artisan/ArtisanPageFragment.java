@@ -61,6 +61,7 @@ public class ArtisanPageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fetchArtisanById();
+        fetchReviews();
         handleInitialUiState();
         initNavController();
         setupTabAdapter();
@@ -92,6 +93,10 @@ public class ArtisanPageFragment extends Fragment {
     private void fetchArtisanById() {
         artisanPageViewModel.fetchArtisanById(artisanId);
         initObservable();
+    }
+
+    private void fetchReviews(){
+        artisanPageViewModel.fetchReviews(artisanId);
     }
 
     private void initObservable() {

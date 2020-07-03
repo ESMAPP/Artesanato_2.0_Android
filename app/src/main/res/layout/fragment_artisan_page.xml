@@ -164,7 +164,7 @@
     </FrameLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPagerArtisan"
+        android:id="@+id/artisanViewPager"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dimen_0dp"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"

@@ -1,6 +1,5 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,7 +40,7 @@ public class EmptyGalleryFragment extends Fragment {
     }
 
     private void setEmptyState() {
-        requireActivity().findViewById(R.id.artisan_page).setBackgroundColor(Color.WHITE);
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_9);
         binding.textEmptyState.setText(getText(R.string.label_empty_gallery));
         binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
     }

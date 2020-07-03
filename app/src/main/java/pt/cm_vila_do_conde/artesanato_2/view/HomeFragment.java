@@ -121,7 +121,7 @@ public class HomeFragment extends Fragment {
     private void updateFairCard(Event fair) {
 
         Picasso.get().load(fair.getImage())
-                .placeholder(R.drawable.logo_i)
+                .placeholder(R.drawable.ic_logo_small)
                 .resize(binding.fairCover.getMeasuredWidth(), binding.fairCover.getMeasuredHeight())
                 .into(binding.fairCover);
         binding.fairTitle.setText(fair.getTitle());
@@ -142,7 +142,7 @@ public class HomeFragment extends Fragment {
 
     private void updateEventCard(Event event) {
         Picasso.get().load(event.getImage())
-                .placeholder(R.drawable.logo_i)
+                .placeholder(R.drawable.ic_logo_small)
                 .resize(binding.eventCover.getMeasuredWidth(), binding.eventCover.getMeasuredHeight())
                 .into(binding.eventCover);
         binding.eventTitle.setText(event.getTitle());
@@ -162,7 +162,7 @@ public class HomeFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     public void updateArtisanCard(Artisan artisan){
             Picasso.get().load(artisan.getImage())
-                    .placeholder(R.drawable.logo_i)
+                    .placeholder(R.drawable.ic_logo_small)
                     .resize(binding.artisanCover.getMeasuredWidth(), binding.artisanCover.getMeasuredHeight())
                     .into(binding.artisanCover);
             binding.artisanTitle.setText(artisan.getName());

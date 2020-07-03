@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_3"
-    tools:context="pt.cm_vila_do_conde.artesanato_2.view.ProfileFragment">
+    tools:context=".view.ProfileFragment">
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +17,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/topBar"
             style="@style/ImgBtn"
             android:adjustViewBounds="true"
             android:background="@drawable/shape_shadow_bottom_round"
@@ -73,7 +73,7 @@
                 <ImageView
                     style="@style/ImgBtn"
                     android:contentDescription="@null"
-                    app:srcCompat="@drawable/i_cup_color" />
+                    app:srcCompat="@drawable/ic_cup_color" />
 
                 <TextView
                     android:id="@+id/profileRanking"
@@ -86,7 +86,7 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="20dp"
                     android:contentDescription="@null"
-                    app:srcCompat="@drawable/i_star_color" />
+                    app:srcCompat="@drawable/ic_star_color" />
 
                 <TextView
                     android:id="@+id/profileReputation"
@@ -140,7 +140,7 @@
                     style="@style/ImgBtn"
                     android:contentDescription="@string/description_go_back"
                     android:paddingEnd="8dp"
-                    app:srcCompat="@drawable/i_arrow_back_color" />
+                    app:srcCompat="@drawable/btn_arrow_back_color" />
 
             </LinearLayout>
 
@@ -156,7 +156,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/description_menu"
                     android:paddingStart="10dp"
-                    app:srcCompat="@drawable/i_more_grey" />
+                    app:srcCompat="@drawable/btn_more_grey" />
 
             </LinearLayout>
         </LinearLayout>
@@ -169,6 +169,6 @@
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/top_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,7 +38,7 @@
                 style="@style/ImgBtn"
                 android:contentDescription="@string/description_go_back"
                 android:paddingEnd="8dp"
-                app:srcCompat="@drawable/i_arrow_back_color" />
+                app:srcCompat="@drawable/btn_arrow_back_color" />
 
             <TextView
                 style="@style/Title"

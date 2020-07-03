@@ -41,6 +41,9 @@ public class AuthenticatedReviewsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
+
         initRecyclerView();
     }
 
@@ -54,6 +57,9 @@ public class AuthenticatedReviewsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
+
         initArtisanViewModel();
         initSharedUserViewModel();
         initNavController();
@@ -64,7 +70,7 @@ public class AuthenticatedReviewsFragment extends Fragment {
         artisanPageViewModel = new ViewModelProvider(requireActivity()).get(ArtisanPageViewModel.class);
     }
 
-    private void initSharedUserViewModel(){
+    private void initSharedUserViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
@@ -79,10 +85,10 @@ public class AuthenticatedReviewsFragment extends Fragment {
         });
     }
 
-    private void submitComment(User user){
+    private void submitComment(User user) {
         String text = binding.commentInput.getText().toString();
         String userId = user.getUid();
-        if(!text.isEmpty()){
+        if (!text.isEmpty()) {
             artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
                 artisanPageViewModel.submitReview(text, userId, artisan.getUid());
             });

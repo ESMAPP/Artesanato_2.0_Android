@@ -1,15 +1,13 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews;
 
-import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentEmptyViewPagerBinding;
@@ -33,10 +31,18 @@ public class EmptyReviewsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setEmptyState();
+    }
 
-        requireActivity().findViewById(R.id.artisan_page).setBackgroundColor(Color.WHITE);
+    @Override
+    public void onResume() {
+        super.onResume();
+        setEmptyState();
+    }
 
-        binding.textEmptyState.setText(getText(R.string.label_empty_reviews));
+    private void setEmptyState() {
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_9);
+        binding.textEmptyState.setText(getText(R.string.label_empty_gallery));
         binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
     }
 }

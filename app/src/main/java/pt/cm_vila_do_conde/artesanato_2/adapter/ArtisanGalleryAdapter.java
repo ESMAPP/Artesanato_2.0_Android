@@ -33,7 +33,7 @@ public class ArtisanGalleryAdapter extends RecyclerView.Adapter<ArtisanGalleryVi
     @Override
     public void onBindViewHolder(final ArtisanGalleryViewHolder holder, int position) {
         Picasso.get().load(gallery.get(position))
-                .placeholder(R.drawable.logo_i)
+                .placeholder(R.drawable.ic_logo_small)
                 .fit()
                 .centerCrop()
                 .transform(new RoundedCornersTransformation(5, 5))

@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_3"
-    tools:context="pt.cm_vila_do_conde.artesanato_2.view.artisan.ArtisanPageFragment">
+    tools:context=".view.artisan.ArtisanPageFragment">
 
     <FrameLayout
-        android:id="@+id/frameLayout"
+        android:id="@+id/top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,7 +17,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/topBar"
             style="@style/ImgBtn"
             android:adjustViewBounds="true"
             android:background="@drawable/shape_shadow_bottom_round"
@@ -164,13 +163,13 @@
     </FrameLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/artisanViewPager"
+        android:id="@+id/view_pager_artisan"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/dimen_0dp"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/top_bar" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

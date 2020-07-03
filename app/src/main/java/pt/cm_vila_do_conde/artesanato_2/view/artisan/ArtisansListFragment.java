@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.CollectionReference;
@@ -60,7 +59,6 @@ public class ArtisansListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initArtisanListViewModel();
         fetchArtisansList();
-        initRecyclerAdapter();
         initSearchListener();
         initFilterBtnListener();
         initBackBtn();
@@ -71,7 +69,10 @@ public class ArtisansListFragment extends Fragment {
     }
 
     private void fetchArtisansList() {
-        artisanListViewModel.fetchArtisansList(query);
+        artisanListViewModel.getQuery().observe(getViewLifecycleOwner(), query -> {
+            artisanListViewModel.fetchArtisansList(query);
+            initRecyclerAdapter();
+        });
     }
 
     private void initRecyclerAdapter() {
@@ -95,7 +96,7 @@ public class ArtisansListFragment extends Fragment {
         binding.btnFilter.setOnClickListener(v -> navController.navigate(R.id.action_artisansListFragment_to_filterArtisanFragment));
     }
 
-    private void initBackBtn(){
+    private void initBackBtn() {
         binding.btnBack.setOnClickListener(v -> navController.popBackStack());
     }
 
@@ -107,7 +108,7 @@ public class ArtisansListFragment extends Fragment {
                         .orderBy("name")
                         .startAt(text)
                         .endAt(text + "\uf8ff");
-                artisanListViewModel.fetchArtisansList(query);
+                artisanListViewModel.setQuery(query);
                 initObservable();
                 return true;
             }

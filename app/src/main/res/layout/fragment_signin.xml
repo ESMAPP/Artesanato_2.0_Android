@@ -39,6 +39,7 @@
                 android:layout_marginStart="28dp"
                 android:contentDescription="@string/description_sign_in_google"
                 app:srcCompat="@drawable/ic_google_color" />
+
         </LinearLayout>
 
         <EditText
@@ -72,6 +73,7 @@
                     android:id="@+id/forgot_password"
                     style="@style/BlueText"
                     android:text="@string/label_forgot_password" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -85,7 +87,9 @@
                     style="@style/ImgBtn"
                     android:contentDescription="@string/description_submit"
                     app:srcCompat="@drawable/btn_arrow_color" />
+
             </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

@@ -95,7 +95,7 @@ public class ArtisanPageFragment extends Fragment {
         initObservable();
     }
 
-    private void fetchReviews(){
+    private void fetchReviews() {
         artisanPageViewModel.fetchReviews(artisanId);
     }
 
@@ -114,13 +114,13 @@ public class ArtisanPageFragment extends Fragment {
         binding.artisanName.setText(artisan.getName());
         binding.artisanReputation.setText(String.valueOf(artisan.getReputation()));
         binding.artisanRanking.setText(String.valueOf(artisan.getRanking()));
-        Picasso.get().load(artisan.getImage())
+        Picasso.get().load(artisan.getProfilePic())
                 .placeholder(R.drawable.ic_placeholder_user_pic)
                 .transform(new CropCircleTransformation())
                 .into(binding.artisanPic);
     }
 
-    private void initBackBtn(){
+    private void initBackBtn() {
         binding.btnBack.setOnClickListener(v -> navController.popBackStack());
     }
 

@@ -160,15 +160,15 @@ public class HomeFragment extends Fragment {
     }
 
     @SuppressLint("SetTextI18n")
-    public void updateArtisanCard(Artisan artisan){
-            Picasso.get().load(artisan.getImage())
-                    .placeholder(R.drawable.ic_logo_small)
-                    .resize(binding.artisanCover.getMeasuredWidth(), binding.artisanCover.getMeasuredHeight())
-                    .into(binding.artisanCover);
-            binding.artisanTitle.setText(artisan.getName());
-            binding.artisanText.setText("Reputação: " + artisan.getReputation());
+    public void updateArtisanCard(Artisan artisan) {
+        Picasso.get().load(artisan.getProfilePic())
+                .placeholder(R.drawable.ic_logo_small)
+                .resize(binding.artisanCover.getMeasuredWidth(), binding.artisanCover.getMeasuredHeight())
+                .into(binding.artisanCover);
+        binding.artisanTitle.setText(artisan.getName());
+        binding.artisanText.setText("Reputação: " + artisan.getReputation());
 
-        }
+    }
 
     public void goToArtisanPage() {
         String id = homeViewModel.featuredArtisan.getValue().getUid();

@@ -39,7 +39,7 @@ public class ArtisanListAdapter extends RecyclerView.Adapter<ArtisanViewHolder> 
         Artisan artisan = artisanList.get(position);
         holder.name.setText(artisan.getName());
         holder.city.setText(artisan.getCity());
-        Picasso.get().load(artisan.getImage())
+        Picasso.get().load(artisan.getProfilePic())
                 .placeholder(R.drawable.ic_logo_small)
                 .fit()
                 .centerInside()
@@ -47,7 +47,7 @@ public class ArtisanListAdapter extends RecyclerView.Adapter<ArtisanViewHolder> 
         holder.card.setOnClickListener(v -> goToArtisanPageById(artisan.getUid()));
     }
 
-    public void goToArtisanPageById(String id){
+    public void goToArtisanPageById(String id) {
         Bundle bundle = new Bundle();
         bundle.putString("id", id);
         navController.navigate(R.id.artisanPageFragment, bundle);

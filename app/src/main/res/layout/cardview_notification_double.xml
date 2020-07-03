@@ -33,7 +33,7 @@
                         android:layout_height="@dimen/small_pic_size"
                         android:layout_gravity="center"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/placeholder_user_pic" />
+                        app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
                     <ImageView
                         android:layout_width="@dimen/small_frame_size"
@@ -59,7 +59,7 @@
                         android:layout_height="@dimen/small_pic_size"
                         android:layout_gravity="center"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/placeholder_user_pic" />
+                        app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
                     <ImageView
                         android:layout_width="@dimen/small_frame_size"

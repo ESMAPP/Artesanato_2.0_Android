@@ -35,6 +35,9 @@
     <string name="label_map">Mapa</string>
     <string name="label_general_info">Informações Gerais</string>
     <string name="label_change_password">Alterar password</string>
+    <string name="label_empty_gallery">A galeria está vazia</string>
+    <string name="label_empty_notifications">Não tem notificações</string>
+    <string name="label_empty_reviews">Não tem recomendações</string>
 
 
     <!-- DESCRIPTION TEXT -->

@@ -25,7 +25,7 @@
                     android:layout_height="@dimen/medium_pic_size"
                     android:layout_gravity="center"
                     android:contentDescription="@null"
-                    app:srcCompat="@drawable/placeholder_user_pic" />
+                    app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
                 <ImageView
                     android:layout_width="@dimen/medium_frame_size"

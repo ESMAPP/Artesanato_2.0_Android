@@ -95,7 +95,6 @@ public class HomeRepository {
             for (DocumentSnapshot doc : task.getDocuments()) {
                 Artisan artisan = doc.toObject(Artisan.class);
                 artisan.setUid(doc.getId());
-                System.out.println(artisan.getUid());
                 artisansList.add(artisan);
             }
             Artisan randomArtisan = sortingHelper.randomFeaturedArtisan(artisansList);
@@ -110,7 +109,6 @@ public class HomeRepository {
 
         eventsRef.whereEqualTo("featured", true).addSnapshotListener((task, e) -> {
 
-            Log.d(TAG, "GOT HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             for (DocumentSnapshot document : task.getDocuments()) {
 
                 Log.d(TAG, document.getData().toString());

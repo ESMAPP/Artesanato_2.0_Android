@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_2"
+    android:background="@drawable/bg_6"
     tools:context=".view.ProfileEditFragment">
 
     <LinearLayout
@@ -25,7 +25,7 @@
             style="@style/ImgBtn"
             android:contentDescription="@string/description_go_back"
             android:paddingEnd="8dp"
-            app:srcCompat="@drawable/i_arrow_back_color" />
+            app:srcCompat="@drawable/btn_arrow_back_color" />
 
         <TextView
             style="@style/Title"
@@ -135,15 +135,14 @@
                     style="@style/Input"
                     android:autofillHints="@string/hint_phone"
                     android:drawableStart="@drawable/ic_letter_grey"
-                    android:focusableInTouchMode="false"
                     android:hint="@string/hint_phone"
                     android:inputType="phone" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="40dp"
                     android:contentDescription="@null"
                     android:src="@drawable/bar_divider_blue" />
 

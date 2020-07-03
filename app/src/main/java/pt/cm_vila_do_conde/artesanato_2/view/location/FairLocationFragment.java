@@ -73,7 +73,7 @@ public class FairLocationFragment extends Fragment
         mGoogleMap.getUiSettings().setZoomControlsEnabled(true);
         LatLng fair = new LatLng(41.3517548, -8.7504635);
         mGoogleMap.addMarker(new MarkerOptions().position(fair)
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.i_target_color)));
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_target_color)));
         mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fair, 15));
         mGoogleMap.setOnMyLocationButtonClickListener(this);
         mGoogleMap.setOnMyLocationClickListener(this);

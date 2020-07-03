@@ -16,7 +16,7 @@
         android:paddingEnd="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/i_arrow_back_color" />
+        app:srcCompat="@drawable/btn_arrow_back_color" />
 
     <ImageView
         android:id="@+id/logo"
@@ -28,7 +28,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/ic_logo" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/inner_nav_bar"

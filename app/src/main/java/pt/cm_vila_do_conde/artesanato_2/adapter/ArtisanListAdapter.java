@@ -1,6 +1,5 @@
 package pt.cm_vila_do_conde.artesanato_2.adapter;
 
-import android.app.Application;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
@@ -42,7 +40,7 @@ public class ArtisanListAdapter extends RecyclerView.Adapter<ArtisanViewHolder> 
         holder.name.setText(artisan.getName());
         holder.city.setText(artisan.getCity());
         Picasso.get().load(artisan.getImage())
-                .placeholder(R.drawable.logo_i)
+                .placeholder(R.drawable.ic_logo_small)
                 .fit()
                 .centerInside()
                 .into(holder.image);

@@ -15,5 +15,5 @@
         android:layout_marginEnd="340dp"
         android:layout_weight="1"
         android:background="#00FFFFFF"
-        android:src="@drawable/i_arrow_back_color" />
+        android:src="@drawable/btn_arrow_back_color" />
 </LinearLayout>

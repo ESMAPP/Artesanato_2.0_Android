@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
@@ -47,7 +46,7 @@ public class ReviewListAdapter extends RecyclerView.Adapter<ReviewViewHolder> {
         holder.likes.setText(String.valueOf(review.getLikes().size()));
         if(review.getUserInfo() != null){
             Picasso.get().load(review.getUserInfo().getProfilePic())
-                    .placeholder(R.drawable.logo_i)
+                    .placeholder(R.drawable.ic_logo_small)
                     .transform(new CropCircleTransformation())
                     .into(holder.userImage);
         }

@@ -73,7 +73,7 @@
                 <ImageView
                     style="@style/ImgBtn"
                     android:contentDescription="@null"
-                    app:srcCompat="@drawable/i_cup_color" />
+                    app:srcCompat="@drawable/ic_cup_color" />
 
                 <TextView
                     android:id="@+id/profileRanking"
@@ -86,7 +86,7 @@
                     android:layout_height="18dp"
                     android:layout_marginStart="20dp"
                     android:contentDescription="@null"
-                    app:srcCompat="@drawable/i_star_color" />
+                    app:srcCompat="@drawable/ic_star_color" />
 
                 <TextView
                     android:id="@+id/profileReputation"
@@ -140,7 +140,7 @@
                     style="@style/ImgBtn"
                     android:contentDescription="@string/description_go_back"
                     android:paddingEnd="8dp"
-                    app:srcCompat="@drawable/i_arrow_back_color" />
+                    app:srcCompat="@drawable/btn_arrow_back_color" />
 
             </LinearLayout>
 
@@ -156,7 +156,7 @@
                     android:layout_height="match_parent"
                     android:contentDescription="@string/description_menu"
                     android:paddingStart="10dp"
-                    app:srcCompat="@drawable/i_more_grey" />
+                    app:srcCompat="@drawable/btn_more_grey" />
 
             </LinearLayout>
         </LinearLayout>

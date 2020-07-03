@@ -16,7 +16,7 @@
         android:contentDescription="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_i" />
+        app:srcCompat="@drawable/ic_logo_small" />
 
     <TextView
         android:id="@+id/top"
@@ -85,7 +85,7 @@
                         android:contentDescription="@null"
                         android:paddingStart="@dimen/card_image_padding"
                         android:paddingEnd="@dimen/card_image_padding"
-                        app:srcCompat="@drawable/i_arrow_foward_grey" />
+                        app:srcCompat="@drawable/ic_arrow_foward_grey" />
 
                 </LinearLayout>
 
@@ -120,7 +120,7 @@
                         android:contentDescription="@null"
                         android:paddingStart="@dimen/card_image_padding"
                         android:paddingEnd="@dimen/card_image_padding"
-                        app:srcCompat="@drawable/i_arrow_foward_grey" />
+                        app:srcCompat="@drawable/ic_arrow_foward_grey" />
 
                 </LinearLayout>
 
@@ -154,7 +154,7 @@
                         android:contentDescription="@null"
                         android:paddingStart="@dimen/card_image_padding"
                         android:paddingEnd="@dimen/card_image_padding"
-                        app:srcCompat="@drawable/i_arrow_foward_grey" />
+                        app:srcCompat="@drawable/ic_arrow_foward_grey" />
 
                 </LinearLayout>
 

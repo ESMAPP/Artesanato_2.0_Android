@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisanGalleryAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanGalleryListBinding;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
@@ -43,6 +44,9 @@ public class ArtisanGalleryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
+
         initArtisanViewModel();
         initRecvclerView();
     }

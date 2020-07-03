@@ -1,19 +1,21 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery;
+package pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentEmptyViewPagerBinding;
 
-public class EmptyGalleryFragment extends Fragment {
+
+public class EmptyReviewsFragment extends Fragment {
 
     FragmentEmptyViewPagerBinding binding;
 
@@ -31,18 +33,10 @@ public class EmptyGalleryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setEmptyState();
-    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        setEmptyState();
-    }
-
-    private void setEmptyState() {
         requireActivity().findViewById(R.id.artisan_page).setBackgroundColor(Color.WHITE);
-        binding.textEmptyState.setText(getText(R.string.label_empty_gallery));
+
+        binding.textEmptyState.setText(getText(R.string.label_empty_reviews));
         binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
     }
 }

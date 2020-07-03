@@ -34,7 +34,7 @@
 
         <activity
             android:name=".view.location.FairLocationFragment"
-            android:label="@string/map" />
+            android:label="@string/label_map" />
 
         <activity
             android:name=".view.MainActivity"

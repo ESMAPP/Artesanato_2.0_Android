@@ -5,8 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.constests.RootArtisanContestFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery.ArtisanGalleryFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisan.contests.RootArtisanContestFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery.RootGalleryFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.ArtisanReviewsFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.AuthenticatedReviewsFragment;
@@ -45,7 +44,7 @@ public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
             case 2:
                 return "Concursos";
             case 3:
-                return "About";
+                return "Sobre";
         }
         return null;
     }

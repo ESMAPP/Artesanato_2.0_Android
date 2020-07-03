@@ -8,16 +8,15 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/map"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomBar"
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/bottomBar"
+        android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -31,8 +30,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginStart="@dimen/parent_outer_margin"
+            android:layout_marginEnd="@dimen/parent_outer_margin"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,15 +44,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/locationName"
+                    android:id="@+id/location_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:text="@string/target"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/text_size_18" />
 
                 <TextView
-                    android:id="@+id/locationPath"
+                    android:id="@+id/location_path"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
@@ -68,9 +67,9 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/btnStartGPS"
-                    style="@style/imgBtn"
-                    android:contentDescription="@string/menu"
+                    android:id="@+id/btn_start_gps"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/description_start_navigation"
                     app:srcCompat="@drawable/btn_navigate_color" />
 
             </LinearLayout>

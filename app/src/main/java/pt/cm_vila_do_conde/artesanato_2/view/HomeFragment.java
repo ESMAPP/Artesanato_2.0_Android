@@ -126,7 +126,7 @@ public class HomeFragment extends Fragment {
                 .into(binding.fairCover);
         binding.fairTitle.setText(fair.getTitle());
         Date now = new Date();
-        binding.fairSubtitle.setText(DateUtils
+        binding.fairText.setText(DateUtils
                 .getRelativeDateTimeString(requireContext(),
                         fair.getStartDate().toDate().getTime(),
                         DateUtils.MINUTE_IN_MILLIS,
@@ -146,7 +146,7 @@ public class HomeFragment extends Fragment {
                 .resize(binding.eventCover.getMeasuredWidth(), binding.eventCover.getMeasuredHeight())
                 .into(binding.eventCover);
         binding.eventTitle.setText(event.getTitle());
-        binding.eventSubtitle.setText(DateUtils
+        binding.eventText.setText(DateUtils
                 .getRelativeDateTimeString(requireContext(),
                         event.getStartDate().toDate().getTime(),
                         DateUtils.MINUTE_IN_MILLIS,
@@ -166,7 +166,7 @@ public class HomeFragment extends Fragment {
                     .resize(binding.artisanCover.getMeasuredWidth(), binding.artisanCover.getMeasuredHeight())
                     .into(binding.artisanCover);
             binding.artisanTitle.setText(artisan.getName());
-            binding.artisanSubtitle.setText("Reputação: " + artisan.getReputation());
+            binding.artisanText.setText("Reputação: " + artisan.getReputation());
 
         }
 

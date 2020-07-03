@@ -22,7 +22,6 @@ import org.jetbrains.annotations.NotNull;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.FragmentArtisanPageAdapter;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ProfileAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentProfileBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
@@ -52,7 +51,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         binding.btnBack.setOnClickListener(v -> goBack());
     }
 
-    private void initUserViewModel(){
+    private void initUserViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
@@ -63,25 +62,21 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         popup.show();
     }
 
-    private void handleInicialUiState(){
-
+    private void handleInicialUiState() {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::updateUI);
     }
 
     private void updateUI(User user) {
-
         binding.profileName.setText(user.getName());
         binding.profileRanking.setText(String.valueOf(user.getRanking()));
         binding.profileReputation.setText(String.valueOf(user.getReputation()));
         if (user.getProfilePic().isEmpty()) {
-
-            Picasso.get().load(R.drawable.logo_i)
+            Picasso.get().load(R.drawable.ic_placeholder_user_pic)
                     .transform(new CropCircleTransformation())
                     .into(binding.profilePic);
-        }
-        else {
+        } else {
             Picasso.get().load(user.getProfilePic())
-                    .placeholder(R.drawable.logo_i)
+                    .placeholder(R.drawable.ic_placeholder_user_pic)
                     .transform(new CropCircleTransformation())
                     .into(binding.profilePic);
         }
@@ -90,7 +85,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.editProfile:
+            case R.id.edit_profile:
                 navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
                 return true;
             case R.id.signOut:
@@ -101,6 +96,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
                 return false;
         }
     }
+
     public void goBack() {
         navController.popBackStack();
     }

@@ -104,7 +104,7 @@ public class ArtisanPageFragment extends Fragment {
     }
 
     public void setupTabAdapter() {
-        ViewPager artisanViewPager = binding.artisanViewPager;
+        ViewPager artisanViewPager = binding.viewPagerArtisan;
         artisanViewPager.setAdapter(new FragmentArtisanPageAdapter(getChildFragmentManager()));
         TabLayout tabs = binding.innerNavBar;
         tabs.setupWithViewPager(artisanViewPager);
@@ -115,7 +115,7 @@ public class ArtisanPageFragment extends Fragment {
         binding.artisanReputation.setText(String.valueOf(artisan.getReputation()));
         binding.artisanRanking.setText(String.valueOf(artisan.getRanking()));
         Picasso.get().load(artisan.getImage())
-                .placeholder(R.drawable.logo_i)
+                .placeholder(R.drawable.ic_placeholder_user_pic)
                 .transform(new CropCircleTransformation())
                 .into(binding.artisanPic);
     }

@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/artisan_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_3"
@@ -17,14 +18,14 @@
 
         <ImageView
             android:id="@+id/topBar"
-            style="@style/imgBtn"
+            style="@style/ImgBtn"
             android:adjustViewBounds="true"
-            android:background="@drawable/shape_bottom_round_shadow"
-            android:contentDescription="@string/topBar"
+            android:background="@drawable/shape_shadow_bottom_round"
+            android:contentDescription="@null"
             app:srcCompat="@drawable/bar_top_2" />
 
         <LinearLayout
-            android:id="@+id/userInfo"
+            android:id="@+id/user_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -40,24 +41,24 @@
                 android:layout_gravity="center_horizontal|center_vertical">
 
                 <ImageView
-                    android:id="@+id/artisanPic"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:contentDescription="@string/profilePicture"
-                    app:srcCompat="@android:drawable/sym_def_app_icon" />
+                    android:id="@+id/artisan_pic"
+                    android:layout_width="@dimen/pic_size"
+                    android:layout_height="@dimen/pic_size"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/shape_circle"
-                    android:contentDescription="@string/profilePictureFrame"
+                    android:contentDescription="@null"
                     android:scaleType="center" />
             </FrameLayout>
 
             <TextView
-                android:id="@+id/artisanName"
-                style="@style/blackTitle"
+                android:id="@+id/artisan_name"
+                style="@style/Title"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="@string/name"
@@ -71,58 +72,60 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    style="@style/imgBtn"
-                    android:contentDescription="@string/rankingPosition"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@null"
                     app:srcCompat="@drawable/i_cup_color" />
 
                 <TextView
-                    android:id="@+id/artisanRanking"
-                    style="@style/greyText"
+                    android:id="@+id/artisan_ranking"
+                    style="@style/Text"
                     android:layout_marginStart="6dp"
                     android:text="@string/value" />
 
                 <ImageView
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:layout_height="18dp"
                     android:layout_marginStart="20dp"
-                    android:contentDescription="@string/reputation"
+                    android:contentDescription="@null"
                     app:srcCompat="@drawable/i_star_color" />
 
                 <TextView
-                    android:id="@+id/artisanReputation"
-                    style="@style/greyText"
+                    android:id="@+id/artisan_reputation"
+                    style="@style/Text"
                     android:layout_marginStart="6dp"
                     android:text="@string/value" />
             </LinearLayout>
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/innerNavBar"
-                style="@style/tabLayoutSmall"
-                android:layout_marginTop="30dp"
+                android:id="@+id/inner_nav_bar"
+                style="@style/SmallTabLayout"
+                android:layout_marginTop="@dimen/parent_inner_margin"
+                android:fadingEdgeLength="30dp"
+                android:requiresFadingEdge="horizontal"
                 app:tabMode="scrollable">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:text="@string/gallery" />
+                    android:text="@string/label_gallery" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:text="@string/reviews" />
+                    android:text="@string/label_reviews" />
 
             </com.google.android.material.tabs.TabLayout>
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btn"
+            android:id="@+id/btns"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/parent_top_margin"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -132,9 +135,9 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/btnBack"
-                    style="@style/imgBtn"
-                    android:contentDescription="@string/goBack"
+                    android:id="@+id/btn_back"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/description_go_back"
                     android:paddingEnd="8dp"
                     app:srcCompat="@drawable/i_arrow_back_color" />
 
@@ -148,9 +151,9 @@
 
                 <ImageButton
                     android:id="@+id/btnExtra"
-                    style="@style/imgBtn"
+                    style="@style/ImgBtn"
                     android:layout_height="match_parent"
-                    android:contentDescription="@string/menu"
+                    android:contentDescription="@string/description_menu"
                     android:paddingStart="10dp"
                     app:srcCompat="@drawable/i_more_grey" />
 
@@ -162,8 +165,8 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/artisanViewPager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dimen_0dp"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -174,19 +177,17 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/bottom_bar"
-        android:minHeight="?attr/actionBarSize"
+        android:minHeight="25dp"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/btnChat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
+        android:id="@+id/btn_chat"
+        style="@style/ImgBtn"
+        android:layout_marginEnd="@dimen/parent_top_margin"
         android:layout_marginBottom="10dp"
-        android:background="#00FFFFFF"
         android:src="@drawable/btn_chat_color"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent" />

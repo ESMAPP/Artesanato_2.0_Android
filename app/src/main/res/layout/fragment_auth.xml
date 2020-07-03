@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_2"
-    tools:context="pt.cm_vila_do_conde.artesanato_2.view.auth.AuthFragment">
+    tools:context=".view.auth.AuthFragment">
 
     <ImageButton
-        android:id="@+id/btnBack"
-        style="@style/imgBtn"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/goBack"
+        android:id="@+id/btn_back"
+        style="@style/ImgBtn"
+        android:layout_marginStart="@dimen/parent_outer_margin"
+        android:layout_marginTop="@dimen/parent_top_margin"
+        android:contentDescription="@string/description_go_back"
         android:paddingEnd="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,21 +20,22 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="240dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="80dp"
-        android:contentDescription="@string/appLogo"
+        android:layout_width="@dimen/logo_width"
+        android:layout_height="@dimen/logo_height"
+        android:layout_marginTop="@dimen/logo_margin_top"
+        android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/innerNavBar"
-        style="@style/tabLayoutBig"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
+        android:id="@+id/inner_nav_bar"
+        style="@style/BigTabLayout"
+        android:layout_marginStart="@dimen/parent_inner_margin"
+        android:layout_marginTop="@dimen/parent_inner_margin"
+        android:layout_marginEnd="@dimen/parent_inner_margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo">
@@ -44,23 +45,22 @@
             android:layout_height="match_parent"
             android:baselineAlignBottom="false"
             android:cropToPadding="false"
-            android:text="@string/signIn" />
+            android:text="@string/tab_sign_in" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/signUp" />
+            android:text="@string/tab_sign_up" />
 
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/authViewPager"
+        android:id="@+id/view_pager_auth"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dimen_0dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/innerNavBar">
+        app:layout_constraintTop_toBottomOf="@+id/inner_nav_bar">
 
     </androidx.viewpager.widget.ViewPager>
 

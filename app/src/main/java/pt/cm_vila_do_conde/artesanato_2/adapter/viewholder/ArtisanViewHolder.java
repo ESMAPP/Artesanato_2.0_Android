@@ -21,10 +21,10 @@ public class ArtisanViewHolder extends RecyclerView.ViewHolder {
 
     public ArtisanViewHolder(@NonNull View itemView) {
         super(itemView);
-        image = itemView.findViewById(R.id.cardArtisanCover);
-        name = itemView.findViewById(R.id.cardArtisanName);
-        city = itemView.findViewById(R.id.cardArtisanCity);
-        card = itemView.findViewById(R.id.cardHolderArtisan);
+        image = itemView.findViewById(R.id.card_artisan_cover);
+        name = itemView.findViewById(R.id.card_artisan_name);
+        city = itemView.findViewById(R.id.card_artisan_city);
+        card = itemView.findViewById(R.id.card_holder_artisan);
     }
 
 

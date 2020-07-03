@@ -17,7 +17,7 @@
     </style>
 
     <!-- Tab Layout Style -->
-    <style name="tabLayout" parent="Widget.Design.TabLayout">
+    <style name="TabLayout" parent="Widget.Design.TabLayout">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/shape_tab_underline_grey</item>
@@ -30,82 +30,126 @@
     </style>
 
     <!-- Tab Big Title Style -->
-    <style name="tabLayoutBig" parent="tabLayout">
-        <item name="tabTextAppearance">@style/tabBigTitle</item>
+    <style name="BigTabLayout" parent="TabLayout">
+        <item name="tabTextAppearance">@style/BigTabTitle</item>
     </style>
 
     <!-- Tab Small Title Style -->
-    <style name="tabLayoutSmall" parent="tabLayout">
-        <item name="tabTextAppearance">@style/tabSmallTitle</item>
-    </style>
-
-    <!-- Title Style -->
-    <style name="title">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="fontFamily">@font/mina_regular</item>
+    <style name="SmallTabLayout" parent="TabLayout">
+        <item name="tabTextAppearance">@style/SmallTabTitle</item>
     </style>
 
     <!-- Black Title Style -->
-    <style name="blackTitle" parent="title">
+    <style name="Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/mina_regular</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Tab Big Title Style -->
-    <style name="tabBigTitle" parent="title">
-        <item name="android:textSize">22sp</item>
+    <style name="BigTabTitle" parent="Title">
+        <item name="android:textSize">@dimen/text_size_22</item>
         <item name="android:textColor">@color/mediumGrey</item>
     </style>
 
     <!-- Tab Small Title Style -->
-    <style name="tabSmallTitle" parent="title">
+    <style name="SmallTabTitle" parent="Title">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/mediumGrey</item>
     </style>
 
     <!-- Text Style -->
-    <style name="text">
+    <style name="Text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="fontFamily">@font/quicksand</item>
-    </style>
-
-    <!-- Grey Text Style -->
-    <style name="greyText" parent="text">
         <item name="android:textColor">@color/darkGrey</item>
     </style>
 
     <!-- Blue Text Style -->
-    <style name="blueText" parent="text">
+    <style name="BlueText" parent="Text">
         <item name="android:textColor">@color/primaryBlue</item>
     </style>
 
+    <!-- Menu Text Style -->
+    <style name="MenuText" parent="Text">
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+
     <!-- Img / Btn Style -->
-    <style name="imgBtn">
+    <style name="ImgBtn">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/transparent</item>
     </style>
 
+    <!-- Img / Btn Style -->
+    <style name="BtnForm" parent="ImgBtn">
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginTop">@dimen/input_padding</item>
+    </style>
+
     <!-- Input Style -->
-    <style name="shadowInput">
+    <style name="Input">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">45dp</item>
-        <item name="android:paddingLeft">20dp</item>
-        <item name="android:paddingRight">20dp</item>
+        <item name="android:layout_height">@dimen/input_height</item>
+        <item name="android:layout_marginTop">@dimen/input_margin</item>
+        <item name="android:paddingLeft">@dimen/input_padding</item>
+        <item name="android:paddingRight">@dimen/input_padding</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:drawablePadding">20dp</item>
-        <item name="android:elevation">4dp</item>
+        <item name="android:drawablePadding">@dimen/input_padding</item>
         <item name="android:textColorHint">@color/mediumGrey</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/shape_shadow_white</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
     </style>
 
     <!-- Home Card Style -->
-    <style name="shadowHomeCard">
+    <style name="HomeCard">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/shape_bg_card_1_shadow</item>
+        <item name="android:background">@drawable/shape_shadow_bg_card_1</item>
         <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Home Card Image Style -->
+    <style name="HomeCardImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- Home Card Title Style -->
+    <style name="HomeCardTitle" parent="Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:paddingStart">@dimen/card_text_padding</item>
+        <item name="android:paddingEnd">@dimen/card_text_padding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:text">@string/title</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+
+    <!-- Home Card Text Style -->
+    <style name="HomeCardText" parent="Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/card_text_margin</item>
+        <item name="android:layout_marginBottom">@dimen/card_text_margin</item>
+        <item name="android:paddingStart">@dimen/card_text_padding</item>
+        <item name="android:paddingEnd">@dimen/card_text_padding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:text">@string/subtitle</item>
+        <item name="android:textSize">@dimen/text_size_10</item>
+    </style>
+
+    <!-- Notification Card Style -->
+    <style name="NotificationCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@drawable/shape_shadow_white</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
     </style>
 
 </resources>

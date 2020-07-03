@@ -15,32 +15,31 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/shape_bottom_shadow"
-            android:contentDescription="@string/barTop"
+            android:background="@drawable/shape_shadow_bottom"
+            android:contentDescription="@null"
             android:src="@drawable/bar_top_1" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginStart="@dimen/parent_outer_margin"
+            android:layout_marginTop="@dimen/parent_top_margin"
+            android:layout_marginEnd="@dimen/parent_outer_margin"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/btnBack"
-                style="@style/imgBtn"
-                android:contentDescription="@string/goBack"
+                android:id="@+id/btn_back"
+                style="@style/ImgBtn"
+                android:contentDescription="@string/description_go_back"
                 android:paddingEnd="8dp"
                 app:srcCompat="@drawable/i_arrow_back_color" />
 
             <SearchView
-                android:id="@+id/inputSearch"
+                android:id="@+id/input_search"
                 style="@android:style/Widget.Material.Light.SearchView"
                 android:layout_width="300dp"
                 android:layout_height="30dp"
@@ -48,9 +47,9 @@
                 android:searchIcon="@drawable/i_magnifier_color" />
 
             <ImageButton
-                android:id="@+id/btnFilter"
-                style="@style/imgBtn"
-                android:contentDescription="@string/filter"
+                android:id="@+id/btn_filter"
+                style="@style/ImgBtn"
+                android:contentDescription="@string/description_filter"
                 android:paddingStart="10dp"
                 android:src="@drawable/i_filter_color" />
 
@@ -58,11 +57,13 @@
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/artisansList"
+        android:id="@+id/artisans_list"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_height="@dimen/dimen_0dp"
+        android:layout_marginStart="@dimen/parent_inner_margin"
+        android:layout_marginEnd="@dimen/parent_inner_margin"
+        android:fadingEdgeLength="25dp"
+        android:requiresFadingEdge="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

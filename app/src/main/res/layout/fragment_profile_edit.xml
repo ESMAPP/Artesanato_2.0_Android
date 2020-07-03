@@ -9,126 +9,178 @@
 
     <LinearLayout
         android:id="@+id/top"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/dimen_0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="@dimen/parent_outer_margin"
+        android:layout_marginTop="@dimen/parent_top_margin"
+        android:layout_marginEnd="@dimen/parent_outer_margin"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/btnBack"
-            style="@style/imgBtn"
-            android:contentDescription="@string/goBack"
+            android:id="@+id/btn_back"
+            style="@style/ImgBtn"
+            android:contentDescription="@string/description_go_back"
             android:paddingEnd="8dp"
             app:srcCompat="@drawable/i_arrow_back_color" />
 
         <TextView
-            android:id="@+id/textView"
-            style="@style/blackTitle"
+            style="@style/Title"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@string/editProfile"
-            android:textSize="16sp" />
+            android:text="@string/label_edit_profile"
+            android:textSize="@dimen/text_size_18" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/pic"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="30dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:layout_width="@dimen/dimen_0dp"
+        android:layout_height="@dimen/dimen_0dp"
+        android:fadingEdgeLength="25dp"
+        android:requiresFadingEdge="vertical"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top">
 
-        <FrameLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="3dp">
+            android:layout_marginStart="@dimen/parent_inner_margin"
+            android:layout_marginEnd="@dimen/parent_inner_margin"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/profilePic"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:contentDescription="@string/profilePicture"
-                app:srcCompat="@android:drawable/sym_def_app_icon" />
-
-            <ImageView
-                android:id="@+id/profilePicFrame"
+            <LinearLayout
+                android:id="@+id/pic"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/shape_circle"
-                android:contentDescription="@string/profilePictureFrame"
-                android:scaleType="center" />
-        </FrameLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/parent_inner_margin"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/editProfile"
-            style="@style/blueText"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:text="@string/changeProfilePic" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="3dp">
 
-    </LinearLayout>
+                    <ImageView
+                        android:id="@+id/profile_pic"
+                        android:layout_width="@dimen/pic_size"
+                        android:layout_height="@dimen/pic_size"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pic">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_circle"
+                        android:contentDescription="@null"
+                        android:scaleType="center" />
 
-        <EditText
-            android:id="@+id/inputEditName"
-            style="@style/shadowInput"
-            android:autofillHints="@string/fullName"
-            android:background="@drawable/shape_white_shadow"
-            android:drawableStart="@drawable/i_user_color"
-            android:hint="@string/fullName"
-            android:inputType="textEmailAddress" />
+                </FrameLayout>
 
-        <EditText
-            android:id="@+id/inputEditPassword"
-            style="@style/shadowInput"
-            android:layout_marginTop="20dp"
-            android:autofillHints="@string/password"
-            android:background="@drawable/shape_white_shadow"
-            android:drawableStart="@drawable/i_key_color"
-            android:hint="@string/password"
-            android:inputType="textPassword" />
+                <TextView
+                    android:id="@+id/edit_profile"
+                    style="@style/BlueText"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/label_change_profile_pic" />
 
-        <EditText
-            android:id="@+id/inputEditConfirmPassword"
-            style="@style/shadowInput"
-            android:layout_marginTop="20dp"
-            android:autofillHints="@string/confirmPassword"
-            android:background="@drawable/shape_white_shadow"
-            android:drawableStart="@drawable/i_key_color"
-            android:hint="@string/confirmPassword"
-            android:inputType="textPassword" />
+            </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/btn_save"
-            style="@style/imgBtn"
-            android:layout_gravity="end"
-            android:layout_marginTop="20dp"
-            android:contentDescription="@string/save"
-            app:srcCompat="@drawable/btn_arrow_color" />
+            <LinearLayout
+                android:id="@+id/general_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/parent_inner_margin"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
 
-    </LinearLayout>
+                <TextView
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:text="@string/label_general_info"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16" />
+
+                <EditText
+                    android:id="@+id/input_edit_name"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_full_name"
+                    android:drawableStart="@drawable/ic_user_color"
+                    android:hint="@string/hint_full_name"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/input_edit_email"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_email"
+                    android:clickable="false"
+                    android:drawableStart="@drawable/ic_letter_grey"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/hint_email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+
+                <EditText
+                    android:id="@+id/input_edit_phone"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_phone"
+                    android:drawableStart="@drawable/ic_letter_grey"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/hint_phone"
+                    android:inputType="phone" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/bar_divider_blue" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    style="@style/Text"
+                    android:layout_width="match_parent"
+                    android:text="@string/label_change_password"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_16" />
+
+                <EditText
+                    android:id="@+id/input_edit_password"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_password"
+                    android:drawableStart="@drawable/ic_key_color"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword" />
+
+                <EditText
+                    android:id="@+id/input_edit_confirm_password"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_confirm_password"
+                    android:drawableStart="@drawable/ic_key_color"
+                    android:hint="@string/hint_confirm_password"
+                    android:inputType="textPassword" />
+
+                <ImageButton
+                    android:id="@+id/btn_save"
+                    style="@style/BtnForm"
+                    android:contentDescription="@string/description_save"
+                    app:srcCompat="@drawable/btn_arrow_color" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

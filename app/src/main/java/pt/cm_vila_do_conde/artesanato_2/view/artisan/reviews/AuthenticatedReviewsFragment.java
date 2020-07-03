@@ -74,7 +74,6 @@ public class AuthenticatedReviewsFragment extends Fragment {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
-
     private void initNavController() {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
@@ -98,7 +97,7 @@ public class AuthenticatedReviewsFragment extends Fragment {
     private void initRecyclerView() {
         artisanPageViewModel.getReviews().observe(getViewLifecycleOwner(), reviews -> {
             Log.d(TAG, String.valueOf(reviews.size()));
-            RecyclerView recyclerView = binding.reviewsRecylcer;
+            RecyclerView recyclerView = binding.reviewsList;
             recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
             recyclerView.setAdapter(new ReviewListAdapter(reviews));
         });

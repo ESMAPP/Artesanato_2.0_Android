@@ -26,7 +26,7 @@
         android:layout_marginStart="@dimen/parent_inner_margin"
         android:layout_marginTop="@dimen/input_padding"
         android:layout_marginEnd="@dimen/parent_inner_margin"
-        android:drawableBottom="@drawable/bar_divider_blue"
+        android:drawableBottom="@drawable/divider_blue"
         android:scaleType="fitCenter"
         android:text="@string/label_highlights"
         android:textSize="@dimen/text_size_22"

@@ -61,6 +61,7 @@
     <string name="time">time</string>
     <string name="target">target</string>
     <string name="value">100</string>
+    <string name="user_name">user name</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

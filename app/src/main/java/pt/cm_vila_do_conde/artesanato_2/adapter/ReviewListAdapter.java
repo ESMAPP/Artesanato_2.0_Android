@@ -38,15 +38,18 @@ public class ReviewListAdapter extends RecyclerView.Adapter<ReviewViewHolder> {
         Review review = reviews.get(position);
         holder.text.setText(review.getText());
         holder.dateText.setText(DateUtils
-                .getRelativeDateTimeString( holder.dateText.getContext(),
+                .getRelativeDateTimeString(holder.dateText.getContext(),
                         review.getCreatedAt().toDate().getTime(),
                         DateUtils.MINUTE_IN_MILLIS,
                         DateUtils.YEAR_IN_MILLIS,
                         0));
         holder.likes.setText(String.valueOf(review.getLikes().size()));
-        if(review.getUserInfo() != null){
+
+        if (review.getUserInfo() != null) {
+            holder.userName.setText(review.getUserInfo().getName());
+
             Picasso.get().load(review.getUserInfo().getProfilePic())
-                    .placeholder(R.drawable.ic_logo_small)
+                    .placeholder(R.drawable.ic_placeholder_user_pic)
                     .transform(new CropCircleTransformation())
                     .into(holder.userImage);
         }

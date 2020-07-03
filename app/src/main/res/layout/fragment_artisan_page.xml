@@ -175,7 +175,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="@drawable/bottom_bar"
+        android:background="@drawable/bar_bottom"
         android:minHeight="25dp"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"

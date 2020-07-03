@@ -11,7 +11,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ArtisanGalleryViewHolder;
 
@@ -25,18 +24,16 @@ public class ArtisanGalleryAdapter extends RecyclerView.Adapter<ArtisanGalleryVi
 
     @Override
     public ArtisanGalleryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_artisan_gallery, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_artisan_gallery, parent, false);
         return new ArtisanGalleryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ArtisanGalleryViewHolder holder, int position) {
         Picasso.get().load(gallery.get(position))
-                .placeholder(R.drawable.ic_logo_small)
+                .placeholder(R.drawable.ic_placeholder_image_color)
                 .fit()
                 .centerCrop()
-                .transform(new RoundedCornersTransformation(5, 5))
                 .into(holder.mImageView);
     }
 

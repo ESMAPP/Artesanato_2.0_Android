@@ -35,8 +35,7 @@ public class ArtisanGalleryFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArtisanGalleryListBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -61,7 +60,7 @@ public class ArtisanGalleryFragment extends Fragment {
 
     private void updateUI(ArrayList<String> gallery) {
         if (gallery != null) {
-            RecyclerView recyclerView = binding.list;
+            RecyclerView recyclerView = binding.galleryList;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
             } else {

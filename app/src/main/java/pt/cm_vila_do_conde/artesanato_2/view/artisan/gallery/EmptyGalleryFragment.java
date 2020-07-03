@@ -40,7 +40,7 @@ public class EmptyGalleryFragment extends Fragment {
     }
 
     private void setEmptyState() {
-        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_9);
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.color.white);
         binding.textEmptyState.setText(getText(R.string.label_empty_gallery));
         binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
     }

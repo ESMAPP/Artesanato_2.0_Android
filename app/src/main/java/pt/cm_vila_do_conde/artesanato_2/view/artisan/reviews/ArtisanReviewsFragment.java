@@ -18,14 +18,12 @@ public class ArtisanReviewsFragment extends Fragment {
     private FragmentArtisanReviewsBinding binding;
     private SharedUserViewModel sharedUserViewModel;
 
-    public ArtisanReviewsFragment(){
+    public ArtisanReviewsFragment() {
 
     }
 
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_artisan_reviews, container, false);
     }

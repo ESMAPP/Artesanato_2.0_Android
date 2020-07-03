@@ -1,70 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/notification_double_pic"
+    style="@style/Card"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/notification_double_pic"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <LinearLayout
+        style="@style/RectangleCard"
+        android:layout_height="60dp">
 
-        <LinearLayout style="@style/NotificationCard">
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp">
+            <ImageView
+                android:id="@+id/notification_pic"
+                android:layout_width="@dimen/medium_pic_size"
+                android:layout_height="@dimen/medium_pic_size"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
-                <ImageView
-                    android:id="@+id/pic_2"
-                    android:layout_width="@dimen/medium_pic_size"
-                    android:layout_height="@dimen/medium_pic_size"
-                    android:layout_gravity="center"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_placeholder_user_pic" />
+            <ImageView
+                android:layout_width="@dimen/medium_frame_size"
+                android:layout_height="@dimen/medium_frame_size"
+                android:background="@drawable/shape_circle"
+                android:contentDescription="@null"
+                android:scaleType="center" />
 
-                <ImageView
-                    android:layout_width="@dimen/medium_frame_size"
-                    android:layout_height="@dimen/medium_frame_size"
-                    android:background="@drawable/shape_circle"
-                    android:contentDescription="@null"
-                    android:scaleType="center" />
+        </FrameLayout>
 
-            </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/card_padding"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/notification_message"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:maxLines="2"
+                android:singleLine="false"
+                android:text="@string/message" />
 
-                <TextView
-                    android:id="@+id/notification_message"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:maxLines="2"
-                    android:singleLine="false"
-                    android:text="@string/message" />
+            <TextView
+                android:id="@+id/notification_time"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:layout_weight="0.2"
+                android:text="@string/time"
+                android:textAlignment="textEnd" />
 
-                <TextView
-                    android:id="@+id/notification_time"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical|end"
-                    android:layout_weight="0.2"
-                    android:text="@string/time"
-                    android:textAlignment="textEnd" />
-
-            </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery;
+package pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -27,6 +27,7 @@ public class ArtisanGalleryFragment extends Fragment {
     private ArtisanPageViewModel artisanPageViewModel;
 
     public ArtisanGalleryFragment() {
+        // Required empty public constructor
     }
 
     @Override

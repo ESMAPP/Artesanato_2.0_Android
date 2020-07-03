@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisan;
+package pt.cm_vila_do_conde.artesanato_2.view.artisans;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.CollectionReference;
@@ -24,6 +23,7 @@ import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisanListAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisansListBinding;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanListViewModel;
+
 
 public class ArtisansListFragment extends Fragment {
     private ArtisanListViewModel artisanListViewModel;
@@ -48,9 +48,7 @@ public class ArtisansListFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArtisansListBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }

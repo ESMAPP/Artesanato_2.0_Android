@@ -233,6 +233,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void goToFavourites() {
+        navController.navigate(R.id.action_homeFragment_to_favouritesFragment);
     }
 
     private void goToRankings() {

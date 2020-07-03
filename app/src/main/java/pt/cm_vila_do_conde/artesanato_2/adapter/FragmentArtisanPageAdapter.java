@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.contests.RootArtisanContestFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery.RootGalleryFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.ArtisanReviewsFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.AuthenticatedReviewsFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.auth.SignInFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisans.contests.RootArtisanContestFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery.RootGalleryFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews.ArtisanReviewsFragment;
 
 public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
 

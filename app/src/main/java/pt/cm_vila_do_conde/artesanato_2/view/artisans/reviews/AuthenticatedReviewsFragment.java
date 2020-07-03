@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews;
+package pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews;
 
 import android.os.Bundle;
 import android.util.Log;

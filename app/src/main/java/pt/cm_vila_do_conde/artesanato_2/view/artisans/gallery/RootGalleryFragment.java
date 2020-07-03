@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery;
+package pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery;
 
 import android.os.Bundle;
 
@@ -12,12 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.AuthenticatedReviewsFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.UnauthenticatedReviewsFragment;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
 public class RootGalleryFragment extends Fragment {
     private ArtisanPageViewModel artisanPageViewModel;
+
+    public RootGalleryFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,7 @@ public class RootGalleryFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_root_gallery, container, false);
     }

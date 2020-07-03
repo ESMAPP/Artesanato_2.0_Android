@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisan.contests;
+package pt.cm_vila_do_conde.artesanato_2.view.artisans.contests;
 
 import android.os.Bundle;
 
@@ -12,14 +12,17 @@ import pt.cm_vila_do_conde.artesanato_2.R;
 
 public class RootArtisanContestFragment extends Fragment {
 
+    public RootArtisanContestFragment() {
+        // Required empty public constructor
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_root_artisan_contest, container, false);
     }

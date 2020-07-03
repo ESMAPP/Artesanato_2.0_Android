@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews;
+package pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,7 +19,7 @@ public class ArtisanReviewsFragment extends Fragment {
     private SharedUserViewModel sharedUserViewModel;
 
     public ArtisanReviewsFragment() {
-
+        // Required empty public constructor
     }
 
     @Override

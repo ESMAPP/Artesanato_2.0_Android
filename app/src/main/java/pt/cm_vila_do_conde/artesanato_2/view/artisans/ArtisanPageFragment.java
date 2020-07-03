@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisan;
+package pt.cm_vila_do_conde.artesanato_2.view.artisans;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -39,6 +39,10 @@ public class ArtisanPageFragment extends Fragment {
     private ArtisanPageViewModel artisanPageViewModel;
     private SharedUserViewModel sharedUserViewModel;
 
+    public ArtisanPageFragment() {
+        // Required empty public constructor
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +54,7 @@ public class ArtisanPageFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArtisanPageBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }

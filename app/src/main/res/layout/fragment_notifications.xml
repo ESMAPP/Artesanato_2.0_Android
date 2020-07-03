@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_4"
-    tools:context="pt.cm_vila_do_conde.artesanato_2.view.notification.NotificationsFragment">
+    tools:context=".view.notifications.NotificationsFragment">
 
     <FrameLayout
         android:id="@+id/top"
@@ -60,8 +60,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@id/top" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

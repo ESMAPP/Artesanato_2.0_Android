@@ -73,7 +73,7 @@
                         android:layout_height="@dimen/pic_size"
                         android:layout_gravity="center"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/placeholder_user_pic" />
+                        app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
                     <ImageView
                         android:layout_width="match_parent"

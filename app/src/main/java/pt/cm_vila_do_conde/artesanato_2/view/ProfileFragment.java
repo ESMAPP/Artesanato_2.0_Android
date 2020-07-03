@@ -71,12 +71,12 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         binding.profileRanking.setText(String.valueOf(user.getRanking()));
         binding.profileReputation.setText(String.valueOf(user.getReputation()));
         if (user.getProfilePic().isEmpty()) {
-            Picasso.get().load(R.drawable.placeholder_user_pic)
+            Picasso.get().load(R.drawable.ic_placeholder_user_pic)
                     .transform(new CropCircleTransformation())
                     .into(binding.profilePic);
         } else {
             Picasso.get().load(user.getProfilePic())
-                    .placeholder(R.drawable.placeholder_user_pic)
+                    .placeholder(R.drawable.ic_placeholder_user_pic)
                     .transform(new CropCircleTransformation())
                     .into(binding.profilePic);
         }

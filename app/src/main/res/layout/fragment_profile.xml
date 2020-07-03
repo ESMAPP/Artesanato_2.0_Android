@@ -45,7 +45,7 @@
                     android:layout_height="110dp"
                     android:layout_gravity="center_horizontal|center_vertical"
                     android:contentDescription="@null"
-                    app:srcCompat="@drawable/placeholder_user_pic" />
+                    app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
                 <ImageView
                     android:layout_width="match_parent"

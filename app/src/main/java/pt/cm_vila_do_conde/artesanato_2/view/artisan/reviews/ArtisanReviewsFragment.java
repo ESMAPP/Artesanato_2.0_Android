@@ -1,33 +1,33 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanReviewsBinding;
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.AuthenticatedReviewsFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.UnauthenticatedReviewsFragment;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class ArtisanReviewsFragment extends Fragment {
     private FragmentArtisanReviewsBinding binding;
     private SharedUserViewModel sharedUserViewModel;
 
+    public ArtisanReviewsFragment(){
+
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentArtisanReviewsBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+        return inflater.inflate(R.layout.fragment_artisan_reviews, container, false);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class ArtisanReviewsFragment extends Fragment {
         handleView();
     }
 
-    private void initSharedUserViewModel(){
+    private void initSharedUserViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
@@ -45,9 +45,9 @@ public class ArtisanReviewsFragment extends Fragment {
      * Checks if user is authenticated and handles
      * fragment selection based on condition
      */
-    private void handleView(){
+    private void handleView() {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
-            if(!user.isAuthenticated()) {
+            if (!user.isAuthenticated()) {
                 UnauthenticatedReviewsFragment unauthenticatedReviewsFragment = new UnauthenticatedReviewsFragment();
                 this.getChildFragmentManager().beginTransaction()
                         .replace(R.id.root_reviews, unauthenticatedReviewsFragment, null)

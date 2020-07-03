@@ -9,6 +9,7 @@ import pt.cm_vila_do_conde.artesanato_2.view.artisan.constests.RootArtisanContes
 import pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery.ArtisanGalleryFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisan.gallery.RootGalleryFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.ArtisanReviewsFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisan.reviews.AuthenticatedReviewsFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.auth.SignInFragment;
 
 public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
@@ -29,7 +30,7 @@ public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
             case 2:
                 return new RootArtisanContestFragment(); //ChildFragment3 at position 2
             case 3:
-                return new RootArtisanContestFragment(); //ChildFragment3 at position 3
+                return new RootGalleryFragment(); //ChildFragment3 at position 3
         }
         return null; //does not happen
     }
@@ -52,5 +53,10 @@ public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return 4;
+    }
+
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return POSITION_NONE;
     }
 }

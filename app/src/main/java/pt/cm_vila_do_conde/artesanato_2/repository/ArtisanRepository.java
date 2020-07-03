@@ -10,13 +10,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
+import pt.cm_vila_do_conde.artesanato_2.model.Review;
+import pt.cm_vila_do_conde.artesanato_2.model.User;
 
 public class ArtisanRepository {
     private String TAG = "ARTISANS_REPOSITORY";
     private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
     private CollectionReference artisansRef = rootRef.collection("artisans");
+    private CollectionReference usersRef = rootRef.collection("users");
 
 
     // TODO implement search and filtering query
@@ -25,7 +29,6 @@ public class ArtisanRepository {
         query.addSnapshotListener((task, e) -> {
             ArrayList<Artisan> fetchedArtisans = new ArrayList<>();
             for (DocumentSnapshot doc : task.getDocuments()) {
-                Log.d(TAG, doc.getId());
                 Artisan artisan = doc.toObject(Artisan.class);
                 artisan.setUid(doc.getId());
                 fetchedArtisans.add(artisan);
@@ -36,14 +39,51 @@ public class ArtisanRepository {
         return artisansList;
     }
 
-    public MutableLiveData<Artisan> fetchArtisanById (String id){
+    public MutableLiveData<Artisan> fetchArtisanById(String id) {
         MutableLiveData<Artisan> artisan = new MutableLiveData<>();
 
         artisansRef.document(id).addSnapshotListener((doc, e) -> {
             Artisan fetchedArtisan = doc.toObject(Artisan.class);
+            fetchedArtisan.setUid(doc.getId());
+           /* if (fetchedArtisan.getReviews() != null) {
+                System.out.println("GOt here");
+                for (Review review : fetchedArtisan.getReviews()) {
+                    usersRef.document(review.getUserId()).get()
+                            .addOnCompleteListener(task -> {
+                                if (task.isSuccessful()) {
+                                    User user = task.getResult().toObject(User.class);
+                                    review.setUserInfo(user);
+                                }
+                            });
+                }
+            }*/
             artisan.setValue(fetchedArtisan);
         });
 
         return artisan;
     }
+
+    public MutableLiveData<List<Review>> fetchReviews(String artisanId) {
+        MutableLiveData<List<Review>> fetchedReviews = new MutableLiveData<>();
+
+        artisansRef.document(artisanId).collection("reviews")
+                .addSnapshotListener((task, e) -> {
+                    List<Review> tempReviews = task.toObjects(Review.class);
+                    for (Review review : tempReviews) {
+                        usersRef.document(review.getUserId()).addSnapshotListener((userTask, err) -> {
+                            User user = userTask.toObject(User.class);
+                            review.setUserInfo(user);
+                        });
+                    }
+                    fetchedReviews.setValue(tempReviews);
+                });
+        return fetchedReviews;
+    }
+
+    public void submitReview(String text, String userId, String artisanId){
+        Review review = new Review(userId, text);
+        artisansRef.document(artisanId).collection("reviews").add(review);
+    }
+
+
 }

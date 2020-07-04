@@ -38,7 +38,7 @@ public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsVi
     @Override
     public void onBindViewHolder(@NonNull ArtisanReviewsViewHolder holder, int position) {
         Review review = reviews.get(position);
-        holder.text.setText(review.getText());
+        holder.text.setText(review.getMessage());
         holder.dateText.setText(DateUtils
                 .getRelativeDateTimeString(holder.dateText.getContext(),
                         review.getCreatedAt().toDate().getTime(),
@@ -52,7 +52,9 @@ public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsVi
 
             Picasso.get().load(review.getUserInfo().getProfilePic())
                     .placeholder(R.drawable.ic_placeholder_user_pic)
+                    .fit()
                     .transform(new CropCircleTransformation())
+                    .centerCrop()
                     .into(holder.userImage);
         }
     }

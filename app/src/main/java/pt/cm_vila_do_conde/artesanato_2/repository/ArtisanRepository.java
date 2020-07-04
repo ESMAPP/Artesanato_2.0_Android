@@ -23,7 +23,6 @@ public class ArtisanRepository {
     private CollectionReference usersRef = rootRef.collection("users");
 
 
-    // TODO implement search and filtering query
     public MutableLiveData<ArrayList<Artisan>> fetchArtisansList(Query query) {
         MutableLiveData<ArrayList<Artisan>> artisansList = new MutableLiveData<>();
         query.addSnapshotListener((task, e) -> {

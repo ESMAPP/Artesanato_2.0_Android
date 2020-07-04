@@ -51,12 +51,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favourites_list"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_0dp"
-        android:fadingEdgeLength="25dp"
-        android:paddingStart="@dimen/scroll_inner_padding"
-        android:paddingEnd="@dimen/scroll_inner_padding"
-        android:requiresFadingEdge="vertical"
+        style="@style/RecyclerViewList"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

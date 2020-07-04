@@ -24,7 +24,7 @@
     <dimen name="parent_inner_margin">40dp</dimen>
 
     <dimen name="scroll_top_padding">20dp</dimen>
-    <dimen name="scroll_inner_padding">40dp</dimen>
+    <dimen name="scroll_inner_padding">20dp</dimen>
 
     <dimen name="input_height">45dp</dimen>
     <dimen name="input_margin">20dp</dimen>

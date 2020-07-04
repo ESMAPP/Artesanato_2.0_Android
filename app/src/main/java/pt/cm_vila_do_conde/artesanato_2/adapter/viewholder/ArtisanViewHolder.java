@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 
+
 public class ArtisanViewHolder extends RecyclerView.ViewHolder {
     public ImageView image;
     public TextView name;
     public TextView city;
     public CardView card;
     public ImageButton favouriteBtn;
-
 
     public ArtisanViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -26,6 +26,4 @@ public class ArtisanViewHolder extends RecyclerView.ViewHolder {
         city = itemView.findViewById(R.id.card_artisan_city);
         card = itemView.findViewById(R.id.card_holder_artisan);
     }
-
-
 }

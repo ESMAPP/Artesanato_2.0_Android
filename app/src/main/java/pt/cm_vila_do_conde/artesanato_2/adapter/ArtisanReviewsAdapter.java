@@ -21,7 +21,6 @@ import pt.cm_vila_do_conde.artesanato_2.model.Review;
 
 public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsViewHolder> {
     private List<Review> reviews;
-
     private NavController navController;
 
     public ArtisanReviewsAdapter(List<Review> reviews) {

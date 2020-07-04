@@ -13,7 +13,7 @@
         <item name="tabSelectedTextColor">@color/black</item>
     </style>
 
-    <!-- Tab Big Title Style -->
+    <!-- Tab Large Title Style -->
     <style name="LargeTabLayout" parent="TabLayout">
         <item name="tabTextAppearance">@style/LargeTabTitle</item>
     </style>
@@ -32,7 +32,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <!-- Tab Big Title Style -->
+    <!-- Tab Large Title Style -->
     <style name="LargeTabTitle" parent="Title">
         <item name="android:textSize">@dimen/text_size_22</item>
         <item name="android:textColor">@color/mediumGrey</item>
@@ -48,8 +48,13 @@
     <style name="Text">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="fontFamily">@font/quicksand</item>
         <item name="android:textColor">@color/darkGrey</item>
+    </style>
+
+    <!-- Black Text Style -->
+    <style name="BlackText" parent="Text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
     </style>
 
     <!-- Blue Text Style -->

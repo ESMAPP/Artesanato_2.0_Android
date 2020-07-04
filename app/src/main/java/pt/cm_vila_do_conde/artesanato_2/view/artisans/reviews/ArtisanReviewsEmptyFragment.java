@@ -11,7 +11,6 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentViewPagerEmptyBindin
 
 
 public class ArtisanReviewsEmptyFragment extends Fragment {
-
     FragmentViewPagerEmptyBinding binding;
 
     public ArtisanReviewsEmptyFragment() {

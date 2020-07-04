@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.ReviewListAdapter;
+import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisanReviewsAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanAuthenticatedReviewsBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
@@ -99,7 +99,7 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
             Log.d(TAG, String.valueOf(reviews.size()));
             RecyclerView recyclerView = binding.reviewsList;
             recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-            recyclerView.setAdapter(new ReviewListAdapter(reviews));
+            recyclerView.setAdapter(new ArtisanReviewsAdapter(reviews));
         });
     }
 }

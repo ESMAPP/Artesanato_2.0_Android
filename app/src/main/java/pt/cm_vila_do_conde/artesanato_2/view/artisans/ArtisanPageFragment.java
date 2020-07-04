@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.FragmentArtisanPageAdapter;
+import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisanPageAdapter;
 import pt.cm_vila_do_conde.artesanato_2.constants.UserTypes;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanPageBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
@@ -107,7 +107,7 @@ public class ArtisanPageFragment extends Fragment {
 
     public void setupTabAdapter() {
         ViewPager artisanViewPager = binding.viewPagerArtisan;
-        artisanViewPager.setAdapter(new FragmentArtisanPageAdapter(getChildFragmentManager()));
+        artisanViewPager.setAdapter(new ArtisanPageAdapter(getChildFragmentManager()));
         TabLayout tabs = binding.innerNavBar;
         tabs.setupWithViewPager(artisanViewPager);
     }

@@ -16,7 +16,7 @@ import com.google.android.material.tabs.TabLayout;
 import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.FragmentAuthAdapter;
+import pt.cm_vila_do_conde.artesanato_2.adapter.AuthAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentAuthBinding;
 
 
@@ -58,7 +58,7 @@ public class AuthFragment extends Fragment {
     }
 
     public void setupTabAdapter() {
-        binding.viewPagerAuth.setAdapter(new FragmentAuthAdapter(getChildFragmentManager()));
+        binding.viewPagerAuth.setAdapter(new AuthAdapter(getChildFragmentManager()));
         TabLayout tabs = binding.innerNavBar;
         tabs.setupWithViewPager(binding.viewPagerAuth);
     }

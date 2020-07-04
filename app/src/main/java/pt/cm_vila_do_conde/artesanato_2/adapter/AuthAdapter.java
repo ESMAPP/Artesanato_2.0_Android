@@ -11,9 +11,9 @@ import pt.cm_vila_do_conde.artesanato_2.view.auth.AuthSignInFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.auth.AuthSignUpFragment;
 
 
-public class FragmentAuthAdapter extends FragmentPagerAdapter {
+public class AuthAdapter extends FragmentPagerAdapter {
 
-    public FragmentAuthAdapter(@NonNull FragmentManager fm) {
+    public AuthAdapter(@NonNull FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 

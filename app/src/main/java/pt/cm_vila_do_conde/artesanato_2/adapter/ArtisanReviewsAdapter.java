@@ -15,26 +15,28 @@ import java.util.List;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ReviewViewHolder;
+import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ArtisanReviewsViewHolder;
 import pt.cm_vila_do_conde.artesanato_2.model.Review;
 
-public class ReviewListAdapter extends RecyclerView.Adapter<ReviewViewHolder> {
+
+public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsViewHolder> {
     private List<Review> reviews;
+
     private NavController navController;
 
-    public ReviewListAdapter(List<Review> reviews) {
+    public ArtisanReviewsAdapter(List<Review> reviews) {
         this.reviews = reviews;
     }
 
     @NonNull
     @Override
-    public ReviewViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_review, parent, false);
-        return new ReviewViewHolder(itemView);
+    public ArtisanReviewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_artisan_review, parent, false);
+        return new ArtisanReviewsViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ReviewViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ArtisanReviewsViewHolder holder, int position) {
         Review review = reviews.get(position);
         holder.text.setText(review.getText());
         holder.dateText.setText(DateUtils

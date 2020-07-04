@@ -5,19 +5,19 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.BagdesViewHolder;
+import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ProfileBagdesViewHolder;
 
-public class ProfileBagesAdapter extends RecyclerView.Adapter<BagdesViewHolder>  {
+public class ProfileBagesAdapter extends RecyclerView.Adapter<ProfileBagdesViewHolder>  {
 
 
     @NonNull
     @Override
-    public BagdesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProfileBagdesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return null;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BagdesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProfileBagdesViewHolder holder, int position) {
 
     }
 

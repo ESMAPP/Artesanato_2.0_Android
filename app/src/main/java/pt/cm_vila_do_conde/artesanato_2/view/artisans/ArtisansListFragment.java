@@ -20,17 +20,16 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisanListAdapter;
+import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisansListAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisansListBinding;
-import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanListViewModel;
+import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisansListViewModel;
 
 
 public class ArtisansListFragment extends Fragment {
-    private ArtisanListViewModel artisanListViewModel;
-
+    private ArtisansListViewModel artisansListViewModel;
     private FragmentArtisansListBinding binding;
     private RecyclerView artisanRecyclerView;
-    private ArtisanListAdapter artisanListAdapter;
+    private ArtisansListAdapter artisansListAdapter;
     private NavController navController;
 
     private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
@@ -65,11 +64,11 @@ public class ArtisansListFragment extends Fragment {
     }
 
     private void initArtisanListViewModel() {
-        artisanListViewModel = new ViewModelProvider(requireActivity()).get(ArtisanListViewModel.class);
+        artisansListViewModel = new ViewModelProvider(requireActivity()).get(ArtisansListViewModel.class);
     }
 
     private void fetchArtisansList() {
-        artisanListViewModel.fetchArtisansList(query);
+        artisansListViewModel.fetchArtisansList(query);
     }
 
     private void initRecyclerAdapter() {
@@ -81,10 +80,10 @@ public class ArtisansListFragment extends Fragment {
     }
 
     private void initObservable() {
-        artisanListViewModel.getArtisansList().observe(getViewLifecycleOwner(), artisanList -> {
+        artisansListViewModel.getArtisansList().observe(getViewLifecycleOwner(), artisanList -> {
             if (artisanList != null) {
-                artisanListAdapter = new ArtisanListAdapter(artisanList, navController);
-                artisanRecyclerView.setAdapter(artisanListAdapter);
+                artisansListAdapter = new ArtisansListAdapter(artisanList, navController);
+                artisanRecyclerView.setAdapter(artisansListAdapter);
             }
         });
     }
@@ -105,7 +104,7 @@ public class ArtisansListFragment extends Fragment {
                         .orderBy("name")
                         .startAt(text)
                         .endAt(text + "\uf8ff");
-                artisanListViewModel.fetchArtisansList(query);
+                artisansListViewModel.fetchArtisansList(query);
                 initObservable();
                 return true;
             }
@@ -115,7 +114,7 @@ public class ArtisansListFragment extends Fragment {
             public boolean onQueryTextChange(String newText) {
                 if (newText.isEmpty()) {
                     query = artisansRef;
-                    artisanListViewModel.fetchArtisansList(query);
+                    artisansListViewModel.fetchArtisansList(query);
                     initObservable();
                 }
                 return true;

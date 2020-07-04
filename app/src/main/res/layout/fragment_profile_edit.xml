@@ -69,8 +69,8 @@
 
                     <ImageView
                         android:id="@+id/profile_pic"
-                        android:layout_width="@dimen/pic_size"
-                        android:layout_height="@dimen/pic_size"
+                        android:layout_width="@dimen/profile_pic_size"
+                        android:layout_height="@dimen/profile_pic_size"
                         android:layout_gravity="center"
                         android:contentDescription="@null"
                         app:srcCompat="@drawable/ic_placeholder_user_pic" />

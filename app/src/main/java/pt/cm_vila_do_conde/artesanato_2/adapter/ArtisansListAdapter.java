@@ -17,11 +17,12 @@ import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ArtisanViewHolder;
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 
-public class ArtisanListAdapter extends RecyclerView.Adapter<ArtisanViewHolder> {
+
+public class ArtisansListAdapter extends RecyclerView.Adapter<ArtisanViewHolder> {
     private ArrayList<Artisan> artisanList;
     private NavController navController;
 
-    public ArtisanListAdapter(ArrayList<Artisan> artisanList, NavController navController) {
+    public ArtisansListAdapter(ArrayList<Artisan> artisanList, NavController navController) {
         this.artisanList = artisanList;
         this.navController = navController;
     }
@@ -31,7 +32,6 @@ public class ArtisanListAdapter extends RecyclerView.Adapter<ArtisanViewHolder> 
     public ArtisanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_artisan_list, parent, false);
         return new ArtisanViewHolder(itemView);
-
     }
 
     @Override
@@ -40,9 +40,9 @@ public class ArtisanListAdapter extends RecyclerView.Adapter<ArtisanViewHolder> 
         holder.name.setText(artisan.getName());
         holder.city.setText(artisan.getCity());
         Picasso.get().load(artisan.getProfilePic())
-                .placeholder(R.drawable.ic_logo_small)
+                .placeholder(R.drawable.ic_placeholder_image_color)
                 .fit()
-                .centerInside()
+                .centerCrop()
                 .into(holder.image);
         holder.card.setOnClickListener(v -> goToArtisanPageById(artisan.getUid()));
     }
@@ -58,5 +58,4 @@ public class ArtisanListAdapter extends RecyclerView.Adapter<ArtisanViewHolder> 
     public int getItemCount() {
         return artisanList.size();
     }
-
 }

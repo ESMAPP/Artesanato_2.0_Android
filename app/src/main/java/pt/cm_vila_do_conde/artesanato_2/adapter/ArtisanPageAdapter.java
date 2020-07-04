@@ -9,9 +9,9 @@ import pt.cm_vila_do_conde.artesanato_2.view.artisans.contests.ArtisanContestRoo
 import pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery.ArtisanGalleryRootFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews.ArtisanReviewsFragment;
 
-public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
+public class ArtisanPageAdapter extends FragmentPagerAdapter {
 
-    public FragmentArtisanPageAdapter(@NonNull FragmentManager fm) {
+    public ArtisanPageAdapter(@NonNull FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
     }
 

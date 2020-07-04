@@ -12,15 +12,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentFilterArtisansBinding;
+import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisansFilterBinding;
 
 
-public class FilterArtisanFragment extends Fragment {
+public class ArtisansFilterFragment extends Fragment {
     private NavController navController;
 
-    private FragmentFilterArtisansBinding binding;
+    private FragmentArtisansFilterBinding binding;
 
-    public FilterArtisanFragment() {
+    public ArtisansFilterFragment() {
         // Required empty public constructor
     }
 
@@ -32,7 +32,7 @@ public class FilterArtisanFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentFilterArtisansBinding.inflate(inflater, container, false);
+        binding = FragmentArtisansFilterBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 

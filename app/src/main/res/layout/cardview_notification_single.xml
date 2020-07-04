@@ -42,22 +42,13 @@
 
             <TextView
                 android:id="@+id/notification_message"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:maxLines="2"
-                android:singleLine="false"
+                style="@style/RectangleCardText"
                 android:text="@string/message" />
 
             <TextView
                 android:id="@+id/notification_time"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|end"
-                android:layout_weight="0.2"
-                android:text="@string/time"
-                android:textAlignment="textEnd" />
+                style="@style/RectangleCardSmallText"
+                android:text="@string/time" />
 
         </LinearLayout>
 

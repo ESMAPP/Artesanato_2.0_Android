@@ -53,7 +53,6 @@ public class ArtisansListAdapter extends RecyclerView.Adapter<ArtisanViewHolder>
         navController.navigate(R.id.artisanPageFragment, bundle);
     }
 
-
     @Override
     public int getItemCount() {
         return artisanList.size();

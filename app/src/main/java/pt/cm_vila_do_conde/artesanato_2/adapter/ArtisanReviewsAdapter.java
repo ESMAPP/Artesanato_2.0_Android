@@ -21,7 +21,6 @@ import pt.cm_vila_do_conde.artesanato_2.model.Review;
 
 public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsViewHolder> {
     private List<Review> reviews;
-
     private NavController navController;
 
     public ArtisanReviewsAdapter(List<Review> reviews) {
@@ -38,7 +37,7 @@ public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsVi
     @Override
     public void onBindViewHolder(@NonNull ArtisanReviewsViewHolder holder, int position) {
         Review review = reviews.get(position);
-        holder.text.setText(review.getText());
+        holder.text.setText(review.getMessage());
         holder.dateText.setText(DateUtils
                 .getRelativeDateTimeString(holder.dateText.getContext(),
                         review.getCreatedAt().toDate().getTime(),

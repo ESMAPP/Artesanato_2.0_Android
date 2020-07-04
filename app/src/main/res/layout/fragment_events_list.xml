@@ -44,14 +44,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/event_list"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_0dp"
-        android:fadingEdgeLength="25dp"
-        android:paddingStart="@dimen/scroll_inner_padding"
-        android:paddingTop="10dp"
-        android:paddingEnd="@dimen/scroll_inner_padding"
-        android:paddingBottom="10dp"
-        android:requiresFadingEdge="vertical"
+        style="@style/RecyclerViewList"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

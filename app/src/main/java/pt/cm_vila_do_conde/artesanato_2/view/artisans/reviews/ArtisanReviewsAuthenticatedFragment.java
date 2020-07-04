@@ -17,20 +17,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ReviewListAdapter;
-import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentAuthenticatedReviewsBinding;
+import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanAuthenticatedReviewsBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
-public class AuthenticatedReviewsFragment extends Fragment {
+public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     private static final String TAG = "AUTHENTICATED_REVIEWS_FRAGMENT";
-    private FragmentAuthenticatedReviewsBinding binding;
+    private FragmentArtisanAuthenticatedReviewsBinding binding;
     private NavController navController;
 
     private ArtisanPageViewModel artisanPageViewModel;
     private SharedUserViewModel sharedUserViewModel;
 
-    public AuthenticatedReviewsFragment() {
+    public ArtisanReviewsAuthenticatedFragment() {
     }
 
     @Override
@@ -50,7 +50,7 @@ public class AuthenticatedReviewsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentAuthenticatedReviewsBinding.inflate(inflater, container, false);
+        binding = FragmentArtisanAuthenticatedReviewsBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 

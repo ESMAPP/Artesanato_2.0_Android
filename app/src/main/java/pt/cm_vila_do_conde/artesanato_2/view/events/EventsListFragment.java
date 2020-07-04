@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery;
+package pt.cm_vila_do_conde.artesanato_2.view.events;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,16 +8,18 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentEmptyViewPagerBinding;
+import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentEventsListBinding;
 
 
-public class EmptyGalleryFragment extends Fragment {
+public class EventsListFragment extends Fragment {
+    private FragmentEventsListBinding binding;
+    private NavController navController;
 
-    FragmentEmptyViewPagerBinding binding;
-
-    public EmptyGalleryFragment() {
+    public EventsListFragment() {
         // Required empty public constructor
     }
 
@@ -28,25 +30,22 @@ public class EmptyGalleryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentEmptyViewPagerBinding.inflate(inflater, container, false);
+        binding = FragmentEventsListBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setEmptyState();
+        initNavController();
+        initBackBtn();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        setEmptyState();
+    private void initNavController() {
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
-    private void setEmptyState() {
-        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.color.white);
-        binding.textEmptyState.setText(getText(R.string.label_empty_gallery));
-        binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
+    private void initBackBtn() {
+        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
     }
 }

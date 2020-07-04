@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import pt.cm_vila_do_conde.artesanato_2.view.artisans.contests.RootArtisanContestFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery.RootGalleryFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisans.contests.ArtisanContestRootFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery.ArtisanGalleryRootFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews.ArtisanReviewsFragment;
 
 public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
@@ -21,13 +21,13 @@ public class FragmentArtisanPageAdapter extends FragmentPagerAdapter {
         switch (position)
         {
             case 0:
-                return new RootGalleryFragment(); //ChildFragment1 at position 0
+                return new ArtisanGalleryRootFragment(); //ChildFragment1 at position 0
             case 1:
                 return new ArtisanReviewsFragment(); //ChildFragment2 at position 1
             case 2:
-                return new RootArtisanContestFragment(); //ChildFragment3 at position 2
+                return new ArtisanContestRootFragment(); //ChildFragment3 at position 2
             case 3:
-                return new RootGalleryFragment(); //ChildFragment3 at position 3
+                return new ArtisanGalleryRootFragment(); //ChildFragment3 at position 3
         }
         return null; //does not happen
     }

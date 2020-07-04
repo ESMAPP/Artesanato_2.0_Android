@@ -7,8 +7,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.jetbrains.annotations.NotNull;
 
-import pt.cm_vila_do_conde.artesanato_2.view.auth.SignInFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.auth.SignUpFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.auth.AuthSignInFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.auth.AuthSignUpFragment;
+
 
 public class FragmentAuthAdapter extends FragmentPagerAdapter {
 
@@ -19,13 +20,13 @@ public class FragmentAuthAdapter extends FragmentPagerAdapter {
     @NotNull
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
+        switch (position) {
             case 0:
-                return new SignInFragment(); //ChildFragment1 at position 0
+                return new AuthSignInFragment(); //ChildFragment1 at position 0
             case 1:
-                return new SignUpFragment(); //ChildFragment2 at position 1
+                return new AuthSignUpFragment(); //ChildFragment2 at position 1
         }
+
         return null; //does not happen
     }
 
@@ -37,8 +38,8 @@ public class FragmentAuthAdapter extends FragmentPagerAdapter {
             case 1:
                 return "Registar";
         }
-        return null;
 
+        return null;
     }
 
     @Override

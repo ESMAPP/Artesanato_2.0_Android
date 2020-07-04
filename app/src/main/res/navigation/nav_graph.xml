@@ -98,9 +98,9 @@
     </fragment>
     <fragment
         android:id="@+id/eventListFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.events.EventListFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.events.EventsListFragment"
         android:label="fragment_event_list"
-        tools:layout="@layout/fragment_event_list">
+        tools:layout="@layout/fragment_events_list">
         <action
             android:id="@+id/action_eventListFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -116,9 +116,9 @@
     </fragment>
     <fragment
         android:id="@+id/passwordRecoverFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.auth.PasswordRecoverFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.auth.AuthPasswordRecoverFragment"
         android:label="fragment_password_recover"
-        tools:layout="@layout/fragment_password_recover">
+        tools:layout="@layout/fragment_auth_password_recover">
         <action
             android:id="@+id/action_passwordRecoverFragment_to_homeFragment"
             app:destination="@id/authActivity" />
@@ -141,7 +141,7 @@
         android:id="@+id/artisanPageFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.artisans.ArtisanPageFragment"
         android:label="fragment_artisan_page"
-        tools:layout="@layout/fragment_artisan_page" >
+        tools:layout="@layout/fragment_artisan_page">
         <action
             android:id="@+id/action_artisanPageFragment_to_chatFragment"
             app:destination="@id/chatFragment"
@@ -150,9 +150,9 @@
     </fragment>
     <fragment
         android:id="@+id/filterArtisanFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.artisans.FilterArtisanFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.artisans.ArtisansFilterFragment"
         android:label="fragment_filter_artisans"
-        tools:layout="@layout/fragment_filter_artisans" />
+        tools:layout="@layout/fragment_artisans_filter" />
     <fragment
         android:id="@+id/chatFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.chat.ChatFragment"
@@ -162,7 +162,7 @@
         android:id="@+id/favouritesFragment"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.favourites.FavouritesFragment"
         android:label="fragment_favourites"
-        tools:layout="@layout/fragment_favourites" >
+        tools:layout="@layout/fragment_favourites">
         <action
             android:id="@+id/action_favouritesFragment_to_homeFragment"
             app:destination="@id/homeFragment" />

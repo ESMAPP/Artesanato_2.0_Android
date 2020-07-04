@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment;
 import pt.cm_vila_do_conde.artesanato_2.R;
 
 
-public class EmptyNotificationsFragment extends Fragment {
+public class NotificationsEmptyFragment extends Fragment {
 
-    public EmptyNotificationsFragment() {
+    public NotificationsEmptyFragment() {
         // Required empty public constructor
     }
 
@@ -23,6 +23,6 @@ public class EmptyNotificationsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_empty_notifications, container, false);
+        return inflater.inflate(R.layout.fragment_notifications_empty, container, false);
     }
 }

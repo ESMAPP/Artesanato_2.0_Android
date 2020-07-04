@@ -34,11 +34,15 @@ public class FavouritesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-        binding.btnBack.setOnClickListener(v -> goBack());
+        initNavController();
+        initBackBtn();
     }
 
-    public void goBack() {
-        navController.popBackStack();
+    private void initNavController() {
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+    }
+
+    private void initBackBtn() {
+        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
     }
 }

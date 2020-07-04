@@ -31,8 +31,7 @@ public class EventPageFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentEventPageBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -41,7 +40,6 @@ public class EventPageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        binding.testEventPage.setText(eventId);
+        //binding.testEventPage.setText(eventId);
     }
 }

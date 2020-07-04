@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.EmptyViewPagerFragment">
+    tools:context=".view.favourites.FavouritesEmptyFragment">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -17,17 +17,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/image_empty_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_placeholder_image_color" />
+            app:srcCompat="@drawable/ic_placeholder_heart_color" />
 
         <TextView
-            android:id="@+id/text_empty_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/label_empty_gallery" />
+            android:text="@string/label_empty_favourites" />
 
     </LinearLayout>
 

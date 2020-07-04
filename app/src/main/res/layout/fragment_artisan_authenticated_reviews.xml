@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".view.artisans.reviews.AuthenticatedReviewsFragment">
+    tools:context=".view.artisans.reviews.ArtisanReviewsAuthenticatedFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -31,6 +31,7 @@
             android:layout_weight="1"
             android:background="#00FFFFFF"
             android:src="@drawable/btn_arrow_color" />
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -42,5 +43,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:listitem="@layout/cardview_review" />
+        tools:listitem="@layout/cardview_artisan_review" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

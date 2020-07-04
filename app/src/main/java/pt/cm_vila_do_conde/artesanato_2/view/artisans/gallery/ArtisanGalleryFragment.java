@@ -17,12 +17,12 @@ import java.util.ArrayList;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisanGalleryAdapter;
-import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanGalleryListBinding;
+import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanGalleryBinding;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
 public class ArtisanGalleryFragment extends Fragment {
 
-    FragmentArtisanGalleryListBinding binding;
+    FragmentArtisanGalleryBinding binding;
     private int mColumnCount = 3;
     private ArtisanPageViewModel artisanPageViewModel;
 
@@ -37,7 +37,7 @@ public class ArtisanGalleryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentArtisanGalleryListBinding.inflate(inflater, container, false);
+        binding = FragmentArtisanGalleryBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 

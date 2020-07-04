@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 
-public class EmptyFavouritesFragment extends Fragment {
+public class FavouritesEmptyFragment extends Fragment {
 
-    public EmptyFavouritesFragment() {
+    public FavouritesEmptyFragment() {
         // Required empty public constructor
     }
 
@@ -22,6 +22,6 @@ public class EmptyFavouritesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_empty_favourites, container, false);
+        return inflater.inflate(R.layout.fragment_favourites_empty, container, false);
     }
 }

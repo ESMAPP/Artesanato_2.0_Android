@@ -26,7 +26,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.GoogleAuthProvider;
 
@@ -36,22 +35,27 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentSigninBinding;
+import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentAuthSignInBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
-public class SignInFragment extends Fragment {
+
+public class AuthSignInFragment extends Fragment {
     private static final int RC_SIGN_IN = 30;
+    private String TAG = "SIGN_IN";
+
     private GoogleSignInClient googleSignInClient;
     private AuthViewModel authViewModel;
-    private FragmentSigninBinding binding;
+    private FragmentAuthSignInBinding binding;
     private CallbackManager callbackManager = CallbackManager.Factory.create();
-    private String TAG = "AUTH_FRAGMENT";
+
+    public AuthSignInFragment() {
+        // Required empty public constructor
+    }
 
     @Override
-    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        binding = FragmentSigninBinding.inflate(inflater, container, false);
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentAuthSignInBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -69,17 +73,16 @@ public class SignInFragment extends Fragment {
         initGoogleSignInClient();
         initSubmitButton();
         initCustomFacebookButton();
-
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         callbackManager.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+
             try {
                 GoogleSignInAccount googleSignInAccount = task.getResult(ApiException.class);
                 if (googleSignInAccount != null) {
@@ -124,7 +127,6 @@ public class SignInFragment extends Fragment {
                 Log.e(TAG, "facebook:onError");
                 Toast.makeText(requireContext(), error.getMessage(), Toast.LENGTH_LONG).show();
             }
-
         });
     }
 
@@ -146,7 +148,6 @@ public class SignInFragment extends Fragment {
                             binding.inputEmail.setError("Email ou password incorretos!");
                             binding.inputPassword.setError("Email ou password incorretos!");
                         }
-
                     });
         }
     }
@@ -214,21 +215,28 @@ public class SignInFragment extends Fragment {
     }
 
     public boolean handleErrors(String email, String password) {
+        String err = getString(R.string.error_field_empty);
         boolean hasErrors = false;
+
         if (email.isEmpty()) {
-            binding.inputEmail.setError("Preencha este campo");
+            binding.inputEmail.setError(err);
+            //binding.inputEmail.setHint(err);
+            //binding.inputEmail.setHintTextColor(ContextCompat.getColor(requireActivity(), R.color.red));
             hasErrors = true;
         } else if (!GenericValidator.isEmail(email)) {
-            binding.inputEmail.setError("O email não é válido");
+            err = getString(R.string.error_field_invalid_email);
+            binding.inputEmail.setError(err);
             hasErrors = true;
         }
+
         if (password.isEmpty()) {
-            binding.inputPassword.setError("Preencha este campo");
+            binding.inputPassword.setError(err);
+            //binding.inputPassword.setHint(err);
             hasErrors = true;
         } else {
             binding.inputPassword.setError(null);
         }
+
         return hasErrors;
     }
-
 }

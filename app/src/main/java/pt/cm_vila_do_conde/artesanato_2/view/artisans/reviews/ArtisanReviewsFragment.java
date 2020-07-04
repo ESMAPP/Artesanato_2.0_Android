@@ -46,15 +46,15 @@ public class ArtisanReviewsFragment extends Fragment {
     private void handleView() {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
             if (!user.isAuthenticated()) {
-                UnauthenticatedReviewsFragment unauthenticatedReviewsFragment = new UnauthenticatedReviewsFragment();
+                ArtisanReviewsUnauthenticatedFragment artisanReviewsUnauthenticatedFragment = new ArtisanReviewsUnauthenticatedFragment();
                 this.getChildFragmentManager().beginTransaction()
-                        .replace(R.id.root_reviews, unauthenticatedReviewsFragment, null)
+                        .replace(R.id.root_reviews, artisanReviewsUnauthenticatedFragment, null)
                         .addToBackStack(null)
                         .commit();
             } else {
-                AuthenticatedReviewsFragment authenticatedReviewsFragment = new AuthenticatedReviewsFragment();
+                ArtisanReviewsAuthenticatedFragment artisanReviewsAuthenticatedFragment = new ArtisanReviewsAuthenticatedFragment();
                 this.getChildFragmentManager().beginTransaction()
-                        .replace(R.id.root_reviews, authenticatedReviewsFragment, null)
+                        .replace(R.id.root_reviews, artisanReviewsAuthenticatedFragment, null)
                         .addToBackStack(null)
                         .commit();
             }

@@ -25,14 +25,13 @@
         android:layout_marginTop="@dimen/logo_margin_top"
         android:contentDescription="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_logo" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/inner_nav_bar"
-        style="@style/BigTabLayout"
+        style="@style/LargeTabLayout"
         android:layout_marginStart="@dimen/parent_inner_margin"
         android:layout_marginTop="@dimen/parent_inner_margin"
         android:layout_marginEnd="@dimen/parent_inner_margin"
@@ -43,8 +42,6 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:baselineAlignBottom="false"
-            android:cropToPadding="false"
             android:text="@string/tab_sign_in" />
 
         <com.google.android.material.tabs.TabItem

@@ -1,6 +1,9 @@
 package pt.cm_vila_do_conde.artesanato_2.view.auth;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,21 +11,20 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentSignupBinding;
+import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentAuthSignUpBinding;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
 
-public class SignUpFragment extends Fragment {
+public class AuthSignUpFragment extends Fragment {
     private String TAG = "SIGN_UP";
 
-    private FragmentSignupBinding binding;
+    private FragmentAuthSignUpBinding binding;
     private AuthViewModel authViewModel;
+
+    public AuthSignUpFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,14 +33,13 @@ public class SignUpFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentSignupBinding.inflate(inflater, container, false);
+        binding = FragmentAuthSignUpBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         initAuthViewModel();
         initBtnSubmit();
     }
@@ -52,8 +53,6 @@ public class SignUpFragment extends Fragment {
     }
 
     private void signUp() {
-        Log.d(TAG, "sign up");
-
         String inputName = binding.inputName.getText().toString();
         String inputEmail = binding.inputEmail.getText().toString();
         String inputPassword = binding.inputPassword.getText().toString();
@@ -70,7 +69,7 @@ public class SignUpFragment extends Fragment {
     }
 
     private boolean runValidations(String inputName, String inputEmail, String inputPassword, String inputConfirmPassword) {
-        String err = "Este campo tem de estar preenchido.";
+        String err = getString(R.string.error_field_empty);
         boolean isValid = true;
 
         if (inputName.isEmpty()) {
@@ -93,11 +92,8 @@ public class SignUpFragment extends Fragment {
             isValid = false;
         }
 
-        if (inputPassword.equals(inputConfirmPassword) == false) {
-            Log.d(TAG, inputPassword);
-            Log.d(TAG, inputConfirmPassword);
-
-            err = "As passwords tem de ser idênticas";
+        if (!inputPassword.equals(inputConfirmPassword)) {
+            err = getString(R.string.error_field_password);
             binding.inputConfirmPassword.setError(err);
             isValid = false;
         }

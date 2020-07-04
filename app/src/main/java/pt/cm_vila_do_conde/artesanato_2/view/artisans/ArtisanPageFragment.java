@@ -32,8 +32,8 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class ArtisanPageFragment extends Fragment {
     private static final String ARTISAN_ID = "id";
-    private FragmentArtisanPageBinding binding;
 
+    private FragmentArtisanPageBinding binding;
     private NavController navController;
     private String artisanId;
     private ArtisanPageViewModel artisanPageViewModel;

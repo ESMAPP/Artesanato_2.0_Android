@@ -14,10 +14,10 @@ import android.view.ViewGroup;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
-public class RootGalleryFragment extends Fragment {
+public class ArtisanGalleryRootFragment extends Fragment {
     private ArtisanPageViewModel artisanPageViewModel;
 
-    public RootGalleryFragment() {
+    public ArtisanGalleryRootFragment() {
         // Required empty public constructor
     }
 
@@ -29,7 +29,7 @@ public class RootGalleryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_root_gallery, container, false);
+        return inflater.inflate(R.layout.fragment_artisan_gallery_root, container, false);
     }
 
     @Override
@@ -52,9 +52,9 @@ public class RootGalleryFragment extends Fragment {
                         .addToBackStack(null)
                         .commit();
             } else {
-                EmptyGalleryFragment  emptyGalleryFragment= new EmptyGalleryFragment();
+                ArtisanGalleryEmptyFragment artisanGalleryEmptyFragment = new ArtisanGalleryEmptyFragment();
                 this.getChildFragmentManager().beginTransaction()
-                        .replace(R.id.root_gallery, emptyGalleryFragment, null)
+                        .replace(R.id.root_gallery, artisanGalleryEmptyFragment, null)
                         .addToBackStack(null)
                         .commit();
             }

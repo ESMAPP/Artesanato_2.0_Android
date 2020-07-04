@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.favourites.EmptyFavouritesFragment">
+    tools:context=".view.artisans.gallery.ArtisanGalleryEmptyFragment">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -19,13 +19,13 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_placeholder_heart_color" />
+            app:srcCompat="@drawable/ic_placeholder_bell_color" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="@string/label_empty_favourites" />
+            android:text="@string/label_empty_notifications" />
 
     </LinearLayout>
 

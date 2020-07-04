@@ -10,14 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 
-public class ReviewViewHolder extends RecyclerView.ViewHolder {
+public class ArtisanReviewsViewHolder extends RecyclerView.ViewHolder {
     public ImageView userImage;
     public TextView userName;
     public TextView text, dateText;
     public TextView likes;
     public ImageButton likeBtn;
 
-    public ReviewViewHolder(@NonNull View itemView) {
+    public ArtisanReviewsViewHolder(@NonNull View itemView) {
         super(itemView);
         userImage = itemView.findViewById(R.id.review_pic);
         userName = itemView.findViewById(R.id.review_user);

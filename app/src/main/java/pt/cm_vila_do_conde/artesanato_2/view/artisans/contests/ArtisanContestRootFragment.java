@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 
-public class RootArtisanContestFragment extends Fragment {
+public class ArtisanContestRootFragment extends Fragment {
 
-    public RootArtisanContestFragment() {
+    public ArtisanContestRootFragment() {
         // Required empty public constructor
     }
 
@@ -24,6 +24,6 @@ public class RootArtisanContestFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_root_artisan_contest, container, false);
+        return inflater.inflate(R.layout.fragment_artisan_contest_root, container, false);
     }
 }

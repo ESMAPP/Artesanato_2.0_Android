@@ -31,6 +31,7 @@ public class ArtisanRepository {
             for (DocumentSnapshot doc : task.getDocuments()) {
                 Artisan artisan = doc.toObject(Artisan.class);
                 artisan.setUid(doc.getId());
+                System.out.println(artisan.getUid());
                 fetchedArtisans.add(artisan);
             }
             artisansList.setValue(fetchedArtisans);

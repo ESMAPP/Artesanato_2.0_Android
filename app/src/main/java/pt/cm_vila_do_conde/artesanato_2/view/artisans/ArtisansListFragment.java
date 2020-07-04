@@ -57,7 +57,6 @@ public class ArtisansListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initArtisanListViewModel();
         fetchArtisansList();
-        initRecyclerAdapter();
         initSearchListener();
         initFilterBtnListener();
         initBackBtn();
@@ -68,7 +67,10 @@ public class ArtisansListFragment extends Fragment {
     }
 
     private void fetchArtisansList() {
-        artisansListViewModel.fetchArtisansList(query);
+        artisansListViewModel.getQuery().observe(getViewLifecycleOwner(), query -> {
+            artisansListViewModel.fetchArtisansList(query);
+            initRecyclerAdapter();
+        });
     }
 
     private void initRecyclerAdapter() {
@@ -92,7 +94,7 @@ public class ArtisansListFragment extends Fragment {
         binding.btnFilter.setOnClickListener(v -> navController.navigate(R.id.action_artisansListFragment_to_filterArtisanFragment));
     }
 
-    private void initBackBtn(){
+    private void initBackBtn() {
         binding.btnBack.setOnClickListener(v -> navController.popBackStack());
     }
 
@@ -104,7 +106,7 @@ public class ArtisansListFragment extends Fragment {
                         .orderBy("name")
                         .startAt(text)
                         .endAt(text + "\uf8ff");
-                artisansListViewModel.fetchArtisansList(query);
+                artisansListViewModel.setQuery(query);
                 initObservable();
                 return true;
             }

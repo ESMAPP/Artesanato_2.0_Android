@@ -42,7 +42,7 @@ public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsVi
         holder.dateText.setText(DateUtils
                 .getRelativeDateTimeString(holder.dateText.getContext(),
                         review.getCreatedAt().toDate().getTime(),
-                        DateUtils.MINUTE_IN_MILLIS,
+                        DateUtils.DAY_IN_MILLIS,
                         DateUtils.YEAR_IN_MILLIS,
                         0));
         holder.likes.setText(String.valueOf(review.getLikes().size()));

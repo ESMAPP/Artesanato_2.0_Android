@@ -11,7 +11,7 @@ public class Artisan implements Serializable {
     private String name;
     private String description;
     private Attributes attributes;
-    private String image;
+    private String profilePic;
     private ArrayList<String> gallery;
     private int coins;
     private int subscriptionType;
@@ -31,7 +31,7 @@ public class Artisan implements Serializable {
     }
 
     public Artisan(String uid, String associatedUser, String name, String description,
-                   Attributes attributes, String image, ArrayList<String> gallery,
+                   Attributes attributes, String profilePic, ArrayList<String> gallery,
                    int coins, int subscriptionType, Timestamp subscriptionPaymentDate,
                    int views, int reputation, int ranking, boolean validated,
                    ArrayList<String> uniqueViews, Timestamp createdAt, String city,
@@ -41,7 +41,7 @@ public class Artisan implements Serializable {
         this.name = name;
         this.description = description;
         this.attributes = attributes;
-        this.image = image;
+        this.profilePic = profilePic;
         this.gallery = gallery;
         this.coins = coins;
         this.subscriptionType = subscriptionType;
@@ -98,12 +98,12 @@ public class Artisan implements Serializable {
         this.attributes = attributes;
     }
 
-    public String getImage() {
-        return image;
+    public String getProfilePic() {
+        return profilePic;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public ArrayList<String> getGallery() {

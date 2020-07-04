@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <LinearLayout
+        style="@style/ReviewCard"
+        android:layout_height="wrap_content"
+        android:gravity="top">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/review_pic"
+                android:layout_width="@dimen/medium_pic_size"
+                android:layout_height="@dimen/medium_pic_size"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                app:srcCompat="@drawable/ic_placeholder_user_pic" />
+
+            <ImageView
+                android:layout_width="@dimen/medium_frame_size"
+                android:layout_height="@dimen/medium_frame_size"
+                android:background="@drawable/shape_circle"
+                android:contentDescription="@null"
+                android:scaleType="center" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/card_padding"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/review_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:singleLine="false"
+                android:text="@string/user_name"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/review_pic"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/review_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/message"
+                app:layout_constraintStart_toEndOf="@+id/review_pic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/card_text_padding">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btn_like"
+                        style="@style/ImgBtn"
+                        android:maxHeight="16dp"
+                        app:srcCompat="@drawable/ic_heart_color" />
+
+                    <TextView
+                        android:id="@+id/likes_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/card_text_margin"
+                        android:text="@string/value"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/btn_like"
+                        app:layout_constraintTop_toBottomOf="@+id/review_text" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom|end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/review_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="date"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

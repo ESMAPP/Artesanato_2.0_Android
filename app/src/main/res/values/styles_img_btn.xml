@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Img / Btn Style -->
+    <style name="ImgBtn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <!-- Form Btn Style -->
+    <style name="BtnForm" parent="ImgBtn">
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginTop">@dimen/input_padding</item>
+    </style>
+
+    <!-- Input Style -->
+    <style name="Input">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/input_height</item>
+        <item name="android:layout_marginTop">@dimen/input_margin</item>
+        <item name="android:paddingLeft">@dimen/input_padding</item>
+        <item name="android:paddingRight">@dimen/input_padding</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">@dimen/input_padding</item>
+        <item name="android:textColorHint">@color/mediumGrey</item>
+        <item name="android:background">@drawable/shape_shadow_white</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+
+</resources>

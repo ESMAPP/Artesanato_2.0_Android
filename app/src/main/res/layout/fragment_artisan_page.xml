@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_3"
-    tools:context=".view.artisan.ArtisanPageFragment">
+    tools:context=".view.artisans.ArtisanPageFragment">
 
     <FrameLayout
-        android:id="@+id/top_bar"
+        android:id="@+id/top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,6 @@
             app:srcCompat="@drawable/bar_top_2" />
 
         <LinearLayout
-            android:id="@+id/user_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -36,13 +35,12 @@
 
             <FrameLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/artisan_pic"
-                    android:layout_width="@dimen/pic_size"
-                    android:layout_height="@dimen/pic_size"
+                    android:layout_width="@dimen/profile_pic_size"
+                    android:layout_height="@dimen/profile_pic_size"
                     android:layout_gravity="center"
                     android:contentDescription="@null"
                     app:srcCompat="@drawable/ic_placeholder_user_pic" />
@@ -51,8 +49,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/shape_circle"
-                    android:contentDescription="@null"
-                    android:scaleType="center" />
+                    android:contentDescription="@null" />
+
             </FrameLayout>
 
             <TextView
@@ -67,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
-                android:gravity="center_horizontal|center_vertical"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -93,6 +91,7 @@
                     style="@style/Text"
                     android:layout_marginStart="6dp"
                     android:text="@string/value" />
+
             </LinearLayout>
 
             <com.google.android.material.tabs.TabLayout
@@ -120,7 +119,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/btns"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -149,7 +147,7 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/btnExtra"
+                    android:id="@+id/btn_extra"
                     style="@style/ImgBtn"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/description_menu"
@@ -169,13 +167,13 @@
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/top" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="@drawable/bottom_bar"
+        android:background="@drawable/bar_bottom"
         android:minHeight="25dp"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -189,6 +187,7 @@
         android:layout_marginBottom="10dp"
         android:src="@drawable/btn_chat_color"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,65 @@
+<resources>
+
+    <!-- Tab Layout Style -->
+    <style name="TabLayout" parent="Widget.Design.TabLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_tab_underline_grey</item>
+        <item name="tabIndicatorColor">@color/primaryBlue</item>
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicatorGravity">bottom</item>
+        <item name="tabRippleColor">@color/transparent</item>
+        <item name="tabSelectedTextColor">@color/black</item>
+    </style>
+
+    <!-- Tab Big Title Style -->
+    <style name="LargeTabLayout" parent="TabLayout">
+        <item name="tabTextAppearance">@style/LargeTabTitle</item>
+    </style>
+
+    <!-- Tab Small Title Style -->
+    <style name="SmallTabLayout" parent="TabLayout">
+        <item name="tabTextAppearance">@style/SmallTabTitle</item>
+        <item name="tabPaddingBottom">-10dp</item>
+    </style>
+
+    <!-- Black Title Style -->
+    <style name="Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/mina_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Tab Big Title Style -->
+    <style name="LargeTabTitle" parent="Title">
+        <item name="android:textSize">@dimen/text_size_22</item>
+        <item name="android:textColor">@color/mediumGrey</item>
+    </style>
+
+    <!-- Tab Small Title Style -->
+    <style name="SmallTabTitle" parent="Title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/mediumGrey</item>
+    </style>
+
+    <!-- Text Style -->
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/quicksand</item>
+        <item name="android:textColor">@color/darkGrey</item>
+    </style>
+
+    <!-- Blue Text Style -->
+    <style name="BlueText" parent="Text">
+        <item name="android:textColor">@color/primaryBlue</item>
+    </style>
+
+    <!-- Menu Text Style -->
+    <style name="MenuText" parent="Text">
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+
+</resources>

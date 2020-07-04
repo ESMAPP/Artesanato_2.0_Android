@@ -8,9 +8,11 @@
 
     <dimen name="icon_size">45dp</dimen>
 
-    <dimen name="pic_size">110dp</dimen>
-    <dimen name="big_pic_size">75dp</dimen>
-    <dimen name="big_frame_size">85dp</dimen>
+    <dimen name="profile_pic_size">110dp</dimen>
+    <dimen name="extra_large_pic_size">90dp</dimen>
+    <dimen name="extra_large_frame_size">100dp</dimen>
+    <dimen name="large_pic_size">75dp</dimen>
+    <dimen name="large_frame_size">85dp</dimen>
     <dimen name="medium_pic_size">30dp</dimen>
     <dimen name="medium_frame_size">35dp</dimen>
     <dimen name="small_pic_size">26dp</dimen>
@@ -21,15 +23,17 @@
     <dimen name="parent_outer_margin">30dp</dimen>
     <dimen name="parent_inner_margin">40dp</dimen>
 
+    <dimen name="scroll_top_padding">20dp</dimen>
+    <dimen name="scroll_inner_padding">40dp</dimen>
+
     <dimen name="input_height">45dp</dimen>
     <dimen name="input_margin">20dp</dimen>
     <dimen name="input_padding">20dp</dimen>
 
+    <dimen name="card_padding">20dp</dimen>
     <dimen name="card_text_margin">4dp</dimen>
     <dimen name="card_text_padding">10dp</dimen>
     <dimen name="card_image_padding">8dp</dimen>
-
-    <dimen name="card_info_height">50dp</dimen>
 
     <dimen name="text_size_10">10sp</dimen>
     <dimen name="text_size_12">12sp</dimen>

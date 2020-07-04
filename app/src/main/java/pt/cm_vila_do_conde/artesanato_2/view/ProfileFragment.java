@@ -29,7 +29,7 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 
 public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
-    FragmentProfileBinding binding;
+    private FragmentProfileBinding binding;
     private NavController navController;
     private SharedUserViewModel sharedUserViewModel;
 
@@ -70,6 +70,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         binding.profileName.setText(user.getName());
         binding.profileRanking.setText(String.valueOf(user.getRanking()));
         binding.profileReputation.setText(String.valueOf(user.getReputation()));
+
         if (user.getProfilePic().isEmpty()) {
             Picasso.get().load(R.drawable.ic_placeholder_user_pic)
                     .transform(new CropCircleTransformation())
@@ -106,9 +107,9 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     }
 
     public void setupTabAdapter() {
-        ViewPager artisanViewPager = binding.profileViewPager;
+        ViewPager artisanViewPager = binding.viewPagerProfile;
         artisanViewPager.setAdapter(new ProfileAdapter(getChildFragmentManager()));
         TabLayout tabs = binding.innerNavBar;
-        tabs.setupWithViewPager(binding.profileViewPager);
+        tabs.setupWithViewPager(binding.viewPagerProfile);
     }
 }

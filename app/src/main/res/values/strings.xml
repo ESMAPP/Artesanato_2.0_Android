@@ -6,14 +6,20 @@
 
 
     <!-- TRANSLATABLE TEXT -->
+    <string name="error_field_empty">Este campo tem de estar preenchido!</string>
+    <string name="error_field_password">As passwords tem de ser idênticas!</string>
+    <string name="error_field_invalid_email">O e-mail inserido não é válido!"</string>
+
     <string name="tab_sign_in">Entrar</string>
     <string name="tab_sign_up">Registar</string>
     <string name="popup_sign_out">Sair</string>
+
     <string name="hint_full_name">nome completo</string>
     <string name="hint_email">e-mail</string>
     <string name="hint_password">password</string>
     <string name="hint_confirm_password">confirmar password</string>
     <string name="hint_phone">telemóvel</string>
+
     <string name="label_forgot_password">Esqueceu-se da password?</string>
     <string name="label_recover_password">Recuperar password</string>
     <string name="label_edit_profile">Editar Perfil</string>
@@ -38,6 +44,9 @@
     <string name="label_empty_gallery">A galeria está vazia</string>
     <string name="label_empty_notifications">Não tem notificações</string>
     <string name="label_empty_reviews">Não tem recomendações</string>
+    <string name="label_empty_favourites">Ainda não adicionou favoritos</string>
+    <string name="label_artisans">Artesãos</string>
+    <string name="label_visitors">Visitantes</string>
 
 
     <!-- DESCRIPTION TEXT -->
@@ -61,6 +70,7 @@
     <string name="time">time</string>
     <string name="target">target</string>
     <string name="value">100</string>
+    <string name="user_name">user name</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

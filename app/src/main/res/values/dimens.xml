@@ -8,9 +8,11 @@
 
     <dimen name="icon_size">45dp</dimen>
 
-    <dimen name="pic_size">110dp</dimen>
-    <dimen name="big_pic_size">75dp</dimen>
-    <dimen name="big_frame_size">85dp</dimen>
+    <dimen name="profile_pic_size">110dp</dimen>
+    <dimen name="extra_large_pic_size">90dp</dimen>
+    <dimen name="extra_large_frame_size">100dp</dimen>
+    <dimen name="large_pic_size">75dp</dimen>
+    <dimen name="large_frame_size">85dp</dimen>
     <dimen name="medium_pic_size">30dp</dimen>
     <dimen name="medium_frame_size">35dp</dimen>
     <dimen name="small_pic_size">26dp</dimen>

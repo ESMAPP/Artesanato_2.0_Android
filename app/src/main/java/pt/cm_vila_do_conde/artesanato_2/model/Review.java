@@ -11,7 +11,7 @@ public class Review implements Serializable {
     private String userId;
     @Exclude
     private User userInfo;
-    private String text;
+    private String message;
     private ArrayList<String> likes = new ArrayList<>();
     private Timestamp createdAt = new Timestamp(new Date());
 
@@ -20,13 +20,13 @@ public class Review implements Serializable {
 
     public Review(String userId, String text){
         this.userId = userId;
-        this.text = text;
+        this.message = text;
     }
 
-    public Review(String userId, User userInfo, String text, ArrayList<String> likes, Timestamp createdAt) {
+    public Review(String userId, User userInfo, String message, ArrayList<String> likes, Timestamp createdAt) {
         this.userId = userId;
         this.userInfo = userInfo;
-        this.text = text;
+        this.message = message;
         this.likes = likes;
         this.createdAt = createdAt;
     }
@@ -57,12 +57,12 @@ public class Review implements Serializable {
         this.userId = userId;
     }
 
-    public String getText() {
-        return text;
+    public String getMessage() {
+        return message;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setMessage(String text) {
+        this.message = text;
     }
 
     public ArrayList<String> getLikes() {

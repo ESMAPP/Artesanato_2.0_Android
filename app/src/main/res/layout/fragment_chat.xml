@@ -7,38 +7,69 @@
     android:background="#FAFAFA"
     tools:context=".view.chat.ChatFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
+    <FrameLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bar_top_1"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:layout_gravity="center"
+            android:background="@drawable/shape_shadow_bottom"
+            android:contentDescription="@null"
+            android:src="@drawable/bar_top_1" />
 
-            <ImageView
-                android:id="@+id/chat_pic"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:src="@drawable/ic_badge_user" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/parent_outer_margin"
+            android:layout_marginTop="@dimen/parent_top_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                style="@style/ImgBtn"
+                android:contentDescription="@string/description_go_back"
+                android:paddingEnd="8dp"
+                app:srcCompat="@drawable/btn_arrow_back_color" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="20dp">
+
+                <ImageView
+                    android:id="@+id/chat_artisan_pic"
+                    android:layout_width="@dimen/medium_pic_size"
+                    android:layout_height="@dimen/medium_pic_size"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    app:srcCompat="@drawable/ic_placeholder_user_pic" />
+
+                <ImageView
+                    android:layout_width="@dimen/medium_frame_size"
+                    android:layout_height="@dimen/medium_frame_size"
+                    android:background="@drawable/shape_circle_grey"
+                    android:contentDescription="@null"
+                    android:scaleType="center" />
+
+            </FrameLayout>
 
             <TextView
-                android:id="@+id/chat_user_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:id="@+id/chat_artisan_name"
+                style="@style/BlackText"
+                android:text="@string/name"
+                android:textSize="@dimen/text_size_16" />
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -81,6 +112,5 @@
         android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

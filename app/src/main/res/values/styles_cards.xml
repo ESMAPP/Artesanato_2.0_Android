@@ -65,7 +65,7 @@
 
     <!-- Rectangle Card Text Style -->
     <style name="RectangleCardText" parent="Text">
-        <item name="android:layout_width">@dimen/dimen_0dp</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_weight">0.8</item>
         <item name="android:maxLines">2</item>

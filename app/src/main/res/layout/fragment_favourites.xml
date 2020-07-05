@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/parent_outer_margin"
             android:layout_marginTop="@dimen/parent_top_margin"
-            android:layout_marginEnd="@dimen/parent_outer_margin"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 

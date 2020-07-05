@@ -120,6 +120,30 @@ public class ArtisanPageFragment extends Fragment {
                 .placeholder(R.drawable.ic_placeholder_user_pic)
                 .transform(new CropCircleTransformation())
                 .into(binding.artisanPic);
+        checkUserRanking(artisan.getRanking());
+    }
+
+    private void checkUserRanking(int ranking) {
+        int shape = R.drawable.shape_circle_grey;
+        int icon = 0;
+
+        if (ranking == 1) {
+            shape = R.drawable.shape_circle_yellow;
+            icon = R.drawable.ic_crown_color;
+        }
+
+        if (ranking == 2) {
+            shape = R.drawable.shape_circle_orange;
+            icon = R.drawable.ic_second_color;
+        }
+
+        if (ranking == 3) {
+            shape = R.drawable.shape_circle_blue;
+            icon = R.drawable.ic_third_color;
+        }
+
+        binding.artisanFrame.setBackgroundResource(shape);
+        binding.artisanIcon.setBackgroundResource(icon);
     }
 
     private void initBackBtn() {

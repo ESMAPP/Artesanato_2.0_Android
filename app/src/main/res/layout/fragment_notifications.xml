@@ -16,37 +16,57 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ImgBtn"
             android:layout_gravity="center"
             android:background="@drawable/shape_shadow_bottom"
             android:contentDescription="@null"
             android:src="@drawable/bar_top_1" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/parent_outer_margin"
             android:layout_marginTop="@dimen/parent_top_margin"
             android:layout_marginEnd="@dimen/parent_outer_margin"
-            android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/btn_back"
-                style="@style/ImgBtn"
-                android:contentDescription="@string/description_go_back"
-                android:paddingEnd="8dp"
-                app:srcCompat="@drawable/btn_arrow_back_color" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <TextView
-                style="@style/Title"
-                android:layout_marginStart="20dp"
-                android:text="@string/label_notifications"
-                android:textSize="@dimen/text_size_18" />
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/description_go_back"
+                    app:srcCompat="@drawable/btn_arrow_back_color" />
+
+                <TextView
+                    style="@style/Title"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/label_notifications"
+                    android:textSize="@dimen/text_size_18" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_extra"
+                    style="@style/ImgBtn"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/description_menu"
+                    app:srcCompat="@drawable/ic_trash_grey" />
+
+            </LinearLayout>
 
         </LinearLayout>
+
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView

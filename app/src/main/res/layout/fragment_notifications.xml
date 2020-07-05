@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_4"
     tools:context=".view.notifications.NotificationsFragment">
 
     <FrameLayout
@@ -54,12 +53,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|end"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <ImageButton
                     android:id="@+id/btn_extra"
                     style="@style/ImgBtn"
-                    android:layout_height="match_parent"
                     android:contentDescription="@string/description_menu"
                     app:srcCompat="@drawable/ic_trash_grey" />
 

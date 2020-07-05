@@ -17,8 +17,7 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ImgBtn"
             android:layout_gravity="center"
             android:background="@drawable/shape_shadow_bottom"
             android:contentDescription="@null"
@@ -47,9 +46,10 @@
                 android:textSize="@dimen/text_size_18" />
 
         </LinearLayout>
+
     </FrameLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:fadingEdgeLength="25dp"
@@ -57,25 +57,21 @@
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@id/top">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/parent_inner_margin"
-            android:layout_marginTop="@dimen/parent_inner_margin"
-            android:layout_marginEnd="@dimen/parent_inner_margin"
-            android:layout_marginBottom="@dimen/parent_inner_margin"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/scroll_inner_padding">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/pic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/parent_inner_margin"
+                android:layout_marginTop="@dimen/parent_inner_margin"
+                android:layout_marginEnd="@dimen/parent_inner_margin"
                 android:orientation="vertical">
 
                 <FrameLayout
@@ -111,14 +107,14 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/general_info"
+                android:id="@+id/edit_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/parent_inner_margin"
                 android:layout_marginTop="@dimen/parent_inner_margin"
-                android:layout_marginBottom="@dimen/parent_inner_margin"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/scroll_inner_padding">
+                android:layout_marginEnd="@dimen/parent_inner_margin"
+                android:orientation="vertical">
 
                 <TextView
                     style="@style/Text"
@@ -152,17 +148,42 @@
                     android:id="@+id/input_edit_phone"
                     style="@style/Input"
                     android:autofillHints="@string/hint_phone"
-                    android:drawableStart="@drawable/ic_letter_grey"
+                    android:drawableStart="@drawable/ic_phone_color"
                     android:hint="@string/hint_phone"
                     android:inputType="phone" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/input_margin"
+                android:layout_marginBottom="@dimen/input_margin"
+                android:paddingTop="@dimen/input_padding"
+                android:paddingBottom="@dimen/input_padding"
+                android:background="@drawable/shape_line_grey"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/edit_artisan_account"
+                    style="@style/BlueText"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginBottom="40dp"
-                    android:contentDescription="@null"
-                    android:src="@drawable/divider_blue" />
+                    android:layout_marginStart="@dimen/parent_inner_margin"
+                    android:layout_marginEnd="@dimen/parent_inner_margin"
+                    android:text="@string/label_open_artisan_page" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/edit_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/parent_inner_margin"
+                android:layout_marginEnd="@dimen/parent_inner_margin"
+                android:layout_marginBottom="@dimen/parent_inner_margin"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView"
@@ -198,6 +219,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -95,14 +95,10 @@ public class Artisan implements Serializable {
     public String getInitials(String name) {
         StringBuilder initialsName = new StringBuilder();
 
-        for (int i = 0; i < name.length() - 1; i++) {
-            char a = name.charAt(i);
-            if (name.charAt(i) == ' ') {
-                char b = name.charAt(i);
-                if (Character.isUpperCase(name.charAt(i + 1))) {
-                    char letter = name.charAt(i + 1);
-                    initialsName.append(letter).append(". ");
-                }
+        for (int i = 1; i < name.length() - 1; i++) {
+            if (Character.isUpperCase(name.charAt(i))) {
+                char letter = name.charAt(i);
+                initialsName.append(" ").append(letter).append(".");
             }
         }
 
@@ -110,7 +106,7 @@ public class Artisan implements Serializable {
     }
 
     public String getShortName() {
-        return getFirstName(name) + " " + getInitials(name);
+        return getFirstName(name) + getInitials(name);
     }
 
     public String getDescription() {

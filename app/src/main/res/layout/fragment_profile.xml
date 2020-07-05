@@ -17,9 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            style="@style/ImgBtn"
-            android:adjustViewBounds="true"
-            android:background="@drawable/shape_shadow_bottom_round"
+            style="@style/RoundTopBarImage"
             android:contentDescription="@null"
             app:srcCompat="@drawable/bar_top_2" />
 

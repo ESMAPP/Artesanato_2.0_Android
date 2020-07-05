@@ -44,7 +44,6 @@
                 style="@style/BlackText"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="10dp"
-                android:singleLine="false"
                 android:text="@string/name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/review_pic"
@@ -54,8 +53,7 @@
                 android:id="@+id/review_text"
                 style="@style/Text"
                 android:layout_width="match_parent"
-                android:text="@string/message"
-                app:layout_constraintStart_toEndOf="@+id/review_pic" />
+                android:text="@string/message" />
 
             <LinearLayout
                 android:layout_width="match_parent"

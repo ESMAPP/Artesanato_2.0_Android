@@ -9,6 +9,7 @@ import pt.cm_vila_do_conde.artesanato_2.view.artisans.contests.ArtisanContestRoo
 import pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery.ArtisanGalleryRootFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews.ArtisanReviewsFragment;
 
+
 public class ArtisanPageAdapter extends FragmentPagerAdapter {
 
     public ArtisanPageAdapter(@NonNull FragmentManager fm) {
@@ -18,8 +19,7 @@ public class ArtisanPageAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
+        switch (position) {
             case 0:
                 return new ArtisanGalleryRootFragment(); //ChildFragment1 at position 0
             case 1:
@@ -27,7 +27,7 @@ public class ArtisanPageAdapter extends FragmentPagerAdapter {
             case 2:
                 return new ArtisanContestRootFragment(); //ChildFragment3 at position 2
             case 3:
-                return new ArtisanGalleryRootFragment(); //ChildFragment3 at position 3
+                return new ArtisanContestRootFragment(); //ChildFragment3 at position 3
         }
         return null; //does not happen
     }

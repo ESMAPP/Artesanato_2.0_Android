@@ -107,9 +107,9 @@ public class RankingsFragment extends Fragment {
     private void loadTopArtisans() {
         rankingsViewModel.getTopArtisans().observe(getViewLifecycleOwner(), artisanList -> {
             if (artisanList != null) {
-                binding.rankingsUserName1.setText(artisanList.get(0).getName());
-                binding.rankingsUserName2.setText(artisanList.get(1).getName());
-                binding.rankingsUserName3.setText(artisanList.get(2).getName());
+                binding.rankingsUserName1.setText(artisanList.get(0).getShortName());
+                binding.rankingsUserName2.setText(artisanList.get(1).getShortName());
+                binding.rankingsUserName3.setText(artisanList.get(2).getShortName());
                 binding.rankingsUserReputation1.setText(String.valueOf(artisanList.get(0).getReputation()));
                 binding.rankingsUserReputation2.setText(String.valueOf(artisanList.get(1).getReputation()));
                 binding.rankingsUserReputation3.setText(String.valueOf(artisanList.get(2).getReputation()));

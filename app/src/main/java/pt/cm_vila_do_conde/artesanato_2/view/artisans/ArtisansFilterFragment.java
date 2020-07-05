@@ -81,10 +81,9 @@ public class ArtisansFilterFragment extends Fragment {
     private void initSpinner() {
         List<String> orderBy = new ArrayList<>();
         orderBy.add("Nenhum");
+        orderBy.add("Nome");
         orderBy.add("Reputação");
         orderBy.add("Visualizações");
-        orderBy.add("Ranking");
-        orderBy.add("Nome");
 
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<>(requireActivity(), android.R.layout.simple_spinner_item, orderBy);
@@ -128,9 +127,6 @@ public class ArtisansFilterFragment extends Fragment {
                     queryOrderBy = "name";
                     break;
                 case "Reputação":
-                    queryOrderBy = "reputation";
-                    break;
-                case "Ranking":
                     queryOrderBy = "ranking";
                     break;
                 case "Visualizaões":

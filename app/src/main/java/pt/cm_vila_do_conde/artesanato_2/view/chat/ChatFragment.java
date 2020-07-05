@@ -119,21 +119,21 @@ public class ChatFragment extends Fragment {
             chatViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
                 chatViewModel.getUser().observe(getViewLifecycleOwner(), chatUser -> {
                     if (user.getUid().equals(artisan.getAssociatedUser())) {
-                        binding.chatUserName.setText(chatUser.getName());
+                        binding.chatArtisanName.setText(chatUser.getName());
                         Picasso.get().load(chatUser.getProfilePic())
                                 .placeholder(R.drawable.ic_placeholder_user_pic)
                                 .fit()
                                 .transform(new CropCircleTransformation())
                                 .centerCrop()
-                                .into(binding.chatPic);
+                                .into(binding.chatArtisanPic);
                     } else {
-                        binding.chatUserName.setText(artisan.getName());
+                        binding.chatArtisanName.setText(artisan.getName());
                         Picasso.get().load(artisan.getProfilePic())
                                 .placeholder(R.drawable.ic_placeholder_user_pic)
                                 .fit()
                                 .transform(new CropCircleTransformation())
                                 .centerCrop()
-                                .into(binding.chatPic);
+                                .into(binding.chatArtisanPic);
                     }
                 });
             });

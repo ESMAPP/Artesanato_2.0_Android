@@ -21,7 +21,7 @@
     <TextView
         android:id="@+id/top"
         style="@style/Title"
-        android:layout_width="@dimen/dimen_0dp"
+        android:layout_width="0dp"
         android:layout_height="37dp"
         android:layout_marginStart="@dimen/parent_inner_margin"
         android:layout_marginTop="@dimen/input_padding"
@@ -36,7 +36,7 @@
 
     <HorizontalScrollView
         android:id="@+id/highlights_cards"
-        android:layout_width="@dimen/dimen_0dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"

@@ -18,12 +18,13 @@
     <dimen name="small_pic_size">26dp</dimen>
     <dimen name="small_frame_size">30dp</dimen>
 
+    <dimen name="shape_round_corners">10dp</dimen>
+
     <dimen name="parent_top_margin">24dp</dimen>
     <dimen name="parent_bottom_margin">20dp</dimen>
     <dimen name="parent_outer_margin">30dp</dimen>
     <dimen name="parent_inner_margin">40dp</dimen>
 
-    <dimen name="scroll_top_padding">20dp</dimen>
     <dimen name="scroll_inner_padding">20dp</dimen>
 
     <dimen name="input_height">45dp</dimen>

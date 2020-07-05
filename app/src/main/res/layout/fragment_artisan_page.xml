@@ -46,9 +46,16 @@
                     app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
                 <ImageView
+                    android:id="@+id/artisan_frame"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/shape_circle"
+                    android:background="@drawable/shape_circle_grey"
+                    android:contentDescription="@null" />
+
+                <ImageView
+                    android:id="@+id/artisan_icon"
+                    style="@style/ImgBtn"
+                    android:layout_gravity="top|end"
                     android:contentDescription="@null" />
 
             </FrameLayout>
@@ -163,7 +170,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager_artisan"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimen_0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -185,9 +192,9 @@
         style="@style/ImgBtn"
         android:layout_marginEnd="@dimen/parent_top_margin"
         android:layout_marginBottom="10dp"
+        android:contentDescription="TODO"
         android:src="@drawable/btn_chat_color"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="TODO" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

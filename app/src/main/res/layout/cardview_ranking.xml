@@ -50,6 +50,7 @@
                 android:id="@+id/ranking_user_name"
                 style="@style/RectangleCardText"
                 android:layout_height="match_parent"
+                android:singleLine="true"
                 android:text="@string/name" />
 
             <TextView

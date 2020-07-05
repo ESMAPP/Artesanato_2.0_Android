@@ -5,25 +5,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.RankingViewHolder;
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 
 
 public class RankingsArtisansAdapter extends RecyclerView.Adapter<RankingViewHolder> {
-    private ArrayList<Artisan> artisanList;
-    private NavController navController;
+    private List<Artisan> artisanList;
 
-    public RankingsArtisansAdapter(ArrayList<Artisan> artisanList, NavController navController) {
+    public RankingsArtisansAdapter(List<Artisan> artisanList) {
         this.artisanList = artisanList;
-        this.navController = navController;
     }
 
     @NonNull
@@ -40,8 +38,9 @@ public class RankingsArtisansAdapter extends RecyclerView.Adapter<RankingViewHol
         holder.position.setText(String.valueOf(artisan.getRanking()));
         holder.reputation.setText(String.valueOf(artisan.getReputation()));
         Picasso.get().load(artisan.getProfilePic())
-                .placeholder(R.drawable.ic_placeholder_image_color)
+                .placeholder(R.drawable.ic_placeholder_user_pic)
                 .fit()
+                .transform(new CropCircleTransformation())
                 .centerCrop()
                 .into(holder.image);
     }

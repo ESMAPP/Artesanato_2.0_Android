@@ -5,12 +5,21 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/transparent</item>
+        <item name="android:adjustViewBounds">true</item>
     </style>
 
     <!-- Form Btn Style -->
     <style name="BtnForm" parent="ImgBtn">
         <item name="android:layout_gravity">end</item>
         <item name="android:layout_marginTop">@dimen/input_padding</item>
+    </style>
+
+    <!-- Round Top Bar Image Style -->
+    <style name="RoundTopBarImage" parent="ImgBtn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/shape_shadow_bottom_round</item>
+        <item name="android:scaleType">fitXY</item>
+
     </style>
 
     <!-- Input Style -->

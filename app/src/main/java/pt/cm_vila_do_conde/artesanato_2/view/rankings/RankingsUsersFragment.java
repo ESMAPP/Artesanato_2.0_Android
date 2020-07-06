@@ -14,17 +14,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
-import pt.cm_vila_do_conde.artesanato_2.adapter.RankingsArtisansAdapter;
+import pt.cm_vila_do_conde.artesanato_2.adapter.RankingsUsersAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentRankingsListBinding;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.RankingsViewModel;
 
 
-public class RankingsArtisansFragment extends Fragment {
+public class RankingsUsersFragment extends Fragment {
     private RankingsViewModel rankingsViewModel;
     private FragmentRankingsListBinding binding;
     private RecyclerView recyclerView;
 
-    public RankingsArtisansFragment() {
+    public RankingsUsersFragment() {
         // Required empty public constructor
     }
 
@@ -43,23 +43,23 @@ public class RankingsArtisansFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initRankingsViewModel();
-        fetchArtisans();
+        fetchUsers();
     }
 
     private void initRankingsViewModel() {
         rankingsViewModel = new ViewModelProvider(requireActivity()).get(RankingsViewModel.class);
     }
 
-    private void fetchArtisans() {
-        rankingsViewModel.fetchArtisans();
+    private void fetchUsers() {
+        rankingsViewModel.fetchUsers();
         initObservable();
     }
 
     private void initObservable() {
         initRecyclerAdapter();
-        rankingsViewModel.getArtisans().observe(getViewLifecycleOwner(), artisanList -> {
-            if (artisanList != null) {
-                recyclerView.setAdapter(new RankingsArtisansAdapter(artisanList.subList(3, artisanList.size())));
+        rankingsViewModel.getUsers().observe(getViewLifecycleOwner(), userList -> {
+            if (userList != null) {
+                recyclerView.setAdapter(new RankingsUsersAdapter(userList.subList(3, userList.size())));
             }
         });
     }

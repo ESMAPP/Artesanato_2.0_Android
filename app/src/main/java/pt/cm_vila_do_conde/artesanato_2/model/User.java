@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
+
 public class User implements Serializable {
     @SuppressWarnings("WeakerAccess")
     private String email;
@@ -16,16 +17,15 @@ public class User implements Serializable {
     private boolean isNew, isCreated;
     private String uid;
     private String name;
-    private String profilePic;
+    private String profilePic = "null"; /* TODO: set initial profile pic to placeholder */
     private int reputation = 0;
     private ArrayList<String> badges;
-    private int ranking = -1; // -1 == Unranked
+    private int ranking = -1; // -1 = Unranked /* TODO: get last user ranking position */
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
     private Timestamp createdAt = new Timestamp(new Date());
     private Timestamp updatedAt = new Timestamp(new Date());
     @Exclude
     private Throwable error;
-
 
     public User() {
     }
@@ -136,6 +136,33 @@ public class User implements Serializable {
         this.name = name;
     }
 
+    public String getFirstName(String name) {
+        int i = name.indexOf(' ');
+
+        if (i == -1) {
+            return name;
+        }
+
+        return name.substring(0, i);
+    }
+
+    public String getInitials(String name) {
+        StringBuilder initialsName = new StringBuilder();
+
+        for (int i = 1; i < name.length() - 1; i++) {
+            if (Character.isUpperCase(name.charAt(i))) {
+                char letter = name.charAt(i);
+                initialsName.append(" ").append(letter).append(".");
+            }
+        }
+
+        return String.valueOf(initialsName);
+    }
+
+    public String getShortName() {
+        return getFirstName(name) + getInitials(name);
+    }
+
     public String getProfilePic() {
         return profilePic;
     }
@@ -175,5 +202,4 @@ public class User implements Serializable {
     public void setType(int type) {
         this.type = type;
     }
-
 }

@@ -7,7 +7,10 @@
 ![CI](https://github.com/ESMAPP/Artesanato_2.0_Android/workflows/CI/badge.svg?branch=dev)
 
 ## Project
-*Intro Goes Here*
+
+Since 1978, Portugal's National Artisans Fair has been held by the Municipality of Vila do Conde, in partnership with the Association for the Defence of Crafts and Patrimony of Vila do Conde.
+
+Our challenge was to create an application that would allow our visitors to have real time access to all the different events, artisan booths and activities carried out during the fair.
 
 
 ## Getting Started

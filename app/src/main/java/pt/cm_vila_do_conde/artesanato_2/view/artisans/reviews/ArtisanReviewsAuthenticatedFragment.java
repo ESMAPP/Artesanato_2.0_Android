@@ -23,10 +23,10 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class ArtisanReviewsAuthenticatedFragment extends Fragment {
-    private static final String TAG = "AUTHENTICATED_REVIEWS_FRAGMENT";
+    private static final String TAG = "AUTHENTICATED_REVIEWS";
+
     private FragmentArtisanReviewsAuthenticatedBinding binding;
     private NavController navController;
-
     private ArtisanPageViewModel artisanPageViewModel;
     private SharedUserViewModel sharedUserViewModel;
 
@@ -42,6 +42,7 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
         initRecyclerView();
     }
 
@@ -55,6 +56,7 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
         initArtisanViewModel();
         initSharedUserViewModel();
         initNavController();

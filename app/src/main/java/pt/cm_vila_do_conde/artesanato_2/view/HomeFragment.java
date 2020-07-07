@@ -218,7 +218,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void goToLocation() {
-        navController.navigate(R.id.action_homeFragment_to_fairLocationFragment);
+        navController.navigate(R.id.action_homeFragment_to_mapsFragment);
     }
 
     private void goToEvents() {

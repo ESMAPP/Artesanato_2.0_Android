@@ -58,7 +58,7 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
         initArtisanViewModel();
         initSharedUserViewModel();
         initNavController();
-        initSubmitBtn();
+        initSendBtn();
     }
 
     private void initArtisanViewModel() {
@@ -73,14 +73,14 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
-    private void initSubmitBtn() {
-        binding.commentSubmitBtn.setOnClickListener(v -> {
+    private void initSendBtn() {
+        binding.btnSend.setOnClickListener(v -> {
             sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::submitComment);
         });
     }
 
     private void submitComment(User user) {
-        String text = binding.commentInput.getText().toString();
+        String text = binding.inputReview.getText().toString();
         String userId = user.getUid();
         if (!text.isEmpty()) {
             artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {

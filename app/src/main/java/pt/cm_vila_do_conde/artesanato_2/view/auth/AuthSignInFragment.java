@@ -41,8 +41,9 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.AuthViewModel;
 
 
 public class AuthSignInFragment extends Fragment {
-    private static final int RC_SIGN_IN = 30;
     private String TAG = "SIGN_IN";
+
+    private static final int RC_SIGN_IN = 30;
 
     private GoogleSignInClient googleSignInClient;
     private AuthViewModel authViewModel;
@@ -145,8 +146,8 @@ public class AuthSignInFragment extends Fragment {
                         if (user.isAuthenticated()) {
                             goToMainActivity(user);
                         } else {
-                            binding.inputEmail.setError("Email ou password incorretos!");
-                            binding.inputPassword.setError("Email ou password incorretos!");
+                            binding.inputEmail.setError(getString(R.string.error_field_data));
+                            binding.inputPassword.setError(getString(R.string.error_field_data));
                         }
                     });
         }

@@ -144,9 +144,43 @@
                         android:id="@+id/artisan_title"
                         style="@style/HomeCardTitle" />
 
-                    <TextView
-                        android:id="@+id/artisan_text"
-                        style="@style/HomeCardText" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/card_text_margin"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp">
+
+                        <ImageView
+                            style="@style/ImgBtn"
+                            android:layout_height="15dp"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_cup_color" />
+
+                        <TextView
+                            android:id="@+id/artisan_ranking"
+                            style="@style/Text"
+                            android:layout_marginStart="6dp"
+                            android:text="@string/value"
+                            android:textSize="@dimen/text_size_12" />
+
+                        <ImageView
+                            style="@style/ImgBtn"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="20dp"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_star_color" />
+
+                        <TextView
+                            android:id="@+id/artisan_reputation"
+                            style="@style/Text"
+                            android:layout_marginStart="6dp"
+                            android:text="@string/value"
+                            android:textSize="@dimen/text_size_12" />
+                    </LinearLayout>
 
                     <ImageView
                         style="@style/ImgBtn"

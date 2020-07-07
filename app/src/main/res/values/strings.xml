@@ -43,6 +43,7 @@
     <string name="label_map">Mapa</string>
     <string name="label_general_info">Informações Gerais</string>
     <string name="label_change_password">Alterar password</string>
+    <string name="label_need_login_reviews">Entre na aplicação para ler as recomendações</string>
     <string name="label_empty_gallery">A galeria está vazia</string>
     <string name="label_empty_notifications">Não tem notificações</string>
     <string name="label_empty_reviews">Não tem recomendações</string>
@@ -69,7 +70,7 @@
 
     <!-- PLACEHOLDER TEXT -->
     <string name="title">title</string>
-    <string name="subtitle">subtitle</string>
+    <string name="text">text</string>
     <string name="name">name</string>
     <string name="city">city</string>
     <string name="message">message</string>

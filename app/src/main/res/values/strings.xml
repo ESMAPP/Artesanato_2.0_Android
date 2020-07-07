@@ -57,7 +57,7 @@
     <string name="hint_confirm_password">confirmar password</string>
     <string name="hint_phone">telemóvel</string>
     <string name="hint_add_review">adicione uma recomendação...</string>
-
+  
 
     <!-- DESCRIPTION TEXT -->
     <string name="description_go_back">go back</string>
@@ -69,6 +69,7 @@
     <string name="description_add_favourite">add favourite</string>
     <string name="description_start_navigation">start navigation</string>
     <string name="description_filter">filter</string>
+    <string name="description_chat">chat</string>
 
 
     <!-- PLACEHOLDER TEXT -->

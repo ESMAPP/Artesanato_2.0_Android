@@ -33,8 +33,9 @@ public class ChatFragment extends Fragment {
     private static final String ARTISAN_ID = "artisanId";
     private static final String USER_ID = "userId";
 
-    private String artisanId;
+    private String currentUserId;
     private String userId;
+    private String artisanId;
     private String chatId;
 
     private FragmentChatBinding binding;
@@ -66,7 +67,7 @@ public class ChatFragment extends Fragment {
         initSharedUserViewModel();
         initChatViewModel();
         fetchChatRoom();
-        initSubmitBtn();
+        initSendBtn();
     }
 
     private void initNavController() {
@@ -85,15 +86,17 @@ public class ChatFragment extends Fragment {
         chatViewModel = new ViewModelProvider(requireActivity()).get(ChatViewModel.class);
     }
 
-    private void initSubmitBtn() {
+    private void initSendBtn() {
         binding.submitMessage.setOnClickListener(v -> {
             sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
                 String messageText = binding.messageInput.getText().toString();
+              
                 if (messageText.isEmpty()) {
                     binding.messageInput.setError("A mensagem não pode estar vazia.");
                 } else {
                     Message messageToSend = new Message(messageText, user.getUid());
                     chatViewModel.sendMessage(chatId, messageToSend);
+                    binding.messageInput.setText("");
                 }
             });
         });
@@ -122,7 +125,8 @@ public class ChatFragment extends Fragment {
     private void updateChatUi(List<Message> messages) {
         RecyclerView recyclerView = binding.messagesRecycler;
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        recyclerView.setAdapter(new ChatMessagesAdapter(messages));
+        recyclerView.setAdapter(new ChatMessagesAdapter(messages, currentUserId, requireContext()));
+        recyclerView.scrollToPosition(messages.size() - 1);
     }
 
     private void handleInitialUi(ChatRoom chatRoom) {
@@ -130,6 +134,7 @@ public class ChatFragment extends Fragment {
             chatViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
                 chatViewModel.getUser().observe(getViewLifecycleOwner(), chatUser -> {
                     if (user.getUid().equals(artisan.getAssociatedUser())) {
+                        currentUserId = artisan.getAssociatedUser();
                         binding.chatArtisanName.setText(chatUser.getName());
                         Picasso.get().load(chatUser.getProfilePic())
                                 .placeholder(R.drawable.ic_placeholder_user_pic)
@@ -138,6 +143,7 @@ public class ChatFragment extends Fragment {
                                 .centerCrop()
                                 .into(binding.chatArtisanPic);
                     } else {
+                        currentUserId = chatUser.getUid();
                         binding.chatArtisanName.setText(artisan.getName());
                         Picasso.get().load(artisan.getProfilePic())
                                 .placeholder(R.drawable.ic_placeholder_user_pic)
@@ -150,5 +156,4 @@ public class ChatFragment extends Fragment {
             });
         });
     }
-
 }

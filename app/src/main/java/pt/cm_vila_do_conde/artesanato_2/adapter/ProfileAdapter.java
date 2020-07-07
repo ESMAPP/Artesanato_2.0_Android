@@ -33,6 +33,7 @@ public class ProfileAdapter extends FragmentPagerAdapter {
     }
 
 
+    // TODO get text from strings.xml
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {

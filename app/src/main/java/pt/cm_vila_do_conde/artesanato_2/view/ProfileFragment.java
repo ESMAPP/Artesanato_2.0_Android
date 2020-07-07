@@ -42,17 +42,31 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //setupTabAdapter();
-        initUserViewModel();
-        handleInicialUiState();
         setupTabAdapter();
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-        binding.btnExtra.setOnClickListener(this::showPopup);
-        binding.btnBack.setOnClickListener(v -> goBack());
+        initNavController();
+        initBackBtn();
+        initExtraBtn();
+        initUserViewModel();
+        handleInitialUiState();
     }
 
-    private void initUserViewModel() {
-        sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
+    public void setupTabAdapter() {
+        ViewPager artisanViewPager = binding.viewPagerProfile;
+        artisanViewPager.setAdapter(new ProfileAdapter(getChildFragmentManager()));
+        TabLayout tabs = binding.innerNavBar;
+        tabs.setupWithViewPager(binding.viewPagerProfile);
+    }
+
+    private void initNavController() {
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+    }
+
+    private void initBackBtn() {
+        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
+    }
+
+    private void initExtraBtn() {
+        binding.btnExtra.setOnClickListener(this::showPopup);
     }
 
     public void showPopup(View v) {
@@ -62,7 +76,26 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         popup.show();
     }
 
-    private void handleInicialUiState() {
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.edit_profile:
+                navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
+                return true;
+            case R.id.signOut:
+                sharedUserViewModel.signOut();
+                navController.navigate(R.id.homeFragment);
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    private void initUserViewModel() {
+        sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
+    }
+
+    private void handleInitialUiState() {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::updateUI);
     }
 
@@ -81,35 +114,30 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
                     .transform(new CropCircleTransformation())
                     .into(binding.profilePic);
         }
+
+        checkUserRanking(user.getRanking());
     }
 
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.edit_profile:
-                navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
-                return true;
-            case R.id.signOut:
-                sharedUserViewModel.signOut();
-                navController.navigate(R.id.homeFragment);
-                return true;
-            default:
-                return false;
+    private void checkUserRanking(int ranking) {
+        int shape = R.drawable.shape_circle_grey;
+        int icon = 0;
+
+        if (ranking == 1) {
+            shape = R.drawable.shape_circle_yellow;
+            icon = R.drawable.ic_crown_color;
         }
-    }
 
-    public void goBack() {
-        navController.popBackStack();
-    }
+        if (ranking == 2) {
+            shape = R.drawable.shape_circle_orange;
+            icon = R.drawable.ic_second_color;
+        }
 
-    private void gotToEditProfile() {
-        Navigation.findNavController(requireView()).navigate(R.id.action_profileFragment_to_profileEditFragment);
-    }
+        if (ranking == 3) {
+            shape = R.drawable.shape_circle_blue;
+            icon = R.drawable.ic_third_color;
+        }
 
-    public void setupTabAdapter() {
-        ViewPager artisanViewPager = binding.viewPagerProfile;
-        artisanViewPager.setAdapter(new ProfileAdapter(getChildFragmentManager()));
-        TabLayout tabs = binding.innerNavBar;
-        tabs.setupWithViewPager(binding.viewPagerProfile);
+        binding.profileFrame.setBackgroundResource(shape);
+        binding.profileIcon.setBackgroundResource(icon);
     }
 }

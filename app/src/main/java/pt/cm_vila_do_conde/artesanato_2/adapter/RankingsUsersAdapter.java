@@ -14,14 +14,14 @@ import java.util.List;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.RankingViewHolder;
-import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
+import pt.cm_vila_do_conde.artesanato_2.model.User;
 
 
-public class RankingsArtisansAdapter extends RecyclerView.Adapter<RankingViewHolder> {
-    private List<Artisan> artisanList;
+public class RankingsUsersAdapter extends RecyclerView.Adapter<RankingViewHolder> {
+    private List<User> userList;
 
-    public RankingsArtisansAdapter(List<Artisan> artisanList) {
-        this.artisanList = artisanList;
+    public RankingsUsersAdapter(List<User> userList) {
+        this.userList = userList;
     }
 
     @NonNull
@@ -33,12 +33,12 @@ public class RankingsArtisansAdapter extends RecyclerView.Adapter<RankingViewHol
 
     @Override
     public void onBindViewHolder(@NonNull RankingViewHolder holder, int position) {
-        Artisan artisan = artisanList.get(position);
+        User user = userList.get(position);
 
-        holder.name.setText(artisan.getName());
-        holder.position.setText(String.valueOf(artisan.getRanking()));
-        holder.reputation.setText(String.valueOf(artisan.getReputation()));
-        Picasso.get().load(artisan.getProfilePic())
+        holder.name.setText(user.getName());
+        holder.position.setText(String.valueOf(user.getRanking()));
+        holder.reputation.setText(String.valueOf(user.getReputation()));
+        Picasso.get().load(user.getProfilePic())
                 .placeholder(R.drawable.ic_placeholder_user_pic)
                 .fit()
                 .transform(new CropCircleTransformation())
@@ -48,6 +48,6 @@ public class RankingsArtisansAdapter extends RecyclerView.Adapter<RankingViewHol
 
     @Override
     public int getItemCount() {
-        return artisanList.size();
+        return userList.size();
     }
 }

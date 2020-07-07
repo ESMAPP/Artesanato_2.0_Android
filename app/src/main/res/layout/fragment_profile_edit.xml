@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_6"
-    tools:context=".view.ProfileEditFragment">
+    tools:context=".view.profile.ProfileEditFragment">
 
     <FrameLayout
         android:id="@+id/top"
@@ -16,7 +16,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView"
             style="@style/ImgBtn"
             android:layout_gravity="center"
             android:background="@drawable/shape_shadow_bottom"

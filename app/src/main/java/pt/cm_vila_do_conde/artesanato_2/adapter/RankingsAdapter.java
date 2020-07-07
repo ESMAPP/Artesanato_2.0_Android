@@ -8,7 +8,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.view.rankings.RankingsArtisansFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.rankings.RankingsVisitorsFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.rankings.RankingsUsersFragment;
 
 
 public class RankingsAdapter extends FragmentPagerAdapter {
@@ -24,7 +24,7 @@ public class RankingsAdapter extends FragmentPagerAdapter {
             case 0:
                 return new RankingsArtisansFragment(); //ChildFragment1 at position 0
             case 1:
-                return new RankingsVisitorsFragment(); //ChildFragment2 at position 1
+                return new RankingsUsersFragment(); //ChildFragment2 at position 1
         }
 
         return null; //does not happen

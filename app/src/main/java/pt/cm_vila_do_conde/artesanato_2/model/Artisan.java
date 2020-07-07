@@ -5,20 +5,21 @@ import com.google.firebase.Timestamp;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 public class Artisan implements Serializable {
     private String uid;
     private String associatedUser;
     private String name;
     private String description;
     private Attributes attributes;
-    private String profilePic;
+    private String profilePic; /* TODO: set initial profile pic to placeholder */
     private ArrayList<String> gallery;
     private int coins;
     private int subscriptionType;
     private Timestamp subscriptionPaymentDate;
     private int views;
     private int reputation;
-    private int ranking;
+    private int ranking;    /* TODO: get last artisan ranking position */
     private boolean validated;
     private ArrayList<String> uniqueViews;
     private Timestamp createdAt;

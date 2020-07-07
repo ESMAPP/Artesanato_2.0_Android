@@ -29,8 +29,9 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.HomeViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class HomeFragment extends Fragment {
+    private String TAG = "HOME";
+
     LinearLayoutManager layoutManager;
-    private String TAG = "HOME_FRAGMENT";
     private FragmentHomeBinding binding;
     private NavController navController;
     private HomeViewModel homeViewModel;
@@ -74,7 +75,6 @@ public class HomeFragment extends Fragment {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
         layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-
         // Init buttons via binding
         binding.btnNotifications.setOnClickListener(v -> goToNotifications());
         binding.btnProfile.setOnClickListener(v -> goToProfile());
@@ -86,7 +86,6 @@ public class HomeFragment extends Fragment {
         binding.btnRankings.setOnClickListener(v -> goToRankings());
         binding.btnInfo.setOnClickListener(v -> goToInformations());
     }
-
 
     private void initUserViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
@@ -100,7 +99,6 @@ public class HomeFragment extends Fragment {
     private void initHomeViewModel() {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
     }
-
 
     private void checkIfUserIsAuthenticated() {
         sharedUserViewModel.checkIfUserIsAuthenticated();
@@ -119,13 +117,14 @@ public class HomeFragment extends Fragment {
     }
 
     private void updateFairCard(Event fair) {
+        Date now = new Date();
 
         Picasso.get().load(fair.getImage())
-                .placeholder(R.drawable.ic_logo_small)
-                .resize(binding.fairCover.getMeasuredWidth(), binding.fairCover.getMeasuredHeight())
+                .placeholder(R.drawable.ic_placeholder_image_color)
+                .fit()
+                .centerCrop()
                 .into(binding.fairCover);
         binding.fairTitle.setText(fair.getTitle());
-        Date now = new Date();
         binding.fairText.setText(DateUtils
                 .getRelativeDateTimeString(requireContext(),
                         fair.getStartDate().toDate().getTime(),
@@ -142,8 +141,9 @@ public class HomeFragment extends Fragment {
 
     private void updateEventCard(Event event) {
         Picasso.get().load(event.getImage())
-                .placeholder(R.drawable.ic_logo_small)
-                .resize(binding.eventCover.getMeasuredWidth(), binding.eventCover.getMeasuredHeight())
+                .placeholder(R.drawable.ic_placeholder_image_color)
+                .fit()
+                .centerCrop()
                 .into(binding.eventCover);
         binding.eventTitle.setText(event.getTitle());
         binding.eventText.setText(DateUtils
@@ -159,15 +159,17 @@ public class HomeFragment extends Fragment {
         homeViewModel.featuredArtisan.observe(getViewLifecycleOwner(), this::updateArtisanCard);
     }
 
+    // TODO: get text from string.xml
     @SuppressLint("SetTextI18n")
     public void updateArtisanCard(Artisan artisan) {
         Picasso.get().load(artisan.getProfilePic())
-                .placeholder(R.drawable.ic_logo_small)
-                .resize(binding.artisanCover.getMeasuredWidth(), binding.artisanCover.getMeasuredHeight())
+                .placeholder(R.drawable.ic_placeholder_image_color)
+                .fit()
+                .centerCrop()
                 .into(binding.artisanCover);
         binding.artisanTitle.setText(artisan.getName());
-        binding.artisanText.setText("Reputação: " + artisan.getReputation());
-
+        binding.artisanRanking.setText(String.valueOf(artisan.getRanking()));
+        binding.artisanReputation.setText(String.valueOf(artisan.getReputation()));
     }
 
     public void goToArtisanPage() {
@@ -189,9 +191,7 @@ public class HomeFragment extends Fragment {
         Bundle bundle = new Bundle();
         bundle.putString("id", id);
         navController.navigate(R.id.eventPageFragment, bundle);
-
     }
-
 
     private void goToAuth() {
         navController.navigate(R.id.action_homeFragment_to_authActivity);
@@ -201,7 +201,7 @@ public class HomeFragment extends Fragment {
         navController.navigate(R.id.action_homeFragment_to_notificationsFragment);
     }
 
-    // TODO refactor this in the future
+    // TODO: refactor this in the future
     private void goToProfile() {
         // Check userRole to see which path to take
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
@@ -229,6 +229,7 @@ public class HomeFragment extends Fragment {
         navController.navigate(R.id.action_homeFragment_to_artisansListFragment);
     }
 
+    // TODO: add path to contests
     private void goToContests() {
     }
 
@@ -240,6 +241,7 @@ public class HomeFragment extends Fragment {
         navController.navigate(R.id.action_homeFragment_to_rankingsFragment);
     }
 
+    // TODO: add path to informations
     private void goToInformations() {
     }
 }

@@ -1,7 +1,6 @@
 package pt.cm_vila_do_conde.artesanato_2.view.chat;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,6 @@ import java.util.List;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisanReviewsAdapter;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ChatMessagesAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentChatBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.ChatRoom;
@@ -34,6 +32,8 @@ public class ChatFragment extends Fragment {
     private String artisanId;
     private String userId;
     private String chatId;
+
+    private String currentUserId;
 
     private ChatViewModel chatViewModel;
     private SharedUserViewModel sharedUserViewModel;
@@ -83,6 +83,7 @@ public class ChatFragment extends Fragment {
                 } else {
                     Message messageToSend = new Message(messageText, user.getUid());
                     chatViewModel.sendMessage(chatId, messageToSend);
+                    binding.messageInput.setText("");
                 }
             });
         });
@@ -109,9 +110,10 @@ public class ChatFragment extends Fragment {
     }
 
     private void updateChatUi(List<Message> messages) {
-            RecyclerView recyclerView = binding.messagesRecycler;
-            recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-            recyclerView.setAdapter(new ChatMessagesAdapter(messages));
+        RecyclerView recyclerView = binding.messagesRecycler;
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        recyclerView.setAdapter(new ChatMessagesAdapter(messages, currentUserId, requireContext()));
+        recyclerView.scrollToPosition(messages.size() - 1);
     }
 
     private void handleInitialUi(ChatRoom chatRoom) {
@@ -119,6 +121,7 @@ public class ChatFragment extends Fragment {
             chatViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
                 chatViewModel.getUser().observe(getViewLifecycleOwner(), chatUser -> {
                     if (user.getUid().equals(artisan.getAssociatedUser())) {
+                        currentUserId = artisan.getAssociatedUser();
                         binding.chatArtisanName.setText(chatUser.getName());
                         Picasso.get().load(chatUser.getProfilePic())
                                 .placeholder(R.drawable.ic_placeholder_user_pic)
@@ -127,6 +130,7 @@ public class ChatFragment extends Fragment {
                                 .centerCrop()
                                 .into(binding.chatArtisanPic);
                     } else {
+                        currentUserId = chatUser.getUid();
                         binding.chatArtisanName.setText(artisan.getName());
                         Picasso.get().load(artisan.getProfilePic())
                                 .placeholder(R.drawable.ic_placeholder_user_pic)

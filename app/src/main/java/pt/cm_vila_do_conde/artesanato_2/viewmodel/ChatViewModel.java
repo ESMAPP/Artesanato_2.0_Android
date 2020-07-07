@@ -16,6 +16,7 @@ import pt.cm_vila_do_conde.artesanato_2.repository.ChatRepository;
 
 public class ChatViewModel extends AndroidViewModel {
     private MutableLiveData<ChatRoom> chatRoom;
+    private MutableLiveData<List<ChatRoom>> chatList;
     private MutableLiveData<List<Message>> messages;
     private MutableLiveData<User> user;
     private MutableLiveData<Artisan> artisan;
@@ -39,12 +40,20 @@ public class ChatViewModel extends AndroidViewModel {
         artisan = chatRepository.fetchArtisanInfo(artisanId);
     }
 
+    public void fetchChatList(String artisanId){
+        chatList = chatRepository.fetchChatList(artisanId);
+    }
+
     public void fetchMessages(String chatId){
         messages = chatRepository.fetchMessages(chatId);
     }
 
     public void sendMessage(String chatId, Message message){
         chatRepository.sendMessage(chatId, message);
+    }
+
+    public MutableLiveData<List<ChatRoom>> getChatList() {
+        return chatList;
     }
 
     public MutableLiveData<ChatRoom> getChatRoom() {

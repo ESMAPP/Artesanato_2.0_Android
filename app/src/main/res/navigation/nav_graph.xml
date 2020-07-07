@@ -172,6 +172,9 @@
         <action
             android:id="@+id/action_artisanPageFragment_to_artisansListFragment"
             app:destination="@id/artisansListFragment" />
+        <action
+            android:id="@+id/action_artisanPageFragment_to_chatList"
+            app:destination="@id/chatList" />
     </fragment>
     <fragment
         android:id="@+id/filterArtisanFragment"
@@ -191,5 +194,13 @@
         <action
             android:id="@+id/action_favouritesFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatList"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.chat.ChatList"
+        android:label="ChatList" >
+        <action
+            android:id="@+id/action_chatList_to_chatFragment"
+            app:destination="@id/chatFragment" />
     </fragment>
 </navigation>

@@ -9,28 +9,46 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/input_margin"
+        android:layout_marginEnd="@dimen/input_margin"
+        android:gravity="center_vertical|end"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/comment_input"
-            android:layout_width="357dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine" />
+            android:layout_weight="0.8"
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/comment_submit_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#00FFFFFF"
-            android:src="@drawable/btn_arrow_color" />
+            <EditText
+                android:id="@+id/input_review"
+                style="@style/Input"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/input_margin"
+                android:layout_marginBottom="10dp"
+                android:autofillHints="@string/hint_email"
+                android:hint="@string/hint_add_review"
+                android:inputType="textMultiLine" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|end"
+            android:gravity="center_vertical|end"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_send"
+                style="@style/ImgBtn"
+                android:contentDescription="@string/description_submit"
+                app:srcCompat="@drawable/ic_arrow_color" />
+        </LinearLayout>
 
     </LinearLayout>
 

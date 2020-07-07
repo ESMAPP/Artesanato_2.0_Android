@@ -23,10 +23,10 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class ArtisanReviewsAuthenticatedFragment extends Fragment {
-    private static final String TAG = "AUTHENTICATED_REVIEWS_FRAGMENT";
+    private static final String TAG = "AUTHENTICATED_REVIEWS";
+
     private FragmentArtisanReviewsAuthenticatedBinding binding;
     private NavController navController;
-
     private ArtisanPageViewModel artisanPageViewModel;
     private SharedUserViewModel sharedUserViewModel;
 
@@ -42,6 +42,7 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
         initRecyclerView();
     }
 
@@ -55,10 +56,11 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
         initArtisanViewModel();
         initSharedUserViewModel();
         initNavController();
-        initSubmitBtn();
+        initSendBtn();
     }
 
     private void initArtisanViewModel() {
@@ -73,14 +75,14 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
-    private void initSubmitBtn() {
-        binding.commentSubmitBtn.setOnClickListener(v -> {
+    private void initSendBtn() {
+        binding.btnSend.setOnClickListener(v -> {
             sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::submitComment);
         });
     }
 
     private void submitComment(User user) {
-        String text = binding.commentInput.getText().toString();
+        String text = binding.inputReview.getText().toString();
         String userId = user.getUid();
         if (!text.isEmpty()) {
             artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {

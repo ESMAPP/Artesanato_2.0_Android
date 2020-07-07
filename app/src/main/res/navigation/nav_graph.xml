@@ -196,6 +196,15 @@
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
+        android:id="@+id/artisanReviewsUnauthenticatedFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews.ArtisanReviewsUnauthenticatedFragment"
+        android:label="fragment_artisan_reviews_unauthenticated"
+        tools:layout="@layout/fragment_artisan_reviews_unauthenticated" >
+        <action
+            android:id="@+id/action_artisanReviewsUnauthenticatedFragment_to_authActivity"
+            app:destination="@id/authActivity" />
+    </fragment>
+    <fragment
         android:id="@+id/chatList"
         android:name="pt.cm_vila_do_conde.artesanato_2.view.chat.ChatList"
         android:label="ChatList" >

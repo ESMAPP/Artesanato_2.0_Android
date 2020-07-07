@@ -15,15 +15,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/ImgBtn"
             android:layout_gravity="center"
             android:background="@drawable/shape_shadow_bottom"
             android:contentDescription="@null"
             android:src="@drawable/bar_top_1" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/parent_outer_margin"
             android:layout_marginTop="@dimen/parent_top_margin"
@@ -31,12 +30,42 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <ImageButton
-                android:id="@+id/btn_back"
-                style="@style/ImgBtn"
-                android:contentDescription="@string/description_go_back"
-                android:paddingEnd="8dp"
-                app:srcCompat="@drawable/btn_arrow_back_color" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/description_go_back"
+                    app:srcCompat="@drawable/btn_arrow_back_color" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:layoutDirection="inherit"
+                android:orientation="horizontal">
+
+                <SearchView
+                    android:id="@+id/input_search"
+                    style="@android:style/Widget.Material.Light.SearchView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:iconifiedByDefault="true"
+                    android:searchIcon="@drawable/ic_magnifier_color" />
+
+                <ImageButton
+                    android:id="@+id/btn_filter"
+                    style="@style/ImgBtn"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/description_filter"
+                    android:src="@drawable/ic_filter_color" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -48,6 +77,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top" />
+        app:layout_constraintTop_toBottomOf="@id/top"
+        tools:listitem="@layout/cardview_event_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

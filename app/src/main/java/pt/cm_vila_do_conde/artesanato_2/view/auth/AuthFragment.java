@@ -54,7 +54,7 @@ public class AuthFragment extends Fragment {
     }
 
     private void initBackBtn() {
-        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
+        binding.btnBack.setOnClickListener(v -> navController.navigate(R.id.homeFragment));
     }
 
     public void setupTabAdapter() {

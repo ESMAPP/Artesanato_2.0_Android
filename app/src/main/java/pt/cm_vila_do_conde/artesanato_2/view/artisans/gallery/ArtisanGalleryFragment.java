@@ -44,11 +44,15 @@ public class ArtisanGalleryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
-
         initArtisanViewModel();
         initRecvclerView();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
     }
 
     private void initArtisanViewModel() {

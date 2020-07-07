@@ -159,8 +159,6 @@ public class HomeFragment extends Fragment {
         homeViewModel.featuredArtisan.observe(getViewLifecycleOwner(), this::updateArtisanCard);
     }
 
-    // TODO: get text from string.xml
-    @SuppressLint("SetTextI18n")
     public void updateArtisanCard(Artisan artisan) {
         Picasso.get().load(artisan.getProfilePic())
                 .placeholder(R.drawable.ic_placeholder_image_color)

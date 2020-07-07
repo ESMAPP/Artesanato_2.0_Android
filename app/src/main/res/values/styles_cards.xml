@@ -43,7 +43,7 @@
         <item name="android:paddingStart">@dimen/card_text_padding</item>
         <item name="android:paddingEnd">@dimen/card_text_padding</item>
         <item name="android:singleLine">true</item>
-        <item name="android:text">@string/subtitle</item>
+        <item name="android:text">@string/text</item>
         <item name="android:textSize">@dimen/text_size_10</item>
     </style>
 

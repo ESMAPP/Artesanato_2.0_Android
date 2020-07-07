@@ -44,11 +44,18 @@
                     app:srcCompat="@drawable/ic_placeholder_user_pic" />
 
                 <ImageView
+                    android:id="@+id/profile_frame"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/shape_circle_grey"
-                    android:contentDescription="@null"
-                    android:scaleType="center" />
+                    android:contentDescription="@null" />
+
+                <ImageView
+                    android:id="@+id/profile_icon"
+                    style="@style/ImgBtn"
+                    android:layout_gravity="top|end"
+                    android:contentDescription="@null" />
+
             </FrameLayout>
 
             <TextView
@@ -65,35 +72,32 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
-                    style="@style/ImgBtn"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_cup_color" />
-
                 <TextView
                     android:id="@+id/profile_ranking"
                     style="@style/Text"
                     android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:drawableStart="@drawable/ic_cup_color"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
                     android:text="@string/value" />
-
-                <ImageView
-                    style="@style/ImgBtn"
-                    android:layout_height="18dp"
-                    android:layout_marginStart="20dp"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_star_color" />
 
                 <TextView
                     android:id="@+id/profile_reputation"
                     style="@style/Text"
                     android:layout_marginStart="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:drawableStart="@drawable/ic_star_color"
+                    android:drawablePadding="4dp"
+                    android:gravity="center_vertical"
                     android:text="@string/value" />
+
             </LinearLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/inner_nav_bar"
                 style="@style/SmallTabLayout"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="@dimen/parent_inner_margin">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
@@ -112,6 +116,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
                     android:text="@string/label_contests" />
+
             </com.google.android.material.tabs.TabLayout>
 
         </LinearLayout>
@@ -133,7 +138,6 @@
                     android:id="@+id/btn_back"
                     style="@style/ImgBtn"
                     android:contentDescription="@string/description_go_back"
-                    android:paddingEnd="8dp"
                     app:srcCompat="@drawable/btn_arrow_back_color" />
 
             </LinearLayout>
@@ -149,7 +153,6 @@
                     style="@style/ImgBtn"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/description_menu"
-                    android:paddingStart="10dp"
                     app:srcCompat="@drawable/btn_more_grey" />
 
             </LinearLayout>
@@ -160,8 +163,9 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager_profile"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top" />

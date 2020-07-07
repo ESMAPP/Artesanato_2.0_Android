@@ -14,6 +14,9 @@ public class ChatRoom implements Serializable {
     private List<Message> messageList;
     private Message lastMessage;
 
+    @Exclude
+    private User userInfo;
+
     public ChatRoom() {
     }
 
@@ -28,6 +31,16 @@ public class ChatRoom implements Serializable {
         this.artisanId = artisanId;
         this.userId = userId;
         this.messageList = messageList;
+    }
+
+    @Exclude
+    public User getUserInfo() {
+        return userInfo;
+    }
+
+    @Exclude
+    public void setUserInfo(User userInfo) {
+        this.userInfo = userInfo;
     }
 
     @Exclude

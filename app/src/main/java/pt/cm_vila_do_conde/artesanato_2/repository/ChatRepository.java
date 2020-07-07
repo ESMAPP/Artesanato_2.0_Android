@@ -8,6 +8,7 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class ChatRepository {
                 .orderBy("createdAt", Query.Direction.ASCENDING)
                 .addSnapshotListener((queryDocumentSnapshots, e) -> {
                     List<Message> tempMessages = new ArrayList<>();
-                    for (DocumentSnapshot message : queryDocumentSnapshots.getDocuments() ) {
+                    for (DocumentSnapshot message : queryDocumentSnapshots.getDocuments()) {
                         tempMessages.add(message.toObject(Message.class));
                     }
                     messagesList.postValue(tempMessages);
@@ -92,7 +93,7 @@ public class ChatRepository {
         return user;
     }
 
-    public MutableLiveData<Artisan> fetchArtisanInfo(String artisanId){
+    public MutableLiveData<Artisan> fetchArtisanInfo(String artisanId) {
         MutableLiveData<Artisan> artisan = new MutableLiveData<>();
         artisansRef.document(artisanId).addSnapshotListener((documentSnapshot, e) -> {
             Artisan fetchedArtisan = documentSnapshot.toObject(Artisan.class);
@@ -100,5 +101,31 @@ public class ChatRepository {
             artisan.postValue(fetchedArtisan);
         });
         return artisan;
+    }
+
+    public MutableLiveData<List<ChatRoom>> fetchChatList(String artisanId) {
+        MutableLiveData<List<ChatRoom>> chatList = new MutableLiveData<>();
+
+        chatsRef.whereEqualTo("artisanId", artisanId).addSnapshotListener((docs, e) -> {
+            List<ChatRoom> tempChatList = populateUsersInfo(docs);
+            chatList.postValue(tempChatList);
+        });
+
+        return chatList;
+    }
+
+
+    private List<ChatRoom> populateUsersInfo(QuerySnapshot docs) {
+        List<ChatRoom> tempChatList = docs.toObjects(ChatRoom.class);
+        for (ChatRoom el : tempChatList) {
+            usersRef.document(el.getUserId()).addSnapshotListener((userDoc, err) -> {
+                User user;
+                user = userDoc.toObject(User.class);
+                el.setUserInfo(user);
+            });
+        }
+
+        System.out.println("FINIIIIIIIIIIIIIIIIISH");
+        return tempChatList;
     }
 }

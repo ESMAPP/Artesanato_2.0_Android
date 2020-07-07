@@ -158,13 +158,13 @@ public class ArtisanPageFragment extends Fragment {
             } else {
                 artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
                     binding.btnChat.setOnClickListener(v -> {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("userId", user.getUid());
+                        bundle.putString("artisanId", artisanId);
                         if (!user.getUid().equals(artisan.getAssociatedUser())) {
-                            Bundle bundle = new Bundle();
-                            bundle.putString("userId", user.getUid());
-                            bundle.putString("artisanId", artisanId);
                             navController.navigate(R.id.action_artisanPageFragment_to_chatFragment, bundle);
                         } else {
-                            Toast.makeText(requireContext(), "Implement artisan chat list!", Toast.LENGTH_LONG).show();
+                            navController.navigate(R.id.action_artisanPageFragment_to_chatList, bundle);
                         }
                     });
                 });

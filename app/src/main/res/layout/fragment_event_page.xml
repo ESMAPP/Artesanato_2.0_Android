@@ -30,7 +30,6 @@
             android:layout_marginStart="@dimen/parent_outer_margin"
             android:layout_marginTop="@dimen/parent_top_margin"
             android:contentDescription="@string/description_go_back"
-            android:paddingEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/btn_arrow_back_color" />

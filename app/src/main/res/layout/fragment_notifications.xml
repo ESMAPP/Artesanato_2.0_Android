@@ -56,7 +56,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/btn_extra"
+                    android:id="@+id/btn_clear"
                     style="@style/ImgBtn"
                     android:contentDescription="@string/description_menu"
                     app:srcCompat="@drawable/ic_trash_grey" />

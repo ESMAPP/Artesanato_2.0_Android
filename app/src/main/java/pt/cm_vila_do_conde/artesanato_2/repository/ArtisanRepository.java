@@ -1,7 +1,5 @@
 package pt.cm_vila_do_conde.artesanato_2.repository;
 
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.firestore.CollectionReference;
@@ -16,16 +14,18 @@ import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.model.Review;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 
+
 public class ArtisanRepository {
     private String TAG = "ARTISANS_REPOSITORY";
+
     private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
     private CollectionReference artisansRef = rootRef.collection("artisans");
     private CollectionReference usersRef = rootRef.collection("users");
 
-
     // TODO implement search and filtering query
     public MutableLiveData<ArrayList<Artisan>> fetchArtisansList(Query query) {
         MutableLiveData<ArrayList<Artisan>> artisansList = new MutableLiveData<>();
+
         query.addSnapshotListener((task, e) -> {
             ArrayList<Artisan> fetchedArtisans = new ArrayList<>();
             for (DocumentSnapshot doc : task.getDocuments()) {
@@ -78,13 +78,12 @@ public class ArtisanRepository {
                     }
                     fetchedReviews.setValue(tempReviews);
                 });
+
         return fetchedReviews;
     }
 
-    public void submitReview(String text, String userId, String artisanId){
+    public void submitReview(String text, String userId, String artisanId) {
         Review review = new Review(userId, text);
         artisansRef.document(artisanId).collection("reviews").add(review);
     }
-
-
 }

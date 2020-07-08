@@ -27,6 +27,7 @@ public class ProfileViewModel extends AndroidViewModel {
     }
 
     public void fetchBadges() {
+        badges = badgesRepository.fetchBadgesList();
     }
 
     public LiveData<List<Badge>> getBadges() {

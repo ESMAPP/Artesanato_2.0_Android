@@ -27,7 +27,7 @@
             <ImageView
                 android:layout_width="@dimen/medium_frame_size"
                 android:layout_height="@dimen/medium_frame_size"
-                android:background="@drawable/shape_circle_grey"
+                android:background="@drawable/shape_circle_stroke_grey"
                 android:contentDescription="@null" />
 
         </FrameLayout>

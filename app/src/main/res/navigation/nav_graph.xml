@@ -70,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.ProfileFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile">
         <action

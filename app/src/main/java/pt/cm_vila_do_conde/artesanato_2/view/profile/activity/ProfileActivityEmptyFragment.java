@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery;
+package pt.cm_vila_do_conde.artesanato_2.view.profile.activity;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,12 +15,12 @@ import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentViewPagerEmptyBinding;
 
 
-public class ArtisanGalleryEmptyFragment extends Fragment {
-    private String TAG = "ARTISAN_GALLERY";
+public class ProfileActivityEmptyFragment extends Fragment {
+    private String TAG = "PROFILE_ACTIVITY";
 
     private FragmentViewPagerEmptyBinding binding;
 
-    public ArtisanGalleryEmptyFragment() {
+    public ProfileActivityEmptyFragment() {
         // Required empty public constructor
     }
 
@@ -48,8 +48,8 @@ public class ArtisanGalleryEmptyFragment extends Fragment {
     }
 
     private void setEmptyState() {
-        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.color.white);
-        binding.textEmptyState.setText(getText(R.string.label_empty_gallery));
+        requireActivity().findViewById(R.id.profile_page).setBackgroundResource(R.color.white);
+        binding.textEmptyState.setText(getText(R.string.label_empty_activity));
         binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
     }
 }

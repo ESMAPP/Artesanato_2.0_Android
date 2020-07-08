@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery;
+package pt.cm_vila_do_conde.artesanato_2.view.profile.contests;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,24 +15,16 @@ import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentViewPagerEmptyBinding;
 
 
-public class ArtisanGalleryEmptyFragment extends Fragment {
-    private String TAG = "ARTISAN_GALLERY";
+public class ProfileContestsEmptyFragment extends Fragment {
+    FragmentViewPagerEmptyBinding binding;
 
-    private FragmentViewPagerEmptyBinding binding;
-
-    public ArtisanGalleryEmptyFragment() {
+    public ProfileContestsEmptyFragment() {
         // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        setEmptyState();
     }
 
     @Override
@@ -47,9 +39,15 @@ public class ArtisanGalleryEmptyFragment extends Fragment {
         setEmptyState();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        setEmptyState();
+    }
+
     private void setEmptyState() {
-        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.color.white);
-        binding.textEmptyState.setText(getText(R.string.label_empty_gallery));
+        requireActivity().findViewById(R.id.profile_page).setBackgroundResource(R.color.white);
+        binding.textEmptyState.setText(getText(R.string.label_empty_contests));
         binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
     }
 }

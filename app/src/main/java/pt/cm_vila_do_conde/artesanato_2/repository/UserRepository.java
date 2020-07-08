@@ -10,8 +10,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
+import pt.cm_vila_do_conde.artesanato_2.model.Badge;
+import pt.cm_vila_do_conde.artesanato_2.model.Review;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 
 
@@ -27,32 +30,16 @@ public class UserRepository {
 
         query.addSnapshotListener((task, e) -> {
             ArrayList<User> fetchedUsers = new ArrayList<>();
+
             for (DocumentSnapshot doc : task.getDocuments()) {
                 User user = doc.toObject(User.class);
                 user.setUid(doc.getId());
                 fetchedUsers.add(user);
             }
+
             usersList.setValue(fetchedUsers);
         });
 
         return usersList;
-    }
-
-    public MutableLiveData<User> fetchUserById() {
-        MutableLiveData<User> user = new MutableLiveData<>();
-        FirebaseUser authenticatedUser = firebaseAuth.getCurrentUser();
-
-        usersRef.document(authenticatedUser.getUid()).get().addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                DocumentSnapshot documentSnapshot = task.getResult();
-
-                if (documentSnapshot.exists()) {
-                    User fetchedUser = documentSnapshot.toObject(User.class);
-                    user.setValue(fetchedUser);
-                }
-            }
-        });
-
-        return user;
     }
 }

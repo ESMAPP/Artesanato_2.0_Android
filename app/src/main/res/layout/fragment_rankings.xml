@@ -108,7 +108,7 @@
                         <ImageView
                             android:layout_width="@dimen/large_frame_size"
                             android:layout_height="@dimen/large_frame_size"
-                            android:background="@drawable/shape_circle_orange"
+                            android:background="@drawable/shape_circle_stroke_orange"
                             android:contentDescription="@null" />
 
                     </FrameLayout>
@@ -161,7 +161,7 @@
                         <ImageView
                             android:layout_width="@dimen/extra_large_frame_size"
                             android:layout_height="@dimen/extra_large_frame_size"
-                            android:background="@drawable/shape_circle_yellow"
+                            android:background="@drawable/shape_circle_stroke_yellow"
                             android:contentDescription="@null" />
 
                     </FrameLayout>
@@ -216,7 +216,7 @@
                         <ImageView
                             android:layout_width="@dimen/large_frame_size"
                             android:layout_height="@dimen/large_frame_size"
-                            android:background="@drawable/shape_circle_blue"
+                            android:background="@drawable/shape_circle_stroke_blue"
                             android:contentDescription="@null" />
 
                     </FrameLayout>

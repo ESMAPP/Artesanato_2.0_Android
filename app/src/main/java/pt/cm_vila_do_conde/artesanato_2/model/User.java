@@ -22,6 +22,7 @@ public class User implements Serializable {
     private ArrayList<String> badges;
     private int ranking = -1; // -1 = Unranked /* TODO: get last user ranking position */
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
+    private ArrayList<String> contests;
     private Timestamp createdAt = new Timestamp(new Date());
     private Timestamp updatedAt = new Timestamp(new Date());
     @Exclude
@@ -42,7 +43,7 @@ public class User implements Serializable {
     }
 
     public User(String email, boolean isAuthenticated, boolean isNew, boolean isCreated, String uid,
-                String name, String profilePic, int reputation, ArrayList<String> badges, int ranking, int type,
+                String name, String profilePic, int reputation, ArrayList<String> badges, ArrayList<String> contests, int ranking, int type,
                 Timestamp createdAt, Timestamp updatedAt) {
         this.email = email;
         this.isAuthenticated = isAuthenticated;
@@ -53,6 +54,7 @@ public class User implements Serializable {
         this.profilePic = profilePic;
         this.reputation = reputation;
         this.badges = badges;
+        this.contests = contests;
         this.ranking = ranking;
         this.type = type;
         this.createdAt = createdAt;
@@ -185,6 +187,14 @@ public class User implements Serializable {
 
     public void setBadges(ArrayList<String> badges) {
         this.badges = badges;
+    }
+
+    public ArrayList<String> getContests() {
+        return contests;
+    }
+
+    public void setContests(ArrayList<String> contests) {
+        this.contests = contests;
     }
 
     public int getRanking() {

@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,9 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -35,9 +32,10 @@ public class ArtisanPageFragment extends Fragment {
 
     private FragmentArtisanPageBinding binding;
     private NavController navController;
-    private String artisanId;
     private ArtisanPageViewModel artisanPageViewModel;
     private SharedUserViewModel sharedUserViewModel;
+
+    private String artisanId;
 
     public ArtisanPageFragment() {
         // Required empty public constructor
@@ -62,13 +60,13 @@ public class ArtisanPageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        fetchArtisanById();
-        fetchReviews();
-        handleInitialUiState();
         initNavController();
-        setupTabAdapter();
         initBackBtn();
         initChatBtn();
+        setupTabAdapter();
+        fetchArtisanById();
+        handleExtraBtnState();
+        fetchReviews();
     }
 
     private void initArtisanViewModel() {
@@ -81,69 +79,6 @@ public class ArtisanPageFragment extends Fragment {
 
     private void initNavController() {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-    }
-
-    private void handleInitialUiState() {
-        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
-            User user = sharedUserViewModel.getUserLiveData().getValue();
-            if (user == null || user.getType() != UserTypes.ARTISAN || !user.getUid().equals(artisan.getAssociatedUser())) {
-                binding.btnExtra.setVisibility(View.GONE);
-            }
-        });
-    }
-
-    private void fetchArtisanById() {
-        artisanPageViewModel.fetchArtisanById(artisanId);
-        initObservable();
-    }
-
-    private void fetchReviews() {
-        artisanPageViewModel.fetchReviews(artisanId);
-    }
-
-    private void initObservable() {
-        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), this::updateUI);
-    }
-
-    public void setupTabAdapter() {
-        ViewPager artisanViewPager = binding.viewPagerArtisan;
-        artisanViewPager.setAdapter(new ArtisanPageAdapter(getChildFragmentManager()));
-        TabLayout tabs = binding.innerNavBar;
-        tabs.setupWithViewPager(artisanViewPager);
-    }
-
-    private void updateUI(@NotNull Artisan artisan) {
-        binding.artisanName.setText(artisan.getName());
-        binding.artisanReputation.setText(String.valueOf(artisan.getReputation()));
-        binding.artisanRanking.setText(String.valueOf(artisan.getRanking()));
-        Picasso.get().load(artisan.getProfilePic())
-                .placeholder(R.drawable.ic_placeholder_user_pic)
-                .transform(new CropCircleTransformation())
-                .into(binding.artisanPic);
-        checkUserRanking(artisan.getRanking());
-    }
-
-    private void checkUserRanking(int ranking) {
-        int shape = R.drawable.shape_circle_grey;
-        int icon = 0;
-
-        if (ranking == 1) {
-            shape = R.drawable.shape_circle_yellow;
-            icon = R.drawable.ic_crown_color;
-        }
-
-        if (ranking == 2) {
-            shape = R.drawable.shape_circle_orange;
-            icon = R.drawable.ic_second_color;
-        }
-
-        if (ranking == 3) {
-            shape = R.drawable.shape_circle_blue;
-            icon = R.drawable.ic_third_color;
-        }
-
-        binding.artisanFrame.setBackgroundResource(shape);
-        binding.artisanIcon.setBackgroundResource(icon);
     }
 
     private void initBackBtn() {
@@ -170,5 +105,70 @@ public class ArtisanPageFragment extends Fragment {
                 });
             }
         });
+    }
+
+    public void setupTabAdapter() {
+        binding.viewPagerArtisan.setAdapter(new ArtisanPageAdapter(getChildFragmentManager()));
+        binding.innerNavBar.setupWithViewPager(binding.viewPagerArtisan);
+    }
+
+    private void fetchArtisanById() {
+        artisanPageViewModel.fetchArtisanById(artisanId);
+        initObservable();
+    }
+
+    private void initObservable() {
+        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), this::updateUI);
+    }
+
+    private void updateUI(@NotNull Artisan artisan) {
+        binding.artisanName.setText(artisan.getName());
+        binding.artisanReputation.setText(String.valueOf(artisan.getReputation()));
+        binding.artisanRanking.setText(String.valueOf(artisan.getRanking()));
+        Picasso.get().load(artisan.getProfilePic())
+                .placeholder(R.drawable.ic_placeholder_user_pic)
+                .transform(new CropCircleTransformation())
+                .into(binding.artisanPic);
+        checkUserRanking(artisan.getRanking());
+    }
+
+    private void checkUserRanking(int ranking) {
+        int shape = R.drawable.shape_circle_stroke_grey;
+        int icon = 0;
+
+        if (ranking == 1) {
+            shape = R.drawable.shape_circle_stroke_yellow;
+            icon = R.drawable.ic_crown_color;
+        }
+
+        if (ranking == 2) {
+            shape = R.drawable.shape_circle_stroke_orange;
+            icon = R.drawable.ic_second_color;
+        }
+
+        if (ranking == 3) {
+            shape = R.drawable.shape_circle_stroke_blue;
+            icon = R.drawable.ic_third_color;
+        }
+
+        binding.artisanFrame.setBackgroundResource(shape);
+        binding.artisanIcon.setBackgroundResource(icon);
+    }
+
+    private void handleExtraBtnState() {
+        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
+            User user = sharedUserViewModel.getUserLiveData().getValue();
+
+            if (user == null || user.getType() != UserTypes.ARTISAN || !user.getUid().equals(artisan.getAssociatedUser())) {
+                binding.btnExtra.setVisibility(View.GONE);
+            }
+            else {
+                // TODO: initExtraBtn();
+            }
+        });
+    }
+
+    private void fetchReviews() {
+        artisanPageViewModel.fetchReviews(artisanId);
     }
 }

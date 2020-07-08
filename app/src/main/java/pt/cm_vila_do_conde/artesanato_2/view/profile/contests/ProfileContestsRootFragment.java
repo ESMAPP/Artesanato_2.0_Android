@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery;
+package pt.cm_vila_do_conde.artesanato_2.view.profile.contests;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +11,15 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
+import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
-public class ArtisanGalleryRootFragment extends Fragment {
-    private ArtisanPageViewModel artisanPageViewModel;
 
-    public ArtisanGalleryRootFragment() {
+public class ProfileContestsRootFragment extends Fragment {
+    private String TAG = "PROFILE_CONTESTS";
+
+    private SharedUserViewModel sharedUserViewModel;
+
+    public ProfileContestsRootFragment() {
         // Required empty public constructor
     }
 
@@ -34,26 +37,26 @@ public class ArtisanGalleryRootFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initArtisanViewModel();
+        initSharedUserViewModel();
         handleView();
     }
 
-    private void initArtisanViewModel() {
-        artisanPageViewModel = new ViewModelProvider(requireActivity()).get(ArtisanPageViewModel.class);
+    private void initSharedUserViewModel() {
+        sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
     private void handleView() {
-        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
-            if (artisan.getGallery() != null) {
-                ArtisanGalleryFragment artisanGalleryFragment = new ArtisanGalleryFragment();
+        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
+            if (user.getContests() != null) {
+                ProfileContestsFragment profileContestsFragment = new ProfileContestsFragment();
                 this.getChildFragmentManager().beginTransaction()
-                        .replace(R.id.root_gallery, artisanGalleryFragment, null)
+                        .replace(R.id.root_profile_contests, profileContestsFragment, null)
                         .addToBackStack(null)
                         .commit();
             } else {
-                ArtisanGalleryEmptyFragment artisanGalleryEmptyFragment = new ArtisanGalleryEmptyFragment();
+                ProfileContestsEmptyFragment profileContestsEmptyFragment = new ProfileContestsEmptyFragment();
                 this.getChildFragmentManager().beginTransaction()
-                        .replace(R.id.root_gallery, artisanGalleryEmptyFragment, null)
+                        .replace(R.id.root_profile_contests, profileContestsEmptyFragment, null)
                         .addToBackStack(null)
                         .commit();
             }

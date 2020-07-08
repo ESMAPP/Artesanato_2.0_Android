@@ -15,6 +15,7 @@ import pt.cm_vila_do_conde.artesanato_2.repository.SplashRepository;
 public class SharedUserViewModel extends AndroidViewModel {
     public MutableLiveData<User> userLiveData;
     private SplashRepository splashRepository;
+
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     public SharedUserViewModel(Application app) {
@@ -23,8 +24,7 @@ public class SharedUserViewModel extends AndroidViewModel {
     }
 
     public void checkIfUserIsAuthenticated() {
-        userLiveData = splashRepository
-                .checkIfUserIsAuthenticatedInFirebase();
+        userLiveData = splashRepository.checkIfUserIsAuthenticatedInFirebase();
     }
 
     public void setUid(String uid) {

@@ -7,6 +7,9 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.List;
+
+import pt.cm_vila_do_conde.artesanato_2.model.Review;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 
 

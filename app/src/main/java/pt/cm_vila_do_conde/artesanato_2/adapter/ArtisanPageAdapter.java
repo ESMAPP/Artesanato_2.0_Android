@@ -5,7 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import pt.cm_vila_do_conde.artesanato_2.view.artisans.contests.ArtisanContestRootFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisans.ArtisanAboutFragment;
+import pt.cm_vila_do_conde.artesanato_2.view.artisans.contests.ArtisanContestsRootFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery.ArtisanGalleryRootFragment;
 import pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews.ArtisanReviewsFragment;
 
@@ -25,13 +26,15 @@ public class ArtisanPageAdapter extends FragmentPagerAdapter {
             case 1:
                 return new ArtisanReviewsFragment(); //ChildFragment2 at position 1
             case 2:
-                return new ArtisanContestRootFragment(); //ChildFragment3 at position 2
+                return new ArtisanContestsRootFragment(); //ChildFragment3 at position 2
             case 3:
-                return new ArtisanContestRootFragment(); //ChildFragment3 at position 3
+                return new ArtisanAboutFragment(); //ChildFragment3 at position 3
         }
+
         return null; //does not happen
     }
 
+    // TODO: get text from strings.xml
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
@@ -44,6 +47,7 @@ public class ArtisanPageAdapter extends FragmentPagerAdapter {
             case 3:
                 return "Sobre";
         }
+
         return null;
     }
 

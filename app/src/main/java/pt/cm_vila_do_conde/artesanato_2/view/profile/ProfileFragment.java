@@ -1,4 +1,4 @@
-package pt.cm_vila_do_conde.artesanato_2.view;
+package pt.cm_vila_do_conde.artesanato_2.view.profile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,9 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -29,6 +27,8 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 
 public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
+    private String TAG = "PROFILE";
+
     private FragmentProfileBinding binding;
     private NavController navController;
     private SharedUserViewModel sharedUserViewModel;
@@ -42,19 +42,12 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setupTabAdapter();
         initNavController();
         initBackBtn();
         initExtraBtn();
+        setupTabAdapter();
         initUserViewModel();
         handleInitialUiState();
-    }
-
-    public void setupTabAdapter() {
-        ViewPager artisanViewPager = binding.viewPagerProfile;
-        artisanViewPager.setAdapter(new ProfileAdapter(getChildFragmentManager()));
-        TabLayout tabs = binding.innerNavBar;
-        tabs.setupWithViewPager(binding.viewPagerProfile);
     }
 
     private void initNavController() {
@@ -76,6 +69,12 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         popup.show();
     }
 
+    public void setupTabAdapter() {
+        binding.viewPagerProfile.setAdapter(new ProfileAdapter(getChildFragmentManager()));
+        binding.innerNavBar.setupWithViewPager(binding.viewPagerProfile);
+    }
+
+    // TODO: add go to artisan page if user is artisan
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
@@ -119,21 +118,21 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     }
 
     private void checkUserRanking(int ranking) {
-        int shape = R.drawable.shape_circle_grey;
+        int shape = R.drawable.shape_circle_stroke_grey;
         int icon = 0;
 
         if (ranking == 1) {
-            shape = R.drawable.shape_circle_yellow;
+            shape = R.drawable.shape_circle_stroke_yellow;
             icon = R.drawable.ic_crown_color;
         }
 
         if (ranking == 2) {
-            shape = R.drawable.shape_circle_orange;
+            shape = R.drawable.shape_circle_stroke_orange;
             icon = R.drawable.ic_second_color;
         }
 
         if (ranking == 3) {
-            shape = R.drawable.shape_circle_blue;
+            shape = R.drawable.shape_circle_stroke_blue;
             icon = R.drawable.ic_third_color;
         }
 

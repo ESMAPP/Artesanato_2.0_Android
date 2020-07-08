@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_margin="4dp"
         android:orientation="vertical">
 
@@ -15,10 +16,9 @@
             android:id="@+id/profile_badge"
             style="@style/ImgBtn"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_badge_like" />
+            app:srcCompat="@drawable/shape_circle_grey" />
 
     </LinearLayout>
 

@@ -37,17 +37,20 @@
     <string name="label_map">Mapa</string>
     <string name="label_general_info">Informações Gerais</string>
     <string name="label_change_password">Alterar password</string>
+    <string name="label_artisans">Artesãos</string>
+    <string name="label_visitors">Visitantes</string>
+    <string name="label_filter">Filter</string>
+    <string name="label_category">Categoria</string>
+    <string name="label_clear">Limpar</string>
+    <string name="label_open_artisan_page">Abrir página de artesão</string>
     <string name="label_need_login_reviews">Entre na aplicação para ler as recomendações</string>
     <string name="label_empty_gallery">A galeria está vazia</string>
     <string name="label_empty_notifications">Não tem notificações</string>
     <string name="label_empty_reviews">Não tem recomendações</string>
     <string name="label_empty_favourites">Ainda não adicionou favoritos</string>
-    <string name="label_artisans">Artesãos</string>
-    <string name="label_visitors">Visitantes</string>
-    <string name="label_filter">Filter</string>
-    <string name="label_category">Categoria</string>
-    <string name="label_open_artisan_page">Abrir página de artesão</string>
-    <string name="label_clear">Limpar</string>
+    <string name="label_empty_contests">Não há concursos a decorrer</string>
+    <string name="label_empty_artisan_contests">Não participou em nenhum concurso</string>
+    <string name="label_empty_activity">Sem atividade</string>
 
 
     <!-- HINT TEXT -->
@@ -57,7 +60,7 @@
     <string name="hint_confirm_password">confirmar password</string>
     <string name="hint_phone">telemóvel</string>
     <string name="hint_add_review">adicione uma recomendação...</string>
-  
+
 
     <!-- DESCRIPTION TEXT -->
     <string name="description_go_back">go back</string>

@@ -42,7 +42,7 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
+        setBackground();
         initRecyclerView();
     }
 
@@ -56,11 +56,19 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
+        setBackground();
+        initNavController();
         initArtisanViewModel();
         initSharedUserViewModel();
-        initNavController();
         initSendBtn();
+    }
+
+    private void setBackground() {
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
+    }
+
+    private void initNavController() {
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
     private void initArtisanViewModel() {
@@ -69,10 +77,6 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
 
     private void initSharedUserViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
-    }
-
-    private void initNavController() {
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
     private void initSendBtn() {

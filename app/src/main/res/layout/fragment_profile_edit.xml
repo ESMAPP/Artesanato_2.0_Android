@@ -93,7 +93,7 @@
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/edit_profile"
+                    android:id="@+id/text_edit_picture"
                     style="@style/BlueText"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="8dp"

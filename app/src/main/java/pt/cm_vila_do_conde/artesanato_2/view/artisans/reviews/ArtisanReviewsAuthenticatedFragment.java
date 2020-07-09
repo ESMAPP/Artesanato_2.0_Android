@@ -100,7 +100,9 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
             Log.d(TAG, String.valueOf(reviews.size()));
             RecyclerView recyclerView = binding.reviewsList;
             recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-            recyclerView.setAdapter(new ArtisanReviewsAdapter(reviews));
+            ArtisanReviewsAdapter adapter = new ArtisanReviewsAdapter(reviews);
+            recyclerView.setAdapter(adapter);
+            recyclerView.post(adapter::notifyDataSetChanged);
         });
     }
 }

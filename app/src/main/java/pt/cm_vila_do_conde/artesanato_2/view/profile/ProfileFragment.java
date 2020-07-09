@@ -33,6 +33,13 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
     private NavController navController;
     private SharedUserViewModel sharedUserViewModel;
 
+    /**
+     * binds to corresponding layout
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
@@ -46,22 +53,35 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         initBackBtn();
         initExtraBtn();
         setupTabAdapter();
-        initUserViewModel();
+        initSharedViewModel();
         handleInitialUiState();
     }
 
+    /**
+     * Initializes navigation controller
+     */
     private void initNavController() {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
+    /**
+     * Initializes back button and goes to last page on the pop back stack
+     */
     private void initBackBtn() {
         binding.btnBack.setOnClickListener(v -> navController.popBackStack());
     }
 
+    /**
+     * Initializes extra menu button and calls menu pop-up
+     */
     private void initExtraBtn() {
         binding.btnExtra.setOnClickListener(this::showPopup);
     }
 
+    /**
+     * Shows corresponding pop up menu
+     * @param v
+     */
     public void showPopup(View v) {
         PopupMenu popup = new PopupMenu(requireContext(), v);
         popup.setOnMenuItemClickListener(this);
@@ -69,12 +89,20 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         popup.show();
     }
 
+    /**
+     * Sets artisan page inner navigation tab bar
+     */
     public void setupTabAdapter() {
         binding.viewPagerProfile.setAdapter(new ProfileAdapter(getChildFragmentManager()));
         binding.innerNavBar.setupWithViewPager(binding.viewPagerProfile);
     }
 
     // TODO: add go to artisan page if user is artisan
+    /**
+     * Checks which menu option was clicked then goes to corresponding page
+     * @param item
+     * @return
+     */
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
@@ -90,7 +118,10 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         }
     }
 
-    private void initUserViewModel() {
+    /**
+     * Initializes sharer user view model
+     */
+    private void initSharedViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
@@ -98,6 +129,10 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::updateUI);
     }
 
+    /**
+     * Updates users ui info
+     * @param user Receives authenticated user object
+     */
     private void updateUI(User user) {
         binding.profileName.setText(user.getName());
         binding.profileRanking.setText(String.valueOf(user.getRanking()));
@@ -117,6 +152,12 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
         checkUserRanking(user.getRanking());
     }
 
+    /**
+     * Checks which is the authenticated users ranking position
+     * Changes the profile pic frame and icon according to first, second or third position
+     * if ranking > 3 then frame is the default color and icon is 0
+     * @param ranking Receives the user ranking position
+     */
     private void checkUserRanking(int ranking) {
         int shape = R.drawable.shape_circle_stroke_grey;
         int icon = 0;

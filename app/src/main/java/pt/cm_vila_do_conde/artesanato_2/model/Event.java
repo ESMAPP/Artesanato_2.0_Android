@@ -20,7 +20,6 @@ public class Event implements Serializable {
     private boolean featured;
     private Timestamp createdAt;
 
-
     public Event() {
     }
 

@@ -17,7 +17,7 @@ public class User implements Serializable {
     private boolean isNew, isCreated;
     private String uid;
     private String name;
-    private String profilePic = "null"; /* TODO: set initial profile pic to placeholder */
+    private String profilePic = "null";
     private int reputation = 0;
     private ArrayList<String> badges = new ArrayList<>();
     private int ranking;
@@ -42,9 +42,9 @@ public class User implements Serializable {
         this.error = error;
     }
 
-    public User(String email, boolean isAuthenticated, boolean isNew, boolean isCreated, String uid,
-                String name, String profilePic, int reputation, ArrayList<String> badges, ArrayList<String> contests, int ranking, int type,
-                Timestamp createdAt, Timestamp updatedAt) {
+    public User(String email, boolean isAuthenticated, boolean isNew, boolean isCreated, String uid, String name,
+                String profilePic, int reputation, ArrayList<String> badges, ArrayList<String> contests,
+                int ranking, int type, Timestamp createdAt, Timestamp updatedAt) {
         this.email = email;
         this.isAuthenticated = isAuthenticated;
         this.isNew = isNew;

@@ -5,6 +5,7 @@ import com.google.firebase.firestore.Exclude;
 import java.io.Serializable;
 import java.util.List;
 
+
 public class ChatRoom implements Serializable {
     @Exclude
     private String id;
@@ -13,7 +14,6 @@ public class ChatRoom implements Serializable {
     @Exclude
     private List<Message> messageList;
     private Message lastMessage;
-
     @Exclude
     private User userInfo;
 

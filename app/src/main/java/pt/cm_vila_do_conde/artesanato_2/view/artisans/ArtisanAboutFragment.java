@@ -19,7 +19,6 @@ import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
 
-// TODO: get artisan about info to layout
 public class ArtisanAboutFragment extends Fragment {
     private static final String TAG = "ARTISAN_ABOUT";
 

@@ -17,6 +17,13 @@ public class Notification implements Serializable {
     public Notification() {
     }
 
+    public Notification(String message, int type, int action, String destination){
+        this.message = message;
+        this.type = type;
+        this.action = action;
+        this.destination = destination;
+    }
+
     public Notification(String message, int type, int action, String destination, Timestamp timestamp, boolean seen) {
         this.message = message;
         this.type = type;

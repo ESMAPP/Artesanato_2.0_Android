@@ -47,9 +47,6 @@
             android:id="@+id/action_homeFragment_to_rankingsFragment"
             app:destination="@id/rankingsFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_fairLocationFragment"
-            app:destination="@id/fairLocationFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_favouritesFragment"
             app:destination="@id/favouritesFragment" />
         <action
@@ -58,6 +55,9 @@
         <action
             android:id="@+id/action_homeFragment_to_artisanPageFragment"
             app:destination="@id/artisanPageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileEditFragment"
@@ -116,15 +116,6 @@
         <action
             android:id="@+id/action_eventListFragment_to_eventPageFragment"
             app:destination="@id/eventPageFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/fairLocationFragment"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.location.FairLocationFragment"
-        android:label="fragment_fair_location"
-        tools:layout="@layout/fragment_fair_location">
-        <action
-            android:id="@+id/action_fairLocationFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/passwordRecoverFragment"
@@ -202,6 +193,15 @@
         tools:layout="@layout/fragment_favourites">
         <action
             android:id="@+id/action_favouritesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.location.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps">
+        <action
+            android:id="@+id/action_mapsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment

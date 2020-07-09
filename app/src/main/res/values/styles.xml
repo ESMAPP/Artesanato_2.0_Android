@@ -1,11 +1,78 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <!-- Base Application Theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primaryBlue</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/lightGrey</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:statusBarColor">@color/primaryBlue</item>>
+        <item name="android:fontFamily">@font/quicksand</item>
     </style>
+
+    <!-- Splash Screen Style -->
+    <style name="SplashTheme" parent="AppTheme">
+        <item name="android:windowBackground">
+            @drawable/splash_screen
+        </item>
+    </style>
+
+    <!-- Tab Layout Style -->
+    <style name="TabLayout" parent="Widget.Design.TabLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_underline_grey</item>
+        <item name="tabIndicatorColor">@color/primaryBlue</item>
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicatorGravity">bottom</item>
+        <item name="tabRippleColor">@color/transparent</item>
+        <item name="tabSelectedTextColor">@color/black</item>
+    </style>
+
+    <!-- Tab Item Style -->
+    <style name="TabItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <!-- Tab Large Title Style -->
+    <style name="LargeTabLayout" parent="TabLayout">
+        <item name="tabTextAppearance">@style/LargeTabTitle</item>
+    </style>
+
+    <!-- Tab Small Title Style -->
+    <style name="SmallTabLayout" parent="TabLayout">
+        <item name="tabTextAppearance">@style/SmallTabTitle</item>
+        <item name="tabPaddingBottom">-10dp</item>
+    </style>
+
+    <!-- Top Bar Layout Style -->
+    <style name="TopBarLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/parent_outer_margin</item>
+        <item name="android:layout_marginTop">@dimen/parent_top_margin</item>
+        <item name="android:layout_marginEnd">@dimen/parent_outer_margin</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- TODO: check if needs padding -->
+    <!-- Recycler View Style -->
+    <style name="RecyclerViewList">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:fadingEdgeLength">25dp</item>
+        <item name="android:paddingStart">@dimen/parent_outer_margin</item>
+        <item name="android:paddingEnd">@dimen/parent_outer_margin</item>
+        <item name="android:requiresFadingEdge">vertical</item>
+    </style>
+
+    <style name="CardGridList" parent="RecyclerViewList">
+        <item name="android:paddingStart">@dimen/scroll_inner_padding</item>
+        <item name="android:paddingEnd">@dimen/scroll_inner_padding</item>
+    </style>
+
 
 </resources>

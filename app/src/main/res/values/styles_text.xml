@@ -1,0 +1,66 @@
+<resources>
+
+    <!-- Black Title Style -->
+    <style name="Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/mina_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Tab Large Title Style -->
+    <style name="LargeTabTitle" parent="Title">
+        <item name="android:textSize">@dimen/text_size_22</item>
+        <item name="android:textColor">@color/mediumGrey</item>
+    </style>
+
+    <!-- Tab Small Title Style -->
+    <style name="SmallTabTitle" parent="Title">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/mediumGrey</item>
+    </style>
+
+    <!-- Text Style -->
+    <style name="Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/darkGrey</item>
+    </style>
+
+    <!-- Black Text Style -->
+    <style name="BlackText" parent="Text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+    </style>
+
+    <!-- Blue Text Style -->
+    <style name="BlueText" parent="Text">
+        <item name="android:textColor">@color/primaryBlue</item>
+    </style>
+
+    <!-- Menu Text Style -->
+    <style name="MenuText" parent="Text">
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+
+    <!-- Text with Drawable Style -->
+    <style name="drawableText" parent="Text">
+        <item name="android:layout_marginEnd">@dimen/small_text_margin</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:text">@string/value</item>
+    </style>
+
+    <!-- Label Text Style -->
+    <style name="LabelText" parent="Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+
+    <!-- Filter Label Text Style -->
+    <style name="FilterText" parent="LabelText">
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+    </style>
+
+</resources>

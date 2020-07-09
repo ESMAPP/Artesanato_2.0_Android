@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadingEdgeLength="25dp"
+    android:requiresFadingEdge="vertical"
+    android:scrollbars="none"
+    tools:context=".view.artisans.ArtisanAboutFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/parent_inner_margin"
+        android:layout_marginTop="@dimen/card_large_margin"
+        android:layout_marginEnd="@dimen/parent_inner_margin"
+        android:layout_marginBottom="@dimen/parent_outer_bottom_margin"
+        android:background="@drawable/shape_shadow_white"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/card_large_padding">
+
+            <TextView
+                android:id="@+id/text_description"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:text="@string/description" />
+
+            <TextView
+                style="@style/LabelText"
+                android:layout_marginTop="@dimen/parent_inner_margin"
+                android:text="@string/label_payment_methods" />
+
+            <TextView
+                android:id="@+id/text_atm"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/large_text_margin"
+                android:text="@string/label_atm" />
+
+            <TextView
+                android:id="@+id/text_mb_way"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/card_small_text_margin"
+                android:text="@string/label_mb_way" />
+
+            <TextView
+                style="@style/LabelText"
+                android:layout_marginTop="@dimen/parent_inner_margin"
+                android:text="@string/label_contacts" />
+
+            <TextView
+                android:id="@+id/text_city"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/large_text_margin"
+                android:text="@string/city" />
+
+            <TextView
+                android:id="@+id/text_phone"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/card_small_text_margin"
+                android:text="@string/phone" />
+
+            <TextView
+                android:id="@+id/text_email"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/card_small_text_margin"
+                android:text="@string/email" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/shape_upperline_grey"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/input_padding">
+
+            <TextView
+                android:id="@+id/text_validated"
+                style="@style/Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/large_text_margin"
+                android:layout_marginEnd="@dimen/large_text_margin"
+                android:layout_marginBottom="@dimen/large_text_margin"
+                android:text="@string/label_validated_artisan" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

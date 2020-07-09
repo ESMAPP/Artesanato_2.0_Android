@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_6"
+    tools:context=".view.profile.ProfileEditFragment">
+
+    <!-- TODO: add close account option -->
+
+    <FrameLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            style="@style/ImgBtn"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_shadow_bottom"
+            android:contentDescription="@null"
+            android:src="@drawable/bar_top_1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/parent_outer_margin"
+            android:layout_marginTop="@dimen/parent_top_margin"
+            android:layout_marginEnd="@dimen/parent_outer_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                style="@style/ImgBtn"
+                android:contentDescription="@string/description_go_back"
+                android:src="@drawable/btn_arrow_back_color" />
+
+            <TextView
+                style="@style/Title"
+                android:layout_marginStart="20dp"
+                android:text="@string/label_edit_profile"
+                android:textSize="@dimen/text_size_18" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fadingEdgeLength="25dp"
+        android:requiresFadingEdge="vertical"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/parent_inner_margin"
+                android:layout_marginTop="@dimen/parent_outer_margin"
+                android:layout_marginEnd="@dimen/parent_inner_margin"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/profile_pic"
+                        style="@style/ProfileImage"
+                        android:contentDescription="@null" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/shape_circle_stroke_grey"
+                        android:contentDescription="@null" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/text_edit_picture"
+                    style="@style/BlueText"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/label_change_profile_pic" />
+
+                <TextView
+                    style="@style/LabelText"
+                    android:layout_marginTop="@dimen/parent_inner_margin"
+                    android:text="@string/label_general_info" />
+
+                <EditText
+                    android:id="@+id/input_edit_name"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_full_name"
+                    android:drawableStart="@drawable/ic_user_color"
+                    android:hint="@string/hint_full_name"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/input_edit_email"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_email"
+                    android:clickable="false"
+                    android:drawableStart="@drawable/ic_letter_grey"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/hint_email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+
+                <EditText
+                    android:id="@+id/input_edit_phone"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_phone"
+                    android:drawableStart="@drawable/ic_phone_color"
+                    android:hint="@string/hint_phone"
+                    android:inputType="phone" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/input_margin"
+                android:layout_marginBottom="@dimen/input_margin"
+                android:background="@drawable/shape_line_grey"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/input_padding"
+                android:paddingBottom="@dimen/input_padding">
+
+                <TextView
+                    android:id="@+id/edit_artisan_account"
+                    style="@style/BlueText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/parent_inner_margin"
+                    android:layout_marginEnd="@dimen/parent_inner_margin"
+                    android:text="@string/label_open_artisan_page" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/edit_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/parent_inner_margin"
+                android:layout_marginEnd="@dimen/parent_inner_margin"
+                android:layout_marginBottom="@dimen/parent_inner_margin"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/LabelText"
+                    android:text="@string/label_change_password" />
+
+                <EditText
+                    android:id="@+id/input_edit_password"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_password"
+                    android:drawableStart="@drawable/ic_key_color"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword" />
+
+                <EditText
+                    android:id="@+id/input_edit_confirm_password"
+                    style="@style/Input"
+                    android:autofillHints="@string/hint_confirm_password"
+                    android:drawableStart="@drawable/ic_key_color"
+                    android:hint="@string/hint_confirm_password"
+                    android:inputType="textPassword" />
+
+                <ImageButton
+                    android:id="@+id/btn_save"
+                    style="@style/FormBtn"
+                    android:contentDescription="@string/description_save"
+                    android:src="@drawable/btn_arrow_color" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

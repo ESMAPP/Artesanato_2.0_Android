@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_3"
+    tools:context=".view.rankings.RankingsFragment">
+
+    <FrameLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            style="@style/RoundTopBarImage"
+            android:contentDescription="@null" />
+
+        <LinearLayout style="@style/TopBarLayout">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                style="@style/ImgBtn"
+                android:contentDescription="@string/description_go_back"
+                android:src="@drawable/btn_arrow_back_color" />
+
+            <TextView
+                style="@style/Title"
+                android:layout_marginStart="20dp"
+                android:text="@string/label_rankings"
+                android:textSize="@dimen/text_size_18" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/inner_nav_bar"
+                style="@style/SmallTabLayout"
+                android:layout_marginStart="@dimen/parent_inner_margin"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="@dimen/parent_inner_margin">
+
+                <com.google.android.material.tabs.TabItem
+                    style="@style/TabItem"
+                    android:text="@string/label_artisans" />
+
+                <com.google.android.material.tabs.TabItem
+                    style="@style/TabItem"
+                    android:text="@string/label_visitors" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="@dimen/parent_inner_margin"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="@dimen/parent_inner_margin"
+                android:layout_marginBottom="@dimen/parent_outer_bottom_margin"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:id="@+id/rankings_place_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/parent_top_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/ImgBtn"
+                        android:layout_marginBottom="5dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_second_color" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/rankings_user_pic_2"
+                            android:layout_width="@dimen/large_pic_size"
+                            android:layout_height="@dimen/large_pic_size"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_placeholder_user_pic" />
+
+                        <ImageView
+                            android:layout_width="@dimen/large_frame_size"
+                            android:layout_height="@dimen/large_frame_size"
+                            android:background="@drawable/shape_circle_stroke_orange"
+                            android:contentDescription="@null" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/rankings_user_name_2"
+                        style="@style/BlackText"
+                        android:gravity="center_horizontal"
+                        android:singleLine="true"
+                        android:text="@string/name" />
+
+                    <TextView
+                        android:id="@+id/rankings_user_reputation_2"
+                        style="@style/BlackText"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:text="@string/value"
+                        android:textColor="@color/primaryOrange"
+                        android:textSize="@dimen/text_size_12" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        style="@style/ImgBtn"
+                        android:layout_marginBottom="5dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_crown_color" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/rankings_user_pic_1"
+                            android:layout_width="@dimen/extra_large_pic_size"
+                            android:layout_height="@dimen/extra_large_pic_size"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_placeholder_user_pic" />
+
+                        <ImageView
+                            android:layout_width="@dimen/extra_large_frame_size"
+                            android:layout_height="@dimen/extra_large_frame_size"
+                            android:background="@drawable/shape_circle_stroke_yellow"
+                            android:contentDescription="@null" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/rankings_user_name_1"
+                        style="@style/BlackText"
+                        android:gravity="center_horizontal"
+                        android:singleLine="true"
+                        android:text="@string/name" />
+
+                    <TextView
+                        android:id="@+id/rankings_user_reputation_1"
+                        style="@style/BlackText"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:text="@string/value"
+                        android:textColor="@color/primaryYellow"
+                        android:textSize="@dimen/text_size_12" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rankings_place_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/parent_top_margin"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        style="@style/ImgBtn"
+                        android:layout_marginBottom="5dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_third_color" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/rankings_user_pic_3"
+                            android:layout_width="@dimen/large_pic_size"
+                            android:layout_height="@dimen/large_pic_size"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_placeholder_user_pic" />
+
+                        <ImageView
+                            android:layout_width="@dimen/large_frame_size"
+                            android:layout_height="@dimen/large_frame_size"
+                            android:background="@drawable/shape_circle_stroke_blue"
+                            android:contentDescription="@null" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:id="@+id/rankings_user_name_3"
+                        style="@style/BlackText"
+                        android:gravity="center_horizontal"
+                        android:singleLine="true"
+                        android:text="@string/name" />
+
+                    <TextView
+                        android:id="@+id/rankings_user_reputation_3"
+                        style="@style/BlueText"
+                        android:layout_width="match_parent"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:gravity="center"
+                        android:text="@string/value"
+                        android:textSize="@dimen/text_size_12" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager_rankings"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

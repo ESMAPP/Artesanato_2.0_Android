@@ -1,3 +1,110 @@
 <resources>
-    <string name="app_name">Artesanato_2</string>
+    <string name="facebook_app_id">892730931225435</string>
+    <string name="fb_login_protocol_scheme">fb892730931225435</string>
+
+    <string name="appName">Feira de Artesanato</string>
+
+
+    <!-- ERROR TEXT -->
+    <string name="error_field_empty">Este campo tem de estar preenchido!</string>
+    <string name="error_field_password">As passwords tem de ser idênticas!</string>
+    <string name="error_field_invalid_email">O e-mail inserido não é válido!</string>
+    <string name="error_field_data">Email ou password incorretos!</string>
+
+
+    <!-- LABEL TEXT -->
+    <string name="label_sign_in">Entrar</string>
+    <string name="label_sign_up">Registar</string>
+    <string name="label_sign_out">Sair</string>
+    <string name="label_forgot_password">Esqueceu-se da password?</string>
+    <string name="label_recover_password">Recuperar password</string>
+    <string name="label_edit_profile">Editar Perfil</string>
+    <string name="label_edit_artisan">Editar Página</string>
+    <string name="label_payment_plans">Gerir Conta</string>
+    <string name="label_boosts">Impulsos</string>
+    <string name="label_artisan_page">Página de Artesão</string>
+    <string name="label_change_profile_pic">Alterar foto de perfil</string>
+    <string name="label_highlights">Destaques</string>
+    <string name="label_notifications">Notificações</string>
+    <string name="label_profile">Perfil</string>
+    <string name="label_location">Localização</string>
+    <string name="label_events">Eventos</string>
+    <string name="label_explore">Explorar</string>
+    <string name="label_contests">Concursos</string>
+    <string name="label_favourites">Favoritos</string>
+    <string name="label_rankings">Rankings</string>
+    <string name="label_information">Informações</string>
+    <string name="label_badges">Medalhas</string>
+    <string name="label_activity">Atividade</string>
+    <string name="label_gallery">Galeria</string>
+    <string name="label_reviews">Recomendações</string>
+    <string name="label_map">Mapa</string>
+    <string name="label_general_info">Informações Gerais</string>
+    <string name="label_change_password">Alterar password</string>
+    <string name="label_artisans">Artesãos</string>
+    <string name="label_visitors">Visitantes</string>
+    <string name="label_filter">Filtro</string>
+    <string name="label_category">Categoria</string>
+    <string name="label_clear">Limpar</string>
+    <string name="label_open_artisan_page">Criar página de artesão</string>
+    <string name="label_need_login_reviews">Entre na aplicação para ler as recomendações</string>
+    <string name="label_empty_gallery">A galeria está vazia</string>
+    <string name="label_empty_notifications">Não tem notificações</string>
+    <string name="label_empty_reviews">Não tem recomendações</string>
+    <string name="label_empty_favourites">Ainda não adicionou favoritos</string>
+    <string name="label_empty_contests">Não há concursos a decorrer</string>
+    <string name="label_empty_artisan_contests">Não participou em nenhum concurso</string>
+    <string name="label_empty_activity">Sem atividade</string>
+    <string name="label_about">Sobre</string>
+    <string name="label_contacts">Contactos</string>
+    <string name="label_payment_methods">Métodos de Pagamento</string>
+    <string name="label_validated_artisan">Artesão validado</string>
+    <string name="label_non_validated_artisan">Artesão não validado</string>
+    <string name="label_atm">Multibanco</string>
+    <string name="label_mb_way">MB Way</string>
+    <string name="label_comment">Comentários</string>
+
+
+    <!-- HINT TEXT -->
+    <string name="hint_full_name">nome completo</string>
+    <string name="hint_email">e-mail</string>
+    <string name="hint_password">password</string>
+    <string name="hint_confirm_password">confirmar password</string>
+    <string name="hint_phone">telemóvel</string>
+    <string name="hint_add_review">adicione uma recomendação...</string>
+    <string name="hint_add_comment">adicione um comentário...</string>
+    <string name="hint_message">mensagem</string>
+
+
+    <!-- DESCRIPTION TEXT -->
+    <string name="description_go_back">go back</string>
+    <string name="description_submit">submit</string>
+    <string name="description_sign_in_google">google sign in</string>
+    <string name="description_sign_in_facebook">facebook sign in</string>
+    <string name="description_save">save</string>
+    <string name="description_menu">Menu</string>
+    <string name="description_add_favourite">add favourite</string>
+    <string name="description_start_navigation">start navigation</string>
+    <string name="description_filter">filter</string>
+    <string name="description_chat">chat</string>
+    <string name="description_add_star">add star</string>
+
+
+    <!-- PLACEHOLDER TEXT -->
+    <string name="title">Demonstração: Renda de Bilros</string>
+    <string name="text">text</string>
+    <string name="name">name</string>
+    <string name="message">message</string>
+    <string name="time">14:30</string>
+    <string name="location">Pavilhão A</string>
+    <string name="target">Feira Nacional de Artesanato</string>
+    <string name="city">Vila do Conde</string>
+    <string name="value">10</string>
+    <string name="position">4</string>
+    <string name="date">Sáb, 25 de Maio, 2020</string>
+    <string name="description">Nullam accumsan nulla sem, at sollicitudin lacus fringilla at. Nunc ac mollis diam. Praesent pharetra quam nisl, vitae maximus felis convallis ut. Suspendisse potenti. Aliquam luctus consequat fermentum. In aliquam mi diam, a sagittis nisi varius sit amet. Praesent nec posuere nibh. Nunc condimentum id enim sit amet scelerisque. Sed sed aliquet lorem, sit amet rutrum orci. Praesent fermentum mauris in ipsum volutpat, at efficitur nibh convallis.</string>
+    <string name="phone">phone</string>
+    <string name="email">email</string>
+    <string name="empty" />
+
 </resources>

@@ -1,0 +1,94 @@
+<resources>
+
+    <!-- Card Style -->
+    <style name="Card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/card_medium_margin</item>
+        <item name="android:clickable">true</item>
+        <item name="cardElevation">@dimen/dimen_0dp</item>
+        <item name="cardCornerRadius">@dimen/dimen_0dp</item>
+        <item name="cardMaxElevation">@dimen/dimen_0dp</item>
+        <item name="cardBackgroundColor">@color/transparent</item>
+    </style>
+
+    <!-- Home Card Style -->
+    <style name="HomeCard">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_shadow_bg_card_1</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Artisan | Event Card Style -->
+    <style name="ArtisanEventCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/shape_shadow_bg_card_2</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Home | Artisan | Event Card Image Style -->
+    <style name="CardImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:src">@drawable/ic_placeholder_image_grey</item>
+    </style>
+
+    <!-- Home | Artisan | Event Card Title Style -->
+    <style name="CardTitle" parent="Title">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/small_text_margin</item>
+        <item name="android:paddingStart">@dimen/card_small_text_padding</item>
+        <item name="android:paddingEnd">@dimen/card_small_text_padding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:text">@string/title</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+
+    <!-- Home | Artisan | Event Card Text Style -->
+    <style name="CardText" parent="Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">@dimen/card_small_text_margin</item>
+        <item name="android:layout_marginBottom">@dimen/card_small_text_margin</item>
+        <item name="android:paddingStart">@dimen/card_small_text_padding</item>
+        <item name="android:paddingEnd">@dimen/card_small_text_padding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:text">@string/text</item>
+        <item name="android:textSize">@dimen/text_size_10</item>
+    </style>
+
+    <!-- Rectangle White Card Style -->
+    <style name="RectangleCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shape_shadow_white</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">@dimen/card_large_padding</item>
+        <item name="android:paddingEnd">@dimen/card_large_padding</item>
+    </style>
+
+    <!-- Rectangle Card Text Style -->
+    <style name="RectangleCardText" parent="Text">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_weight">0.8</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:singleLine">false</item>
+    </style>
+
+    <!-- Rectangle Card Text Style -->
+    <style name="RectangleCardSmallText" parent="Text">
+        <item name="android:layout_width">15dp</item>
+        <item name="android:layout_gravity">center_vertical|end</item>
+        <item name="android:layout_weight">0.2</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textAlignment">textEnd</item>
+    </style>
+
+</resources>

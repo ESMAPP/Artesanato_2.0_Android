@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.events.EventsListFragment">
+
+    <FrameLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            style="@style/TopBarImage"
+            android:contentDescription="@null" />
+
+        <LinearLayout style="@style/TopBarLayout">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/description_go_back"
+                    android:src="@drawable/btn_arrow_back_color" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:orientation="horizontal">
+
+                <SearchView
+                    android:id="@+id/input_search"
+                    style="@android:style/Widget.Material.Light.SearchView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:iconifiedByDefault="true"
+                    android:searchIcon="@drawable/ic_magnifier_color" />
+
+                <ImageButton
+                    android:id="@+id/btn_filter"
+                    style="@style/ImgBtn"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/description_filter"
+                    android:src="@drawable/ic_filter_color" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/events_list"
+        style="@style/CardGridList"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top"
+        tools:listitem="@layout/cardview_event_list" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

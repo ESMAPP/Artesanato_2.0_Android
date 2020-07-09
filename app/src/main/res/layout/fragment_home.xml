@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_5"
+    tools:context=".view.HomeFragment">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/input_height"
+        android:layout_height="@dimen/input_height"
+        android:layout_marginStart="@dimen/parent_outer_margin"
+        android:layout_marginTop="@dimen/parent_top_margin"
+        android:contentDescription="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_logo_small" />
+
+    <TextView
+        android:id="@+id/top"
+        style="@style/Title"
+        android:layout_width="0dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="@dimen/parent_inner_margin"
+        android:layout_marginTop="@dimen/input_padding"
+        android:layout_marginEnd="@dimen/parent_inner_margin"
+        android:drawableBottom="@drawable/divider_blue"
+        android:text="@string/label_highlights"
+        android:textSize="@dimen/text_size_22"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <HorizontalScrollView
+        android:id="@+id/highlights_cards"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:fadingEdgeLength="50dp"
+        android:requiresFadingEdge="horizontal"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/table_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/parent_inner_margin"
+            android:paddingEnd="@dimen/parent_inner_margin">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/fair_card"
+                style="@style/Card"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="25dp">
+
+                <LinearLayout style="@style/HomeCard">
+
+                    <ImageView
+                        android:id="@+id/fair_cover"
+                        style="@style/CardImage"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:id="@+id/fair_title"
+                        style="@style/CardTitle" />
+
+                    <TextView
+                        android:id="@+id/fair_text"
+                        style="@style/CardText" />
+
+                    <ImageView
+                        style="@style/ImgBtn"
+                        android:layout_gravity="end"
+                        android:contentDescription="@null"
+                        android:paddingStart="@dimen/card_image_padding"
+                        android:paddingEnd="@dimen/card_image_padding"
+                        android:src="@drawable/ic_arrow_foward_grey" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/event_card"
+                style="@style/Card"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="25dp">
+
+                <LinearLayout style="@style/HomeCard">
+
+                    <ImageView
+                        android:id="@+id/event_cover"
+                        style="@style/CardImage"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:id="@+id/event_title"
+                        style="@style/CardTitle" />
+
+                    <TextView
+                        android:id="@+id/event_text"
+                        style="@style/CardText" />
+
+                    <ImageView
+                        style="@style/ImgBtn"
+                        android:layout_gravity="end"
+                        android:contentDescription="@null"
+                        android:paddingStart="@dimen/card_image_padding"
+                        android:paddingEnd="@dimen/card_image_padding"
+                        android:src="@drawable/ic_arrow_foward_grey" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/artisan_card"
+                style="@style/Card"
+                android:layout_width="wrap_content">
+
+                <LinearLayout style="@style/HomeCard">
+
+                    <ImageView
+                        android:id="@+id/artisan_cover"
+                        style="@style/CardImage"
+                        android:contentDescription="@null" />
+
+                    <TextView
+                        android:id="@+id/artisan_title"
+                        style="@style/CardTitle" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/card_small_text_margin"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/card_small_text_padding"
+                        android:paddingEnd="@dimen/card_small_text_padding">
+
+                        <ImageView
+                            style="@style/ImgBtn"
+                            android:layout_height="15dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_cup_color" />
+
+                        <TextView
+                            android:id="@+id/artisan_ranking"
+                            style="@style/Text"
+                            android:layout_marginStart="@dimen/small_text_margin"
+                            android:text="@string/value"
+                            android:textSize="@dimen/text_size_10" />
+
+                        <ImageView
+                            style="@style/ImgBtn"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="20dp"
+                            android:contentDescription="@null"
+                            android:src="@drawable/ic_star_color" />
+
+                        <TextView
+                            android:id="@+id/artisan_reputation"
+                            style="@style/Text"
+                            android:layout_marginStart="@dimen/small_text_margin"
+                            android:text="@string/value"
+                            android:textSize="@dimen/text_size_10" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        style="@style/ImgBtn"
+                        android:layout_gravity="end"
+                        android:contentDescription="@null"
+                        android:paddingStart="@dimen/card_image_padding"
+                        android:paddingEnd="@dimen/card_image_padding"
+                        android:src="@drawable/ic_arrow_foward_grey" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <TableLayout
+        android:id="@+id/table_menu"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="@dimen/parent_inner_bottom_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highlights_cards">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/btn_notifications"
+                        style="@style/ImgBtn"
+                        android:contentDescription="@string/label_notifications"
+                        android:src="@drawable/btn_notifications" />
+
+                    <FrameLayout
+                        android:id="@+id/float_notifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom|end"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/shape_circle_grey"
+                            android:contentDescription="@null" />
+
+                        <TextView
+                            android:id="@+id/text_notifications_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="4dp"
+                            android:paddingStart="0dp"
+                            android:text="0"
+                            android:textAlignment="center" />
+                    </FrameLayout>
+
+                </FrameLayout>
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_notifications" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_profile"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/label_profile"
+                    android:src="@drawable/btn_profile" />
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_profile" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_fair"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/label_location"
+                    android:src="@drawable/btn_location" />
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_location" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_events"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/label_events"
+                    android:src="@drawable/btn_events" />
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_events" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_explore"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/label_explore"
+                    android:src="@drawable/btn_explore" />
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_explore" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_contests"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/label_contests"
+                    android:src="@drawable/btn_contests" />
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_contests" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_favourites"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/label_favourites"
+                    android:src="@drawable/btn_favourites" />
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_favourites" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_rankings"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/label_rankings"
+                    android:src="@drawable/btn_rankings" />
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_rankings" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_info"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/label_information"
+                    android:src="@drawable/btn_info" />
+
+                <TextView
+                    style="@style/MenuText"
+                    android:text="@string/label_information" />
+
+            </LinearLayout>
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

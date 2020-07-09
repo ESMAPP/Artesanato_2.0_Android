@@ -33,15 +33,84 @@
 
     </FrameLayout>
 
+    <!-- TODO: replace fragment tag for FragmentcontainerView instead -->
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top"
         tools:context=".MapsActivity" />
+
+    <FrameLayout
+        android:id="@+id/input"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            style="@style/BottomBarImage"
+            android:layout_width="match_parent"
+            android:background="@drawable/shape_shadow_top"
+            android:contentDescription="@null"
+            android:src="@drawable/bar_bottom_2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/parent_outer_margin"
+            android:paddingEnd="@dimen/parent_outer_margin">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_location_name"
+                    style="@style/Text"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:singleLine="true"
+                    android:text="@string/target"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:id="@+id/text_location_path"
+                    style="@style/Text"
+                    android:singleLine="true"
+                    android:text="@string/city"
+                    android:textSize="@dimen/text_size_12" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/button_start"
+                    style="@style/ImgBtn"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/description_start_navigation"
+
+                    android:src="@drawable/btn_navigate_color" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

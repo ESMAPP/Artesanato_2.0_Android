@@ -33,6 +33,7 @@ import java.util.ArrayList;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 
+/* First map version - currently not being called */
 public class FairLocationFragment extends Fragment
         implements OnMyLocationButtonClickListener,
         OnMyLocationClickListener,
@@ -40,13 +41,14 @@ public class FairLocationFragment extends Fragment
         LocationListener,
         RoutingListener {
 
+    private static final String TAG = "LOCATION_FRAGMENT";
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
-    private final String TAG = "LOCATION_FRAGMENT";
-    private boolean permissionDenied = false;
 
     private GoogleMap mGoogleMap;
     private MapView mMapView;
     private LocationManager locationManager;
+
+    private boolean permissionDenied = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,7 +88,7 @@ public class FairLocationFragment extends Fragment
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-        
+
     }
 
     @Override

@@ -99,7 +99,7 @@ public class MapsFragment extends Fragment {
             googleMap.addMarker(new MarkerOptions()
                     .position(fair)
                     .title("Feira Nacional de Artesanato")
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_target_color)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_target_fill_color)));
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fair, 15));
 
         });

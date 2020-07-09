@@ -81,7 +81,7 @@ public class ChatRepository {
                 .add(message)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        messageSent.set(true);
+                        chatsRef.document(chatId).update("lastMessage", message);
                     }
                 });
 

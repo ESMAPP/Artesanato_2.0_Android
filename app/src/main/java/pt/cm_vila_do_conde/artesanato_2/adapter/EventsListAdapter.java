@@ -1,6 +1,8 @@
 package pt.cm_vila_do_conde.artesanato_2.adapter;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +23,12 @@ import pt.cm_vila_do_conde.artesanato_2.model.Event;
 public class EventsListAdapter extends RecyclerView.Adapter<EventViewHolder> {
     private ArrayList<Event> eventList;
     private NavController navController;
+    private Context context;
 
-    public EventsListAdapter(ArrayList<Event> eventList, NavController navController) {
+    public EventsListAdapter(ArrayList<Event> eventList, NavController navController, Context context) {
         this.eventList = eventList;
         this.navController = navController;
+        this.context = context;
     }
 
     @NonNull
@@ -39,14 +43,11 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventViewHolder> {
         Event event = eventList.get(position);
         holder.title.setText(event.getTitle());
 
-        // TODO: add date to textview
-        /*
-        holder.date.setText(DateUtils.getRelativeDateTimeString(holder,
+        holder.date.setText(DateUtils.getRelativeDateTimeString(context,
                         event.getStartDate().toDate().getTime(),
                         DateUtils.MINUTE_IN_MILLIS,
                         DateUtils.YEAR_IN_MILLIS,
                         0));
-        */
 
         Picasso.get().load(event.getImage())
                 .placeholder(R.drawable.bar_top_placeholder_image)

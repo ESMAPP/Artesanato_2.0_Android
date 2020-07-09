@@ -1,6 +1,8 @@
 package pt.cm_vila_do_conde.artesanato_2.adapter;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +23,12 @@ import pt.cm_vila_do_conde.artesanato_2.model.ChatRoom;
 public class ChatListAdapter extends RecyclerView.Adapter<ChatListViewHolder> {
     private List<ChatRoom> chatList;
     private NavController navController;
+    private Context context;
 
-    public ChatListAdapter(List<ChatRoom> chatList, NavController navController) {
+    public ChatListAdapter(List<ChatRoom> chatList, NavController navController, Context context) {
         this.chatList = chatList;
         this.navController = navController;
-
+        this.context = context;
     }
 
     @NonNull
@@ -46,6 +49,15 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListViewHolder> {
                     .centerCrop()
                     .transform(new CropCircleTransformation())
                     .into(holder.userImage);
+        }
+
+        if(chatRoom.getLastMessage() != null) {
+            holder.lastMessageDate.setText(DateUtils.getRelativeDateTimeString(context,
+                    chatRoom.getLastMessage().getCreatedAt().toDate().getTime(),
+                    DateUtils.MINUTE_IN_MILLIS,
+                    DateUtils.YEAR_IN_MILLIS,
+                    0));
+            holder.lastMessageText.setText(chatRoom.getLastMessage().getText());
         }
 
         holder.cardView.setOnClickListener(v -> navigateToChat(chatRoom.getArtisanId(), chatRoom.getUserId()));

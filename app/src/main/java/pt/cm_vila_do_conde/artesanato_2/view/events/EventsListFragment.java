@@ -99,7 +99,7 @@ public class EventsListFragment extends Fragment {
     private void initObservable() {
         eventsListViewModel.getEventsList().observe(getViewLifecycleOwner(), eventsList -> {
             if (eventsList != null) {
-                eventsListAdapter = new EventsListAdapter(eventsList, navController);
+                eventsListAdapter = new EventsListAdapter(eventsList, navController, requireContext());
                 recyclerView.setAdapter(eventsListAdapter);
             }
         });

@@ -14,11 +14,15 @@ public class ChatListViewHolder extends RecyclerView.ViewHolder {
     public CardView cardView;
     public TextView userName;
     public ImageView userImage;
+    public TextView lastMessageDate;
+    public TextView lastMessageText;
 
     public ChatListViewHolder(@NonNull View itemView) {
         super(itemView);
         cardView = itemView.findViewById(R.id.chat_card);
         userName = itemView.findViewById(R.id.chat_user_name);
         userImage = itemView.findViewById(R.id.chat_user_pic);
+        lastMessageDate = itemView.findViewById(R.id.chat_last_time);
+        lastMessageText = itemView.findViewById(R.id.last_message_text);
     }
 }

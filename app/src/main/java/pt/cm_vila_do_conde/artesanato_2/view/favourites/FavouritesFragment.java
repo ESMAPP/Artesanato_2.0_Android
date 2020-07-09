@@ -23,10 +23,6 @@ public class FavouritesFragment extends Fragment {
     private FragmentFavouritesBinding binding;
     private NavController navController;
 
-    public FavouritesFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentFavouritesBinding.inflate(inflater, container, false);
@@ -38,6 +34,7 @@ public class FavouritesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initNavController();
         initBackBtn();
+        updateUi();
     }
 
     private void initNavController() {
@@ -46,5 +43,9 @@ public class FavouritesFragment extends Fragment {
 
     private void initBackBtn() {
         binding.btnBack.setOnClickListener(v -> navController.popBackStack());
+    }
+
+    private void updateUi(){
+        // binding.emptyFavouritesImage.setVisibility(View.VISIBLE);
     }
 }

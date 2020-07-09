@@ -3,6 +3,7 @@ package pt.cm_vila_do_conde.artesanato_2.repository;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
@@ -18,10 +19,21 @@ public class NotificationsRepository {
 
         usersRef.document(userId)
                 .collection("notifications").addSnapshotListener((docs, e) -> {
-                notifications.postValue(docs.toObjects(Notification.class));
+            notifications.postValue(docs.toObjects(Notification.class));
         });
 
         return notifications;
+    }
+
+    public void clearNotifications(String userId) {
+        usersRef.document(userId).collection("notifications").get().addOnCompleteListener((docs) -> {
+            for (DocumentSnapshot doc : docs.getResult()) {
+                usersRef.document(userId)
+                        .collection("notifications")
+                        .document(doc.getId())
+                        .delete();
+            }
+        });
     }
 
 }

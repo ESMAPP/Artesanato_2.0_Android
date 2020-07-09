@@ -218,11 +218,46 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <ImageButton
-                    android:id="@+id/btn_notifications"
-                    style="@style/ImgBtn"
-                    android:contentDescription="@string/label_notifications"
-                    android:src="@drawable/btn_notifications" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageButton
+                        android:id="@+id/btn_notifications"
+                        style="@style/ImgBtn"
+                        android:contentDescription="@string/label_notifications"
+                        android:src="@drawable/btn_notifications" />
+
+                    <FrameLayout
+                        android:id="@+id/float_notifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="bottom|end"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/shape_circle_grey"
+                            android:contentDescription="@null" />
+
+                        <TextView
+                            android:id="@+id/text_notifications_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="2dp"
+                            android:layout_marginBottom="4dp"
+                            android:paddingStart="0dp"
+                            android:text="0"
+                            android:textAlignment="center" />
+                    </FrameLayout>
+
+                </FrameLayout>
 
                 <TextView
                     style="@style/MenuText"

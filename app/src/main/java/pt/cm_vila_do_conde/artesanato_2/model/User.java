@@ -22,7 +22,7 @@ public class User implements Serializable {
     private ArrayList<String> badges = new ArrayList<>();
     private int ranking;
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
-    private ArrayList<String> contests = new ArrayList<>();
+    private ArrayList<String> contests;
     private Timestamp createdAt = new Timestamp(new Date());
     private Timestamp updatedAt = new Timestamp(new Date());
     @Exclude

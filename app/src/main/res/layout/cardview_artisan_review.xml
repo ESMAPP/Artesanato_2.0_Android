@@ -8,7 +8,8 @@
     <LinearLayout
         style="@style/RectangleCard"
         android:gravity="top"
-        android:padding="@dimen/card_large_padding">
+        android:paddingTop="@dimen/card_small_padding"
+        android:paddingBottom="@dimen/card_large_padding">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -42,10 +43,7 @@
                 style="@style/BlackText"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="10dp"
-                android:text="@string/name"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/review_pic"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="@string/name" />
 
             <TextView
                 android:id="@+id/review_text"
@@ -68,16 +66,16 @@
                     <ImageButton
                         android:id="@+id/btn_like"
                         style="@style/ImgBtn"
-                        app:srcCompat="@drawable/ic_heart_color" />
+                        app:srcCompat="@drawable/ic_heart_color"
+                        android:contentDescription="@null" />
 
                     <TextView
                         android:id="@+id/likes_text"
                         style="@style/Text"
+                        android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/card_small_text_margin"
                         android:text="@string/value"
-                        android:textSize="@dimen/text_size_12"
-                        app:layout_constraintStart_toEndOf="@+id/btn_like"
-                        app:layout_constraintTop_toBottomOf="@+id/review_text" />
+                        android:textSize="@dimen/text_size_12" />
 
                 </LinearLayout>
 
@@ -90,10 +88,9 @@
                     <TextView
                         android:id="@+id/review_date"
                         style="@style/Text"
+                        android:layout_height="match_parent"
                         android:text="@string/date"
-                        android:textSize="@dimen/text_size_12"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        android:textSize="@dimen/text_size_12" />
 
                 </LinearLayout>
 

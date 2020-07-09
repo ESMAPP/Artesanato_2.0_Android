@@ -43,12 +43,6 @@ public class ArtisanContestsFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        setBackground();
-    }
-
-    @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArtisanContestsBinding.inflate(inflater, container, false);
         return binding.getRoot();

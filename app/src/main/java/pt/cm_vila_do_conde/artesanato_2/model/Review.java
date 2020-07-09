@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Review implements Serializable {
+    @Exclude
+    private String id;
     private String userId;
     @Exclude
     private User userInfo;
@@ -18,7 +20,7 @@ public class Review implements Serializable {
     public Review() {
     }
 
-    public Review(String userId, String text){
+    public Review(String userId, String text) {
         this.userId = userId;
         this.message = text;
     }
@@ -32,8 +34,23 @@ public class Review implements Serializable {
     }
 
     @Exclude
+    public String getId() {
+        return id;
+    }
+
+    @Exclude
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Exclude
     public User getUserInfo() {
         return userInfo;
+    }
+
+    @Exclude
+    public void setUserInfo(User userInfo) {
+        this.userInfo = userInfo;
     }
 
     public Timestamp getCreatedAt() {
@@ -42,11 +59,6 @@ public class Review implements Serializable {
 
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
-    }
-
-    @Exclude
-    public void setUserInfo(User userInfo) {
-        this.userInfo = userInfo;
     }
 
     public String getUserId() {

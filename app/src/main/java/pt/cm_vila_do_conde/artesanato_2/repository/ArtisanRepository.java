@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -28,7 +29,7 @@ public class ArtisanRepository {
 
         query.addSnapshotListener((task, e) -> {
             ArrayList<Artisan> fetchedArtisans = new ArrayList<>();
-            if(task != null) {
+            if (task != null) {
                 for (DocumentSnapshot doc : task.getDocuments()) {
                     Artisan artisan = doc.toObject(Artisan.class);
                     artisan.setUid(doc.getId());
@@ -71,12 +72,15 @@ public class ArtisanRepository {
 
         artisansRef.document(artisanId).collection("reviews")
                 .addSnapshotListener((task, e) -> {
-                    List<Review> tempReviews = task.toObjects(Review.class);
-                    for (Review review : tempReviews) {
+                    List<Review> tempReviews = new ArrayList<>();
+                    for (DocumentSnapshot doc : task.getDocuments()) {
+                        Review review = doc.toObject(Review.class);
+                        review.setId(doc.getId());
                         usersRef.document(review.getUserId()).addSnapshotListener((userTask, err) -> {
                             User user = userTask.toObject(User.class);
                             review.setUserInfo(user);
                         });
+                        tempReviews.add(review);
                     }
                     fetchedReviews.setValue(tempReviews);
                 });
@@ -87,5 +91,17 @@ public class ArtisanRepository {
     public void submitReview(String text, String userId, String artisanId) {
         Review review = new Review(userId, text);
         artisansRef.document(artisanId).collection("reviews").add(review);
+    }
+
+    public void likeReview(User user, Artisan artisan, Review review) {
+        if(review.getLikes().contains(user.getUid())) {
+            artisansRef.document(artisan.getUid())
+                    .collection("reviews")
+                    .document(review.getId()).update("likes", FieldValue.arrayRemove(user.getUid()));
+        } else {
+            artisansRef.document(artisan.getUid())
+                    .collection("reviews")
+                    .document(review.getId()).update("likes", FieldValue.arrayUnion(user.getUid()));
+        }
     }
 }

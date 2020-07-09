@@ -14,14 +14,15 @@
     <dimen name="large_pic_size">75dp</dimen>
     <dimen name="large_frame_size">85dp</dimen>
     <dimen name="medium_pic_size">30dp</dimen>
-    <dimen name="medium_frame_size">35dp</dimen>
+    <dimen name="medium_frame_size">36dp</dimen>
     <dimen name="small_pic_size">26dp</dimen>
     <dimen name="small_frame_size">30dp</dimen>
 
     <dimen name="shape_round_corners">10dp</dimen>
 
     <dimen name="parent_top_margin">24dp</dimen>
-    <dimen name="parent_bottom_margin">20dp</dimen>
+    <dimen name="parent_outer_bottom_margin">10dp</dimen>
+    <dimen name="parent_inner_bottom_margin">20dp</dimen>
     <dimen name="parent_outer_margin">30dp</dimen>
     <dimen name="parent_inner_margin">40dp</dimen>
 
@@ -31,10 +32,20 @@
     <dimen name="input_margin">20dp</dimen>
     <dimen name="input_padding">20dp</dimen>
 
+    <dimen name="btn_margin">5dp</dimen>
+
+    <dimen name="card_small_margin">6dp</dimen>
+    <dimen name="card_medium_margin">10dp</dimen>
+    <dimen name="card_large_margin">16dp</dimen>
     <dimen name="card_padding">20dp</dimen>
-    <dimen name="card_text_margin">4dp</dimen>
-    <dimen name="card_text_padding">10dp</dimen>
+
+    <dimen name="card_small_text_margin">4dp</dimen>
+    <dimen name="card_small_text_padding">10dp</dimen>
     <dimen name="card_image_padding">8dp</dimen>
+
+    <dimen name="medium_text_margin">6dp</dimen>
+    <dimen name="text_margin">20dp</dimen>
+    <dimen name="text_padding">10dp</dimen>
 
     <dimen name="text_size_10">10sp</dimen>
     <dimen name="text_size_12">12sp</dimen>

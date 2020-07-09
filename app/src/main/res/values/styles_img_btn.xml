@@ -8,18 +8,58 @@
         <item name="android:adjustViewBounds">true</item>
     </style>
 
-    <!-- Form Btn Style -->
-    <style name="BtnForm" parent="ImgBtn">
-        <item name="android:layout_gravity">end</item>
-        <item name="android:layout_marginTop">@dimen/input_padding</item>
-    </style>
-
     <!-- Round Top Bar Image Style -->
     <style name="RoundTopBarImage" parent="ImgBtn">
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@drawable/shape_shadow_bottom_round</item>
         <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/bar_top_2</item>
+    </style>
 
+    <!-- Top Bar Image Style -->
+    <style name="TopBarImage" parent="ImgBtn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/shape_shadow_bottom</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/bar_top_1</item>
+    </style>
+
+    <!-- Bottom Bar Image Style -->
+    <style name="BottomBarImage" parent="ImgBtn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:background">@drawable/shape_shadow_top</item>
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:src">@drawable/bar_bottom_1</item>
+    </style>
+
+    <!-- Profile Image Style -->
+    <style name="ProfileImage">
+        <item name="android:layout_width">@dimen/profile_pic_size</item>
+        <item name="android:layout_height">@dimen/profile_pic_size</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:src">@drawable/ic_placeholder_user_pic</item>
+    </style>
+
+    <!-- Form Btn Style -->
+    <style name="FormBtn" parent="ImgBtn">
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginTop">@dimen/input_padding</item>
+    </style>
+
+    <!-- Favourite Btn Style -->
+    <style name="FavouriteBtn" parent="ImgBtn">
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginTop">@dimen/btn_margin</item>
+        <item name="android:layout_marginEnd">@dimen/btn_margin</item>
+    </style>
+
+    <!-- Floating Bottom Btn Style -->
+    <style name="FloatingBottomBtn" parent="ImgBtn">
+        <item name="android:layout_marginEnd">@dimen/parent_outer_margin</item>
+        <item name="android:layout_marginBottom">@dimen/parent_outer_bottom_margin</item>
+        <item name="android:layout_gravity">end</item>
     </style>
 
     <!-- Input Style -->

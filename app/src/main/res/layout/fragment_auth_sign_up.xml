@@ -50,9 +50,9 @@
 
         <ImageButton
             android:id="@+id/btn_submit"
-            style="@style/BtnForm"
+            style="@style/FormBtn"
             android:contentDescription="@string/description_submit"
-            app:srcCompat="@drawable/btn_arrow_color" />
+            android:src="@drawable/btn_arrow_color" />
 
     </LinearLayout>
 

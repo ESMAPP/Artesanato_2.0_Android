@@ -1,29 +1,5 @@
 <resources>
 
-    <!-- Tab Layout Style -->
-    <style name="TabLayout" parent="Widget.Design.TabLayout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/shape_underline_grey</item>
-        <item name="tabIndicatorColor">@color/primaryBlue</item>
-        <item name="tabIndicatorFullWidth">true</item>
-        <item name="tabIndicatorHeight">2dp</item>
-        <item name="tabIndicatorGravity">bottom</item>
-        <item name="tabRippleColor">@color/transparent</item>
-        <item name="tabSelectedTextColor">@color/black</item>
-    </style>
-
-    <!-- Tab Large Title Style -->
-    <style name="LargeTabLayout" parent="TabLayout">
-        <item name="tabTextAppearance">@style/LargeTabTitle</item>
-    </style>
-
-    <!-- Tab Small Title Style -->
-    <style name="SmallTabLayout" parent="TabLayout">
-        <item name="tabTextAppearance">@style/SmallTabTitle</item>
-        <item name="tabPaddingBottom">-10dp</item>
-    </style>
-
     <!-- Black Title Style -->
     <style name="Title">
         <item name="android:layout_width">wrap_content</item>
@@ -65,6 +41,26 @@
     <!-- Menu Text Style -->
     <style name="MenuText" parent="Text">
         <item name="android:textSize">@dimen/text_size_12</item>
+    </style>
+
+    <!-- Text with Drawable Style -->
+    <style name="drawableText" parent="Text">
+        <item name="android:layout_marginEnd">@dimen/medium_text_margin</item>
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:text">@string/value</item>
+    </style>
+
+    <!-- Label Text Style -->
+    <style name="LabelText" parent="Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+    </style>
+
+    <!-- Filter Label Text Style -->
+    <style name="FilterText" parent="LabelText">
+        <item name="android:fontFamily">@font/quicksand_medium</item>
     </style>
 
 </resources>

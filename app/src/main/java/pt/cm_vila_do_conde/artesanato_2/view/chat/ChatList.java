@@ -22,17 +22,20 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentChatListBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.ChatRoom;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ChatViewModel;
 
+
 public class ChatList extends Fragment {
-    private static final String TAG = "CHAT_FRAGMENT";
+    private static final String TAG = "CHAT_LIST";
     private static final String ARTISAN_ID = "artisanId";
 
-    private ChatViewModel chatViewModel;
-    private NavController navController;
-
     private FragmentChatListBinding binding;
+    private NavController navController;
+    private ChatViewModel chatViewModel;
 
     private String artisanId;
 
+    public ChatList() {
+        // Required empty public constructor
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,7 @@ public class ChatList extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initNavController();
+        initBackBtn();
         initObservable();
     }
 
@@ -69,6 +73,10 @@ public class ChatList extends Fragment {
 
     private void initNavController() {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+    }
+
+    private void initBackBtn() {
+        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
     }
 
     private void fetchChatList() {

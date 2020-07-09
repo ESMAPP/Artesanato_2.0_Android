@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".view.favourites.FavouritesEmptyFragment">
 
+    <!-- TODO: check if can be replace with one common empty fragment -->
+    <!-- TODO: replace layout with textview with drawable -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +21,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_placeholder_heart_color" />
+            android:src="@drawable/ic_placeholder_heart_color" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".view.artisans.gallery.ArtisanGalleryEmptyFragment">
 
+    <!-- TODO: check if can be replace with one common empty fragment -->
+    <!-- TODO: replace layout with textview with drawable -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

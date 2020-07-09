@@ -1,68 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/card_holder_event"
+    android:id="@+id/card_event"
     style="@style/Card"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:clickable="true"
-    android:focusable="true">
+    android:layout_margin="@dimen/card_medium_margin">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/shape_shadow_bg_card_2"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+    <LinearLayout style="@style/ArtisanEventCard">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/card_event_cover"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_gravity="center_horizontal"
-                android:adjustViewBounds="true"
+                android:id="@+id/image_event_cover"
+                style="@style/CardImage"
                 android:contentDescription="@null"
-                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/ic_placeholder_image_color" />
 
             <ImageButton
-                android:id="@+id/btn_add_favourite"
-                style="@style/ImgBtn"
-                android:layout_gravity="end"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
+                android:id="@+id/button_add_favourite"
+                style="@style/FavouriteBtn"
                 android:contentDescription="@string/description_add_favourite"
                 app:srcCompat="@drawable/ic_heart_white" />
 
         </FrameLayout>
 
         <TextView
-            android:id="@+id/card_event_title"
-            style="@style/Title"
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:singleLine="true"
-            android:text="@string/title"
-            android:textSize="@dimen/text_size_12" />
+            android:id="@+id/text_event_title"
+            style="@style/CardTitle" />
 
         <TextView
-            android:id="@+id/card_event_text"
-            style="@style/Text"
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/card_text_margin"
-            android:layout_marginBottom="16dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:singleLine="true"
-            android:text="@string/city"
-            android:textSize="@dimen/text_size_10" />
+            android:id="@+id/text_event_text"
+            style="@style/CardText"
+            android:layout_marginBottom="@dimen/card_large_margin" />
 
     </LinearLayout>
 

@@ -81,7 +81,7 @@ public class ProfileFragment extends Fragment implements PopupMenu.OnMenuItemCli
             case R.id.edit_profile:
                 navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
                 return true;
-            case R.id.signOut:
+            case R.id.sign_out:
                 sharedUserViewModel.signOut();
                 navController.navigate(R.id.homeFragment);
                 return true;

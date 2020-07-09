@@ -232,7 +232,8 @@
                         android:id="@+id/float_notifications"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_gravity="bottom|end">
+                        android:layout_gravity="bottom|end"
+                        android:visibility="gone">
 
                         <ImageView
                             android:id="@+id/imageView"

@@ -72,6 +72,7 @@ public class ArtisanRepository {
         MutableLiveData<List<Review>> fetchedReviews = new MutableLiveData<>();
 
         artisansRef.document(artisanId).collection("reviews")
+                .orderBy("createdAt", Query.Direction.DESCENDING)
                 .addSnapshotListener((task, e) -> {
                     List<Review> tempReviews = new ArrayList<>();
                     for (DocumentSnapshot doc : task.getDocuments()) {

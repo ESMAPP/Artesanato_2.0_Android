@@ -1,6 +1,5 @@
 package pt.cm_vila_do_conde.artesanato_2.view;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -25,17 +24,19 @@ import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentHomeBinding;
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.model.Event;
+import pt.cm_vila_do_conde.artesanato_2.model.User;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.HomeViewModel;
+import pt.cm_vila_do_conde.artesanato_2.viewmodel.NotificationsViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class HomeFragment extends Fragment {
-    private String TAG = "HOME";
-
     LinearLayoutManager layoutManager;
+    private String TAG = "HOME";
     private FragmentHomeBinding binding;
     private NavController navController;
     private HomeViewModel homeViewModel;
     private SharedUserViewModel sharedUserViewModel;
+    private NotificationsViewModel notificationsViewModel;
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initUserViewModel();
         initHomeViewModel();
+        initNotificationViewModel();
 
         getFairEvent();
         getUpcomingEvent();
@@ -100,10 +102,17 @@ public class HomeFragment extends Fragment {
         homeViewModel = new ViewModelProvider(requireActivity()).get(HomeViewModel.class);
     }
 
+    private void initNotificationViewModel() {
+        notificationsViewModel = new ViewModelProvider(requireActivity()).get(NotificationsViewModel.class);
+    }
+
     private void checkIfUserIsAuthenticated() {
         sharedUserViewModel.checkIfUserIsAuthenticated();
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
-            if (user.isAuthenticated()) getUserFromDatabase(user.getUid());
+            if (user.isAuthenticated()) {
+                getUserFromDatabase(user.getUid());
+                handleNotificationUi(user);
+            }
         });
     }
 
@@ -197,6 +206,18 @@ public class HomeFragment extends Fragment {
 
     private void goToNotifications() {
         navController.navigate(R.id.action_homeFragment_to_notificationsFragment);
+    }
+
+    private void handleNotificationUi(User user) {
+        notificationsViewModel.fetchUserNotifications(user.getUid());
+        notificationsViewModel.getNotifications().observe(getViewLifecycleOwner(), notifications -> {
+            if (notifications.size() > 0) {
+                binding.floatNotifications.setVisibility(View.VISIBLE);
+                binding.textNotificationsNumber.setText(String.valueOf(notifications.size()));
+            } else {
+                binding.floatNotifications.setVisibility(View.GONE);
+            }
+        });
     }
 
     // TODO: refactor this in the future

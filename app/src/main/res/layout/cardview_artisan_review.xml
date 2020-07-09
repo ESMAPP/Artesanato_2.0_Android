@@ -6,9 +6,9 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        style="@style/ReviewCard"
-        android:layout_height="wrap_content"
-        android:gravity="top">
+        style="@style/RectangleCard"
+        android:gravity="top"
+        android:padding="@dimen/card_padding">
 
         <FrameLayout
             android:layout_width="wrap_content"

@@ -58,6 +58,7 @@
         <item name="android:orientation">horizontal</item>
     </style>
 
+    <!-- TODO: check if needs padding -->
     <!-- Recycler View Style -->
     <style name="RecyclerViewList">
         <item name="android:layout_width">0dp</item>
@@ -65,7 +66,7 @@
         <item name="android:fadingEdgeLength">25dp</item>
         <item name="android:paddingStart">@dimen/scroll_inner_padding</item>
         <item name="android:paddingEnd">@dimen/scroll_inner_padding</item>
-        <item name="android:requiresFadingEdge">vertical</item> /// add padding??
+        <item name="android:requiresFadingEdge">vertical</item>
     </style>
 
 </resources>

@@ -130,6 +130,14 @@
                     style="@style/TabItem"
                     android:text="@string/label_reviews" />
 
+                <com.google.android.material.tabs.TabItem
+                    style="@style/TabItem"
+                    android:text="@string/label_contests" />
+
+                <com.google.android.material.tabs.TabItem
+                    style="@style/TabItem"
+                    android:text="@string/label_about" />
+
             </com.google.android.material.tabs.TabLayout>
 
         </LinearLayout>

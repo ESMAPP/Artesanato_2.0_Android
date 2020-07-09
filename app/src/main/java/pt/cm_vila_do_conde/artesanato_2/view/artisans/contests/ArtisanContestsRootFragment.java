@@ -1,24 +1,21 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisans.contests;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery.ArtisanGalleryEmptyFragment;
-import pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery.ArtisanGalleryFragment;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
 
 public class ArtisanContestsRootFragment extends Fragment {
-    private String TAG = "ARTISAN_CONTESTS";
+    private String TAG = "ARTISAN_CONTESTS_ROOT";
 
     private ArtisanPageViewModel artisanPageViewModel;
 

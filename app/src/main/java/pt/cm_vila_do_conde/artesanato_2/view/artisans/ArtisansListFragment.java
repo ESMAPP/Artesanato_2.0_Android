@@ -19,6 +19,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
+import org.jetbrains.annotations.NotNull;
+
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ArtisansListAdapter;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisansListBinding;
@@ -47,7 +49,7 @@ public class ArtisansListFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArtisansListBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }

@@ -23,7 +23,7 @@ import pt.cm_vila_do_conde.artesanato_2.model.ChatRoom;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ChatViewModel;
 
 
-public class ChatList extends Fragment {
+public class ChatListFragment extends Fragment {
     private static final String TAG = "CHAT_LIST";
     private static final String ARTISAN_ID = "artisanId";
 
@@ -33,7 +33,7 @@ public class ChatList extends Fragment {
 
     private String artisanId;
 
-    public ChatList() {
+    public ChatListFragment() {
         // Required empty public constructor
     }
 

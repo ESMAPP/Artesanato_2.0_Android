@@ -23,7 +23,7 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class ArtisanReviewsAuthenticatedFragment extends Fragment {
-    private static final String TAG = "AUTHENTICATED_REVIEWS";
+    private static final String TAG = "ARTISAN_AUTHENTICATED_REVIEWS";
 
     private FragmentArtisanReviewsAuthenticatedBinding binding;
     private NavController navController;
@@ -37,11 +37,13 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "create");
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume");
         setBackground();
         initRecyclerView();
     }
@@ -49,6 +51,7 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView");
         binding = FragmentArtisanReviewsAuthenticatedBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -56,7 +59,8 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setBackground();
+        Log.d(TAG, "onViewCreated");
+        //setBackground();
         initNavController();
         initArtisanViewModel();
         initSharedUserViewModel();
@@ -64,6 +68,7 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     }
 
     private void setBackground() {
+        Log.d(TAG, "color");
         requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
     }
 

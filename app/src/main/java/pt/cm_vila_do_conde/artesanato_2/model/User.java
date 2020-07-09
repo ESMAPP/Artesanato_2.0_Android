@@ -19,10 +19,10 @@ public class User implements Serializable {
     private String name;
     private String profilePic = "null"; /* TODO: set initial profile pic to placeholder */
     private int reputation = 0;
-    private ArrayList<String> badges;
-    private int ranking = -1; // -1 = Unranked /* TODO: get last user ranking position */
+    private ArrayList<String> badges = new ArrayList<>();
+    private int ranking;
     private int type = 3; // 1 - Admin, 2 - Artisan, 3 - Visitor || Defaults to: 3
-    private ArrayList<String> contests;
+    private ArrayList<String> contests = new ArrayList<>();
     private Timestamp createdAt = new Timestamp(new Date());
     private Timestamp updatedAt = new Timestamp(new Date());
     @Exclude

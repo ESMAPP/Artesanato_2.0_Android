@@ -14,8 +14,11 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+
+import java.util.List;
 
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 
@@ -118,13 +121,17 @@ public class AuthRepository {
             if (uidTask.isSuccessful()) {
                 DocumentSnapshot document = uidTask.getResult();
                 if (!document.exists()) {
-                    uidRef.set(authenticatedUser).addOnCompleteListener(userCreationTask -> {
-                        if (userCreationTask.isSuccessful()) {
-                            authenticatedUser.setCreated(true);
-                            newUserMutableLiveData.setValue(authenticatedUser);
-                        } else {
-                            System.out.println(userCreationTask.getException().getMessage());
-                        }
+                    usersRef.orderBy("ranking", Query.Direction.DESCENDING).limit(1).get().addOnCompleteListener(task -> {
+                        List<User> userList = task.getResult().toObjects(User.class);
+                        authenticatedUser.setRanking(userList.get(0).getRanking() + 1);
+                        uidRef.set(authenticatedUser).addOnCompleteListener(userCreationTask -> {
+                            if (userCreationTask.isSuccessful()) {
+                                authenticatedUser.setCreated(true);
+                                newUserMutableLiveData.setValue(authenticatedUser);
+                            } else {
+                                System.out.println(userCreationTask.getException().getMessage());
+                            }
+                        });
                     });
                 } else {
                     newUserMutableLiveData.setValue(authenticatedUser);
@@ -155,8 +162,18 @@ public class AuthRepository {
                             User user = new User(uid, userName, userEmail, userProfilePic);
 
                             DocumentReference uidRef = usersRef.document(uid);
-                            uidRef.set(user);
-                            newUserMutableLiveData.setValue(user);
+                            usersRef.orderBy("ranking", Query.Direction.DESCENDING).limit(1).get().addOnCompleteListener(task -> {
+                                List<User> userList = task.getResult().toObjects(User.class);
+                                user.setRanking(userList.get(0).getRanking() +  1);
+                                uidRef.set(user).addOnCompleteListener(userCreationTask -> {
+                                    if (userCreationTask.isSuccessful()) {
+                                        user.setCreated(true);
+                                        newUserMutableLiveData.setValue(user);
+                                    } else {
+                                        System.out.println(userCreationTask.getException().getMessage());
+                                    }
+                                });
+                            });
                         }
                     } else {
                         Log.w(TAG, "signUpWithEmail:failure", authTask.getException());

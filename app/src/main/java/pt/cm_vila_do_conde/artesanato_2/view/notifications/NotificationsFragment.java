@@ -49,6 +49,7 @@ public class NotificationsFragment extends Fragment {
         initNotificationsViewModel();
         initUserViewModel();
         fetchNotifications();
+        initClearBtn();
     }
 
     private void initNavController() {
@@ -70,15 +71,29 @@ public class NotificationsFragment extends Fragment {
     private void fetchNotifications() {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
             notificationsViewModel.fetchUserNotifications(user.getUid());
-            notificationsViewModel.getNotifications().observe(getViewLifecycleOwner(), this::updateRecyclerView);
+            notificationsViewModel.getNotifications().observe(getViewLifecycleOwner(), this::updateUi);
         });
     }
 
-    private void updateRecyclerView(List<Notification> notificationList) {
+    private void initClearBtn(){
+        binding.btnClear.setOnClickListener(v -> {
+            sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
+                notificationsViewModel.clearNotifications(user.getUid());
+            });
+        });
+    }
+
+    private void updateUi(List<Notification> notificationList) {
         RecyclerView recyclerView = binding.notificationsList;
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
         NotificationsAdapter adapter = new NotificationsAdapter(notificationList, navController);
         recyclerView.setAdapter(adapter);
         recyclerView.post(adapter::notifyDataSetChanged);
+        if(notificationList.size() == 0) {
+            binding.emptyNotificationsImage.setVisibility(View.VISIBLE);
+        } else {
+            binding.emptyNotificationsImage.setVisibility(View.GONE);
+        }
+
     }
 }

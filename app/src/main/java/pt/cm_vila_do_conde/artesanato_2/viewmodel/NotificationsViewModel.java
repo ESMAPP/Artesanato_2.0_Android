@@ -28,4 +28,8 @@ public class NotificationsViewModel extends AndroidViewModel {
     public MutableLiveData<List<Notification>> getNotifications() {
         return notifications;
     }
+
+    public void clearNotifications(String userId){
+        notificationsRepository.clearNotifications(userId);
+    }
 }

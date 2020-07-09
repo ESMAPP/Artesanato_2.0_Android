@@ -11,29 +11,47 @@
 Since 1978, Portugal's National Artisans Fair has been held by the Municipality of Vila do Conde, in partnership with the Association for the Defence of Crafts and Patrimony of Vila do Conde.
 
 Our challenge was to create an application that would allow our visitors to have real time access to all the different events, artisan booths and activities carried out during the fair.
-
+<br />
+<br />
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your computer.
-
+<br />
+<br />
 
 ### Prerequisites
 
 * Android Studio
 * Firebase CLI
-
+<br />
 
 ## How to setup
-* Open Android Studio and clone the repo. 
+
+* Open Android Studio and clone the repo.
+<br />
 
 ## Built With
 
 * [Firebase](https://firebase.google.com/) - Cloud Hosting and NoSQL Database
 * [Android Studio](https://developer.android.com/studio) - Android IDE
+<br />
+
+## UI / UX
+
+https://www.behance.net/gallery/99300747/UIUX-Artisans-Fair-app
+<br />
+<br />
+
+## Team
+
+| <a href="https://github.com/ImInYourPie" target="_blank">**Miguel Melo**</a> | <a href="https://github.com/ImInYourPie" target="_blank">**Mariana Moreira**</a> | <a href="http://fvcproductions.com" target="_blank">**Filipe Pereira**</a> |
+| :---: |:---:| :---:|
+| [![Miguel Melo](https://avatars1.githubusercontent.com/u/36893864?s=400&u=cdb4be84f867df38cb3eb2bc6c76c903c354eb7d&v=4?s=200)](https://github.com/ImInYourPie)    | [![Mariana Moreira](https://avatars3.githubusercontent.com/u/36939083?s=460&u=cab2df8877579c6ef0340a859c6aa9a5602d7f11&v=4?s=200)](https://github.com/solecity) | [![Filipe Pereira](https://avatars1.githubusercontent.com/u/36936726?s=400&u=4cbb0b22e446028c7aa9932fea635e309069b830&v=4?s=200)](https://github.com/fspereiraDev)  |
+| <a href="http://github.com/ImInYourPie" target="_blank">`github.com/ImInYourPie`</a> | <a href="http://github.com/solecity" target="_blank">`github.com/solecity`</a> | <a href="http://github.com/fspereiraDev" target="_blank">`github.com/fspereiraDev`</a> |
 
 
 ## Authors
-* **Filipe Pereira - filipe-pereira95@hotmail.com**
-* **Mariana Moreira - marianaccmoreira@gmail.com**
-* **Miguel Melo - d.miguel.melo@gmail.com**
+* **Miguel Melo**     - d.miguel.melo@gmail.com
+* **Mariana Moreira** - marianaccmoreira@gmail.com
+* **Filipe Pereira**  - filipe-pereira95@hotmail.com

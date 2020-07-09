@@ -91,7 +91,7 @@ public class ChatListFragment extends Fragment {
         RecyclerView recyclerView = binding.chatListRecycler;
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
-        ChatListAdapter adapter = new ChatListAdapter(chatList, navController);
+        ChatListAdapter adapter = new ChatListAdapter(chatList, navController, requireContext());
         recyclerView.setAdapter(adapter);
         recyclerView.post(adapter::notifyDataSetChanged);
     }

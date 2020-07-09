@@ -210,7 +210,6 @@ public class AuthRepository {
                 System.out.println(userTask.getException().getMessage());
             }
         });
-
         return userMutableLiveData;
     }
 

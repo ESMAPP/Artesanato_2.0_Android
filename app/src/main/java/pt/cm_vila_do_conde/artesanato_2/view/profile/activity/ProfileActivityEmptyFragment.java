@@ -16,7 +16,7 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentViewPagerEmptyBindin
 
 
 public class ProfileActivityEmptyFragment extends Fragment {
-    private String TAG = "PROFILE_ACTIVITY";
+    private String TAG = "PROFILE_ACTIVITY_EMPTY";
 
     private FragmentViewPagerEmptyBinding binding;
 

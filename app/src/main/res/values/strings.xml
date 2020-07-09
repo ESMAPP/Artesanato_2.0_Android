@@ -56,6 +56,10 @@
     <string name="label_empty_artisan_contests">Não participou em nenhum concurso</string>
     <string name="label_empty_activity">Sem atividade</string>
     <string name="label_about">Sobre</string>
+    <string name="label_contacts">Contactos</string>
+    <string name="label_payment_methods">Métodos de Pagamento</string>
+    <string name="label_validated_artisan">Artesão validado</string>
+    <string name="label_non_validated_artisan">Artesão não validado</string>
 
 
     <!-- HINT TEXT -->
@@ -85,14 +89,20 @@
     <string name="title">title</string>
     <string name="text">text</string>
     <string name="name">name</string>
-    <string name="city">city</string>
     <string name="message">message</string>
     <string name="time">time</string>
-    <string name="target">target</string>
+    <string name="target">Feira Nacional de Artesanato</string>
+    <string name="city">Vila do Conde</string>
     <string name="value">100</string>
     <string name="position">4</string>
     <string name="date">date</string>
+    <string name="description">Nullam accumsan nulla sem, at sollicitudin lacus fringilla at. Nunc ac mollis diam. Praesent pharetra quam nisl, vitae maximus felis convallis ut. Suspendisse potenti. Aliquam luctus consequat fermentum. In aliquam mi diam, a sagittis nisi varius sit amet. Praesent nec posuere nibh. Nunc condimentum id enim sit amet scelerisque. Sed sed aliquet lorem, sit amet rutrum orci. Praesent fermentum mauris in ipsum volutpat, at efficitur nibh convallis.</string>
+    <string name="phone">phone</string>
+    <string name="email">email</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_atm">Multibanco</string>
+    <string name="label_mb_way">MB Way</string>
 </resources>

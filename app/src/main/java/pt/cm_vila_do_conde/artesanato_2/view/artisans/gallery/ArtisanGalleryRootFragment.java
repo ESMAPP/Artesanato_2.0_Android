@@ -1,20 +1,21 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
 public class ArtisanGalleryRootFragment extends Fragment {
+    private String TAG = "ARTISAN_GALLERY_ROOT";
+
     private ArtisanPageViewModel artisanPageViewModel;
 
     public ArtisanGalleryRootFragment() {
@@ -39,13 +40,13 @@ public class ArtisanGalleryRootFragment extends Fragment {
         handleView();
     }
 
-    private void initArtisanViewModel(){
+    private void initArtisanViewModel() {
         artisanPageViewModel = new ViewModelProvider(requireActivity()).get(ArtisanPageViewModel.class);
     }
 
-    private void handleView(){
+    private void handleView() {
         artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
-            if(artisan.getGallery() != null) {
+            if (artisan.getGallery() != null) {
                 ArtisanGalleryFragment artisanGalleryFragment = new ArtisanGalleryFragment();
                 this.getChildFragmentManager().beginTransaction()
                         .replace(R.id.root_gallery, artisanGalleryFragment, null)

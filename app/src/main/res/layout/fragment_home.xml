@@ -58,26 +58,25 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/fair_card"
+                style="@style/Card"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                app:cardElevation="@dimen/dimen_0dp">
+                android:layout_marginEnd="25dp">
 
                 <LinearLayout style="@style/HomeCard">
 
                     <ImageView
                         android:id="@+id/fair_cover"
-                        style="@style/HomeCardImage"
+                        style="@style/CardImage"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/card_cover" />
+                        app:srcCompat="@drawable/ic_placeholder_image_color" />
 
                     <TextView
                         android:id="@+id/fair_title"
-                        style="@style/HomeCardTitle" />
+                        style="@style/CardTitle" />
 
                     <TextView
                         android:id="@+id/fair_text"
-                        style="@style/HomeCardText" />
+                        style="@style/CardText" />
 
                     <ImageView
                         style="@style/ImgBtn"
@@ -93,26 +92,25 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/event_card"
+                style="@style/Card"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="25dp"
-                app:cardElevation="@dimen/dimen_0dp">
+                android:layout_marginEnd="25dp">
 
                 <LinearLayout style="@style/HomeCard">
 
                     <ImageView
                         android:id="@+id/event_cover"
-                        style="@style/HomeCardImage"
+                        style="@style/CardImage"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/card_cover" />
+                        app:srcCompat="@drawable/ic_placeholder_image_color" />
 
                     <TextView
                         android:id="@+id/event_title"
-                        style="@style/HomeCardTitle" />
+                        style="@style/CardTitle" />
 
                     <TextView
                         android:id="@+id/event_text"
-                        style="@style/HomeCardText" />
+                        style="@style/CardText" />
 
                     <ImageView
                         style="@style/ImgBtn"
@@ -128,25 +126,59 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/artisan_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:cardElevation="@dimen/dimen_0dp">
+                style="@style/Card"
+                android:layout_width="wrap_content">
 
                 <LinearLayout style="@style/HomeCard">
 
                     <ImageView
                         android:id="@+id/artisan_cover"
-                        style="@style/HomeCardImage"
+                        style="@style/CardImage"
                         android:contentDescription="@null"
-                        app:srcCompat="@drawable/card_cover" />
+                        app:srcCompat="@drawable/ic_placeholder_image_color" />
 
                     <TextView
                         android:id="@+id/artisan_title"
-                        style="@style/HomeCardTitle" />
+                        style="@style/CardTitle" />
 
-                    <TextView
-                        android:id="@+id/artisan_text"
-                        style="@style/HomeCardText" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="@dimen/card_small_text_margin"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/card_small_text_padding"
+                        android:paddingEnd="@dimen/card_small_text_padding">
+
+                        <ImageView
+                            style="@style/ImgBtn"
+                            android:layout_height="15dp"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_cup_color" />
+
+                        <TextView
+                            android:id="@+id/artisan_ranking"
+                            style="@style/Text"
+                            android:layout_marginStart="@dimen/medium_text_margin"
+                            android:text="@string/value"
+                            android:textSize="@dimen/text_size_10" />
+
+                        <ImageView
+                            style="@style/ImgBtn"
+                            android:layout_height="15dp"
+                            android:layout_marginStart="20dp"
+                            android:contentDescription="@null"
+                            app:srcCompat="@drawable/ic_star_color" />
+
+                        <TextView
+                            android:id="@+id/artisan_reputation"
+                            style="@style/Text"
+                            android:layout_marginStart="@dimen/medium_text_margin"
+                            android:text="@string/value"
+                            android:textSize="@dimen/text_size_10" />
+
+                    </LinearLayout>
 
                     <ImageView
                         style="@style/ImgBtn"
@@ -171,7 +203,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="@dimen/parent_bottom_margin"
+        android:layout_marginBottom="@dimen/parent_inner_bottom_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -203,7 +235,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="96dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"

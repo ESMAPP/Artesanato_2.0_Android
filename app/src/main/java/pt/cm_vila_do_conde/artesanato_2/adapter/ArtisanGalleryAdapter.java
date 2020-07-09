@@ -9,10 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ArtisanGalleryViewHolder;
+
 
 public class ArtisanGalleryAdapter extends RecyclerView.Adapter<ArtisanGalleryViewHolder> {
     private ArrayList<String> gallery;
@@ -22,6 +25,7 @@ public class ArtisanGalleryAdapter extends RecyclerView.Adapter<ArtisanGalleryVi
         this.gallery = gallery;
     }
 
+    @NotNull
     @Override
     public ArtisanGalleryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_artisan_gallery, parent, false);
@@ -34,7 +38,7 @@ public class ArtisanGalleryAdapter extends RecyclerView.Adapter<ArtisanGalleryVi
                 .placeholder(R.drawable.ic_placeholder_image_color)
                 .fit()
                 .centerCrop()
-                .into(holder.mImageView);
+                .into(holder.image);
     }
 
     @Override

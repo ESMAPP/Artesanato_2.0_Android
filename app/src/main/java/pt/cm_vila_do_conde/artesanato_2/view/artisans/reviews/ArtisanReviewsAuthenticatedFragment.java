@@ -23,10 +23,10 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class ArtisanReviewsAuthenticatedFragment extends Fragment {
-    private static final String TAG = "AUTHENTICATED_REVIEWS_FRAGMENT";
+    private static final String TAG = "ARTISAN_AUTHENTICATED_REVIEWS";
+
     private FragmentArtisanReviewsAuthenticatedBinding binding;
     private NavController navController;
-
     private ArtisanPageViewModel artisanPageViewModel;
     private SharedUserViewModel sharedUserViewModel;
 
@@ -37,17 +37,21 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "create");
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume");
+        setBackground();
         initRecyclerView();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView");
         binding = FragmentArtisanReviewsAuthenticatedBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -55,10 +59,21 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Log.d(TAG, "onViewCreated");
+        //setBackground();
+        initNavController();
         initArtisanViewModel();
         initSharedUserViewModel();
-        initNavController();
-        initSubmitBtn();
+        initSendBtn();
+    }
+
+    private void setBackground() {
+        Log.d(TAG, "color");
+        requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.drawable.bg_3);
+    }
+
+    private void initNavController() {
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
     private void initArtisanViewModel() {
@@ -69,18 +84,14 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
-    private void initNavController() {
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
-    }
-
-    private void initSubmitBtn() {
-        binding.commentSubmitBtn.setOnClickListener(v -> {
+    private void initSendBtn() {
+        binding.btnSend.setOnClickListener(v -> {
             sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), this::submitComment);
         });
     }
 
     private void submitComment(User user) {
-        String text = binding.commentInput.getText().toString();
+        String text = binding.inputReview.getText().toString();
         String userId = user.getUid();
         if (!text.isEmpty()) {
             artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
@@ -90,11 +101,16 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     }
 
     private void initRecyclerView() {
-        artisanPageViewModel.getReviews().observe(getViewLifecycleOwner(), reviews -> {
-            Log.d(TAG, String.valueOf(reviews.size()));
-            RecyclerView recyclerView = binding.reviewsList;
-            recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-            recyclerView.setAdapter(new ArtisanReviewsAdapter(reviews));
+        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
+            sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
+                artisanPageViewModel.getReviews().observe(getViewLifecycleOwner(), reviews -> {
+                    RecyclerView recyclerView = binding.reviewsList;
+                    recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+                    ArtisanReviewsAdapter adapter = new ArtisanReviewsAdapter(reviews, user, artisan);
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.post(adapter::notifyDataSetChanged);
+                });
+            });
         });
     }
 }

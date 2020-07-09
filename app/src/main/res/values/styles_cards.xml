@@ -2,6 +2,10 @@
 
     <!-- Card Style -->
     <style name="Card">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">@dimen/card_medium_margin</item>
+        <item name="android:clickable">true</item>
         <item name="cardElevation">@dimen/dimen_0dp</item>
         <item name="cardCornerRadius">@dimen/dimen_0dp</item>
         <item name="cardMaxElevation">@dimen/dimen_0dp</item>
@@ -16,51 +20,56 @@
         <item name="android:orientation">vertical</item>
     </style>
 
-    <!-- Home Card Image Style -->
-    <style name="HomeCardImage">
+    <!-- Artisan | Event Card Style -->
+    <style name="ArtisanEventCard">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/shape_shadow_bg_card_2</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- Home | Artisan | Event Card Image Style -->
+    <style name="CardImage">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:scaleType">centerCrop</item>
+        <item name="android:adjustViewBounds">true</item>
     </style>
 
-    <!-- Home Card Title Style -->
-    <style name="HomeCardTitle" parent="Title">
+    <!-- Home | Artisan | Event Card Title Style -->
+    <style name="CardTitle" parent="Title">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">6dp</item>
-        <item name="android:paddingStart">@dimen/card_text_padding</item>
-        <item name="android:paddingEnd">@dimen/card_text_padding</item>
+        <item name="android:layout_marginTop">@dimen/medium_text_margin</item>
+        <item name="android:paddingStart">@dimen/card_small_text_padding</item>
+        <item name="android:paddingEnd">@dimen/card_small_text_padding</item>
         <item name="android:singleLine">true</item>
         <item name="android:text">@string/title</item>
         <item name="android:textSize">@dimen/text_size_12</item>
     </style>
 
-    <!-- Home Card Text Style -->
-    <style name="HomeCardText" parent="Text">
+    <!-- Home | Artisan | Event Card Text Style -->
+    <style name="CardText" parent="Text">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_marginTop">@dimen/card_text_margin</item>
-        <item name="android:layout_marginBottom">@dimen/card_text_margin</item>
-        <item name="android:paddingStart">@dimen/card_text_padding</item>
-        <item name="android:paddingEnd">@dimen/card_text_padding</item>
+        <item name="android:layout_marginTop">@dimen/card_small_text_margin</item>
+        <item name="android:layout_marginBottom">@dimen/card_small_text_margin</item>
+        <item name="android:paddingStart">@dimen/card_small_text_padding</item>
+        <item name="android:paddingEnd">@dimen/card_small_text_padding</item>
         <item name="android:singleLine">true</item>
-        <item name="android:text">@string/subtitle</item>
+        <item name="android:text">@string/text</item>
         <item name="android:textSize">@dimen/text_size_10</item>
     </style>
 
     <!-- Rectangle White Card Style -->
     <style name="RectangleCard">
         <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/shape_shadow_white</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center</item>
         <item name="android:paddingStart">@dimen/card_padding</item>
         <item name="android:paddingEnd">@dimen/card_padding</item>
-    </style>
-
-    <!-- Review Card Style -->
-    <style name="ReviewCard" parent="RectangleCard">
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">@dimen/card_padding</item>
     </style>
 
     <!-- Rectangle Card Text Style -->

@@ -22,7 +22,8 @@
         android:label="@string/appName"
         android:roundIcon="@drawable/ic_app_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="adjustPan">
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

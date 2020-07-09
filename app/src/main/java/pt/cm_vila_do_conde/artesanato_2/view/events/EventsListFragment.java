@@ -16,6 +16,8 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentEventsListBinding;
 
 
 public class EventsListFragment extends Fragment {
+    private static final String TAG = "EVENT_LIST";
+
     private FragmentEventsListBinding binding;
     private NavController navController;
 

@@ -27,6 +27,7 @@ public class Artisan implements Serializable {
     private String category;
     private boolean featured;
     private ArrayList<Review> reviews;
+    private ArrayList<String> contests;
 
     public Artisan() {
     }
@@ -36,7 +37,7 @@ public class Artisan implements Serializable {
                    int coins, int subscriptionType, Timestamp subscriptionPaymentDate,
                    int views, int reputation, int ranking, boolean validated,
                    ArrayList<String> uniqueViews, Timestamp createdAt, String city,
-                   String category, boolean featured, ArrayList<Review> reviews) {
+                   String category, boolean featured, ArrayList<Review> reviews, ArrayList<String> contests) {
         this.uid = uid;
         this.associatedUser = associatedUser;
         this.name = name;
@@ -57,6 +58,7 @@ public class Artisan implements Serializable {
         this.category = category;
         this.featured = featured;
         this.reviews = reviews;
+        this.contests = contests;
     }
 
     public String getUid() {
@@ -244,5 +246,13 @@ public class Artisan implements Serializable {
 
     public void setReviews(ArrayList<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public ArrayList<String> getContests() {
+        return contests;
+    }
+
+    public void setContests(ArrayList<String> contests) {
+        this.contests = contests;
     }
 }

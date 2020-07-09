@@ -4,4 +4,8 @@
     android:id="@+id/root_gallery"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.artisans.gallery.ArtisanGalleryRootFragment" />
+    tools:context=".view.artisans.gallery.ArtisanGalleryRootFragment">
+
+    <!-- TODO: check if refactor all root fragments to only one -->
+
+</FrameLayout>

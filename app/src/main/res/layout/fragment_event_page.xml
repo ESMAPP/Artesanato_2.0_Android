@@ -15,25 +15,18 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/event_cover"
-            style="@style/ImgBtn"
-            android:adjustViewBounds="true"
-            android:background="@drawable/shape_shadow_bottom_round"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/bar_top_2" />
+            style="@style/RoundTopBarImage"
+            android:contentDescription="@null" />
 
-        <ImageButton
-            android:id="@+id/btn_back"
-            style="@style/ImgBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/parent_outer_margin"
-            android:layout_marginTop="@dimen/parent_top_margin"
-            android:contentDescription="@string/description_go_back"
-            android:paddingEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/btn_arrow_back_color" />
+        <LinearLayout style="@style/TopBarLayout">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                style="@style/ImgBtn"
+                android:contentDescription="@string/description_go_back"
+                android:src="@drawable/btn_arrow_back_color" />
+
+        </LinearLayout>
 
     </FrameLayout>
 

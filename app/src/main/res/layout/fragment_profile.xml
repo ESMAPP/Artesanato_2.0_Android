@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_3"
-    tools:context=".view.ProfileFragment">
+    tools:context=".view.profile.ProfileFragment">
 
     <FrameLayout
         android:id="@+id/top"
@@ -18,13 +18,44 @@
 
         <ImageView
             style="@style/RoundTopBarImage"
-            android:contentDescription="@null"
-            app:srcCompat="@drawable/bar_top_2" />
+            android:contentDescription="@null" />
+
+        <LinearLayout style="@style/TopBarLayout">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    style="@style/ImgBtn"
+                    android:contentDescription="@string/description_go_back"
+                    android:src="@drawable/btn_arrow_back_color" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|end"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_extra"
+                    style="@style/ImgBtn"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/description_menu"
+                    android:src="@drawable/btn_more_grey" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_marginStart="@dimen/parent_inner_margin"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="@dimen/parent_inner_margin"
@@ -37,123 +68,68 @@
 
                 <ImageView
                     android:id="@+id/profile_pic"
-                    android:layout_width="@dimen/profile_pic_size"
-                    android:layout_height="@dimen/profile_pic_size"
-                    android:layout_gravity="center"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_placeholder_user_pic" />
+                    style="@style/ProfileImage"
+                    android:contentDescription="@null" />
 
                 <ImageView
+                    android:id="@+id/profile_frame"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/shape_circle_grey"
-                    android:contentDescription="@null"
-                    android:scaleType="center" />
+                    android:background="@drawable/shape_circle_stroke_grey"
+                    android:contentDescription="@null" />
+
+                <ImageView
+                    android:id="@+id/profile_icon"
+                    style="@style/ImgBtn"
+                    android:layout_gravity="top|end"
+                    android:contentDescription="@null" />
+
             </FrameLayout>
 
             <TextView
                 android:id="@+id/profile_name"
                 style="@style/Title"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="@dimen/medium_text_margin"
                 android:text="@string/name"
-                android:textSize="22sp" />
+                android:textSize="@dimen/text_size_22" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/transparent"
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <ImageView
-                    style="@style/ImgBtn"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_cup_color" />
-
                 <TextView
                     android:id="@+id/profile_ranking"
-                    style="@style/Text"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/value" />
-
-                <ImageView
-                    style="@style/ImgBtn"
-                    android:layout_height="18dp"
-                    android:layout_marginStart="20dp"
-                    android:contentDescription="@null"
-                    app:srcCompat="@drawable/ic_star_color" />
+                    style="@style/drawableText"
+                    android:drawableStart="@drawable/ic_cup_color" />
 
                 <TextView
                     android:id="@+id/profile_reputation"
-                    style="@style/Text"
-                    android:layout_marginStart="6dp"
-                    android:text="@string/value" />
+                    style="@style/drawableText"
+                    android:layout_marginStart="@dimen/medium_text_margin"
+                    android:drawableStart="@drawable/ic_star_color" />
+
             </LinearLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/inner_nav_bar"
                 style="@style/SmallTabLayout"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="@dimen/parent_inner_margin">
 
                 <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/TabItem"
                     android:text="@string/label_badges" />
 
                 <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/TabItem"
                     android:text="@string/label_activity" />
 
                 <com.google.android.material.tabs.TabItem
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/transparent"
+                    style="@style/TabItem"
                     android:text="@string/label_contests" />
+
             </com.google.android.material.tabs.TabLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/parent_top_margin"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/btn_back"
-                    style="@style/ImgBtn"
-                    android:contentDescription="@string/description_go_back"
-                    android:paddingEnd="8dp"
-                    app:srcCompat="@drawable/btn_arrow_back_color" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="end"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:id="@+id/btn_extra"
-                    style="@style/ImgBtn"
-                    android:layout_height="match_parent"
-                    android:contentDescription="@string/description_menu"
-                    android:paddingStart="10dp"
-                    app:srcCompat="@drawable/btn_more_grey" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -161,8 +137,9 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager_profile"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top" />

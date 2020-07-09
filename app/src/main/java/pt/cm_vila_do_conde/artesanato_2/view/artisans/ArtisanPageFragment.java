@@ -1,10 +1,10 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisans;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,9 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
@@ -31,13 +29,15 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 
 public class ArtisanPageFragment extends Fragment {
+    private static final String TAG = "ARTISAN_PAGE";
     private static final String ARTISAN_ID = "id";
 
     private FragmentArtisanPageBinding binding;
     private NavController navController;
-    private String artisanId;
     private ArtisanPageViewModel artisanPageViewModel;
     private SharedUserViewModel sharedUserViewModel;
+
+    private String artisanId;
 
     public ArtisanPageFragment() {
         // Required empty public constructor
@@ -54,6 +54,12 @@ public class ArtisanPageFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        setBackground();
+    }
+
+    @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArtisanPageBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -62,13 +68,18 @@ public class ArtisanPageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        fetchArtisanById();
-        fetchReviews();
-        handleInitialUiState();
-        initNavController();
         setupTabAdapter();
+        initNavController();
         initBackBtn();
         initChatBtn();
+        fetchArtisanById();
+        handleExtraBtnState();
+        fetchReviews();
+    }
+
+    private void setBackground() {
+        Log.d(TAG, "color");
+        binding.artisanPage.setBackgroundResource(R.drawable.bg_3);
     }
 
     private void initArtisanViewModel() {
@@ -83,11 +94,33 @@ public class ArtisanPageFragment extends Fragment {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
-    private void handleInitialUiState() {
-        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
-            User user = sharedUserViewModel.getUserLiveData().getValue();
-            if (user == null || user.getType() != UserTypes.ARTISAN || !user.getUid().equals(artisan.getAssociatedUser())) {
-                binding.btnExtra.setVisibility(View.GONE);
+    private void initBackBtn() {
+        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
+    }
+
+    public void setupTabAdapter() {
+        binding.viewPagerArtisan.setAdapter(new ArtisanPageAdapter(getChildFragmentManager()));
+        binding.innerNavBar.setupWithViewPager(binding.viewPagerArtisan);
+    }
+
+    private void initChatBtn() {
+        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
+            if (!user.isAuthenticated()) {
+                binding.btnChat.setVisibility(View.GONE);
+                binding.barBottom.setVisibility(View.GONE);
+            } else {
+                artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
+                    binding.btnChat.setOnClickListener(v -> {
+                        Bundle bundle = new Bundle();
+                        bundle.putString("userId", user.getUid());
+                        bundle.putString("artisanId", artisanId);
+                        if (!user.getUid().equals(artisan.getAssociatedUser())) {
+                            navController.navigate(R.id.action_artisanPageFragment_to_chatFragment, bundle);
+                        } else {
+                            navController.navigate(R.id.action_artisanPageFragment_to_chatList, bundle);
+                        }
+                    });
+                });
             }
         });
     }
@@ -97,19 +130,8 @@ public class ArtisanPageFragment extends Fragment {
         initObservable();
     }
 
-    private void fetchReviews() {
-        artisanPageViewModel.fetchReviews(artisanId);
-    }
-
     private void initObservable() {
         artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), this::updateUI);
-    }
-
-    public void setupTabAdapter() {
-        ViewPager artisanViewPager = binding.viewPagerArtisan;
-        artisanViewPager.setAdapter(new ArtisanPageAdapter(getChildFragmentManager()));
-        TabLayout tabs = binding.innerNavBar;
-        tabs.setupWithViewPager(artisanViewPager);
     }
 
     private void updateUI(@NotNull Artisan artisan) {
@@ -124,21 +146,21 @@ public class ArtisanPageFragment extends Fragment {
     }
 
     private void checkUserRanking(int ranking) {
-        int shape = R.drawable.shape_circle_grey;
+        int shape = R.drawable.shape_circle_stroke_grey;
         int icon = 0;
 
         if (ranking == 1) {
-            shape = R.drawable.shape_circle_yellow;
+            shape = R.drawable.shape_circle_stroke_yellow;
             icon = R.drawable.ic_crown_color;
         }
 
         if (ranking == 2) {
-            shape = R.drawable.shape_circle_orange;
+            shape = R.drawable.shape_circle_stroke_orange;
             icon = R.drawable.ic_second_color;
         }
 
         if (ranking == 3) {
-            shape = R.drawable.shape_circle_blue;
+            shape = R.drawable.shape_circle_stroke_blue;
             icon = R.drawable.ic_third_color;
         }
 
@@ -146,29 +168,19 @@ public class ArtisanPageFragment extends Fragment {
         binding.artisanIcon.setBackgroundResource(icon);
     }
 
-    private void initBackBtn() {
-        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
-    }
+    private void handleExtraBtnState() {
+        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
+            User user = sharedUserViewModel.getUserLiveData().getValue();
 
-    private void initChatBtn() {
-        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
-            if (!user.isAuthenticated()) {
-                binding.btnChat.setVisibility(View.GONE);
-                binding.toolbar.setVisibility(View.GONE);
+            if (user == null || user.getType() != UserTypes.ARTISAN || !user.getUid().equals(artisan.getAssociatedUser())) {
+                binding.btnExtra.setVisibility(View.GONE);
             } else {
-                artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
-                    binding.btnChat.setOnClickListener(v -> {
-                        if (!user.getUid().equals(artisan.getAssociatedUser())) {
-                            Bundle bundle = new Bundle();
-                            bundle.putString("userId", user.getUid());
-                            bundle.putString("artisanId", artisanId);
-                            navController.navigate(R.id.action_artisanPageFragment_to_chatFragment, bundle);
-                        } else {
-                            Toast.makeText(requireContext(), "Implement artisan chat list!", Toast.LENGTH_LONG).show();
-                        }
-                    });
-                });
+                // TODO: initExtraBtn();
             }
         });
+    }
+
+    private void fetchReviews() {
+        artisanPageViewModel.fetchReviews(artisanId);
     }
 }

@@ -1,6 +1,7 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisans.gallery;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,10 +45,11 @@ public class ArtisanGalleryEmptyFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setEmptyState();
+        //setEmptyState();
     }
 
     private void setEmptyState() {
+        Log.d(TAG, "white");
         requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.color.white);
         binding.textEmptyState.setText(getText(R.string.label_empty_gallery));
         binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);

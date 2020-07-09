@@ -54,7 +54,6 @@ public class ChatFragment extends Fragment {
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         binding = FragmentChatBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -90,7 +89,7 @@ public class ChatFragment extends Fragment {
         binding.submitMessage.setOnClickListener(v -> {
             sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
                 String messageText = binding.messageInput.getText().toString();
-              
+
                 if (messageText.isEmpty()) {
                     binding.messageInput.setError("A mensagem não pode estar vazia.");
                 } else {

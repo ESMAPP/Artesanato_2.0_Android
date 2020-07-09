@@ -19,8 +19,10 @@ import pt.cm_vila_do_conde.artesanato_2.model.ChatRoom;
 import pt.cm_vila_do_conde.artesanato_2.model.Message;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 
+
 public class ChatRepository {
     private static final String TAG = "CHAT_REPOSITORY";
+
     private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
     private CollectionReference chatsRef = rootRef.collection("chats");
     private CollectionReference usersRef = rootRef.collection("users");
@@ -28,6 +30,7 @@ public class ChatRepository {
 
     public MutableLiveData<ChatRoom> fetchChatRoom(String artisanId, String userId) {
         MutableLiveData<ChatRoom> chatRoom = new MutableLiveData<>();
+
         chatsRef.document(artisanId + userId)
                 .addSnapshotListener((doc, e) -> {
                     if (doc.exists()) {
@@ -38,12 +41,14 @@ public class ChatRepository {
                         createChatRoom(artisanId, userId);
                     }
                 });
+
         return chatRoom;
     }
 
     private void createChatRoom(String artisanId, String userId) {
         String docId = artisanId + userId;
         ChatRoom newChatRoom = new ChatRoom(docId, artisanId, userId);
+
         chatsRef.document(newChatRoom.getId()).set(newChatRoom).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Log.d(TAG, "CREATED CHATROOM!");
@@ -85,21 +90,25 @@ public class ChatRepository {
 
     public MutableLiveData<User> fetchUserInfo(String userId) {
         MutableLiveData<User> user = new MutableLiveData<>();
+
         usersRef.document(userId).addSnapshotListener((documentSnapshot, e) -> {
             User fetchedUser = documentSnapshot.toObject(User.class);
             fetchedUser.setUid(documentSnapshot.getId());
             user.postValue(fetchedUser);
         });
+
         return user;
     }
 
     public MutableLiveData<Artisan> fetchArtisanInfo(String artisanId) {
         MutableLiveData<Artisan> artisan = new MutableLiveData<>();
+
         artisansRef.document(artisanId).addSnapshotListener((documentSnapshot, e) -> {
             Artisan fetchedArtisan = documentSnapshot.toObject(Artisan.class);
             fetchedArtisan.setUid(documentSnapshot.getId());
             artisan.postValue(fetchedArtisan);
         });
+
         return artisan;
     }
 
@@ -117,6 +126,7 @@ public class ChatRepository {
 
     private List<ChatRoom> populateUsersInfo(QuerySnapshot docs) {
         List<ChatRoom> tempChatList = docs.toObjects(ChatRoom.class);
+
         for (ChatRoom el : tempChatList) {
             usersRef.document(el.getUserId()).addSnapshotListener((userDoc, err) -> {
                 User user;
@@ -125,7 +135,6 @@ public class ChatRepository {
             });
         }
 
-        System.out.println("FINIIIIIIIIIIIIIIIIISH");
         return tempChatList;
     }
 }

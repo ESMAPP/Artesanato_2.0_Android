@@ -1,6 +1,7 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisans;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 
 public class ArtisanPageFragment extends Fragment {
+    private static final String TAG = "ARTISAN_PAGE";
     private static final String ARTISAN_ID = "id";
 
     private FragmentArtisanPageBinding binding;
@@ -52,6 +54,12 @@ public class ArtisanPageFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        setBackground();
+    }
+
+    @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArtisanPageBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -60,13 +68,18 @@ public class ArtisanPageFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        setupTabAdapter();
         initNavController();
         initBackBtn();
         initChatBtn();
-        setupTabAdapter();
         fetchArtisanById();
         handleExtraBtnState();
         fetchReviews();
+    }
+
+    private void setBackground() {
+        Log.d(TAG, "color");
+        binding.artisanPage.setBackgroundResource(R.drawable.bg_3);
     }
 
     private void initArtisanViewModel() {
@@ -83,6 +96,11 @@ public class ArtisanPageFragment extends Fragment {
 
     private void initBackBtn() {
         binding.btnBack.setOnClickListener(v -> navController.popBackStack());
+    }
+
+    public void setupTabAdapter() {
+        binding.viewPagerArtisan.setAdapter(new ArtisanPageAdapter(getChildFragmentManager()));
+        binding.innerNavBar.setupWithViewPager(binding.viewPagerArtisan);
     }
 
     private void initChatBtn() {
@@ -105,11 +123,6 @@ public class ArtisanPageFragment extends Fragment {
                 });
             }
         });
-    }
-
-    public void setupTabAdapter() {
-        binding.viewPagerArtisan.setAdapter(new ArtisanPageAdapter(getChildFragmentManager()));
-        binding.innerNavBar.setupWithViewPager(binding.viewPagerArtisan);
     }
 
     private void fetchArtisanById() {
@@ -161,8 +174,7 @@ public class ArtisanPageFragment extends Fragment {
 
             if (user == null || user.getType() != UserTypes.ARTISAN || !user.getUid().equals(artisan.getAssociatedUser())) {
                 binding.btnExtra.setVisibility(View.GONE);
-            }
-            else {
+            } else {
                 // TODO: initExtraBtn();
             }
         });

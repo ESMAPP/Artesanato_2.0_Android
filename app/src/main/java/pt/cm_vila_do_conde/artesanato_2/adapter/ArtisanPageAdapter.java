@@ -12,6 +12,7 @@ import pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews.ArtisanReviewsFrag
 
 
 public class ArtisanPageAdapter extends FragmentPagerAdapter {
+    static final int NUM_ITEMS = 4;
 
     public ArtisanPageAdapter(@NonNull FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -53,7 +54,7 @@ public class ArtisanPageAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return NUM_ITEMS;
     }
 
     @Override

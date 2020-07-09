@@ -16,7 +16,7 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentViewPagerEmptyBindin
 
 
 public class ProfileActivityEmptyFragment extends Fragment {
-    private String TAG = "PROFILE_ACTIVITY";
+    private String TAG = "PROFILE_ACTIVITY_EMPTY";
 
     private FragmentViewPagerEmptyBinding binding;
 
@@ -44,7 +44,7 @@ public class ProfileActivityEmptyFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setEmptyState();
+        //setEmptyState();
     }
 
     private void setEmptyState() {

@@ -14,6 +14,8 @@ import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
 public class ArtisanGalleryRootFragment extends Fragment {
+    private String TAG = "ARTISAN_GALLERY_ROOT";
+
     private ArtisanPageViewModel artisanPageViewModel;
 
     public ArtisanGalleryRootFragment() {

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,15 +17,26 @@ import java.util.List;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ArtisanReviewsViewHolder;
+import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ArtisanViewHolder;
+import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.model.Review;
+import pt.cm_vila_do_conde.artesanato_2.model.User;
+import pt.cm_vila_do_conde.artesanato_2.repository.ArtisanRepository;
+import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
 
 public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsViewHolder> {
     private List<Review> reviews;
+    private User currentUser;
+    private Artisan artisan;
     private NavController navController;
 
-    public ArtisanReviewsAdapter(List<Review> reviews) {
+    private ArtisanRepository artisanRepository;
+
+    public ArtisanReviewsAdapter(List<Review> reviews, User currentUser, Artisan artisan) {
         this.reviews = reviews;
+        this.currentUser = currentUser;
+        this.artisan = artisan;
         notifyDataSetChanged();
     }
 
@@ -32,6 +44,7 @@ public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsVi
     @Override
     public ArtisanReviewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_artisan_review, parent, false);
+        artisanRepository = new ArtisanRepository();
         return new ArtisanReviewsViewHolder(itemView);
     }
 
@@ -56,6 +69,12 @@ public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsVi
                     .centerCrop()
                     .into(holder.userImage);
         }
+
+        holder.likeBtn.setOnClickListener(v -> likeReview(review));
+    }
+
+    private void likeReview(Review review){
+        artisanRepository.likeReview(currentUser, artisan, review);
     }
 
     @Override

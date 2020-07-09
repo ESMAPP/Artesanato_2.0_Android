@@ -101,12 +101,16 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
     }
 
     private void initRecyclerView() {
-        artisanPageViewModel.getReviews().observe(getViewLifecycleOwner(), reviews -> {
-            RecyclerView recyclerView = binding.reviewsList;
-            recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-            ArtisanReviewsAdapter adapter = new ArtisanReviewsAdapter(reviews);
-            recyclerView.setAdapter(adapter);
-            recyclerView.post(adapter::notifyDataSetChanged);
+        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
+            sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
+                artisanPageViewModel.getReviews().observe(getViewLifecycleOwner(), reviews -> {
+                    RecyclerView recyclerView = binding.reviewsList;
+                    recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+                    ArtisanReviewsAdapter adapter = new ArtisanReviewsAdapter(reviews, user, artisan);
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.post(adapter::notifyDataSetChanged);
+                });
+            });
         });
     }
 }

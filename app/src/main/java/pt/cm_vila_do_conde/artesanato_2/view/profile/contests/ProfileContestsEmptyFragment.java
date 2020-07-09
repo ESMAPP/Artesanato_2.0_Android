@@ -28,6 +28,12 @@ public class ProfileContestsEmptyFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        setEmptyState();
+    }
+
+    @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentViewPagerEmptyBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -37,12 +43,6 @@ public class ProfileContestsEmptyFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //setEmptyState();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        setEmptyState();
     }
 
     private void setEmptyState() {

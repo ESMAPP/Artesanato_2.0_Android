@@ -7,7 +7,9 @@
 
     <LinearLayout
         style="@style/RectangleCard"
-        android:layout_height="60dp">
+        android:gravity="top"
+        android:paddingTop="@dimen/card_small_padding"
+        android:paddingBottom="@dimen/card_small_padding">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -36,16 +38,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/card_large_padding"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/notification_message"
                 style="@style/RectangleCardText"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/card_small_margin"
                 android:text="@string/message" />
 
             <TextView
                 android:id="@+id/notification_time"
                 style="@style/RectangleCardSmallText"
+                android:layout_width="match_parent"
                 android:text="@string/time" />
 
         </LinearLayout>

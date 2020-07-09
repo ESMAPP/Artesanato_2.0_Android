@@ -14,6 +14,7 @@
             <ImageView
                 android:id="@+id/image_event_cover"
                 style="@style/CardImage"
+                android:layout_height="250dp"
                 android:contentDescription="@null"
                 app:srcCompat="@drawable/ic_placeholder_image_grey" />
 

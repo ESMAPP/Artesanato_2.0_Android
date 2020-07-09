@@ -16,13 +16,10 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
-import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentEventPageBinding;
-import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.model.Event;
-import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.EventPageViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
@@ -95,6 +92,7 @@ public class EventPageFragment extends Fragment {
         binding.textEventTitle.setText(event.getTitle());
         binding.textEventLocation.setText(event.getLocation().getName());
         binding.textDescription.setText(event.getDescription());
+        binding.textEventGoing.setText(String.valueOf(event.getGoing().size()));
         Picasso.get().load(event.getImage())
                 .placeholder(R.drawable.bar_top_placeholder_image)
                 .fit()

@@ -23,7 +23,7 @@ public class EventRepository {
     public MutableLiveData<ArrayList<Event>> fetchEventsList(Query query) {
         MutableLiveData<ArrayList<Event>> eventsList = new MutableLiveData<>();
 
-        query.addSnapshotListener((task, e) -> {
+        query.orderBy("startDate", Query.Direction.DESCENDING).addSnapshotListener((task, e) -> {
             ArrayList<Event> fetchedEvents = new ArrayList<>();
             for (DocumentSnapshot doc : task.getDocuments()) {
                 Event event = doc.toObject(Event.class);

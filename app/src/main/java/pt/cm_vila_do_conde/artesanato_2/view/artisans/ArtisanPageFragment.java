@@ -3,8 +3,10 @@ package pt.cm_vila_do_conde.artesanato_2.view.artisans;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +30,7 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 
-public class ArtisanPageFragment extends Fragment {
+public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuItemClickListener{
     private static final String TAG = "ARTISAN_PAGE";
     private static final String ARTISAN_ID = "id";
 
@@ -175,9 +177,32 @@ public class ArtisanPageFragment extends Fragment {
             if (user == null || user.getType() != UserTypes.ARTISAN || !user.getUid().equals(artisan.getAssociatedUser())) {
                 binding.btnExtra.setVisibility(View.GONE);
             } else {
-                // TODO: initExtraBtn();
+                binding.btnExtra.setOnClickListener(this::showPopup);
             }
         });
+    }
+
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(requireContext(), v);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.artisan_menu);
+        popup.show();
+    }
+
+    // TODO: add go to artisan page if user is artisan
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.edit_profile:
+                navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
+                return true;
+            case R.id.sign_out:
+                sharedUserViewModel.signOut();
+                navController.navigate(R.id.homeFragment);
+                return true;
+            default:
+                return false;
+        }
     }
 
     private void fetchReviews() {

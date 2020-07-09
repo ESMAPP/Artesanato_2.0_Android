@@ -8,7 +8,7 @@
     <LinearLayout
         style="@style/RectangleCard"
         android:gravity="top"
-        android:padding="@dimen/card_padding">
+        android:padding="@dimen/card_large_padding">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="@dimen/card_padding"
+            android:layout_marginStart="@dimen/card_large_padding"
             android:orientation="vertical">
 
             <TextView

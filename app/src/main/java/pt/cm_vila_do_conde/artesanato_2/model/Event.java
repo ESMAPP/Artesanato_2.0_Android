@@ -7,12 +7,13 @@ import java.util.ArrayList;
 
 
 public class Event implements Serializable {
-    private String id;
+    private String uid;
     private ArrayList<String> going;
     private String image;
     private String info;
     private Location location;
     private String title;
+    private String description;
     private Timestamp startDate;
     private Timestamp endDate;
     private String category;
@@ -23,21 +24,31 @@ public class Event implements Serializable {
     public Event() {
     }
 
-    public Event(String id, ArrayList<String> going, String image,
-                 String info, Location location, String title,
+    public Event(String uid, ArrayList<String> going, String image,
+                 String info, Location location, String title, String description,
                  Timestamp startDate, Timestamp endDate, String category,
                  boolean featured, Timestamp createdAt
     ) {
-        this.id = id;
+        this.uid = uid;
         this.going = going;
         this.image = image;
         this.info = info;
         this.location = location;
         this.title = title;
+        this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.category = category;
         this.featured = featured;
         this.createdAt = createdAt;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public boolean isFeatured() {
@@ -70,14 +81,6 @@ public class Event implements Serializable {
 
     public void setEndDate(Timestamp endDate) {
         this.endDate = endDate;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public ArrayList<String> getGoing() {
@@ -126,5 +129,13 @@ public class Event implements Serializable {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

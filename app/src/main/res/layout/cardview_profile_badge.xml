@@ -19,7 +19,7 @@
             android:alpha="0.5"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
-            android:src="@drawable/shape_circle_grey" />
+            android:src="@drawable/ic_placeholder_badge_image_grey" />
 
     </LinearLayout>
 

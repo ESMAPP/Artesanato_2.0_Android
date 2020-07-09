@@ -15,7 +15,7 @@
                 android:id="@+id/card_artisan_cover"
                 style="@style/CardImage"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_placeholder_image_color" />
+                app:srcCompat="@drawable/ic_placeholder_image_grey" />
 
             <ImageButton
                 android:id="@+id/button_add_favourite"

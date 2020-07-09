@@ -63,7 +63,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/artisans_list"
-        style="@style/RecyclerViewList"
+        style="@style/CardGridList"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

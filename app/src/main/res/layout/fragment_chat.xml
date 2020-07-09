@@ -61,7 +61,7 @@
             <TextView
                 android:id="@+id/chat_artisan_name"
                 style="@style/BlackText"
-                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginStart="@dimen/large_text_margin"
                 android:layout_marginTop="@dimen/parent_top_margin"
                 android:text="@string/name"
                 android:textSize="@dimen/text_size_16"

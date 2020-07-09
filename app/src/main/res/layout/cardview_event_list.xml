@@ -15,7 +15,7 @@
                 android:id="@+id/image_event_cover"
                 style="@style/CardImage"
                 android:contentDescription="@null"
-                app:srcCompat="@drawable/ic_placeholder_image_color" />
+                app:srcCompat="@drawable/ic_placeholder_image_grey" />
 
             <ImageButton
                 android:id="@+id/button_add_favourite"
@@ -30,7 +30,7 @@
             style="@style/CardTitle" />
 
         <TextView
-            android:id="@+id/text_event_text"
+            android:id="@+id/text_event_date"
             style="@style/CardText"
             android:layout_marginBottom="@dimen/card_large_margin" />
 

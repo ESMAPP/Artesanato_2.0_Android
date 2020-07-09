@@ -28,6 +28,8 @@ import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisansListViewModel;
 
 
 public class ArtisansListFragment extends Fragment {
+    private static final String TAG = "ARTISANS_LIST";
+
     private ArtisansListViewModel artisansListViewModel;
     private FragmentArtisansListBinding binding;
     private RecyclerView artisanRecyclerView;
@@ -57,14 +59,18 @@ public class ArtisansListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initArtisanListViewModel();
+        initBackBtn();
+        initArtisansListViewModel();
         fetchArtisansList();
         initSearchListener();
         initFilterBtnListener();
-        initBackBtn();
     }
 
-    private void initArtisanListViewModel() {
+    private void initBackBtn() {
+        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
+    }
+
+    private void initArtisansListViewModel() {
         artisansListViewModel = new ViewModelProvider(requireActivity()).get(ArtisansListViewModel.class);
     }
 
@@ -96,10 +102,6 @@ public class ArtisansListFragment extends Fragment {
         binding.btnFilter.setOnClickListener(v -> navController.navigate(R.id.action_artisansListFragment_to_filterArtisanFragment));
     }
 
-    private void initBackBtn() {
-        binding.btnBack.setOnClickListener(v -> navController.popBackStack());
-    }
-
     public void initSearchListener() {
         binding.inputSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -125,5 +127,4 @@ public class ArtisansListFragment extends Fragment {
             }
         });
     }
-
 }

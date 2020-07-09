@@ -37,19 +37,22 @@
     <dimen name="card_small_margin">6dp</dimen>
     <dimen name="card_medium_margin">10dp</dimen>
     <dimen name="card_large_margin">16dp</dimen>
-    <dimen name="card_padding">20dp</dimen>
+    <dimen name="card_small_padding">10dp</dimen>
+    <dimen name="card_large_padding">20dp</dimen>
 
     <dimen name="card_small_text_margin">4dp</dimen>
     <dimen name="card_small_text_padding">10dp</dimen>
     <dimen name="card_image_padding">8dp</dimen>
 
-    <dimen name="medium_text_margin">6dp</dimen>
-    <dimen name="text_margin">20dp</dimen>
+    <dimen name="small_text_margin">6dp</dimen>
+    <dimen name="medium_text_margin">10dp</dimen>
+    <dimen name="large_text_margin">20dp</dimen>
     <dimen name="text_padding">10dp</dimen>
 
     <dimen name="text_size_10">10sp</dimen>
     <dimen name="text_size_12">12sp</dimen>
     <dimen name="text_size_16">16sp</dimen>
     <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">18sp</dimen>
     <dimen name="text_size_22">22sp</dimen>
 </resources>

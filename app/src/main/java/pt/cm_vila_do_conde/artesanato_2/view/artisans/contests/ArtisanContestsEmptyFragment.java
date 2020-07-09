@@ -51,6 +51,6 @@ public class ArtisanContestsEmptyFragment extends Fragment {
         Log.d(TAG, "white");
         requireActivity().findViewById(R.id.artisan_page).setBackgroundResource(R.color.white);
         binding.textEmptyState.setText(getText(R.string.label_empty_artisan_contests));
-        binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
+        binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_cup_color);
     }
 }

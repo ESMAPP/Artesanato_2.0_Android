@@ -27,7 +27,6 @@ public class ProfileViewModel extends AndroidViewModel {
         super(application);
         profileRepository = new ProfileRepository();
         badgesRepository = new BadgesRepository();
-
     }
 
     public void fetchBadges() {

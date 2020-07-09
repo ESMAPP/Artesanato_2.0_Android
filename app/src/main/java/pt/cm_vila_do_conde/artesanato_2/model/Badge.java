@@ -8,14 +8,14 @@ public class Badge implements Serializable {
     private String description;
     private String icon;
     private String label;
-    private Number value;
+    private int value;
 
     public Badge() {
 
     }
 
 
-    public Badge(String uid, String description, String icon, String label, Number value) {
+    public Badge(String uid, String description, String icon, String label, int value) {
 
         this.uid = uid;
         this.description = description;
@@ -57,11 +57,11 @@ public class Badge implements Serializable {
         this.label = label;
     }
 
-    public Number getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(Number value) {
+    public void setValue(int value) {
         this.value = value;
     }
 }

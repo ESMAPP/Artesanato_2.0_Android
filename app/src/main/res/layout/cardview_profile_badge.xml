@@ -16,6 +16,7 @@
             android:id="@+id/profile_badge"
             style="@style/ImgBtn"
             android:layout_width="match_parent"
+            android:alpha="0.5"
             android:contentDescription="@null"
             android:scaleType="centerCrop"
             android:src="@drawable/shape_circle_grey" />

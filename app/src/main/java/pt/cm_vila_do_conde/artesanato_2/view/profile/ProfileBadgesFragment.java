@@ -1,7 +1,6 @@
 package pt.cm_vila_do_conde.artesanato_2.view.profile;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.ProfileBadgesAdapter;
@@ -35,11 +35,6 @@ public class ProfileBadgesFragment extends Fragment {
     private SharedUserViewModel sharedUserViewModel;
     private ProfileViewModel profileViewModel;
 
-    private ArrayList<Badge> badges;
-
-    public ProfileBadgesFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,16 +74,15 @@ public class ProfileBadgesFragment extends Fragment {
     }
 
     private void initRecyclerView() {
-        sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> updateBadges(user.getBadges()));
+        profileViewModel.fetchBadges();
+        profileViewModel.getBadges().observe(getViewLifecycleOwner(), badges -> {
+            sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> updateBadges(user.getBadges(), badges));
+        });
     }
 
-    private void updateBadges(ArrayList<String> badges) {
-        // TODO: get badge icon from id and category
-        if (badges != null) {
-            Log.d(TAG, badges.get(0));
-            RecyclerView recyclerView = binding.badgesList;
-            recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 3));
-            recyclerView.setAdapter(new ProfileBadgesAdapter(badges));
-        }
+    private void updateBadges(ArrayList<String> userBadges, List<Badge> badgesList) {
+        RecyclerView recyclerView = binding.badgesList;
+        recyclerView.setLayoutManager(new GridLayoutManager(requireContext(), 3));
+        recyclerView.setAdapter(new ProfileBadgesAdapter(userBadges, badgesList));
     }
 }

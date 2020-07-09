@@ -10,19 +10,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.adapter.viewholder.ProfileBagdesViewHolder;
+import pt.cm_vila_do_conde.artesanato_2.model.Badge;
 
 
 public class ProfileBadgesAdapter extends RecyclerView.Adapter<ProfileBagdesViewHolder> {
-    private ArrayList<String> badges;
+    private ArrayList<String> userBadges;
+    private List<Badge> badgesList;
     private NavController navController;
 
-    public ProfileBadgesAdapter(ArrayList<String> badges) {
-        this.badges = badges;
+    public ProfileBadgesAdapter(ArrayList<String> userBadges, List<Badge> badgesList) {
+        this.userBadges = userBadges;
+        this.badgesList = badgesList;
     }
 
     @NonNull
@@ -34,14 +39,21 @@ public class ProfileBadgesAdapter extends RecyclerView.Adapter<ProfileBagdesView
 
     @Override
     public void onBindViewHolder(@NonNull ProfileBagdesViewHolder holder, int position) {
-        Picasso.get().load(badges.get(position))
+        Picasso.get().load(badgesList.get(position).getIcon())
                 .placeholder(R.drawable.ic_placeholder_image_color)
+                .resize(300 , 300)
                 .transform(new CropCircleTransformation())
                 .into(holder.image);
+        for (String userBadgeId : userBadges) {
+            if(userBadgeId.equals(badgesList.get(position).getUid())){
+                holder.image.animate().alpha(1);
+            }
+        }
+
     }
 
     @Override
     public int getItemCount() {
-        return badges.size();
+        return badgesList.size();
     }
 }

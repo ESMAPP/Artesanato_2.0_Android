@@ -28,6 +28,8 @@ public class Artisan implements Serializable {
     private boolean featured;
     private ArrayList<Review> reviews;
     private ArrayList<String> contests;
+    private String email;
+    private String phone;
 
     public Artisan() {
     }
@@ -59,6 +61,22 @@ public class Artisan implements Serializable {
         this.featured = featured;
         this.reviews = reviews;
         this.contests = contests;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getUid() {

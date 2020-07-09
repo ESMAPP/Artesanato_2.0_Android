@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanAboutBinding;
+import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisanPageViewModel;
 
 
@@ -24,10 +25,6 @@ public class ArtisanAboutFragment extends Fragment {
 
     private FragmentArtisanAboutBinding binding;
     private ArtisanPageViewModel artisanPageViewModel;
-
-    public ArtisanAboutFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +48,7 @@ public class ArtisanAboutFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //setBackground();
         initArtisanViewModel();
+        initObservable();
     }
 
     private void setBackground() {
@@ -60,5 +58,18 @@ public class ArtisanAboutFragment extends Fragment {
 
     private void initArtisanViewModel() {
         artisanPageViewModel = new ViewModelProvider(requireActivity()).get(ArtisanPageViewModel.class);
+    }
+
+    private void initObservable(){
+        artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), this::updateUi);
+    }
+
+    private void updateUi(Artisan artisan){
+        binding.textDescription.setText(artisan.getDescription());
+        binding.textCity.setText(artisan.getCity());
+        binding.textEmail.setText(artisan.getEmail());
+        binding.textPhone.setText(artisan.getPhone());
+        if (!artisan.getAttributes().isAcceptsCC()) binding.textAtm.setVisibility(View.GONE);
+        if (!artisan.getAttributes().isAcceptsMBWay()) binding.textMbWay.setVisibility(View.GONE);
     }
 }

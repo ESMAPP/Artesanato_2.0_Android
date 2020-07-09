@@ -31,14 +31,14 @@
                 android:id="@+id/btn_facebook"
                 style="@style/ImgBtn"
                 android:contentDescription="@string/description_sign_in_facebook"
-                app:srcCompat="@drawable/ic_facebook_color" />
+                android:src="@drawable/ic_facebook_color" />
 
             <ImageButton
                 android:id="@+id/btn_google"
                 style="@style/ImgBtn"
                 android:layout_marginStart="28dp"
                 android:contentDescription="@string/description_sign_in_google"
-                app:srcCompat="@drawable/ic_google_color" />
+                android:src="@drawable/ic_google_color" />
 
         </LinearLayout>
 
@@ -86,7 +86,7 @@
                     android:id="@+id/btn_submit"
                     style="@style/ImgBtn"
                     android:contentDescription="@string/description_submit"
-                    app:srcCompat="@drawable/btn_arrow_color" />
+                    android:src="@drawable/btn_arrow_color" />
 
             </LinearLayout>
 

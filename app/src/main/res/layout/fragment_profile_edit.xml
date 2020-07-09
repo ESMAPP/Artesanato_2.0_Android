@@ -7,6 +7,8 @@
     android:background="@drawable/bg_6"
     tools:context=".view.profile.ProfileEditFragment">
 
+    <!-- TODO: add close account option -->
+
     <FrameLayout
         android:id="@+id/top"
         android:layout_width="match_parent"
@@ -35,7 +37,7 @@
                 android:id="@+id/btn_back"
                 style="@style/ImgBtn"
                 android:contentDescription="@string/description_go_back"
-                app:srcCompat="@drawable/btn_arrow_back_color" />
+                android:src="@drawable/btn_arrow_back_color" />
 
             <TextView
                 style="@style/Title"
@@ -68,30 +70,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/parent_inner_margin"
-                android:layout_marginTop="@dimen/parent_inner_margin"
+                android:layout_marginTop="@dimen/parent_outer_margin"
                 android:layout_marginEnd="@dimen/parent_inner_margin"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="3dp">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/profile_pic"
-                        android:layout_width="@dimen/profile_pic_size"
-                        android:layout_height="@dimen/profile_pic_size"
-                        android:layout_gravity="center"
-                        android:contentDescription="@null"
-                        app:srcCompat="@drawable/ic_placeholder_user_pic" />
+                        style="@style/ProfileImage"
+                        android:contentDescription="@null" />
 
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/shape_circle_stroke_grey"
-                        android:contentDescription="@null"
-                        android:scaleType="center" />
+                        android:contentDescription="@null" />
 
                 </FrameLayout>
 
@@ -102,24 +99,10 @@
                     android:layout_marginTop="8dp"
                     android:text="@string/label_change_profile_pic" />
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/edit_info"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="@dimen/parent_inner_margin"
-                android:layout_marginTop="@dimen/parent_inner_margin"
-                android:layout_marginEnd="@dimen/parent_inner_margin"
-                android:orientation="vertical">
-
                 <TextView
-                    style="@style/Text"
-                    android:layout_width="match_parent"
-                    android:text="@string/label_general_info"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_16" />
+                    style="@style/LabelText"
+                    android:layout_marginTop="@dimen/parent_inner_margin"
+                    android:text="@string/label_general_info" />
 
                 <EditText
                     android:id="@+id/input_edit_name"
@@ -157,10 +140,10 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="@dimen/input_margin"
                 android:layout_marginBottom="@dimen/input_margin"
-                android:paddingTop="@dimen/input_padding"
-                android:paddingBottom="@dimen/input_padding"
                 android:background="@drawable/shape_line_grey"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/input_padding"
+                android:paddingBottom="@dimen/input_padding">
 
                 <TextView
                     android:id="@+id/edit_artisan_account"
@@ -184,12 +167,8 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView"
-                    style="@style/Text"
-                    android:layout_width="match_parent"
-                    android:text="@string/label_change_password"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size_16" />
+                    style="@style/LabelText"
+                    android:text="@string/label_change_password" />
 
                 <EditText
                     android:id="@+id/input_edit_password"
@@ -209,9 +188,9 @@
 
                 <ImageButton
                     android:id="@+id/btn_save"
-                    style="@style/BtnForm"
+                    style="@style/FormBtn"
                     android:contentDescription="@string/description_save"
-                    app:srcCompat="@drawable/btn_arrow_color" />
+                    android:src="@drawable/btn_arrow_color" />
 
             </LinearLayout>
 

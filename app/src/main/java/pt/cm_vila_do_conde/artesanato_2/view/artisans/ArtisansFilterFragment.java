@@ -22,31 +22,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pt.cm_vila_do_conde.artesanato_2.R;
-import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisansListViewModel;
 import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisansFilterBinding;
+import pt.cm_vila_do_conde.artesanato_2.viewmodel.ArtisansListViewModel;
 
+
+// TODO: fix popBackStack because on filter button click it auto returns to list
 
 public class ArtisansFilterFragment extends Fragment {
-    private static final String TAG = "FILTER_FRAGMENT";
+    private static final String TAG = "FILTER";
 
+    private FragmentArtisansFilterBinding binding;
     private NavController navController;
     private ArtisansListViewModel artisanListViewModel;
 
-    private FragmentArtisansFilterBinding binding;
+    private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+    private CollectionReference artisansRef = rootRef.collection("artisans");
+    private Query query = artisansRef;
+
+    private String selected;
 
     public ArtisansFilterFragment() {
         // Required empty public constructor
     }
 
-    private String selected;
-    private FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
-    private CollectionReference artisansRef = rootRef.collection("artisans");
-    private Query query = artisansRef;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
     @Override
@@ -58,12 +59,17 @@ public class ArtisansFilterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initArtisanListViewModel();
+        initNavController();
         initBackBtn();
+        initArtisanListViewModel();
         initSpinner();
         populateFilters();
         initClearBtn();
         initSubmitBtn();
+    }
+
+    private void initNavController() {
+        navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
     private void initBackBtn() {
@@ -85,8 +91,7 @@ public class ArtisansFilterFragment extends Fragment {
         orderBy.add("Reputação");
         orderBy.add("Visualizações");
 
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<>(requireActivity(), android.R.layout.simple_spinner_item, orderBy);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireActivity(), android.R.layout.simple_spinner_item, orderBy);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.orderBySpinner.setAdapter(adapter);
         binding.orderBySpinner.setOnItemSelectedListener(new ItemSelectListener());
@@ -152,8 +157,10 @@ public class ArtisansFilterFragment extends Fragment {
                     break;
             }
         }
-        query = queryArtisanType.isEmpty() ? artisansRef : artisansRef.whereEqualTo("type", queryArtisanType);
+
+        query = queryArtisanType.isEmpty() ? artisansRef : artisansRef.whereEqualTo("artisanType", queryArtisanType);
         query = query.orderBy(queryOrderBy, queryOrderType);
+
         artisanListViewModel.setQuery(query);
         navController.navigate(R.id.artisansListFragment);
     }

@@ -15,26 +15,16 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            style="@style/ImgBtn"
-            android:layout_gravity="center"
-            android:background="@drawable/shape_shadow_bottom"
-            android:contentDescription="@null"
-            android:src="@drawable/bar_top_1" />
+            style="@style/TopBarImage"
+            android:contentDescription="@null" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/parent_outer_margin"
-            android:layout_marginTop="@dimen/parent_top_margin"
-            android:layout_marginEnd="@dimen/parent_outer_margin"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        <LinearLayout style="@style/TopBarLayout">
 
             <ImageButton
                 android:id="@+id/btn_back"
                 style="@style/ImgBtn"
                 android:contentDescription="@string/description_go_back"
-                app:srcCompat="@drawable/btn_arrow_back_color" />
+                android:src="@drawable/btn_arrow_back_color" />
 
             <TextView
                 style="@style/Title"

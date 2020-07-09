@@ -19,6 +19,10 @@
     <string name="label_forgot_password">Esqueceu-se da password?</string>
     <string name="label_recover_password">Recuperar password</string>
     <string name="label_edit_profile">Editar Perfil</string>
+    <string name="label_edit_artisan">Editar Página</string>
+    <string name="label_payment_plans">Editar Página</string>
+    <string name="label_boosts">Impulsos</string>
+    <string name="label_artisan_page">Página de Artesão</string>
     <string name="label_change_profile_pic">Alterar foto de perfil</string>
     <string name="label_highlights">Destaques</string>
     <string name="label_notifications">Notificações</string>
@@ -39,10 +43,10 @@
     <string name="label_change_password">Alterar password</string>
     <string name="label_artisans">Artesãos</string>
     <string name="label_visitors">Visitantes</string>
-    <string name="label_filter">Filter</string>
+    <string name="label_filter">Filtro</string>
     <string name="label_category">Categoria</string>
     <string name="label_clear">Limpar</string>
-    <string name="label_open_artisan_page">Abrir página de artesão</string>
+    <string name="label_open_artisan_page">Criar página de artesão</string>
     <string name="label_need_login_reviews">Entre na aplicação para ler as recomendações</string>
     <string name="label_empty_gallery">A galeria está vazia</string>
     <string name="label_empty_notifications">Não tem notificações</string>
@@ -60,6 +64,7 @@
     <string name="hint_confirm_password">confirmar password</string>
     <string name="hint_phone">telemóvel</string>
     <string name="hint_add_review">adicione uma recomendação...</string>
+    <string name="hint_message">mensagem</string>
 
 
     <!-- DESCRIPTION TEXT -->

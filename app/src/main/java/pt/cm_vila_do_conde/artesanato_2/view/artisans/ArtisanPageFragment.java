@@ -89,7 +89,7 @@ public class ArtisanPageFragment extends Fragment {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
             if (!user.isAuthenticated()) {
                 binding.btnChat.setVisibility(View.GONE);
-                binding.toolbar.setVisibility(View.GONE);
+                binding.barBottom.setVisibility(View.GONE);
             } else {
                 artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
                     binding.btnChat.setOnClickListener(v -> {

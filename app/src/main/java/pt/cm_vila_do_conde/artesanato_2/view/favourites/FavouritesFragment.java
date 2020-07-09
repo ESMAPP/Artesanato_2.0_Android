@@ -18,6 +18,8 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentFavouritesBinding;
 
 
 public class FavouritesFragment extends Fragment {
+    private static final String TAG = "FAVOURITES";
+
     private FragmentFavouritesBinding binding;
     private NavController navController;
 

@@ -55,6 +55,7 @@
     <string name="label_empty_contests">Não há concursos a decorrer</string>
     <string name="label_empty_artisan_contests">Não participou em nenhum concurso</string>
     <string name="label_empty_activity">Sem atividade</string>
+    <string name="label_about">Sobre</string>
 
 
     <!-- HINT TEXT -->

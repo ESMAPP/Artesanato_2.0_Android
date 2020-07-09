@@ -163,9 +163,7 @@
         tools:layout="@layout/fragment_artisan_page">
         <action
             android:id="@+id/action_artisanPageFragment_to_chatFragment"
-            app:destination="@id/chatFragment"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left" />
+            app:destination="@id/chatFragment" />
         <action
             android:id="@+id/action_artisanPageFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -217,7 +215,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatList"
-        android:name="pt.cm_vila_do_conde.artesanato_2.view.chat.ChatList"
+        android:name="pt.cm_vila_do_conde.artesanato_2.view.chat.ChatListFragment"
         android:label="ChatList">
         <action
             android:id="@+id/action_chatList_to_chatFragment"

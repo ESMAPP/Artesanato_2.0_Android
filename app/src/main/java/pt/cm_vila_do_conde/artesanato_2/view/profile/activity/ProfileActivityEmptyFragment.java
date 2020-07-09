@@ -44,7 +44,7 @@ public class ProfileActivityEmptyFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setEmptyState();
+        //setEmptyState();
     }
 
     private void setEmptyState() {

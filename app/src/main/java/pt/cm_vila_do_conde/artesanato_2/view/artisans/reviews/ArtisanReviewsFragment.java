@@ -1,6 +1,7 @@
 package pt.cm_vila_do_conde.artesanato_2.view.artisans.reviews;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import pt.cm_vila_do_conde.artesanato_2.databinding.FragmentArtisanReviewsBindin
 import pt.cm_vila_do_conde.artesanato_2.viewmodel.SharedUserViewModel;
 
 public class ArtisanReviewsFragment extends Fragment {
+    private String TAG = "ARTISAN_REVIEWS";
+
     private FragmentArtisanReviewsBinding binding;
     private SharedUserViewModel sharedUserViewModel;
 

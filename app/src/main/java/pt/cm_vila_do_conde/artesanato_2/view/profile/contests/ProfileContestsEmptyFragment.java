@@ -48,6 +48,6 @@ public class ProfileContestsEmptyFragment extends Fragment {
     private void setEmptyState() {
         requireActivity().findViewById(R.id.profile_page).setBackgroundResource(R.color.white);
         binding.textEmptyState.setText(getText(R.string.label_empty_contests));
-        binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_image_color);
+        binding.imageEmptyState.setImageResource(R.drawable.ic_placeholder_cup_color);
     }
 }

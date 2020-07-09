@@ -62,8 +62,8 @@
     </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/event_list"
-        style="@style/RecyclerViewList"
+        android:id="@+id/events_list"
+        style="@style/CardGridList"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

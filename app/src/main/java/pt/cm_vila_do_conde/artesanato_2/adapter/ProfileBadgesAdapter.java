@@ -23,6 +23,7 @@ import pt.cm_vila_do_conde.artesanato_2.model.Badge;
 public class ProfileBadgesAdapter extends RecyclerView.Adapter<ProfileBagdesViewHolder> {
     private ArrayList<String> userBadges;
     private List<Badge> badgesList;
+
     private NavController navController;
 
     public ProfileBadgesAdapter(ArrayList<String> userBadges, List<Badge> badgesList) {
@@ -40,7 +41,7 @@ public class ProfileBadgesAdapter extends RecyclerView.Adapter<ProfileBagdesView
     @Override
     public void onBindViewHolder(@NonNull ProfileBagdesViewHolder holder, int position) {
         Picasso.get().load(badgesList.get(position).getIcon())
-                .placeholder(R.drawable.ic_placeholder_image_color)
+                .placeholder(R.drawable.ic_placeholder_badge_image_grey)
                 .resize(300 , 300)
                 .transform(new CropCircleTransformation())
                 .into(holder.image);
@@ -49,7 +50,6 @@ public class ProfileBadgesAdapter extends RecyclerView.Adapter<ProfileBagdesView
                 holder.image.animate().alpha(1);
             }
         }
-
     }
 
     @Override

@@ -120,7 +120,7 @@ public class HomeFragment extends Fragment {
         Date now = new Date();
 
         Picasso.get().load(fair.getImage())
-                .placeholder(R.drawable.ic_placeholder_image_color)
+                .placeholder(R.drawable.ic_placeholder_image_grey)
                 .fit()
                 .centerCrop()
                 .into(binding.fairCover);
@@ -141,7 +141,7 @@ public class HomeFragment extends Fragment {
 
     private void updateEventCard(Event event) {
         Picasso.get().load(event.getImage())
-                .placeholder(R.drawable.ic_placeholder_image_color)
+                .placeholder(R.drawable.ic_placeholder_image_grey)
                 .fit()
                 .centerCrop()
                 .into(binding.eventCover);
@@ -161,7 +161,7 @@ public class HomeFragment extends Fragment {
 
     public void updateArtisanCard(Artisan artisan) {
         Picasso.get().load(artisan.getProfilePic())
-                .placeholder(R.drawable.ic_placeholder_image_color)
+                .placeholder(R.drawable.ic_placeholder_image_grey)
                 .fit()
                 .centerCrop()
                 .into(binding.artisanCover);
@@ -178,14 +178,14 @@ public class HomeFragment extends Fragment {
     }
 
     public void goToUpcomingEventPage() {
-        String id = homeViewModel.upcomingEvent.getValue().getId();
+        String id = homeViewModel.upcomingEvent.getValue().getUid();
         Bundle bundle = new Bundle();
         bundle.putString("id", id);
         navController.navigate(R.id.eventPageFragment, bundle);
     }
 
     public void goToFairEventPage() {
-        String id = homeViewModel.fairEvent.getValue().getId();
+        String id = homeViewModel.fairEvent.getValue().getUid();
         Bundle bundle = new Bundle();
         bundle.putString("id", id);
         navController.navigate(R.id.eventPageFragment, bundle);

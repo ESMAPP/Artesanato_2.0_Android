@@ -64,9 +64,15 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
         <item name="android:fadingEdgeLength">25dp</item>
-        <item name="android:paddingStart">@dimen/scroll_inner_padding</item>
-        <item name="android:paddingEnd">@dimen/scroll_inner_padding</item>
+        <item name="android:paddingStart">@dimen/parent_outer_margin</item>
+        <item name="android:paddingEnd">@dimen/parent_outer_margin</item>
         <item name="android:requiresFadingEdge">vertical</item>
     </style>
+
+    <style name="CardGridList" parent="RecyclerViewList">
+        <item name="android:paddingStart">@dimen/scroll_inner_padding</item>
+        <item name="android:paddingEnd">@dimen/scroll_inner_padding</item>
+    </style>
+
 
 </resources>

@@ -40,7 +40,7 @@ public class ArtisansListAdapter extends RecyclerView.Adapter<ArtisanViewHolder>
         holder.name.setText(artisan.getName());
         holder.city.setText(artisan.getCity());
         Picasso.get().load(artisan.getProfilePic())
-                .placeholder(R.drawable.ic_placeholder_image_color)
+                .placeholder(R.drawable.ic_placeholder_image_grey)
                 .fit()
                 .centerCrop()
                 .into(holder.image);

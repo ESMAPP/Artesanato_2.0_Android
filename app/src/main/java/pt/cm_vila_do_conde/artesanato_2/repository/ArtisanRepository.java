@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pt.cm_vila_do_conde.artesanato_2.model.Artisan;
+import pt.cm_vila_do_conde.artesanato_2.model.Notification;
 import pt.cm_vila_do_conde.artesanato_2.model.Review;
 import pt.cm_vila_do_conde.artesanato_2.model.User;
 
@@ -94,14 +95,38 @@ public class ArtisanRepository {
     }
 
     public void likeReview(User user, Artisan artisan, Review review) {
-        if(review.getLikes().contains(user.getUid())) {
+        if (review.getLikes().contains(user.getUid())) {
             artisansRef.document(artisan.getUid())
                     .collection("reviews")
-                    .document(review.getId()).update("likes", FieldValue.arrayRemove(user.getUid()));
+                    .document(review.getId()).update("likes", FieldValue.arrayRemove(user.getUid()))
+                    .addOnCompleteListener(task -> {
+                        createLikeNotification(review, user, artisan, true);
+                        removeReputation(review.getUserId());
+                    });
         } else {
             artisansRef.document(artisan.getUid())
                     .collection("reviews")
-                    .document(review.getId()).update("likes", FieldValue.arrayUnion(user.getUid()));
+                    .document(review.getId()).update("likes", FieldValue.arrayUnion(user.getUid()))
+                    .addOnCompleteListener(task -> {
+                        createLikeNotification(review, user, artisan, false);
+                        giveReputation(review.getUserId());
+                    });
         }
+    }
+
+    public void createLikeNotification(Review review, User user, Artisan artisan, boolean remove) {
+        String message =  remove ? "-10 de reputação: "  + user.getName() + " removeu o seu gosto em " + artisan.getName()
+                : "+10 de reputação: " + user.getName() + " gosta da sua recomendação em " + artisan.getName();
+        System.out.println(review.getUserId());
+        Notification notification = new Notification(message, 1, 1, artisan.getUid());
+        usersRef.document(review.getUserId()).collection("notifications").add(notification);
+    }
+
+    public void giveReputation(String userId) {
+        usersRef.document(userId).update("reputation", FieldValue.increment(10));
+    }
+
+    public void removeReputation(String userId) {
+        usersRef.document(userId).update("reputation", FieldValue.increment(-10));
     }
 }

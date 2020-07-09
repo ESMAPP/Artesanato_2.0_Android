@@ -25,6 +25,7 @@ public class ArtisanReviewsAdapter extends RecyclerView.Adapter<ArtisanReviewsVi
 
     public ArtisanReviewsAdapter(List<Review> reviews) {
         this.reviews = reviews;
+        notifyDataSetChanged();
     }
 
     @NonNull

@@ -32,7 +32,7 @@ public class ProfileActivityRootFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_artisan_gallery_root, container, false);
+        return inflater.inflate(R.layout.fragment_profile_activity_root, container, false);
     }
 
     @Override

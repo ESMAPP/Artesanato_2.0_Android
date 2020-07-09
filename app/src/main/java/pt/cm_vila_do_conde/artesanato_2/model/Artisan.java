@@ -12,14 +12,14 @@ public class Artisan implements Serializable {
     private String name;
     private String description;
     private Attributes attributes;
-    private String profilePic; /* TODO: set initial profile pic to placeholder */
+    private String profilePic;
     private ArrayList<String> gallery;
     private int coins;
     private int subscriptionType;
     private Timestamp subscriptionPaymentDate;
     private int views;
     private int reputation;
-    private int ranking;    /* TODO: get last artisan ranking position */
+    private int ranking;
     private boolean validated;
     private ArrayList<String> uniqueViews;
     private Timestamp createdAt;

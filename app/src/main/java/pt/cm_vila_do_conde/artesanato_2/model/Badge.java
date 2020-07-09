@@ -2,8 +2,8 @@ package pt.cm_vila_do_conde.artesanato_2.model;
 
 import java.io.Serializable;
 
-public class Badge implements Serializable {
 
+public class Badge implements Serializable {
     private String uid;
     private String description;
     private String icon;
@@ -14,15 +14,12 @@ public class Badge implements Serializable {
 
     }
 
-
     public Badge(String uid, String description, String icon, String label, int value) {
-
         this.uid = uid;
         this.description = description;
         this.icon = icon;
         this.label = label;
         this.value = value;
-
     }
 
     public String getUid() {

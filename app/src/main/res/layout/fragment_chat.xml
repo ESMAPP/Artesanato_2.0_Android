@@ -108,7 +108,7 @@
                     android:layout_marginTop="0dp"
                     android:autofillHints="@string/hint_message"
                     android:hint="@string/hint_message"
-                    android:inputType="textMultiLine" />
+                    android:inputType="text" />
 
             </LinearLayout>
 

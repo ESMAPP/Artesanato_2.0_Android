@@ -61,6 +61,13 @@ public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuIte
         setBackground();
     }
 
+    /**
+     * Binds to corresponding layout
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentArtisanPageBinding.inflate(inflater, container, false);
@@ -79,32 +86,58 @@ public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuIte
         fetchReviews();
     }
 
+    /**
+     * Sets artisan page background to default drawable
+     */
     private void setBackground() {
         Log.d(TAG, "color");
         binding.artisanPage.setBackgroundResource(R.drawable.bg_3);
     }
 
+    /**
+     * Initializes artisan view model
+     */
     private void initArtisanViewModel() {
         artisanPageViewModel = new ViewModelProvider(requireActivity()).get(ArtisanPageViewModel.class);
     }
 
+    /**
+     * Initializes sharer user view model
+     */
     private void initSharedViewModel() {
         sharedUserViewModel = new ViewModelProvider(requireActivity()).get(SharedUserViewModel.class);
     }
 
+    /**
+     * Initializes navigation controller
+     */
     private void initNavController() {
         navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
     }
 
+    /**
+     * Initializes back button and goes to last page on the pop back stack
+     */
     private void initBackBtn() {
         binding.btnBack.setOnClickListener(v -> navController.popBackStack());
     }
 
+    /**
+     * Sets artisan page inner navigation tab bar
+     */
     public void setupTabAdapter() {
         binding.viewPagerArtisan.setAdapter(new ArtisanPageAdapter(getChildFragmentManager()));
         binding.innerNavBar.setupWithViewPager(binding.viewPagerArtisan);
     }
 
+    /**
+     * Initializes chat button
+     * Checks if user is authenticated
+     * if false: hides chat button
+     * if true: checks if current user is the artisan
+     * if true: goes to chat list with all user chat rooms
+     * if false: goes to chat room of that artisan
+     */
     private void initChatBtn() {
         sharedUserViewModel.getUserLiveData().observe(getViewLifecycleOwner(), user -> {
             if (!user.isAuthenticated()) {
@@ -127,6 +160,9 @@ public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuIte
         });
     }
 
+    /**
+     * Fetches artisan by an id
+     */
     private void fetchArtisanById() {
         artisanPageViewModel.fetchArtisanById(artisanId);
         initObservable();
@@ -136,6 +172,10 @@ public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuIte
         artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), this::updateUI);
     }
 
+    /**
+     * Updates artisans ui info
+     * @param artisan Receives active artisan object
+     */
     private void updateUI(@NotNull Artisan artisan) {
         binding.artisanName.setText(artisan.getName());
         binding.artisanReputation.setText(String.valueOf(artisan.getReputation()));
@@ -144,10 +184,16 @@ public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuIte
                 .placeholder(R.drawable.ic_placeholder_user_pic)
                 .transform(new CropCircleTransformation())
                 .into(binding.artisanPic);
-        checkUserRanking(artisan.getRanking());
+        checkArtisanRanking(artisan.getRanking());
     }
 
-    private void checkUserRanking(int ranking) {
+    /**
+     * Checks which is the selected artisans ranking position
+     * Changes the profile pic frame and icon according to first, second or third position
+     * if ranking > 3 then frame is the default color and icon is 0
+     * @param ranking Receives the artisan ranking position
+     */
+    private void checkArtisanRanking(int ranking) {
         int shape = R.drawable.shape_circle_stroke_grey;
         int icon = 0;
 
@@ -170,6 +216,11 @@ public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuIte
         binding.artisanIcon.setBackgroundResource(icon);
     }
 
+    /**
+     * Checks if user is sign in or if user is authenticated if it's the page owner
+     * if false: hides extra menu button
+     * if true: shows extra button with menu options
+     */
     private void handleExtraBtnState() {
         artisanPageViewModel.getArtisan().observe(getViewLifecycleOwner(), artisan -> {
             User user = sharedUserViewModel.getUserLiveData().getValue();
@@ -182,6 +233,10 @@ public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuIte
         });
     }
 
+    /**
+     * Shows corresponding pop up menu
+     * @param v
+     */
     public void showPopup(View v) {
         PopupMenu popup = new PopupMenu(requireContext(), v);
         popup.setOnMenuItemClickListener(this);
@@ -189,22 +244,31 @@ public class ArtisanPageFragment extends Fragment implements PopupMenu.OnMenuIte
         popup.show();
     }
 
-    // TODO: add go to artisan page if user is artisan
+    /**
+     * Checks which menu option was clicked then goes to corresponding page
+     * @param item Pop-up menu clicked item
+     * @return
+     */
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.edit_profile:
-                navController.navigate(R.id.action_profileFragment_to_profileEditFragment);
+            case R.id.menu_edit_artisan:
+                // TODO: add artisan navigation to edit artisan page
+                return false;
+            case R.id.menu_payment_plans:
+                // TODO: add artisan navigation to payment plans page
                 return true;
-            case R.id.sign_out:
-                sharedUserViewModel.signOut();
-                navController.navigate(R.id.homeFragment);
+            case R.id.menu_boosts:
+                // TODO: add artisan navigation to boosts page
                 return true;
             default:
                 return false;
         }
     }
 
+    /**
+     * Fetches all current artisan reviews
+     */
     private void fetchReviews() {
         artisanPageViewModel.fetchReviews(artisanId);
     }

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/edit_artisan"
+        android:id="@+id/menu_edit_artisan"
         android:title="@string/label_edit_artisan" />
 
     <item
-        android:id="@+id/payment_plans"
+        android:id="@+id/menu_payment_plans"
         android:title="@string/label_payment_plans" />
 
     <item
-        android:id="@+id/boosts"
+        android:id="@+id/menu_boosts"
         android:title="@string/label_boosts" />
 </menu>

@@ -45,13 +45,6 @@ https://www.behance.net/gallery/99300747/UIUX-Artisans-Fair-app
 
 ## Team
 
-| <a href="https://github.com/ImInYourPie" target="_blank">**Miguel Melo**</a> | <a href="https://github.com/ImInYourPie" target="_blank">**Mariana Moreira**</a> | <a href="http://fvcproductions.com" target="_blank">**Filipe Pereira**</a> |
+| <a href="https://github.com/ImInYourPie" target="_blank">**Miguel Melo**</a> | <a href="https://github.com/solecity" target="_blank">**Mariana Moreira**</a> | <a href="http://fvcproductions.com" target="_blank">**Filipe Pereira**</a> |
 | :---: |:---:| :---:|
-| [![Miguel Melo](https://avatars1.githubusercontent.com/u/36893864?s=400&u=cdb4be84f867df38cb3eb2bc6c76c903c354eb7d&v=4?s=200)](https://github.com/ImInYourPie)    | [![Mariana Moreira](https://avatars3.githubusercontent.com/u/36939083?s=460&u=cab2df8877579c6ef0340a859c6aa9a5602d7f11&v=4?s=200)](https://github.com/solecity) | [![Filipe Pereira](https://avatars1.githubusercontent.com/u/36936726?s=400&u=4cbb0b22e446028c7aa9932fea635e309069b830&v=4?s=200)](https://github.com/fspereiraDev)  |
-| <a href="http://github.com/ImInYourPie" target="_blank">`github.com/ImInYourPie`</a> | <a href="http://github.com/solecity" target="_blank">`github.com/solecity`</a> | <a href="http://github.com/fspereiraDev" target="_blank">`github.com/fspereiraDev`</a> |
-
-
-## Authors
-* **Miguel Melo**     - d.miguel.melo@gmail.com
-* **Mariana Moreira** - marianaccmoreira@gmail.com
-* **Filipe Pereira**  - filipe-pereira95@hotmail.com
+| [![Miguel Melo](https://avatars1.githubusercontent.com/u/36893864?s=200&u=cdb4be84f867df38cb3eb2bc6c76c903c354eb7d&v=4)](https://github.com/ImInYourPie)    | [![Mariana Moreira](https://avatars3.githubusercontent.com/u/36939083?s=200&u=cab2df8877579c6ef0340a859c6aa9a5602d7f11&v=4)](https://github.com/solecity) | [![Filipe Pereira](https://avatars1.githubusercontent.com/u/36936726?s=200&u=4cbb0b22e446028c7aa9932fea635e309069b830&v=4)](https://github.com/fspereiraDev)

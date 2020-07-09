@@ -28,13 +28,15 @@ public class ArtisanRepository {
 
         query.addSnapshotListener((task, e) -> {
             ArrayList<Artisan> fetchedArtisans = new ArrayList<>();
-            for (DocumentSnapshot doc : task.getDocuments()) {
-                Artisan artisan = doc.toObject(Artisan.class);
-                artisan.setUid(doc.getId());
-                System.out.println(artisan.getUid());
-                fetchedArtisans.add(artisan);
+            if(task != null) {
+                for (DocumentSnapshot doc : task.getDocuments()) {
+                    Artisan artisan = doc.toObject(Artisan.class);
+                    artisan.setUid(doc.getId());
+                    System.out.println(artisan.getUid());
+                    fetchedArtisans.add(artisan);
+                }
+                artisansList.setValue(fetchedArtisans);
             }
-            artisansList.setValue(fetchedArtisans);
         });
 
         return artisansList;

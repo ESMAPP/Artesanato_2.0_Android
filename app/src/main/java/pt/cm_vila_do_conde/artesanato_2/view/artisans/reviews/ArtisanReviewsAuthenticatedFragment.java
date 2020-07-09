@@ -102,7 +102,6 @@ public class ArtisanReviewsAuthenticatedFragment extends Fragment {
 
     private void initRecyclerView() {
         artisanPageViewModel.getReviews().observe(getViewLifecycleOwner(), reviews -> {
-            Log.d(TAG, String.valueOf(reviews.size()));
             RecyclerView recyclerView = binding.reviewsList;
             recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
             ArtisanReviewsAdapter adapter = new ArtisanReviewsAdapter(reviews);
